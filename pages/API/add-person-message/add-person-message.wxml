@@ -9,29 +9,46 @@
 
           <view class="input_type">
                证件类型：
-                    <image style="width:14rpx;height:24rpx; margin-left:20rpx;" src="http://image.365zhiding.com/wxapp/20171114/1.png"></image>
+               <image style="width:14rpx;height:24rpx; margin-left:20rpx;" src="http://image.365zhiding.com/wxapp/20171114/1.png"></image>
 
           </view>
-        
 
-            <view class="input_box">
+
+          <view class="input_box">
                证件号码：
                <input class="input" placeholder='必填' placeholder-style="margin-left:5rpx;font-size:28rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);"></input>
           </view>
-       
-         <view class="input_sex">性别:
-          <view class="choice_box"></view>
-         
-         </view>
+
+          <view class="input_sex">性别:
+               <view class="choice_box">
+                    <view class="choice_sex">
+                         <view class="checked">
+                              <view class="check-type"></view>男</view>
+                         <view class="checked" style='margin-left:120rpx'>
+                              <view class="uncheck-type"></view>女</view>
+                    </view>
+                    <view class="choice_age">
+                         <view class="checked">
+                              <view class="check-type"></view>成人</view>
+                         <view class="checked" style='margin-left:90rpx'>
+                              <view class="uncheck-type"></view>儿童</view>
+                    </view>
+
+               </view>
+          </view>
 
 
-     
-     
-     
-                 <view class="input_box">
+
+
+
+          <view class="input_box">
                联系电话：
                <input class="input" placeholder='必填' placeholder-style="margin-left:5rpx;font-size:28rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);"></input>
           </view>
-     
+
      </view>
+
+
+
+     <view class="bottom" bindtap='back'>保存</view>
 </view>

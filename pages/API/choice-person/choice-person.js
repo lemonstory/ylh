@@ -29,7 +29,7 @@ Page(Object.assign({}, Toast, {
         'checkedIds': passengerIdArrTemp
       })
     }
-    this.getData();
+    that.getData();
   },
 
   /**

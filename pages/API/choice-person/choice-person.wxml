@@ -37,43 +37,7 @@
         </view>
       </view>
 
-
     </checkbox-group>
-
-
-    <!-- 
-    <view class="address-ul">
-      <view class="ul-top">
-        <image class="check" src='http://image.365zhiding.com/wxapp/20171121/dui2.png'></image>
-        <view class="top-name">谭玉</view>
-        <view class="top-tell">(成人)</view>
-        <image class="xiugai" src="http://image.365zhiding.com/wxapp/20171121/xiugai.png"></image>
-      </view>
-      <view class="ul-bottom">身份证：
-        <view class="idcal">130100124578965485</view>
-      </view>
-      <view class="ul-bottom">联系电话：
-        <view class="call">13010012457</view>
-      </view>
-    </view>
-
-    <view class="address-ul">
-      <view class="ul-top">
-        <image class="check" src='http://image.365zhiding.com/wxapp/20171121/dui2.png'></image>
-        <view class="top-name">谭玉</view>
-        <view class="top-tell">(成人)</view>
-        <image class="xiugai" src="http://image.365zhiding.com/wxapp/20171121/xiugai.png"></image>
-      </view>
-      <view class="ul-bottom">身份证：
-        <view class="idcal">130100124578965485</view>
-      </view>
-      <view class="ul-bottom">联系电话：
-        <view class="call">13010012457</view>
-      </view>
-    </view> -->
-
-
-
     <view class="bottom">
       <view class="bottom-left">
         <navigator url="../add-person-message/add-person-message">添加出行人</navigator>

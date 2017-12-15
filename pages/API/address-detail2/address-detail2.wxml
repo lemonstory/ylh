@@ -1,0 +1,221 @@
+<!--pages/API/address-detail2/address-detail2.wxml-->
+<view class="container">
+     <!-- 顶部开始 -->
+     <view class="ul" wx:for="{{list}}">
+          <view class="tuijuan-img">
+               <image src="{{item.url}}"></image>
+               <view class="banner-text1">{{item.text1}}</view>
+               <view class="banner-text2">{{item.text2}}</view>
+          </view>
+          <view class="tuijuan-text">
+               <view class="text1">{{item.title}}</view>
+               <view class="tuijuan-bottom">
+                    <view class="text2">¥{{item.price}}
+                         <view class="personal">/人起</view>
+                         <view class="tehui">
+                              <image src="http://image.365zhiding.com/wxapp/20171114/tehui.png"></image>
+                         </view>
+                         <view class="baokuan">
+                              <image src="http://image.365zhiding.com/wxapp/20171114/baokuan.png"></image>
+                         </view>
+                    </view>
+               </view>
+          </view>
+     </view>
+     <!--顶部结束  -->
+      <!-- 优惠开始 -->
+     <view class="youhui" bindtap="change">
+          <view class="youhui-img">
+               <image src='http://image.365zhiding.com/wxapp/20171114/youhui.png'></image>
+          </view>
+          <view class="youhui-text">【预定好礼】赠送转化插头2人／台</view>
+          <view class="back">
+               <image src='http://image.365zhiding.com/wxapp/20171114/1.png'></image>
+          </view>
+     </view>
+     <!--弹出框交互  -->
+     <view class="shadow {{select == 0 ? 'hidden':'active1'}}">
+          <view class="shadow-box">
+               <view class="text-title">优惠</view>
+               <view class="text-content">【预定好礼】赠送转换插头2人／台</view>
+               <view class="text-content1">即日起，预定本产品赠转换插头2人／台～（此优惠无 需选择，下单默认包含，出行时由随行工作人员给到）</view>
+          </view>
+          <view class="goback" bindtap='cancel'>
+               <image src="../image/back.png"></image>
+          </view>
+     </view>
+
+     <!-- 弹出框交互结束 -->
+
+
+
+     <!-- 优惠结束 -->
+
+     <!--出发开始  -->
+     <view class="gobox">
+          <view class="dingwei" bindtap="choiceAddress">
+               <view class='dingicon'>
+                    <image src="http://image.365zhiding.com/wxapp/20171114/ding.png"></image>
+               </view>
+               <view class="dingtext">出发地：{{cityFilterTitle}}</view>
+               <view class="back1">
+                    <image src='http://image.365zhiding.com/wxapp/20171114/1.png'></image>
+               </view>
+          </view>
+
+
+          <!--出发地弹出框交互  -->
+          <view class="shadow {{show ==0 ? 'hidden':'active'}}">
+               <view class="shadow-box">
+                    <view class="text-title" style='height:90rpx;line-height:90rpx;border-bottom:1rpx solid #eee;margin:0'>选择出发地</view>
+                    <view class="address_ul">
+                         <view class="address_li {{currentItem==item.id?'active-tag':''}}" data-id="{{item.id}}" wx:for="{{addressList}}" wx:key="id" bindtap="tagChoose">
+                              <view class="choice_address {{currentItem==item.id?'active':''}}">{{item.title}}</view>
+                              <view class="choice_money">￥{{item.money}}</view>
+                         </view>
+                    </view>
+               </view>
+               <view class="goback" bindtap='cancel'>
+                    <image src="../image/back.png"></image>
+               </view>
+          </view>
+
+          <!-- 出发地弹出框交互结束 -->
+
+
+
+
+          <view class="dingwei data">
+               <view class='dingicon'>
+                    <image src="http://image.365zhiding.com/wxapp/20171114/data.png"></image>
+               </view>
+               <view class="dingtext">出发日期：{{FilterData}}</view>
+          </view>
+          
+          <view class="dataform-box">
+          <scroll-view class="dataform" scroll-x="true">
+               <view class="dataul {{currentItem==item.id?'active_tag':''}}" wx:for="{{dataList}}" data-id='{{item.id}}' wx:key="id" bindtap="tagChooseData">
+                    <view class="riqi {{currentItem==item.id?'active':''}}">{{item.data}}</view>
+                    <view class="money">￥{{item.money}}</view>
+               </view>
+        </scroll-view>
+          
+              <view class="back11 ">
+                    <image src='http://image.365zhiding.com/wxapp/20171114/1.png'></image>
+               </view>
+               </view>
+               </view>
+   
+         
+      
+
+
+
+
+
+
+
+     <!--领队开始  -->
+     <view class="leader " bindtap='leaderintroduce'>
+          <view class="person ">
+               <image src="http://image.365zhiding.com/wxapp/20171114/ren.png "></image>
+          </view>
+          <view class="react "></view>
+          <view class="leadertitle ">领队介绍</view>
+          <view class="react1 "></view>
+          <view class="content ">明星领队戴政带队，带您体验别样旅行明星领队一句话文字介绍，明星领队一句话文字介绍。明星领队一句话文字介绍。</view>
+          <view class="back2 ">
+               <image src='http://image.365zhiding.com/wxapp/20171114/1.png'></image>
+          </view>
+     </view>
+     <!--领队介绍结束 -->
+     <!--行程亮点开始  -->
+     <view class="xingcheng ">
+          <view class="react "></view>
+          <view class="leadertitle ">行程亮点</view>
+          <view class="react1 "></view>
+          <view class="xingcont ">
+               <view>参观徽州宣纸手工制作坊</view>
+               <view>体验宣纸的制作流程，跟制作师傅学习宣纸制作</view>
+          </view>
+     </view>
+     <!--行程亮点结束  -->
+
+     <!--行程安排开始  -->
+     <view class="plan ">
+          <view>3日行程</view>
+          <view>温馨提示</view>
+          <view>费用说明</view>
+          <view>用户评价</view>
+     </view>
+     <!--行程详情安排  -->
+     <view class="plandetail ">
+          <view class="react "></view>
+          <view class="leadertitle ">3日行程</view>
+          <view class="react1 "></view>
+          <image class="planimg " src='http://image.365zhiding.com/wxapp/20171114/mi.png' mode='widthFix'></image>
+          <image class="planimg1 " src='http://image.365zhiding.com/wxapp/20171114/mi.png' mode='widthFix'></image>
+          <!--day1 开始  -->
+          <view class="oneday ">DAY 1</view>
+          <view class="goto-normal ">上海 — 东京</view>
+          <view class="jiaotong-normal ">交通工具：飞机</view>
+          <view class="jiaotong-normal ">参考航班：东航MU3842 上海-东京（9:00-10:00）</view>
+          <view class="jiaotong-normal ">各位贵宾请准时在机场集合，为您的行程做好准备</view>
+          <view class="jiaotong-normal ">住宿：北京四季酒店</view>
+          <view class="jiaotong-normal ">酒店星级：5星</view>
+          <view class="jiaotong-normal ">地址信息：岐阜县西北部白山山麓</view>
+          <view class="img-box ">
+               <image class="free-img " src="http://image.365zhiding.com/wxapp/20171121/free.png " mode='widthFix'></image>
+          </view>
+          <view class="shijian ">早餐：自理</view>
+          <view class="shijian ">午餐：团餐</view>
+          <view class="shijian ">晚餐：自理</view>
+          <!--day 1结束  -->
+          <!--day 2开始  -->
+          <!-- <view class="oneday ">DAY 2</view>
+          <view class="goto ">东京 — 名古屋 — 高山市</view>
+          <view class="jiaotong ">交通工具：大巴</view>
+          <view class="jiaotong ">主要景点：高山阵屋，白川乡，下吕温泉</view>
+          <view class="jiaotong ">景点：高山阵屋</view>
+
+          <view class="img-box ">
+               <image class="jing-img " src="http://image.365zhiding.com/wxapp/20171121/jing.png " mode='widthFix'></image>
+               <image class="jing-img " src="http://image.365zhiding.com/wxapp/20171121/jing.png " mode='widthFix'></image>
+          </view>
+
+          <view class="jing-text ">高山阵屋位于素有“小京都”称号的高山市，原为高山城主金森氏的宅邸之一。高山阵屋位于素有“小京都”称号的高山市，原为高山城主金森氏的宅邸之一。高山阵屋位于素有“小京都”称号的高山市，原为高山城主金森氏的宅邸之一。</view>
+          <view class="jiaotong ">住宿：北京四季酒店</view>
+          <view class="jiaotong ">酒店星级：5星 </view>
+          <view class="jiaotong ">地址信息：岐阜县西北部白山山麓 拷贝</view>
+          <view class="img-box ">
+               <image class="jing-img " src="http://image.365zhiding.com/wxapp/20171121/jing.png " mode='widthFix'></image>
+               <image class="jing-img " src="http://image.365zhiding.com/wxapp/20171121/jing.png " mode='widthFix'></image>
+          </view>
+          <view class="shijian ">早餐：自理</view>
+          <view class="shijian ">午餐：团餐</view>
+          <view class="shijian ">晚餐：自理</view> -->
+          <!--day 2结束  -->
+
+          <!--day3 开始  -->
+          <!-- <view class="oneday ">DAY 3</view>
+          <view class="goto ">东京 — 上海</view>
+          <view class="jiaotong ">交通工具：飞机</view>
+          <view class="jiaotong ">参考航班：东航MU3842 上海-东京（9:00-10:00）</view>
+          <view class="jiaotong ">景点：高山阵屋 </view>
+
+          <view class="img-box ">
+               <image class="jing-img " src="http://image.365zhiding.com/wxapp/20171121/jing.png " mode='widthFix'></image>
+               <image class="jing-img " src="http://image.365zhiding.com/wxapp/20171121/jing.png " mode='widthFix'></image>
+          </view>
+
+          <view class="jing-text ">高山阵屋位于素有“小京都”称号的高山市，原为高山城主金森氏的宅邸之一。高山阵屋位于素有“小京都”称号的高山市，原为高山城主金森氏的宅邸之一。高山阵屋位于素有“小京都”称号的高山市，原为高山城主金森氏的宅邸之一。</view>
+          <view class="jiaotong ">住宿：您温暖的家</view>
+          <view class="shijian ">早餐：自理</view>
+          <view class="shijian ">午餐：飞机餐</view>
+          <view class="shijian ">晚餐：自理</view> -->
+          <!--day 3 结束  -->
+          <addbling></addbling>
+
+     </view>
+</view>
+

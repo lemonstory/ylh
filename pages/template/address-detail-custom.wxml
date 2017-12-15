@@ -1,0 +1,9 @@
+<template name="address-detail-custom">
+<block wx:for="{{template.custom}}" wx:for-index="idx" wx:for-item="item" wx:key="idx">
+     <view class="day">{{item.key}}</view>
+     <!--此处是富文本编辑,图片和文本在content中 -->
+       <image class="day1img" mode='widthFix'></image>
+          <view class="day1text">{{item.content}}</view>
+</block>
+
+</template>

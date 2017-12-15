@@ -1,0 +1,26 @@
+<!--pages/API/public-active/public-active.wxml-->
+<view class="container ">
+  <view class="main">
+    <view class="air-ask">公务活动</view>
+    <view class="air-type">
+      <view class="type-left">活动名称</view>
+    </view>
+
+    <view class="air-type" bindtap="onChangeShowState">
+      <view class="type-left">{{[activeOptions[currentActiveOptionIndex]]}}</view>
+      <view class="type-right">
+        <image src="http://image.365zhiding.com/wxapp/20171121/xia.png" class="{{isShowOptionsView?'rotate':''}}"></image>
+      </view>
+    </view>
+    <view class="hidden hide{{isShowOptionsView?'show':''}}">
+      <view class="hidden-li {{id==currentActiveOptionIndex?'choosedbtn':'choosenobtn'}}" wx:for="{{activeOptions}}" wx:for-item="item" wx:for-index="id" data-id="{{id}}" bindtap="chooseItem">
+        {{item}}
+      </view>
+    </view>
+
+    <view class="bottom">
+      <view class="bottom-left" bindtap='back'>上一步</view>
+      <view class="bottom-right" bindtap='next'>下一步</view>
+    </view>
+  </view>
+</view>

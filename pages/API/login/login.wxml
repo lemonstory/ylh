@@ -1,0 +1,12 @@
+<!--pages/API/my/my.wxml-->
+<view class="container">
+  <view class="logo">
+    <image src="http://image.365zhiding.com/wxapp/20171121/logo.png"></image>
+  </view>
+  <view class="text">环球悦旅会商户版</view>
+  <input class="zhanghao" type='text' placeholder='请输入账号' placeholder-style='font-size:31rpx;font-family:PingFang-SC-Regular;color:rgba(102,102,102,1);'></input>
+  <view class="line"></view>
+  <input class="pass" type='password' placeholder='请输入密码' placeholder-style='font-size:31rpx;font-family:PingFang-SC-Regular;color:rgba(102,102,102,1);'></input>
+  <view class="line1"></view>
+  <view class="bottom">登录</view>
+</view>

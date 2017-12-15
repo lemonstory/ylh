@@ -1,0 +1,53 @@
+<!--pages/API/food-require/food-require.wxml-->
+<view class="container ">
+  <view class="main">
+    <view class="air-ask">餐食要求</view>
+    <view class="air-type">
+      <view class="type-left">菜数</view>
+      <view class="car-right">
+          <image src="http://image.365zhiding.com/wxapp/20171121/jian.png" style='width:31rpx;height:31rpx;margin-left:200rpx;'bindtap="bindMinus" data-id='dish'></image>
+      <view class='num' style='margin-left:20rpx'>{{dishNum}}</view>
+      <image src="http://image.365zhiding.com/wxapp/20171121/add.png" style='width:31rpx;height:31rpx;margin-left:30rpx;' bindtap="bindPlus" data-id='dish'></image>
+      </view>
+    </view>
+   
+<view class="air-type">
+      <view class="type-left">汤数</view>
+      <view class="car-right">
+          <image src="http://image.365zhiding.com/wxapp/20171121/jian.png" style='width:31rpx;height:31rpx;margin-left:200rpx;' bindtap="bindMinus" data-id='soup'></image>
+      <view class='num' style='margin-left:20rpx'>{{soupNum}}</view>
+      <image src="http://image.365zhiding.com/wxapp/20171121/add.png" style='width:31rpx;height:31rpx;margin-left:30rpx;' bindtap="bindPlus" data-id='soup'></image>
+      </view>
+    </view>
+
+
+    <view class="air-type">
+      <view class="type-left">特色餐次数</view>
+      <view class="car-right">
+          <image src="http://image.365zhiding.com/wxapp/20171121/jian.png" style='width:31rpx;height:31rpx;margin-left:200rpx;' bindtap="bindMinus" data-id='special'></image>
+      <view class='num' style='margin-left:20rpx'>{{specialNum}}</view>
+      <image src="http://image.365zhiding.com/wxapp/20171121/add.png" style='width:31rpx;height:31rpx;margin-left:30rpx;'data-id='special' bindtap="bindPlus"></image>
+      </view>
+    </view>
+
+
+
+
+
+
+
+<view class="air-ask zhiding">指定特色餐：</view>
+    <view class="settion">
+      <textarea placeholder="请输入您指定的特色餐" placeholder-style="font-size:28rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);" style='width:690rpx;height:260rpx;margin-left:30rpx;margin-right:30rpx;border:1rpx solid #eee; padding-left:30rpx;padding-top:30rpx;box-sizing: border-box; border-radius: 10rpx;margin-bottom:30rpx;'/>
+    </view>
+  </view>
+ 
+ 
+
+  <view class="bottom">
+  <view class="bottom-left" bindtap='back' >上一步</view>
+  <view class="bottom-right" bindtap='next'>下一步</view>
+  </view>
+</view>
+
+

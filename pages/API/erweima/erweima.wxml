@@ -1,0 +1,14 @@
+<!--pages/API/erweima/erweima.wxml-->
+<!-- <view class="container">
+  <canvas class="main" canvas-id="myCanvas">
+  <view class="logo"><image src="http://image.365zhiding.com/wxapp/20171121/logo.png"></image></view>
+  <view class="title">环球悦旅会商户版</view>
+  <view class="erwi-img"><image src='http://image.365zhiding.com/wxapp/20171129/erweima.png'></image></view>
+  <view class="bottom-text">长按或扫描二维码进入店铺</view>
+  </canvas>
+  <button class="save" bindtap="savePic">保存到相册</button>
+  </view> -->
+<view class="container">  
+<canvas  canvas-id="myCanvas" bindtap="handlePreviewImage"/>
+<button  class="save" type="primary" size="default"  bindtap="handleSaveImageToPhotosAlbum"> 保存图片 </button>
+</view>

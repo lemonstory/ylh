@@ -1,0 +1,211 @@
+/* pages/API/divide-order-detail1/divide-order-detail1.wxss */
+.global{
+  width: 100%;
+ }
+
+/* <!-- 结算订单详情开始 --> */
+.order_detail{
+  width: 100%;
+  box-sizing: border-box;
+}
+.od_cates{
+  width: 100%;
+  padding: 30rpx 30rpx;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  font-size:30rpx;
+  font-family:PingFang-SC-Regular;
+  color:rgba(51,51,51,1);
+  border-bottom: 1rpx solid #EEEEEE;
+  border-top: 1rpx solid #EEEEEE;
+
+
+}
+/* <!-- 一个签证详情开始 --> */
+.od_cate{
+  width: 100%;
+  padding: 30rpx 30rpx;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size:24rpx;
+  font-family:PingFang-SC-Regular;
+  color:rgba(51,51,51,1);
+  border-bottom: 1rpx solid #EEEEEE;
+
+
+}
+.od_head{
+  font-size:28rpx;
+  font-family:PingFang-SC-Regular;
+  color:rgba(51,51,51,1);
+
+}
+.od_cate_money{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 19rpx;
+  color: #666666;
+  font-family: PingFang SC;
+
+}
+.od_cate_money view{
+  display: flex;
+}
+.oc_money{
+  color:#FF6600; 
+}
+.od_qianzheng{
+  font-size:24rpx;
+  font-family:PingFang-SC-Regular;
+  color:rgba(51,51,51,1);
+
+}
+
+/* <!-- 一个签证详情结束 --> */
+    
+/* <!-- 结算订单详情结束 --> */
+
+/* <!-- 按钮-发送邮箱离开始 --> */
+.button{
+  width:100%;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+  position: absolute;
+  bottom: 30rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+.bu_one{
+  width: 540rpx;
+  height:88rpx;
+  border-radius: 10rpx;
+  padding:30rpx 0;
+  box-sizing: border-box;
+  background:#DEDEDE;
+  font-size:32rpx;
+  font-family:PingFang-SC-Regular;
+  color:#999999 ;
+  text-align: center;
+}
+.button view.bu_two{
+  width: 140rpx;
+  height: 88rpx;
+  border-radius: 10rpx;
+ box-sizing: border-box;
+  background:#F78210 ;
+  font-size:32rpx;
+  font-family:PingFang-SC-Regular;
+  color:#FFFFFF ;
+  text-align: center;
+  line-height: 88rpx;
+}
+
+    
+/* <!-- 按钮-发送邮箱离结束 --> */
+
+
+/* 弹出框开始 */
+.flex{
+  width: 100%;
+  height: 100%;
+  background: #000000 100% ;
+  opacity: 0.4;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.cates_top{
+  width: 100%;
+  background: #FFFFFF;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+}
+.od_cates{
+  width: 100%;
+  padding: 30rpx 30rpx;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  font-size:30rpx;
+  font-family:PingFang-SC-Regular;
+  color:rgba(51,51,51,1);
+  border-bottom: 1rpx solid #EEEEEE;
+  border-top: 1rpx solid #EEEEEE;
+}
+
+
+/* 弹出框开始 */
+.flex{
+  width: 100%;
+  height: 100%;
+  background: #000000 100% ;
+  opacity: 0.4;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 99;
+}
+.flex_center{
+  width: 72%;
+  opacity: 0.9;
+  background: #FFFFFF;
+  border-radius: 26rpx;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  margin: auto;
+  transform: translateY(-50%);
+  z-index: 999;
+}
+.fc_top{
+  padding: 44rpx 0 39rpx 0;
+  box-sizing: border-box;
+  text-align: center;
+  font-size:34rpx;
+  font-family:PingFang-SC-Regular;
+  color:rgba(0,0,0,1);
+  border-bottom: 1rpx solid #CDCED2 0.5;
+
+
+}
+.send{
+  margin-top: 23rpx;
+  font-size:26rpx;
+  font-family:PingFang-SC-Regular;
+  color:rgba(17,17,17,1);
+}
+.fc_bottom{
+  width: 100%;
+  display: flex;
+  line-height: 89rpx;
+  text-align: center;
+}
+.fc_bottom view{
+  width: 50%;
+  border-right: 1rpx solid #CDCED2 0.5;
+  font-size:34rpx;
+  font-family:PingFang-SC-Regular;
+  color:rgba(102,102,102,1);
+
+}
+.fc_bottom view.sure{
+  color: #0076FF ;
+}
+.hide{
+ display:none;
+}
+.show{ 
+ display: block;
+}
+/* 弹出框结束 */
+

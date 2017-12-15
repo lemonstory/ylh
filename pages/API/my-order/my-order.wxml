@@ -1,0 +1,163 @@
+<!--pages/API/my-order/my-order.wxml-->
+<view class="container">
+     <view class="main">
+          <scroll-view scroll-x="true" class="tab-h" bindtap='checkCor'>
+               <view class="tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="swichNav">线路</view>
+               <view class="tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="swichNav">定制</view>
+               <view class="tab-item {{currentTab==2?'active':''}}" data-current="2" bindtap="swichNav">签证</view>
+               <view class="tab-item {{currentTab==3?'active':''}}" data-current="3" bindtap="swichNav">常规线路</view>
+               <view class="tab-item {{currentTab==4?'active':''}}" data-current="4" bindtap="swichNav">定制线路</view>
+
+          </scroll-view>
+          <swiper class="tab-content" current="{{currentTab}}" duration="300" bindchange="switchTab" style="height:{{winHeight}}rpx">
+               <!--线路开始  -->
+               <swiper-item scroll-y="true">
+                    <view class="route">
+                         <view class="route-top">
+                              <view>订单号：130803</view>
+                              <view>已审核</view>
+                         </view>
+                         <view class="route-center">
+                              <image class="route-img" src="../image/00.png"></image>
+                              <view class="center-text">
+                                   <view class="text1">周庄古镇、苏州园林 纯玩 2 日游</view>
+                                   <view class="text2">出行时间：2017-10-20</view>
+                                   <view class="text3">出行人数：3人</view>
+                              </view>
+                         </view>
+                         <view class="route-bottom">
+                              <view class="bottom-left">订单金额：¥279</view>
+                              <view class="bottom-right">取消订单</view>
+                         </view>
+                    </view>
+
+                    <view class="route">
+                         <view class="route-top">
+                              <view>订单号：130803</view>
+                              <view>已完成</view>
+                         </view>
+                         <view class="route-center">
+                              <image class="route-img" src="../image/00.png"></image>
+                              <view class="center-text">
+                                   <view class="text1">周庄古镇、苏州园林 纯玩 2 日游</view>
+                                   <view class="text2">出行时间：2017-10-20</view>
+                                   <view class="text3">出行人数：3人</view>
+                              </view>
+                         </view>
+                         <view class="route-bottom">
+                              <view class="bottom-left">订单金额：¥279</view>
+                         </view>
+                    </view>
+               </swiper-item>
+               <!--线路结束  -->
+               <!--定制开始  -->
+               <swiper-item style="width:auto">
+                    <view class="route">
+                         <view class="route-top">
+                              <view style='color:#FF6600;font-size:24rpx;'>定制</view>
+                         </view>
+                         <view class="route-center">
+                              <image class="route-img" src="../image/00.png"></image>
+                              <view class="center-text">
+                                   <view class="text1">周庄古镇、苏州园林 纯玩 2 日游</view>
+                                   <view class="text2">出行时间：2017-10-20</view>
+                                   <view class="text3">出行人数：3人</view>
+                              </view>
+                         </view>
+                         <view class="route-bottom">
+                              <view class="bottom-left">订单金额：¥279</view>
+                              <view class="bottom-right" style='color:#FF6600;border:1rpx solid #FF6600'>
+                                   <navigator url="../my-order-detail/my-order-detail">查看线路</navigator>
+                              </view>
+                         </view>
+                    </view>
+
+
+
+
+
+
+                    <view class="route">
+                         <view class="route-top">
+                              <view style='color:#FF6600;font-size:24rpx;'>定制</view>
+                         </view>
+                         <view class="route-center">
+                              <image class="route-img" src="../image/00.png"></image>
+                              <view class="center-text">
+                                   <view class="text1">周庄古镇、苏州园林 纯玩 2 日游</view>
+                                   <view class="text2">出行时间：2017-10-20</view>
+                                   <view class="text3">出行人数：3人</view>
+                              </view>
+                         </view>
+                         <view class="route-bottom">
+                              <view class="bottom-left">订单金额：¥279</view>
+                              <view class="bottom-right" style='color:#FF6600;border:1rpx solid #FF6600'>
+                                   <navigator url="../my-order-detail/my-order-detail">查看线路</navigator>
+                              </view>
+                         </view>
+                    </view>
+               </swiper-item>
+               <!--定制结束  -->
+
+               <!--签证开始  -->
+               <swiper-item>
+
+                    <view class="route" wx:for="{{list}}">
+                         <view class="route-top">
+                              <view>订单号：{{item.order}}</view>
+                              <view style='color:#FF6600'>{{item.type}}</view>
+                         </view>
+                         <view class="route-center">
+                              <image class="route-img" src="../image/00.png"></image>
+                              <view class="center-text">
+                                   <view class="text1">{{item.text}}</view>
+                                   <view class="text2" style='margin-top:20rpx'>{{item.name}} 在职人员</view>
+
+                              </view>
+                         </view>
+                         <view class="route-bottom">
+                              <view class="bottom-left">订单金额：¥279</view>
+
+                              <view class="all-right">
+                                   <view class="bottom-right">{{item.cancel}}</view>
+                                   <view class="bottom-right" style='color:#FF6600;border:1rpx solid #FF6600;margin-left:20rpx'>{{item.type1}}</view>
+                              </view>
+                         </view>
+                    </view>
+               </swiper-item>
+               <!--签证结束  -->
+
+
+
+               <!--常规线路开始  -->
+               <swiper-item>
+
+                    <view class="route" wx:for="{{list}}">
+                         <view class="route-top">
+                              <view>订单号：{{item.order}}</view>
+                              <view style='color:#FF6600'>{{item.type}}</view>
+                         </view>
+                         <view class="route-center">
+                              <image class="route-img" src="../image/00.png"></image>
+                              <view class="center-text">
+                                   <view class="text1">{{item.text}}</view>
+                                   <view class="text2" style='margin-top:20rpx'>{{item.name}} 在职人员</view>
+
+                              </view>
+                         </view>
+                         <view class="route-bottom">
+                              <view class="bottom-left">订单金额：¥279</view>
+
+                              <view class="all-right">
+                                   <view class="bottom-right">{{item.cancel}}</view>
+                                   <view class="bottom-right" style='color:#FF6600;border:1rpx solid #FF6600;margin-left:20rpx'>{{item.type1}}</view>
+                              </view>
+                         </view>
+                    </view>
+               </swiper-item>
+               <!--常规线路结束  -->
+
+          </swiper>
+     </view>
+
+</view>

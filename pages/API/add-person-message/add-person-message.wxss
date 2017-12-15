@@ -1,0 +1,58 @@
+/* pages/API/add-person-message/add-person-message.wxss */
+.container {
+height: 100vh;
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+background: #f7f7f7;
+font-family:PingFang-SC-Regular;
+}
+
+.main{
+     width:100%;
+     height:auto;
+     background: #fff;
+     margin-top: 5rpx;
+}
+.input_box{
+   width: 690rpx;
+   margin-left: 30rpx;
+   height:98rpx;
+   border-bottom: 1rpx solid #eee;
+   display: flex;
+   font-size:28rpx;
+   font-family:PingFang-SC-Regular;
+   color:rgba(51,51,51,1);
+   flex-direction: row;
+   align-items: center;
+   justify-content: flex-start;
+}
+.input_type{
+   width: 690rpx;
+   margin-left: 30rpx;
+   margin-right: 30rpx;
+   height:98rpx;
+   border-bottom: 1rpx solid #eee;
+   display: flex;
+   font-size:28rpx;
+   font-family:PingFang-SC-Regular;
+   color:rgba(51,51,51,1);
+   flex-direction: row;
+   align-items: center;
+   justify-content: space-between;
+}
+
+.input_sex{
+   width: 690rpx; 
+   margin-left: 30rpx;
+   margin-right: 30rpx;
+   height:auto;
+   border-bottom: 1rpx solid #eee;
+   display: flex;
+   font-size:28rpx;
+   font-family:PingFang-SC-Regular;
+   color:rgba(51,51,51,1);
+   flex-direction: row;
+   align-items: center;
+   justify-content: space-between; 
+}

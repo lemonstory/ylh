@@ -1,0 +1,56 @@
+/* pages/API/common/common.wxss */
+.tuijuan-img {
+  width: 690rpx;
+  height: 276rpx;
+  margin-left: 30rpx;
+}
+
+.tuijuan-img image {
+  width: 100%;
+  height: 100%;
+}
+
+.tuijuan-text {
+  padding-top: 20rpx;
+  font-size: 28rpx;
+  font-family: PingFang-SC-Regular;
+  color: rgba(51, 51, 51, 1);
+  line-height: 27rpx;
+  padding-right: 30rpx;
+  width: 100%;
+  height:auto;
+  box-sizing: border-box;
+  padding-left: 30rpx;
+}
+.text2 {
+  margin-top: 20rpx;
+  margin-left: 20rpx;
+  font-size: 24rpx;
+  font-family: PingFang-SC-Regular;
+  color: rgba(255, 102, 0, 1);
+  margin-bottom: 20rpx;
+  display: flex;
+}
+
+.person {
+  color: #999;
+}
+
+.tuijuan-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+}
+
+.address{
+  color: #999;
+  margin-top: 16rpx;
+  height:38rpx;
+  line-height: 38rpx;
+}
+
+.text1{
+  width: auto;
+  display: flex;
+  line-height: 47rpx;
+}

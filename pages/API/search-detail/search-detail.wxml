@@ -1,0 +1,53 @@
+<!--pages/API/search-detail/search-detail.wxml-->
+<view class="container">
+  <view class="main">
+    <view class="search">
+      <input id="myInput" bindblur="bindBlur" placeholder-style='font-size:24rpx; color:#666;' style='padding-left:72rpx;'>
+      </input>
+      <view class="cancel">取消</view>
+    </view>
+    <view class="tuijuan">
+      <view></view>
+      <view class="more">更多
+        <image class='back' src='http://image.365zhiding.com/wxapp/20171114/1.png' mode='widthFix'></image>
+      </view>
+    </view>
+    <view class="tui-box">
+      <view class="tui-text">周庄古镇、苏州园林 纯玩2日巴士跟团游，住特色客栈，品尝当地特色美食</view>
+      <view class="tui-money">￥2999
+        <view class='qi'>起</view>
+      </view>
+    </view>
+
+<view class="tui-box">
+      <view class="tui-text1">
+        <view>日本旅游签-北京领区-免提供机票酒店单</view>
+        <view>出签率：99%</view>
+        <view>办理8-10工作日</view>
+      </view>
+      <view class="tui-money">￥2999
+        <view class='qi'>起</view>
+      </view>
+    </view>
+
+ <view class="tui-box">
+      <view class="tui-text1">
+        <view>日本旅游签-北京领区-免提供机票酒店单</view>
+        <view>出签率：99%</view>
+        <view>办理8-10工作日</view>
+      </view>
+      <view class="tui-money">￥2999
+        <view class='qi'>起</view>
+      </view>
+    </view>
+
+
+
+
+
+
+
+  </view>
+
+
+</view>

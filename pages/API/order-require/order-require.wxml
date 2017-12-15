@@ -1,0 +1,138 @@
+<!--pages/API/order-require/order-require.wxml-->
+<view class="container">
+     <view class="main">
+          <view class="box">
+               <view class="box-left">
+                    <view class="star">*</view>姓名</view>
+               <input class="input" placeholder="如： 张无忌" placeholder-style="font-size:28rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);" bindinput='bindKeyInput' value='{{userInputName}}' data-id="name"></input>
+               <view class="close hide{{delButton?'show':''}}" bindtap='clearInput' data-id="nameClear">
+                    <image style='width:36rpx;height:36rpx; margin-left:40rpx;' src='../image/close.png'></image>
+               </view>
+          </view>
+
+          <view class="box">
+               <view class="box-left">
+                    <view class="star">*</view>联系电话</view>
+               <input class="input" type="number" placeholder="请输入11位手机号码" placeholder-style="font-size:28rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);" bindinput='bindKeyInput' value='{{userInputTell}}' data-id="tell"></input>
+               <view class="close hide{{delButton1?'show':''}}" bindtap='clearInput' data-id="tellClear">
+                    <image style='width:36rpx;height:36rpx; margin-left:40rpx;' src='../image/close.png'></image>
+               </view>
+          </view>
+
+
+          <view class="box">
+               <view class="box-left" style='padding-left:15rpx; box-sizing:border-box;'>邮箱地址</view>
+               <input class="input" placeholder="请输入邮箱地址" placeholder-style="font-size:28rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);" bindinput='bindKeyInput' value='{{userInputEmail}}' data-id="email"></input>
+               <view class="close hide{{delButton2?'show':''}}" bindtap='clearInput' data-id="emailClear">
+                    <image style='width:36rpx;height:36rpx; margin-left:40rpx;' src='../image/close.png'></image>
+               </view>
+          </view>
+
+
+          <view class="box">
+               <view class="box-left" style='padding-left:15rpx;box-sizing: border-box;'>微信号</view>
+               <input class="input" placeholder="请输入微信号" placeholder-style="font-size:28rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);" bindinput='bindKeyInput' value='{{userInputWeixin}}' data-id="weixin"></input>
+               <view class="close hide{{delButton3?'show':''}}" bindtap='clearInput' data-id="weixinClear">
+                    <image style='width:36rpx;height:36rpx; margin-left:40rpx;' src='../image/close.png'></image>
+               </view>
+          </view>
+
+          <view class="box">
+               <view class="box-left">
+                    <view class="star">*</view>目的地</view>
+               <input class="input input1" placeholder="请输入目的地" placeholder-style="font-size:28rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);"></input>
+
+
+               <!-- <view class="inner">
+        <image src="http://image.365zhiding.com/wxapp/20171121/check.png" style='width:30rpx;height:30rpx;margin-right:10rpx'></image>境内</view>
+      <view class="out">
+        <image src="http://image.365zhiding.com/wxapp/20171121/check.png" style='width:30rpx;height:30rpx;margin-right:10rpx'></image>境外</view> -->
+               <radio-group class="radio-group" bindchange="radioChange">
+                    <label class="radio" wx:for="{{items}}">
+                         <radio value="{{item.name}}" checked="{{item.checked}}" />{{item.value}}
+                    </label>
+               </radio-group>
+          </view>
+
+          <view class="box">
+               <view class="box-left">
+                    <view class="star">*</view>成人数</view>
+               <image src="http://image.365zhiding.com/wxapp/20171121/jian.png" style='width:31rpx;height:31rpx;margin-left:400rpx;' bindtap="bindMinus" class="{{minusStatus}}" data-id="oldMan"></image>
+               <view class='num'>{{oldManNum}}</view>
+               <image src="http://image.365zhiding.com/wxapp/20171121/add.png" style='width:31rpx;height:31rpx;margin-left:30rpx;' bindtap="bindPlus" data-id="oldMan"></image>
+          </view>
+
+          <view class="box">
+               <view class="box-left">
+                    <view class="star">*</view>儿童数</view>
+               <image src="http://image.365zhiding.com/wxapp/20171121/jian.png" style='width:31rpx;height:31rpx;margin-left:400rpx;' bindtap="bindMinus" class="{{minusStatus}}" data-id="child"></image>
+               <view class='num'>{{childNum}}</view>
+               <image src="http://image.365zhiding.com/wxapp/20171121/add.png" style='width:31rpx;height:31rpx;margin-left:30rpx;' bindtap="bindPlus" data-id="child"></image>
+          </view>
+
+          <view class="box">
+               <view class="box-left">
+                    <view class="star">*</view>出行天数</view>
+               <input class="input" type="number" placeholder="请输入出行天数" placeholder-style="font-size:28rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);" bindinput='bindKeyInput' value='{{userInputDay}}' data-id="day"></input>
+               <view class="close hide{{delButton4?'show':''}}" bindtap='clearInput' data-id="dayClear">
+                    <image style='width:36rpx;height:36rpx; margin-left:40rpx;' src='../image/close.png'></image>
+               </view>
+          </view>
+
+
+
+          <view class="box">
+               <view class="box-left">
+                    <view class="star">*</view>出发日期</view>
+               <picker mode="date" value="{{goDate}}" bindchange="bindDateChange" data-id='goDate'>
+                    <view class="picker">
+                         <view class="godate">{{goDate}}</view>
+                         <image src="http://image.365zhiding.com/wxapp/20171121/date.png" style='width:30rpx;height:32rpx;margin-left:40rpx;float:right'></image>
+                    </view>
+               </picker>
+          </view>
+
+
+          <view class="box">
+               <view class="box-left">
+                    <view class="star">*</view>返回日期</view>
+               <picker mode="date" value="{{backDate}}" bindchange="bindDateChange" data-id='backDate'>
+                    <view class="picker">
+                         <view class="godate">{{backDate}}</view>
+                         <image src="http://image.365zhiding.com/wxapp/20171121/date.png" style='width:30rpx;height:32rpx;margin-left:40rpx;float:right'></image>
+                    </view>
+               </picker>
+          </view>
+
+
+          <view class="box">
+               <view class="box-left">
+                    <view class="star">*</view>出发城市</view>
+               <view class="choiceCity" bindtap='choiceCity'>请选择出发城市</view>
+          </view>
+
+
+          <view class="box">
+               <view class="box-left">
+                    <view class="star">*</view>抵达城市</view>
+               <input class="input" placeholder="请输入抵达城市" placeholder-style="font-size:28rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);" bindinput='bindKeyInput' value='{{userInputToCity}}' data-id="toCity"></input>
+               <view class="close hide{{delButton6?'show':''}}" bindtap='clearInput' data-id="toCityClear">
+                    <image style='width:36rpx;height:36rpx; m argin-left:40rpx;' src='../image/close.png'></image>
+               </view>
+          </view>
+          <view class="box box1">
+               <view class="box-left">
+                    <view class="star">*</view>特色景点:</view>
+          </view>
+
+          <view class="settion">
+               <textarea placeholder="请输入您想玩的景点" placeholder-style="font-size:28rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);" style='width:690rpx;height:260rpx;margin-left:30rpx;margin-right:30rpx;border:1rpx solid #eee; padding-left:30rpx;padding-top:30rpx;box-sizing: border-box; border-radius: 10rpx;'
+               />
+          </view>
+
+          <navigator url="../air-ticket/air-ticket">
+               <view class="bottom">下一步</view>
+          </navigator>
+
+     </view>
+</view>

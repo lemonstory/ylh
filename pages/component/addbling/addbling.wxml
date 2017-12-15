@@ -1,0 +1,55 @@
+<!--pages/component/adddetailtop/adddetailtop.wxml-->
+<view class="addbling">
+<!--温馨提示开始-->
+  <view class="point">
+    <view class="react"></view>
+    <view class="leadertitle">温馨提示</view>
+    <view class="react1"></view>
+    <view class="pointtext">
+      <view class="text1">{{text1}}</view>
+      <view class="text1">{{text2}}</view>
+      <view class="text1">{{text3}}</view>
+      <view class="text1">{{text4}}</view>
+    </view>
+  </view>
+  <!--温馨提示结束  -->
+
+  <!-- 费用说明开始 -->
+
+  <view class="pay">
+    <view class="react"></view>
+    <view class="leadertitle">费用说明</view>
+    <view class="react1"></view>
+    <view class="paytext">
+      <view class="ptext1">{{paytext1}}</view>
+      <view class="ptext2">{{paytext2}}</view>
+      <view class="ptext3">{{paytext3}}</view>
+      <view class="ptext4">{{paytext4}}</view>
+      <view class="ptext5">{{paytext5}}</view>
+      <view class="ptext6">{{paytext6}}</view>
+    </view>
+  </view>
+
+  <!--费用说明结束  -->
+
+  <!-- 用户评价开始 -->
+  <view class="discuss">
+    <view class="react"></view>
+    <view class="leadertitle">用户评价</view>
+    <view class="react1"></view>
+    <view class="user">用户名称</view>
+    <image class="star" src="http://image.365zhiding.com/wxapp/20171114/xing.png"></image> 
+    <view class="time">2010-10-21</view>
+    <view class="content1">因日本领事馆的特殊要求，不同的领区，其签证费用会有差异，部分地区需要加价，其中广州领区需增补500元。</view>
+    <view class="more"> 查看全部10条店评论</view>
+    <image class="morell" src='http://image.365zhiding.com/wxapp/20171114/1.png'></image>
+</view>
+<!--用户评价结束  -->
+<!--底部开始  -->
+<view class="bottom">
+<image class="zixun" src="http://image.365zhiding.com/wxapp/20171121/zixun.png"></image>
+<view class="zixuntext">资询</view> 
+<view class="yuding" bindtap='startOrder'>开始预订</view>
+</view>
+<!--底部结束 -->
+</view>

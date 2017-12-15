@@ -1,0 +1,95 @@
+<!--pages/API/start-order/start-order.wxml-->
+<!--日历开始  -->
+<view class="page">
+     <view class="calendar" bindtap="tap">
+          <view class="calendar-panel">
+               <!-- <view class="day">{{canlender.date}}日</view>      -->
+               <view class="month">{{canlender.month}}月
+                    <view class="price">￥{{canlender.price}}起</view>
+               </view>
+          </view>
+          <view class="calendar-header">
+               <image src="http://image.365zhiding.com/wxapp/20171121/111.png"> </image>
+               <view class="xingqi">
+                    <view>日</view>
+                    <view>一</view>
+                    <view>二</view>
+                    <view>三</view>
+                    <view>四</view>
+                    <view>五</view>
+                    <view>六</view>
+               </view>
+          </view>
+          <!-- day.date==canlender.date||day.date==canlender.date-->
+          <view class="calendar-body">
+               <block wx:for="{{canlender.weeks}}" wx:for-item="weeks" wx:key="item">
+                    <view class="calender-body-date-week">
+                         <block wx:for="{{weeks}}" wx:for-item="day" wx:key="item">
+                              <view class="date {{canlender.month == day.month?'active':'hidden'}} {{day.date==currentTapDate ? 'date-current' :''}}" bindtap="choiceDate" data-date="{{day.date}}">{{day.date}}
+                                   <view class="money {{canlender.month == day.month?'active':'hidden'}} {{day.date==currentTapDate?'money-current':''}}">￥{{canlender.price}}</view>
+                              </view>
+                         </block>
+                    </view>
+               </block>
+          </view>
+     </view>
+
+
+     <!--日历结束-->
+     <!--套餐开始  -->
+     <scroll-view class="taocan" scroll-x="true">
+          <view class="tname" wx:for="{{taocanList}}" wx:key="item">
+               {{item.name}}
+          </view>
+     </scroll-view>
+     <!--套餐结束  -->
+
+
+
+     <!--成人儿童类型开始  -->
+     <view class="adult">
+          <view class="chengren">成人</view>
+          <view class="count">
+               <image class="jian" src="http://image.365zhiding.com/wxapp/20171121/jian.png"></image>
+               <view class="num">1</view>
+               <image class="add" src="http://image.365zhiding.com/wxapp/20171121/add.png"></image>
+          </view>
+     </view>
+
+     <view class="adult">
+          <view class="chengren">儿童</view>
+          <view class="count">
+               <image class="jian" src="http://image.365zhiding.com/wxapp/20171121/jian.png"></image>
+               <view class="num">1</view>
+               <image class="add" src="http://image.365zhiding.com/wxapp/20171121/add.png"></image>
+          </view>
+     </view>
+
+
+     <!--检测信息-->
+     <view class="yanger">
+          <view class="chengren">是否包含1岁以下的婴儿</view>
+     </view>
+     <view class="old">
+          <view class="chengren">是否包含70岁以上的老人</view>
+     </view>
+
+     
+     
+     <!--底部开始 -->
+     <view class="bottom">
+          <view class="bottom-left">
+               <view class='total'>总计：
+                    <view class="total-money">￥1450</view>
+               </view>
+               <view class="mingxi">明细
+                    <image src="http://image.365zhiding.com/wxapp/20171121/shang.png" class="{{isShowOptionsView?'rotate':''}}" style='width:24rpx;height:14rpx'></image>
+               </view>
+          </view>
+          <view class="bottom-right" bindtap='userInfo'>
+               下一步
+          </view>
+     </view>
+     <!--底部结束-->
+
+</view>

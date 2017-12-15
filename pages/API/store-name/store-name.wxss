@@ -1,0 +1,54 @@
+/* pages/API/store-name/store-name.wxss */
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background: #f7f7f7;
+}
+.main{
+  width: 100%;
+  height:auto;
+  margin-top:5rpx;
+  background: #fff;
+}
+#oldpass{
+width: 100%;
+height:88rpx;
+background: #fff;
+padding-left: 30rpx;
+box-sizing: border-box;
+position: relative;
+}
+.confirm{
+width:690rpx;
+height:88rpx; 
+background:rgba(247,130,16,1);
+border-radius:10rpx; 
+margin-top: 234rpx;
+color: #fff;
+}
+.img{
+  position: absolute;
+  width: 30rpx;
+  height:30rpx;
+  top:37rpx;
+  right: 30rpx;
+  z-index: 999;
+}
+.img image{
+  width:100%;
+  height:100%;
+}
+
+.box{
+     width:88rpx;
+     height:88rpx;
+     background: red;
+     position: absolute;
+     top:5rpx;
+     right:0;
+}

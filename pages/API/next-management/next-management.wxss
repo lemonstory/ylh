@@ -1,0 +1,98 @@
+/* pages/API/next-management/next-management.wxss */
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background: #f7f7f7;
+}
+.box{
+  width:100%;
+  height:auto;
+  background: #fff;
+  margin-top: 5rpx;
+}
+.box-ul{
+  width: 100%;
+  height:98rpx;
+  display: flex;
+  align-items: center;
+  border-bottom: 1rpx solid #eee;
+  justify-content: space-between;
+}
+.logo{
+  width:62rpx;
+  height:62rpx;
+  margin-left: 30rpx;
+}
+.logo image{
+  width:100%;
+  height:100%;
+}
+.ul-left{
+  display: flex;
+  font-size:28rpx;
+  font-family:PingFang-SC-Regular;
+  color:rgba(51,51,51,1);
+  align-items: center;
+ }
+.ul-right{
+  width:24rpx;
+  height:14rpx;
+  margin-right: 30rpx;
+  display: flex;
+  align-items: center;
+}
+.ul-right image{
+  width:100%;
+  height:100%;
+}
+.ul-text{
+  margin-left: 30rpx;
+}
+/*显现卡  */
+.hidden{
+  width:100%;
+  height:166rpx;
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box; 
+  padding-right: 30rpx;
+  }
+.hidden-left{
+  display: flex;
+  width:auto;
+  height:166rpx;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top:30rpx;
+  padding-bottom: 30rpx;
+  box-sizing: border-box; 
+  padding-left: 30rpx;
+}
+.hidden-text1{
+font-size:24rpx;
+font-family:PingFang-SC-Regular;
+color:rgba(153,153,153,1);
+display: flex;
+}
+.right-text{
+font-size:24rpx;
+font-family:PingFang-SC-Regular;
+color:rgba(153,153,153,1);
+display: flex;
+}
+.hide{
+ display:none;
+}
+.show{ 
+ display: block;
+}
+.rotate{
+transform: rotate(180deg);
+}

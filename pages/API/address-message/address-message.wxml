@@ -1,161 +1,151 @@
 <!--pages/API/address-message/address-message.wxml-->
 <view class="container">
-     <!--出行时间开始  -->
-     <view class="go">
-          <view class="go-time">出行时间：2017-10-20</view>
-          <view class="go-add">周庄古镇、苏州园林 纯玩2日巴士跟团游（[天天发车车周庄古镇、苏州园林</view>
-          <view class="go-plan">行程：2天1晚</view>
-     </view>
-     <!--出行时间结束  -->
+  <!--出行时间开始  -->
+  <view class="go">
+    <view class="go-time">出行时间：2017-10-20</view>
+    <view class="go-add">周庄古镇、苏州园林 纯玩2日巴士跟团游（[天天发车车周庄古镇、苏州园林</view>
+    <view class="go-plan">行程：2天1晚</view>
+  </view>
+  <!--出行时间结束  -->
 
-     <!--选择出行人数开始  -->
-     <view class="choice">
-          <view class="person">选择出行人数</view>
-          <view class="choice-num">2成人 1儿童</view>
-          <view class="choice-num">是否包含1岁以下的婴儿</view>
-          <view class="choice-num">是否包含70岁以上的老人</view>
-          <navigator url="../choice-person/choice-person">
-               <view class="choice-person">选择出行人
-                    <image class='back' src='http://image.365zhiding.com/wxapp/20171114/1.png' mode='widthFix'></image>
-               </view>
-          </navigator>
+  <!--选择出行人数开始  -->
+  <view class="choice">
+    <view class="person">选择出行人数</view>
+    <view class="choice-num">2成人 1儿童</view>
+    <view class="choice-num">是否包含1岁以下的婴儿</view>
+    <view class="choice-num">是否包含70岁以上的老人</view>
+    <navigator url="../choice-person/choice-person?passengerIdStr={{passengerIdStr}}">
+      <view class="choice-person">选择出行人
+        <image class='back' src='http://image.365zhiding.com/wxapp/20171114/1.png' mode='widthFix'></image>
+      </view>
+    </navigator>
 
-          <view class="message">
-               <view class="person-message">成人1:</view>
-               <view class="message-detail">
-                    <view class="mess-name">姓名：李明</view>
-                    <view class="mess-name">身份证号：110110125478878965</view>
-                    <view class="mess-name call">联系电话：11011012547</view>
-               </view>
+    <block wx:for="{{checkedPassengerList}}" wx:key="checkedPassengerList" wx:for-index="idx" wx:for-item="listItem">
+      <view class="message">
+        <view class="person-message" wx:if="{{listItem.ageGroup == 2}}">儿童 {{idx + 1}}:</view>
+        <view class="person-message" wx:if="{{listItem.ageGroup == 3}}">成人 {{idx + 1}}:</view>
+        <view class="message-detail">
+          <view class="mess-name">姓名：{{listItem.name}}</view>
+          <view class="mess-name" wx:if="{{listItem.cardType == 1}}">身份证：{{listItem.cardNumber}} </view>
+          <view class="mess-name" wx:if="{{listItem.cardType == 2}}">军官证：{{listItem.cardNumber}} </view>
+          <view class="mess-name" wx:if="{{listItem.cardType == 3}}">护照：{{listItem.cardNumber}} </view>
+          <view class="mess-name" wx:if="{{listItem.cardType == 4}}">港澳通行证：{{listItem.cardNumber}} </view>
+          <view class="mess-name" wx:if="{{listItem.cardType == 5}}">台湾通行证：{{listItem.cardNumber}} </view>
+          <view class="mess-name" wx:if="{{listItem.cardType == 99}}">其他：{{listItem.cardNumber}} </view>
+          <view class="mess-name call">联系电话：{{listItem.mobile}}</view>
+        </view>
+      </view>
+    </block>
+  </view>
+  <!-- 选择出行人数结束  -->
+  <!--联系人信息开始  -->
+  <view class="lianxi-box">
+    <view class="lianxi-message">联系人信息</view>
+    <view class="input-name">姓名：
+      <input class="input" placeholder="必填" placeholder-style="font-size:26rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);" style='padding-left:82rpx; box-sizing: border-box;'></input>
+    </view>
+    <view class="input-name">手机号：
+      <input class="input" placeholder="请输入11位手机号码" placeholder-style="font-size:26rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);" style='padding-left:56rpx; box-sizing: border-box;'></input>
+    </view>
 
-          </view>
+    <view class="input-name">邮箱：
+      <input class="input" placeholder="请输入电子邮箱地址" placeholder-style="font-size:26rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);" style='padding-left:82rpx; box-sizing: border-box;'></input>
+    </view>
+  </view>
 
-          <view class="message">
-               <view class="person-message">成人1:</view>
-               <view class="message-detail">
-                    <view class="mess-name">姓名：李明</view>
-                    <view class="mess-name">身份证号：110110125478878965</view>
-                    <view class="mess-name call">联系电话：11011012547</view>
-               </view>
-          </view>
-
-          <view class="message">
-               <view class="person-message">儿童1:</view>
-               <view class="message-detail">
-                    <view class="mess-name">姓名：李明</view>
-                    <view class="mess-name">身份证号：110110125478878965</view>
-               </view>
-          </view>
-     </view>
-     <!-- 选择出行人数结束  -->
-     <!--联系人信息开始  -->
-     <view class="lianxi-box">
-          <view class="lianxi-message">联系人信息</view>
-          <view class="input-name">姓名：
-               <input class="input" placeholder="必填" placeholder-style="font-size:26rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);" style='padding-left:82rpx; box-sizing: border-box;'></input>
-          </view>
-          <view class="input-name">手机号：
-               <input class="input" placeholder="请输入11位手机号码" placeholder-style="font-size:26rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);" style='padding-left:56rpx; box-sizing: border-box;'></input>
-          </view>
-
-          <view class="input-name">邮箱：
-               <input class="input" placeholder="请输入电子邮箱地址" placeholder-style="font-size:26rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);" style='padding-left:82rpx; box-sizing: border-box;'></input>
-          </view>
-     </view>
-
-     <!--联系人信息结束  -->
+  <!--联系人信息结束  -->
 
 
-     <!--全程单房差开始  -->
-     <view class="all-box">
-          <view class="quancheng">全程单房差</view>
-          <view class="yufu">
-               <view class="yufu-text">预付单房差</view>
-               <view class="yufu-money">+ ¥750</view>
-          </view>
-     </view>
-     <!--全程单房差结束  -->
+  <!--全程单房差开始  -->
+  <view class="all-box">
+    <view class="quancheng">全程单房差</view>
+    <view class="yufu">
+      <view class="yufu-text">预付单房差</view>
+      <view class="yufu-money">+ ¥750</view>
+    </view>
+  </view>
+  <!--全程单房差结束  -->
 
-     <!--开具发票开始  -->
+  <!--开具发票开始  -->
 
-     <view class="fapiao-box">
-          <view class="fapiao">
-               <view class="fapiao-text">开具发票</view>
-               <view class="fapiao-pay">（快递费¥20）</view>
-               <radio class="fapiao-radio" color='#FF6600'></radio>
-          </view>
-          <view class="fapiao-type">
-               <view class="type-name">类型：</view>
+  <view class="fapiao-box">
+    <view class="fapiao">
+      <view class="fapiao-text">开具发票</view>
+      <view class="fapiao-pay">（快递费¥20）</view>
+      <radio class="fapiao-radio" color='#FF6600'></radio>
+    </view>
+    <view class="fapiao-type">
+      <view class="type-name">类型：</view>
 
-               <radio-group class="radio-group" bindchange="radioChange">
-                    <label class="radio" wx:for="{{items}}">
-                         <radio value="{{item.name}}" checked="{{item.checked}}" />{{item.value}}
-                    </label>
-               </radio-group>
-          </view>
+      <radio-group class="radio-group" bindchange="radioChange">
+        <label class="radio" wx:for="{{items}}">
+          <radio value="{{item.name}}" checked="{{item.checked}}" />{{item.value}}
+        </label>
+      </radio-group>
+    </view>
 
-          <view class="input-name">抬头：
-               <input class="input" placeholder="请输入抬头" placeholder-style="font-size:26rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);" style='padding-left:82rpx; box-sizing: border-box;'></input>
-          </view>
-          <view class="input-name">税号：
-               <input class="input" placeholder="请填写纳税人识别号" placeholder-style="font-size:26rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);" style='padding-left:82rpx; box-sizing: border-box;'></input>
-          </view>
+    <view class="input-name">抬头：
+      <input class="input" placeholder="请输入抬头" placeholder-style="font-size:26rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);" style='padding-left:82rpx; box-sizing: border-box;'></input>
+    </view>
+    <view class="input-name">税号：
+      <input class="input" placeholder="请填写纳税人识别号" placeholder-style="font-size:26rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);" style='padding-left:82rpx; box-sizing: border-box;'></input>
+    </view>
 
-          <view class="shuoming">说明：所开发票为增值税普通发票，金额为实际支付的商品费用，内容为代办签证费。</view>
-          <view class="comfire">确定</view>
-     </view>
-     <!--开具发票结束  -->
+    <view class="shuoming">说明：所开发票为增值税普通发票，金额为实际支付的商品费用，内容为代办签证费。</view>
+    <view class="comfire">确定</view>
+  </view>
+  <!--开具发票结束  -->
 
-     <!--收获地址开始  -->
-     <view class="get-add">
-          <view class="fapiao">收获地址</view>
+  <!--收获地址开始  -->
+  <view class="get-add">
+    <view class="fapiao">收获地址</view>
 
-          <navigator url="../choice-address/choice-address">
-               <view class="choice-add ">北京市高碑店西店村37栋
-                    <image class='back' src='http://image.365zhiding.com/wxapp/20171114/1.png' mode='widthFix'></image>
-               </view>
-          </navigator>
+    <navigator url="../choice-address/choice-address">
+      <view class="choice-add ">北京市高碑店西店村37栋
+        <image class='back' src='http://image.365zhiding.com/wxapp/20171114/1.png' mode='widthFix'></image>
+      </view>
+    </navigator>
 
-     </view>
+  </view>
 
-     <!--收获地址结束  -->
+  <!--收获地址结束  -->
 
-     <!--底部开始  -->
-     <view class="bottom">
-          <view class="bottom-left">
-               <view class='total'>总计：
-                    <view class="total-money">￥1450</view>
-               </view>
-               <view class="mingxi" bindtap='actionSheetTap'>明细
-                    <image src="http://image.365zhiding.com/wxapp/20171121/shang.png" class="{{isShowOptionsView?'rotate':''}}" style='width:24rpx;height:14rpx'></image>
-               </view>
-                    <!--底部提示框  -->
-               <action-sheet hidden="{{actionSheetHidden}}" bindchange="actionSheetChange">
-                    <!-- <block wx:for="{{actionSheetItems}}">  -->
-                    <view class="item deli">
-                         <view class="text">价格明细</view>
-                    </view>
-                    <view class="item">
-                         <view class="text">成人费用</view>
-                         <view class="item-price">￥899*2</view>
-                    </view>
-                    <view class="item">
-                         <view class="text">儿童费用</view>
-                         <view class="item-price">￥899*2</view>
-                    </view>
-                    <view class="item">
-                         <view class="text">单房差</view>
-                         <view class="item-price">￥34</view>
-                    </view>
-                    <view class="item ">
-                         <view class="text">发票快递费</view>
-                         <view class="item-price">￥50</view>
-                    </view>
-               </action-sheet>
-               <!-- </block>  -->
-               <!-- <action-sheet-cancel class="cancel"></action-sheet-cancel>  -->
+  <!--底部开始  -->
+  <view class="bottom">
+    <view class="bottom-left">
+      <view class='total'>总计：
+        <view class="total-money">￥1450</view>
+      </view>
+      <view class="mingxi" bindtap='actionSheetTap'>明细
+        <image src="http://image.365zhiding.com/wxapp/20171121/shang.png" class="{{isShowOptionsView?'rotate':''}}" style='width:24rpx;height:14rpx'></image>
+      </view>
+      <!--底部提示框  -->
+      <action-sheet hidden="{{actionSheetHidden}}" bindchange="actionSheetChange">
+        <!-- <block wx:for="{{actionSheetItems}}">  -->
+        <view class="item deli">
+          <view class="text">价格明细</view>
+        </view>
+        <view class="item">
+          <view class="text">成人费用</view>
+          <view class="item-price">￥899*2</view>
+        </view>
+        <view class="item">
+          <view class="text">儿童费用</view>
+          <view class="item-price">￥899*2</view>
+        </view>
+        <view class="item">
+          <view class="text">单房差</view>
+          <view class="item-price">￥34</view>
+        </view>
+        <view class="item ">
+          <view class="text">发票快递费</view>
+          <view class="item-price">￥50</view>
+        </view>
+      </action-sheet>
+      <!-- </block>  -->
+      <!-- <action-sheet-cancel class="cancel"></action-sheet-cancel>  -->
 
-               <!-- 底部提示框结束 -->
+      <!-- 底部提示框结束 -->
 
 
 
@@ -163,9 +153,9 @@
 
 
 
-          </view>
-          <view class="bottom-right">
-               <navigator url="../pay-confirm/pay-confirm">去付款</navigator>
-          </view>
-     </view>
+    </view>
+    <view class="bottom-right">
+      <navigator url="../pay-confirm/pay-confirm">去付款</navigator>
+    </view>
+  </view>
 </view>

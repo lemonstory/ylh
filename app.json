@@ -1,7 +1,7 @@
 {
      "pages": [
        
-          
+          "pages/API/address-message/address-message",
           "pages/index/index",
           "pages/API/address/address",
           "pages/API/more-address/more-address",
@@ -14,7 +14,7 @@
           "pages/API/start-order/start-order",
           "pages/API/choice-address/choice-address",
           "pages/API/new-add-address/new-add-address",
-          "pages/API/address-message/address-message",
+          
           "pages/API/choice-person/choice-person",
           "pages/API/add-person-message/add-person-message",
           "pages/API/pay-confirm/pay-confirm",

@@ -23,7 +23,22 @@ function isMobile(value) {
   return true;
 }
 
+function getTitleWithId(mapArr,idValue) {
+
+  var title = '';
+  for(var i = 0; i < mapArr.length; i++){
+    if(mapArr[i].id == idValue) {
+      title = mapArr[i].title;
+      break;
+    }
+  }
+  return title;
+}
+
 module.exports = {
   formatTime: formatTime,
-  isMobile: isMobile
+  isMobile: isMobile,
+  getTitleWithId: getTitleWithId,
 }
+
+

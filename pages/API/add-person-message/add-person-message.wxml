@@ -4,7 +4,7 @@
   <view class="main">
     <view class="input_box">
       中文名称：
-      <input class="input" bindinput="bindNameKeyInput" placeholder='请输入中文姓名' placeholder-style="margin-left:5rpx;font-size:28rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);">{{name}}</input>
+      <input class="input" bindinput="bindNameKeyInput" placeholder='请输入中文姓名' value="{{name}}" placeholder-style="margin-left:5rpx;font-size:28rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);"></input>
     </view>
     <view class="input_type" bindtap='toggleTitleBottomPopup'>
       职业身份：{{passengerTitle}}
@@ -16,7 +16,7 @@
     </view>
     <view class="input_box">
       证件号码：
-      <input class="input" bindinput="bindCardNumberInput" placeholder='必填' placeholder-style="margin-left:5rpx;font-size:28rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);">{{cardNumber}}</input>
+      <input class="input" bindinput="bindCardNumberInput" placeholder='必填' value='{{cardNumber}}' placeholder-style="margin-left:5rpx;font-size:28rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);"></input>
     </view>
     <view class="input_sex">性别:
       <view class="choice_box">
@@ -25,7 +25,7 @@
         <view class="choice_sex">
           <radio-group class="radio-group" bindchange="genderRadioChange">
             <label class="radio" wx:for="{{constant.gender}}">
-              <radio value="{{item.id}}" checked="{{item.checked}}" />{{item.title}}
+              <radio value="{{item.id}}" checked="{{gender == item.id ? true : false}}" />{{item.title}}
             </label>
           </radio-group>
         </view>
@@ -35,7 +35,7 @@
         <view class="choice_age">
           <radio-group class="radio-group" bindchange="ageGroupRadioChange">
             <label class="radio" wx:for="{{constant.passengerAgeGroup}}">
-              <radio value="{{item.id}}" checked="{{item.checked}}" />{{item.title}}
+              <radio value="{{item.id}}" checked="{{ageGroup == item.id ? true : false}}" />{{item.title}}
             </label>
           </radio-group>
         </view>
@@ -46,9 +46,10 @@
 
     <view class="input_box">
       联系电话：
-      <input class="input" type='number' bindinput="bindMobileKeyInput" placeholder='必填' placeholder-style="margin-left:5rpx;font-size:28rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);">{{mobile}}</input>
+      <input class="input" type='number' bindinput="bindMobileKeyInput" placeholder='必填' value='{{mobile}}' placeholder-style="margin-left:5rpx;font-size:28rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);"></input>
     </view>
   </view>
+  <button bindtap='handleDeleteTap'>删除</button>
   <view class="bottom" bindtap='handleSaveTap'>保存</view>
 
   <!--证件类型Popup 开始-->

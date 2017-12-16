@@ -12,7 +12,7 @@
           <view class="top-name">{{listItem.name}}</view>
           <view class="top-tell" wx:if="{{listItem.ageGroup == 2}}">(儿童)</view>
           <view class="top-tell" wx:if="{{listItem.ageGroup == 3}}">(成人)</view>
-          <image class="xiugai" src="http://image.365zhiding.com/wxapp/20171121/xiugai.png"></image>
+          <image class="xiugai" src="http://image.365zhiding.com/wxapp/20171121/xiugai.png" data-idx="{{idx}}" bindtap='handleTapEdit'></image>
         </view>
         <view class="ul-bottom" wx:if="{{listItem.cardType == 1}}">身份证：
           <view class="idcal">{{listItem.cardNumber}}</view>

@@ -14,6 +14,7 @@ Page(Object.assign({}, Toast, {
     'ageGroup': 0,
     'gender': 0,
 
+    'id': 0,
     'newId': 0,
     'cardTitle': '',
     'passengerTitle':'',
@@ -21,6 +22,9 @@ Page(Object.assign({}, Toast, {
     //显示底部弹窗
     'isShowCardTypeBottomPopup': false,
     'isShowTitleBottomPopup': false,
+
+    //是否是修改
+    'isUpdate':false,
   },
 
   /**
@@ -28,6 +32,42 @@ Page(Object.assign({}, Toast, {
    */
   onLoad: function (options) {
 
+    var that = this;
+    var itemJsonStr = options.itemJsonStr;
+    console.log("🦃 🦃 🦃")
+    console.log("itemJsonStr = " + itemJsonStr);
+    if (typeof (itemJsonStr) != "undefined") {
+
+      //修改页面标题
+      wx.setNavigationBarTitle({
+        title: "修改出行人",
+        fail: function (res) {
+          console.log(res)
+          hat.showZanToast("修改页面标题错误");
+        },
+      });
+
+      var item = JSON.parse(itemJsonStr);
+      that.setData({
+
+        'isUpdate':true,
+
+        'id': item.id,
+        'name': item.name,
+        'title': item.title,
+        'mobile': item.mobile,
+        'cardType': item.cardType,
+        'cardNumber': item.cardNumber,
+        'ageGroup': item.ageGroup,
+        'gender': item.gender,
+
+
+        'cardTitle': util.getTitleWithId(app.constant.passengerTitle, item.cardType),
+        'passengerTitle': util.getTitleWithId(app.constant.passengerCardType, item.title) 
+      })
+
+      console.log(that.data);
+    }
   },
 
   /**
@@ -232,16 +272,21 @@ Page(Object.assign({}, Toast, {
    */
   handleSaveTap: function (event) {
 
-    console.log("🚀 🚀 🚀")
-    console.log("handleSaveTap Run");
-    console.log(this.data);
     var that = this;
     if(that.checkInput()) {
 
       wx.showLoading({
         title: '加载中',
       })
+
+      //添加出行人接口
       var url = that.data.constant.domain + '/distrbuter/member/passenger';
+
+      //修改出行人接口
+      if(that.data.isUpdate) {
+        url = url + "/update";
+      }
+
       wx.request({
         url: url,
         data: {
@@ -258,9 +303,8 @@ Page(Object.assign({}, Toast, {
         header: {
           'Content-Type': 'application/x-www-form-urlencoded'
         },
+        
         success: function (res) {
-
-          console.log("### success ###");
           var id = res.data.id
           that.setData({
             'newId': id
@@ -268,21 +312,60 @@ Page(Object.assign({}, Toast, {
         },
 
         fail: function (res) {
-
-          console.log("### fail ###");
           //测试
           var res = JSON.stringify(res);
           that.showZanToast(res);
         },
 
         complete: function (res) {
-
-          console.log("### complete ###");
-          console.log(res);
           wx.hideLoading();
           wx.navigateBack();
         }
       });
     }
   },
+
+  /**
+   * 处理删除按钮
+   */
+  handleDeleteTap: function (event) {
+  
+    var that = this;
+    wx.showLoading({
+      title: '加载中',
+    })
+
+    //删除出行人接口
+    var url = that.data.constant.domain + '/distrbuter/member/passenger/delete';
+    wx.request({
+      url: url,
+      data: {
+        'id': that.data.id,
+      },
+      method: 'POST',
+      header: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      success: function (res) {
+
+        var code = res.data.code
+        if (code != "SUCCESS") {
+          that.showZanToast(code);
+        }
+      },
+
+      fail: function (res) {
+
+        var res = JSON.stringify(res);
+        that.showZanToast(res);
+      },
+
+      complete: function (res) {
+
+        wx.hideLoading();
+        wx.navigateBack();
+      }
+    });
+  
+  }
 }));

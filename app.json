@@ -1,7 +1,7 @@
 {
      "pages": [
        
-          
+          "pages/API/order-require/order-require",
           "pages/index/index",
           "pages/API/address/address",
           "pages/API/more-address/more-address",
@@ -24,7 +24,7 @@
           "pages/API/travel-mess/travel-mess",
           "pages/API/search/search",
           "pages/API/search-detail/search-detail",
-          "pages/API/order-require/order-require",
+          
           "pages/API/air-ticket/air-ticket",
           "pages/API/hotel-require/hotel-require",
           "pages/API/car-require/car-require",

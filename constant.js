@@ -1,5 +1,11 @@
 var constant = {
+
   "domain": "https://qa-api.yuelvhui.com",
+  //代理商ID(number,required)
+  //TODO: 获取代理商信息后需要设置这个值
+  'agentId': 1,
+  //系统来源,10悦旅汇，20小程序
+  'tradeId': 20,
 
 
   //旅客证件类型
@@ -60,12 +66,138 @@ var constant = {
     title: '成人'
   }],
 
-  
-  
+  //机型要求
+  "planeTicketType": [{
+    id: '1',
+    title: '直达'
+  }, {
+    id: '2',
+    title: '转机'
+  }, {
+    id: '99',
+    title: '无要求'
+  }],
+
+  //旅行目的地
+  "travelIsInternational": [{
+    id: '1',
+    title: '境内'
+  }, {
+    id: '2',
+    title: '境外'
+  }],
+
+  //仓位要求
+  "planeTicketShippingSpace": [{
+    id: '1',
+    title: '经济舱'
+  }, {
+    id: '2',
+    title: '公务舱'
+  }, {
+    id: '3',
+    title: '头等舱'
+  }],
+
+  //酒店类型
+  "hotelType": [{
+    id: '1',
+    title: '国际连锁'
+  }, {
+    id: '2',
+    title: '常规15km'
+  }, {
+    id: '3',
+    title: '市区10km'
+  }, {
+    id: '4',
+    title: '市中心5km'
+  }, {
+    id: '99',
+    title: '无要求'
+  }],
+
+  //酒店类型
+  "hotelType": [{
+    id: '1',
+    title: '国际连锁'
+  }, {
+    id: '2',
+    title: '常规15km'
+  }, {
+    id: '3',
+    title: '市区10km'
+  }, {
+    id: '4',
+    title: '市中心5km'
+  }, {
+    id: '99',
+    title: '无要求'
+  }],
 
 
+  //酒店星级
+  "hotelStars": [{
+    id: '1',
+    title: '三星'
+  }, {
+    id: '2',
+    title: '四星'
+  }, {
+    id: '3',
+    title: '五星'
+  }],
 
+  //酒店客房标准(1标准双人间，2单间，3套房
+  "hotelRoomStandard": [{
+    id: '1',
+    title: '标准双人间'
+  }, {
+    id: '2',
+    title: '单间'
+  }, {
+    id: '3',
+    title: '套房'
+  }],
 
+  //车辆类型要求
+  "carsType": [{
+    id: '1',
+    title: '司导分离'
+  }, {
+    id: '2',
+    title: '司兼导'
+  }],
+
+  //活动邀请函类型
+  "activityInvitationType": [{
+    id: '1',
+    title: '邀请函客人自备'
+  }, {
+    id: '2',
+    title: '邀请函我司提供'
+  }],
+
+  //签证原因
+  "visaReason": [{
+    id: '1',
+    title: '因公'
+  }, {
+    id: '2',
+    title: '因私'
+  }],
+
+  //签证类型
+  "visaType": [{
+    id: '1',
+    title: '个人旅游签'
+  }, {
+    id: '2',
+    title: 'ADS团队旅游签'
+  }, {
+    id: '3',
+    title: '商签'
+  }],
 
 
 }

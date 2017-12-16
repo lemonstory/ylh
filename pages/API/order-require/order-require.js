@@ -8,24 +8,24 @@ Page(Object.assign({}, Toast, {
     //需要Post的数据项
     "formData": {
       'travelDate': '',                 //出行时间(string,required) 2017-11-05
-      'linkMan': '',                    //订单联系人（string,required） 张三
-      'linkTel': '',                    //订单联系电话(string,required) 18971122495
+      'linkMan': '高勇',                    //订单联系人（string,required） 张三
+      'linkTel': '18600024911',                    //订单联系电话(string,required) 18971122495
       'linkEmail': '',                  //联系人邮件(string,required) drk@163.com
       'weixin': '',                     //微信(string,required), wx1233
       'isInternational': 0,             //境内还是境外 1境内，2境外(number,required)
-      'categroy': '',                   //目的地(string,required), 湖北
+      'categroy': '冰岛',                   //目的地(string,required), 湖北
       'tourers': {                      //出行人信息(array,required)
         "subNum": {
           'child': 0,                   //小孩数量
-          'adult': 0,                   //成人数量
+          'adult': 200,                   //成人数量
         },
       },
-      'day': '',                        //出行天数(number,required),
-      'travelDate': '',                 //出发日期(string,required), 2017-12-01
-      'backDate': '',                   //返回日期(string,required), 2017-12-15
-      'fromCity': '',                   //出发城市(string,required), 武汉
-      'toCity': '',                     //抵达城市(string,required),  武汉
-      'characteristic': '',             //(string,required),黄鹤楼
+      'day': '700',                        //出行天数(number,required),
+      'travelDate': '2017-12-01',                 //出发日期(string,required), 2017-12-01
+      'backDate': '2018-12-01',                   //返回日期(string,required), 2017-12-15
+      'fromCity': '西安',                   //出发城市(string,required), 武汉
+      'toCity': '火星',                     //抵达城市(string,required),  武汉
+      'characteristic': '玩的城市',             //(string,required),黄鹤楼
       'agentId': app.constant.agentId,  //代理商ID(number,required),
       'tradeId': app.constant.tradeId,  //系统来源,10悦旅汇，20小程序(number,required),
       'planeTicket': {                  //机票要求

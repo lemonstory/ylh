@@ -5,7 +5,7 @@
     <view class="box">
       <view class="box-left">
         <view class="star">*</view>姓名</view>
-      <input class="input" placeholder="如： 张无忌" placeholder-style="font-size:28rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);" bindinput='bindInputValueChange' id="linkMan" value='{{formData.linkMan}}' ></input>
+      <input class="input" placeholder="如： 张无忌" placeholder-style="font-size:28rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);" bindinput='bindInputValueChange' id="linkMan" value='{{formData.linkMan}}'></input>
       <view class="close hide{{formData.linkMan != ''?'show':''}}" bindtap='handleTapClearInput' data-id="linkMan">
         <image style='width:36rpx;height:36rpx; margin-left:40rpx;' src='../image/close.png'></image>
       </view>
@@ -23,7 +23,7 @@
 
     <view class="box">
       <view class="box-left" style='padding-left:15rpx; box-sizing:border-box;'>邮箱地址</view>
-      <input class="input" placeholder="请输入邮箱地址" placeholder-style="font-size:28rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);"  bindinput='bindInputValueChange' id="linkEmail" value='{{formData.linkEmail}}'></input>
+      <input class="input" placeholder="请输入邮箱地址" placeholder-style="font-size:28rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);" bindinput='bindInputValueChange' id="linkEmail" value='{{formData.linkEmail}}'></input>
       <view class="close hide{{formData.linkEmail != ''?'show':''}}" bindtap='handleTapClearInput' data-id="linkEmail">
         <image style='width:36rpx;height:36rpx; margin-left:40rpx;' src='../image/close.png'></image>
       </view>
@@ -32,7 +32,7 @@
 
     <view class="box">
       <view class="box-left" style='padding-left:15rpx;box-sizing: border-box;'>微信号</view>
-      <input class="input" placeholder="请输入微信号" placeholder-style="font-size:28rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);"  bindinput='bindInputValueChange' id="weixin" value="{{formData.weixin}}"></input>
+      <input class="input" placeholder="请输入微信号" placeholder-style="font-size:28rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);" bindinput='bindInputValueChange' id="weixin" value="{{formData.weixin}}"></input>
       <view class="close hide{{formData.weixin != ''?'show':''}}" bindtap='handleTapClearInput' data-id="weixin">
         <image style='width:36rpx;height:36rpx; margin-left:40rpx;' src='../image/close.png'></image>
       </view>
@@ -74,7 +74,7 @@
     <view class="box">
       <view class="box-left">
         <view class="star">*</view>出行天数</view>
-      <input class="input" type="number" placeholder="请输入出行天数" placeholder-style="font-size:28rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);" bindinput='bindInputValueChange' id="day" value="{{formData.day}}"  ></input>
+      <input class="input" type="number" placeholder="请输入出行天数" placeholder-style="font-size:28rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);" bindinput='bindInputValueChange' id="day" value="{{formData.day}}"></input>
       <view class="close hide{{formData.day != ''?'show':''}}" bindtap='handleTapClearInput' data-id="day">
         <image style='width:36rpx;height:36rpx; margin-left:40rpx;' src='../image/close.png'></image>
       </view>
@@ -106,7 +106,7 @@
     <view class="box">
       <view class="box-left">
         <view class="star">*</view>出发城市</view>
-      <input class="input" placeholder="请输入出发城市" placeholder-style="font-size:28rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);" bindinput='bindInputValueChange' id="fromCity" value='{{formData.fromCity}}' ></input>
+      <input class="input" placeholder="请输入出发城市" placeholder-style="font-size:28rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);" bindinput='bindInputValueChange' id="fromCity" value='{{formData.fromCity}}'></input>
       <view class="close hide{{formData.fromCity != ''?'show':''}}" bindtap='handleTapClearInput' data-id="fromCity">
         <image style='width:36rpx;height:36rpx; m argin-left:40rpx;' src='../image/close.png'></image>
       </view>
@@ -127,16 +127,13 @@
     </view>
 
     <view class="settion">
-      <textarea placeholder="请输入您想玩的景点" placeholder-style="font-size:28rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);" style='width:690rpx;height:260rpx;margin-left:30rpx;margin-right:30rpx;border:1rpx solid #eee; padding-left:30rpx;padding-top:30rpx;box-sizing: border-box; border-radius: 10rpx;' bindinput='bindInputValueChange' id="characteristic" value='{{formData.characteristic}}'
-      />
+      <textarea placeholder="请输入您想玩的景点" placeholder-style="font-size:28rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);" style='width:690rpx;height:260rpx;margin-left:30rpx;margin-right:30rpx;border:1rpx solid #eee; padding-left:30rpx;padding-top:30rpx;box-sizing: border-box; border-radius: 10rpx;'
+        bindinput='bindInputValueChange' id="characteristic" value='{{formData.characteristic}}' />
     </view>
 
-    <!-- <navigator url="../air-ticket/air-ticket"> -->
-      <view class="bottom" bindtap='handleTapNext'>下一步</view>
-    <!-- </navigator> -->
-
+    <view class="bottom" bindtap='handleTapNext'>下一步</view>
   </view>
 
-    <!-- 直接使用 zan-toast 模板，并且直接传入 zanToast -->
+  <!-- 直接使用 zan-toast 模板，并且直接传入 zanToast -->
   <template is="zan-toast" data="{{ zanToast }}"></template>
 </view>

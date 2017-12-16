@@ -1,57 +1,46 @@
 <!--pages/API/air-ticket/air-ticket.wxml-->
+<import src="/zanui-weapp/dist/toast/index.wxml" />
 <view class="container ">
   <view class="main">
     <view class="air-ask">机票要求</view>
-  
-      <view class="air-type" bindtap="onChangeShowState">
-        <view class="type-left">{{[depotOptions[currentDepotOptionIndex]]}}</view>
-        <view class="type-right">
-          <image src="http://image.365zhiding.com/wxapp/20171121/xia.png" class="{{isShowOptionsView?'rotate':''}}"></image>
-        </view>
-      </view>
-      <view class="hidden hide{{isShowOptionsView?'show':''}}">
-        <view class="hidden-li {{id==currentDepotOptionIndex?'choosedbtn':'choosenobtn'}}" wx:for="{{depotOptions}}" wx:for-item="item" wx:for-index="id" data-id="{{id}}" bindtap="chooseItem">
-          {{item}}
-        </view>
-      </view>
-   
 
-    <view class="air-type"  bindtap="onChangeShow">
-      <view class="type-left">{{flatOptions[currentFlatOptionIndex]}}</view>
+    <view class="air-type" bindtap="onChangePlaneTicketShippingSpacesViewShow">
+      <view class="type-left">{{currentPlaneTicketShippingSpaceTitle != '' ? currentPlaneTicketShippingSpaceTitle : '请选择' }}</view>
       <view class="type-right">
-        <image src="http://image.365zhiding.com/wxapp/20171121/xia.png" class="{{isShowView?'rotate':''}}"></image>
+        <image src="http://image.365zhiding.com/wxapp/20171121/xia.png" class="{{isShowPlaneTicketShippingSpacesView?'rotate':''}}"></image>
+      </view>
+    </view>
+    <view class="hidden hide{{isShowPlaneTicketShippingSpacesView?'show':''}}">
+      <view class="hidden-li {{item.id == currentPlaneTicketShippingSpaceId?'choosedbtn':'choosenobtn'}}" wx:for="{{constant.planeTicketShippingSpace}}" wx:key="constant.planeTicketShippingSpace" wx:for-item="item" wx:for-index="idx" data-id="{{item.id}}" data-title="{{item.title}}" bindtap="handleChoosePlaneTicketShippingSpace">
+        {{item.title}}
       </view>
     </view>
 
-    
-    <view class="hidden hide{{isShowView?'show':''}}">
-        <view class="hidden-li {{id==currentFlatOptionIndex?'choosedbtn':'choosenobtn'}}" wx:for="{{flatOptions}}" wx:for-item="item" wx:for-index="id" data-id="{{id}}" bindtap="chooseItemFlat">
-          {{item}}
-        </view>
+    <view class="air-type" bindtap="onChangePlaneTicketTypeViewShow">
+      <view class="type-left">{{currentPlaneTicketTypeTypeTitle != '' ? currentPlaneTicketTypeTypeTitle : '请选择' }}</view>
+      <view class="type-right">
+        <image src="http://image.365zhiding.com/wxapp/20171121/xia.png" class="{{isShowPlaneTicketTypeView?'rotate':''}}"></image>
       </view>
+    </view>
 
-
-
-
-
-
-
-
-
+    <view class="hidden hide{{isShowPlaneTicketTypeView?'show':''}}">
+      <view class="hidden-li {{item.id == currentPlaneTicketTypeId?'choosedbtn':'choosenobtn'}}" wx:for="{{constant.planeTicketType}}" wx:key="constant.planeTicketType" wx:for-item="item" wx:for-index="idx" data-id="{{item.id}}" data-title="{{item.title}}" bindtap="handleChoosePlaneTicketType">
+        {{item.title}}
+      </view>
+    </view>
 
     <view class="air-ask zhiding">指定航空公司：</view>
     <view class="settion">
-      <textarea placeholder="请输入您指定的航空公司" placeholder-style="font-size:28rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);" style='width:690rpx;height:260rpx;margin-left:30rpx;margin-right:30rpx;border:1rpx solid #eee; padding-left:30rpx;padding-top:30rpx;box-sizing: border-box; border-radius: 10rpx;margin-bottom:30rpx;'
+      <textarea placeholder="请输入您指定的航空公司" bindinput="handleAppointInput" placeholder-style="font-size:28rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);" style='width:690rpx;height:260rpx;margin-left:30rpx;margin-right:30rpx;border:1rpx solid #eee; padding-left:30rpx;padding-top:30rpx;box-sizing: border-box; border-radius: 10rpx;margin-bottom:30rpx;'
       />
     </view>
   </view>
 
-
-
   <view class="bottom">
-    <view class="bottom-left" bindtap='back'>上一步</view>
-    <view class="bottom-right">
-      <navigator url="../hotel-require/hotel-require">下一步</navigator>
-    </view>
+    <view class="bottom-left" bindtap='handleTapPreStep'>上一步</view>
+    <view class="bottom-right" bindtap='handleTapNextStep'>下一步</view>
   </view>
+
+  <!-- 直接使用 zan-toast 模板，并且直接传入 zanToast -->
+  <template is="zan-toast" data="{{ zanToast }}"></template>
 </view>

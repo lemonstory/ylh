@@ -4,32 +4,6 @@
   <view class="main">
     <view class="air-ask">酒店要求</view>
 
-    <!-- <view class="air-type" bindtap="onChangeShowState">
-      <view class="type-left">{{[hotelOptions[currentHotelOptionIndex]]}}</view>
-      <view class="type-right">
-        <image src="http://image.365zhiding.com/wxapp/20171121/xia.png" class="{{isShowOptionsView?'rotate':''}}"></image>
-      </view>
-    </view>
-    <view class="hidden hide{{isShowOptionsView?'show':''}}">
-      <view class="hidden-li {{id==currentHotelOptionIndex?'choosedbtn':'choosenobtn'}}" wx:for="{{hotelOptions}}" wx:for-item="item" wx:for-index="id" data-id="{{id}}" bindtap="chooseItem">
-        {{item}}
-      </view>
-    </view>
-
-
-
-    <view class="air-type" bindtap="onChangeShow">
-      <view class="type-left">{{starFilterTitle}}</view>
-      <view class="type-right">
-        <image src="http://image.365zhiding.com/wxapp/20171121/xia.png" class="{{isShowView?'rotate':''}}"></image>
-      </view>
-    </view>
-    <view class="hidden hide{{isShowView?'show':''}}">
-      <view class="hidden-li {{id==currentStarOptionIndex?'choosedbtn':'choosenobtn'}}" wx:for="{{starOptions}}" wx:for-item="item" wx:for-index="id" data-id="{{id}}" bindtap="chooseItemStar">
-        {{item}}
-      </view>
-    </view> -->
-
     <view class="air-type" bindtap="onChangeHotelTypeViewShow">
       <view class="type-left">{{currentHotelTypeTitle != '' ? currentHotelTypeTitle : '请选择' }}</view>
       <view class="type-right">

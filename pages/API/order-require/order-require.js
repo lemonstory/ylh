@@ -40,8 +40,8 @@ Page(Object.assign({}, Toast, {
         'appoint': '',                  //指定酒店(string,required)
       },
       'cars': {                         //车辆要求
-        'sites': 1,                     //座位数量(number,required),
-        'type': 1,                    //类型(1司导分离,2司兼导)(number,required)
+        'sites': 0,                     //座位数量(number,required),
+        'type': 0,                    //类型(1司导分离,2司兼导)(number,required)
         'appoint': '',                //指定车型(string,required),  
       },
       'food': {

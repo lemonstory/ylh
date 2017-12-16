@@ -12,6 +12,8 @@ Page(Object.assign({}, Toast, {
     currentPlaneTicketTypeId: '',
     currentPlaneTicketTypeTypeTitle: '',
 
+    currentAppointValue:'',
+
     isShowPlaneTicketTypeView: false,
     isShowPlaneTicketShippingSpacesView: false,
   },
@@ -24,17 +26,31 @@ Page(Object.assign({}, Toast, {
 
     var that = this;
 
-    //设置仓位,机型要求默认数据
-    // var defaultPlaneTicketShippingSpace = app.constant.planeTicketShippingSpace[0];
-    // var defaultPlaneTicketType = app.constant.planeTicketType[0];
+    //将上一页的数据在显示在当前页面
+    var pages = getCurrentPages();
+    var currPage = pages[pages.length - 1];   //当前页面
+    var prevPage = pages[pages.length - 2];  //上一个页面
 
-    // that.setData({
-    //   currentPlaneTicketShippingSpaceId: defaultPlaneTicketShippingSpace.id,
-    //   currentPlaneTicketShippingSpaceTitle: defaultPlaneTicketShippingSpace.title,
+    var prevPageFormDataTemp = prevPage.data.formData;
 
-    //   currentPlaneTicketTypeId: defaultPlaneTicketType.id,
-    //   currentPlaneTicketTypeTypeTitle: defaultPlaneTicketType.title,
-    // });
+    var defaultPlaneTicketShippingSpaceId = prevPageFormDataTemp.planeTicket.ShippingSpace;
+    var defaultPlaneTicketShippingSpaceTitle = util.getTitleWithId(app.constant.planeTicketShippingSpace,defaultPlaneTicketShippingSpaceId)
+
+    var defaultPlaneTicketTypeId = prevPageFormDataTemp.planeTicket.type;
+    var defaultPlaneTicketTypeTitle = util.getTitleWithId(app.constant.planeTicketType, defaultPlaneTicketTypeId)
+
+    var defaultAppointValue = prevPageFormDataTemp.planeTicket.appoint;
+
+
+    that.setData({
+      currentPlaneTicketShippingSpaceId: defaultPlaneTicketShippingSpaceId,
+      currentPlaneTicketShippingSpaceTitle: defaultPlaneTicketShippingSpaceTitle,
+
+      currentPlaneTicketTypeId: defaultPlaneTicketTypeId,
+      currentPlaneTicketTypeTypeTitle: defaultPlaneTicketTypeTitle,
+
+      currentAppointValue: defaultAppointValue
+    });
 
   },
 

@@ -29,7 +29,6 @@ Page(Object.assign({}, Toast, {
         'checkedIds': passengerIdArrTemp
       })
     }
-    that.getData();
   },
 
   /**
@@ -44,6 +43,8 @@ Page(Object.assign({}, Toast, {
    */
   onShow: function () {
 
+    var that = this;
+    that.getData();
   },
 
   /**

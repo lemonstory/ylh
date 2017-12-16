@@ -44,9 +44,6 @@ var constant = {
 
   //性别
   "gender": [{
-    id: '0',
-    title: '未知'
-  }, {
     id: '1',
     title: '男'
   }, {

@@ -1,8 +1,11 @@
 // pages/API/search/search.js
 const app = getApp();
+var searchValue = '';
 Page({
      data: {
-          'constant': app.constant
+          'constant': app.constant,
+           centent_Show: true,
+           searchValue: '', 
      },
      onLoad: function (options) {
 
@@ -16,14 +19,14 @@ Page({
       * 生命周期函数--监听页面初次渲染完成
       */
      onReady: function () {
-          this.getData();
+      
      },
 
      /**
       * 生命周期函数--监听页面显示
       */
      onShow: function () {
-
+      this.bindSearch();
      },
 
      /**
@@ -60,22 +63,51 @@ Page({
      onShareAppMessage: function () {
 
      },
-getData:function () {
-          var that = this;
-          var url = that.data.constant.domain + '/distrbuter/search/getHotAreaList';
-          console.log("url = " + url);
-          wx.request({
-               url: url,
-               data: {},
-               header: {
-                    'content-type': 'application/json',
-               },
-               success: function (res) {
-                    console.log(res.data);
-                    that.setData(res.data);
+     bindSearch: function (e) {
+     var id = e.currentTarget.dataset.id;
+     console.log(id)
+     var that = this;
+     var url = that.data.constant.domain + '/distrbuter/search/getHotAreaList/1';
+     console.log(url);
+     wx.request({
+          url: url,
+          data: {},
+          header: {
+               'content-type': 'application/json',
+          },
+          success: function (res) {
+               if (res.data.length == 0) {
+                    console.log(nonoono)
+                    that.setData({
+                         centent_Show: false,
+                    });
                }
-          })
-     },
+               that.setData({
+                    
+               });
+          },
+          fail: function (e) {
+               wx.showToast({
+                    title: '网络异常！',
+                    duration: 2000
+               });
+          },
+     });
+} ,
+
+searchValueInput: function (e) {
+     var value = e.detail.value;
+     this.setData({
+          searchValue: value,
+     });
+     if (!value && this.data.lineList.length == 0) {
+          this.setData({
+               centent_Show: false,
+          });
+     }
+},  
+ 
+
 
 bindSearchAdDetail:function(event){
      var id = event.currentTarget.dataset.id;

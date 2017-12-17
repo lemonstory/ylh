@@ -52,7 +52,7 @@ Page(Object.assign({}, Toast, {
       },
       'activity': {
         'title': '',                    //活动名称(string,required)
-        'InvitationType': 1,             //邀请函类型(1邀请函客人自备,2邀请函我司提供(number,required)
+        'InvitationType': 0,            //邀请函类型(1邀请函客人自备,2邀请函我司提供(number,required)
       },
       'visa': {
         'reason': 1,                    //签证原因(1因公，2因私)(number,required)

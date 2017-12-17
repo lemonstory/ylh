@@ -53,7 +53,6 @@ Page(Object.assign({}, Toast, {
 
     var defaultAppointValue = prevPageFormDataTemp.hotel.appoint;
 
-
     that.setData({
       currentHotelTypeId: defaultHotelTypeId,
       currentHotelTypeTitle: defaultHotelTypeTitle,

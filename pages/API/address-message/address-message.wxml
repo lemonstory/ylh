@@ -24,8 +24,8 @@
 
     <block wx:for="{{checkedPassengerList}}" wx:key="checkedPassengerList" wx:for-index="idx" wx:for-item="listItem">
       <view class="message">
-        <view class="person-message" wx:if="{{listItem.ageGroup == 2}}">儿童 {{idx + 1}}:</view>
-        <view class="person-message" wx:if="{{listItem.ageGroup == 3}}">成人 {{idx + 1}}:</view>
+        <view class="person-message" wx:if="{{listItem.ageGroup == 2}}">儿童 :</view>
+        <view class="person-message" wx:if="{{listItem.ageGroup == 3}}">成人 :</view>
         <view class="message-detail">
           <view class="mess-name">姓名：{{listItem.name}}</view>
           <view class="mess-name" wx:if="{{listItem.cardType == 1}}">身份证：{{listItem.cardNumber}} </view>
@@ -74,7 +74,7 @@
   <view class="fapiao-box">
     <view class="fapiao">
       <view class="fapiao-text">开具发票</view>
-      <view class="fapiao-pay">（快递费¥20）</view>
+      <view class="fapiao-pay">（快递费¥{{postage/100}}）</view>
       <radio class="fapiao-radio" color='#FF6600'></radio>
     </view>
     <view class="fapiao-type">
@@ -131,19 +131,19 @@
         </view>
         <view class="item">
           <view class="text">成人费用</view>
-          <view class="item-price">￥899*2</view>
+          <view class="item-price">￥{{adultprice/100}}*{{formData.tourers.subNum.adult}}</view>
         </view>
         <view class="item">
           <view class="text">儿童费用</view>
-          <view class="item-price">￥899*2</view>
+          <view class="item-price">￥{{childprice/100}}*{{formData.tourers.subNum.child}}</view>
         </view>
         <view class="item">
           <view class="text">单房差</view>
-          <view class="item-price">￥34</view>
+          <view class="item-price">￥{{adultprice/100}}</view>
         </view>
         <view class="item ">
           <view class="text">发票快递费</view>
-          <view class="item-price">￥50</view>
+          <view class="item-price">￥{{postage/100}}</view>
         </view>
       </action-sheet>
       <!-- </block>  -->

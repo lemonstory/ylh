@@ -56,8 +56,10 @@ Page(Object.assign({}, Toast, {
     'title': '',                     //标题
     'day': 0,                        //行程-几天
     'night': 0,                      //行程-几晚
-    'difference': 0,                  //单房差
-    "postage": 0,                    //邮费
+    'difference': 0,                 //单房差
+    "adultprice":0,                  //成人费用
+    "childprice":0,                  //儿童费用
+    "postage":0                      //快递费用                       
   },
 
   /**
@@ -106,7 +108,9 @@ Page(Object.assign({}, Toast, {
       //是否包含老人(number,required)
       'isIncludeOld': 1,
 
-      //TODO:快递费
+      "adultprice": 200,                  //成人费用
+      "childprice": 100,                  //儿童费用
+      "postage": 20                      //快递费用   
     }
 
 
@@ -121,6 +125,9 @@ Page(Object.assign({}, Toast, {
         day: lineDetail.day,
         night: lineDetail.night,
         difference: lineDetail.difference,
+        adultprice: lineDetail.adultprice,
+        childprice: lineDetail.childprice,
+        postage: lineDetail.postage,
         'formData.travelDate': lineDetail.travelDate,
         'formData.amount': lineDetail.amount,
         'formData.tourers.subNum.child': lineDetail.tourers.subNum.child,
@@ -152,11 +159,9 @@ Page(Object.assign({}, Toast, {
       var passengerIdArrTemp = [];
       var passengerIdStrTemp = '';
       var checkedPassengerListTemp = that.data.checkedPassengerList;
+
       for (var i = 0; i < checkedPassengerListTemp.length; i++) {
         passengerIdArrTemp.push(checkedPassengerListTemp[i].id);
-
-        
-
       }
       passengerIdStrTemp = passengerIdArrTemp.join(',')
       that.setData({

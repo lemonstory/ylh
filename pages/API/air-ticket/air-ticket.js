@@ -1,38 +1,35 @@
-// pages/API/air-ticket/air-ticket.js
+pages/API/air-ticket/air-ticket.js
 const app = getApp();
 const Toast = require('../../../zanui-weapp/dist/toast/index');
 var util = require('../../../utils/util.js')
 Page(Object.assign({}, Toast, {
   data: {
-
     'constant': app.constant,
     currentPlaneTicketShippingSpaceId: '',
     currentPlaneTicketShippingSpaceTitle: '',
-
     currentPlaneTicketTypeId: '',
     currentPlaneTicketTypeTypeTitle: '',
-
     currentAppointValue:'',
-
     isShowPlaneTicketTypeView: false,
     isShowPlaneTicketShippingSpacesView: false,
+    currentPlaneTicketShippingSpaceId: defaultPlaneTicketShippingSpaceId,
+    currentPlaneTicketShippingSpaceTitle: defaultPlaneTicketShippingSpaceTitle,
+    currentPlaneTicketTypeId: defaultPlaneTicketTypeId,
+    currentPlaneTicketTypeTypeTitle: defaultPlaneTicketTypeTitle,
+    currentAppointValue: defaultAppointValue
   },
-
-  /**
+/**
      * 生命周期函数--监听页面加载
      */
-  onLoad: function (options) {
+onLoad: function (options) {
     // 生命周期函数--监听页面加载
-
-    var that = this;
-
+var that = this;
     //将上一页的数据在显示在当前页面
     var pages = getCurrentPages();
     var currPage = pages[pages.length - 1];   //当前页面
     var prevPage = pages[pages.length - 2];  //上一个页面
 
     var prevPageFormDataTemp = prevPage.data.formData;
-
     var defaultPlaneTicketShippingSpaceId = prevPageFormDataTemp.planeTicket.ShippingSpace;
     var defaultPlaneTicketShippingSpaceTitle = util.getTitleWithId(app.constant.planeTicketShippingSpace,defaultPlaneTicketShippingSpaceId)
 
@@ -43,7 +40,6 @@ Page(Object.assign({}, Toast, {
 
 
     that.setData({
-<<<<<<< HEAD
       isShowOptionsView: !this.data.isShowOptionsView,
     })
   },
@@ -53,67 +49,8 @@ Page(Object.assign({}, Toast, {
       isShowView: (!this.data.isShowView),
       })
 },
-=======
-      currentPlaneTicketShippingSpaceId: defaultPlaneTicketShippingSpaceId,
-      currentPlaneTicketShippingSpaceTitle: defaultPlaneTicketShippingSpaceTitle,
->>>>>>> 64eabf6e55eff8bd99445162a6b1c4764c48bc53
-
-      currentPlaneTicketTypeId: defaultPlaneTicketTypeId,
-      currentPlaneTicketTypeTypeTitle: defaultPlaneTicketTypeTitle,
-
-      currentAppointValue: defaultAppointValue
-    });
-
-  },
-
-  /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  },
+      
+   
 
 
 
@@ -206,7 +143,6 @@ Page(Object.assign({}, Toast, {
     console.log(prevPage.data.formData);
   },
 
-
   /**
    * 检查用户输入
    */
@@ -226,7 +162,6 @@ Page(Object.assign({}, Toast, {
 
     console.log(parseInt(that.data.currentPlaneTicketShippingSpaceId));
     console.log(parseInt(that.data.currentPlaneTicketTypeId));
-
     return true;
 
   },

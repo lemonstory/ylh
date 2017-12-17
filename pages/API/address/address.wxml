@@ -47,10 +47,7 @@
           </view>
      </scroll-view>
 
-
-
-
-     <!--推举线路开始  -->
+<!--推举线路开始  -->
      <view class="section">
           <view class="tuijian">
                推荐线路

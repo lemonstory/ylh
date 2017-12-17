@@ -1,54 +1,93 @@
 <!--pages/API/add-person-message/add-person-message.wxml-->
+<import src="/zanui-weapp/dist/toast/index.wxml" />
 <view class="container">
-     <view class="main">
-          <view class="input_box">
-               中文名称：
-               <input class="input" placeholder='请输入中文姓名' placeholder-style="margin-left:5rpx;font-size:28rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);"></input>
-          </view>
+  <view class="main">
+    <view class="input_box">
+      中文名称：
+      <input class="input" bindinput="bindNameKeyInput" placeholder='请输入中文姓名' value="{{name}}" placeholder-style="margin-left:5rpx;font-size:28rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);"></input>
+    </view>
+    <view class="input_type" bindtap='toggleTitleBottomPopup'>
+      职业身份：{{passengerTitle}}
+      <image style="width:14rpx;height:24rpx; margin-left:20rpx;" src="http://image.365zhiding.com/wxapp/20171114/1.png"></image>
+    </view>
+    <view class="input_type" bindtap='toggleCardTypeBottomPopup'>
+      证件类型：{{cardTitle}}
+      <image style="width:14rpx;height:24rpx; margin-left:20rpx;" src="http://image.365zhiding.com/wxapp/20171114/1.png"></image>
+    </view>
+    <view class="input_box">
+      证件号码：
+      <input class="input" bindinput="bindCardNumberInput" placeholder='必填' value='{{cardNumber}}' placeholder-style="margin-left:5rpx;font-size:28rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);"></input>
+    </view>
+    <view class="input_sex">性别:
+      <view class="choice_box">
 
+        <!--性别单选 -开始-->
+        <view class="choice_sex">
+          <radio-group class="radio-group" bindchange="genderRadioChange">
+            <label class="radio" wx:for="{{constant.gender}}">
+              <radio value="{{item.id}}" checked="{{gender == item.id ? true : false}}" />{{item.title}}
+            </label>
+          </radio-group>
+        </view>
+        <!--性别单选 -结束-->
 
-          <view class="input_type">
-               证件类型：
-               <image style="width:14rpx;height:24rpx; margin-left:20rpx;" src="http://image.365zhiding.com/wxapp/20171114/1.png"></image>
+        <!--年龄分组 -开始-->
+        <view class="choice_age">
+          <radio-group class="radio-group" bindchange="ageGroupRadioChange">
+            <label class="radio" wx:for="{{constant.passengerAgeGroup}}">
+              <radio value="{{item.id}}" checked="{{ageGroup == item.id ? true : false}}" />{{item.title}}
+            </label>
+          </radio-group>
+        </view>
+        <!--年龄分组 -结束-->
 
-          </view>
+      </view>
+    </view>
 
+    <view class="input_box">
+      联系电话：
+      <input class="input" type='number' bindinput="bindMobileKeyInput" placeholder='必填' value='{{mobile}}' placeholder-style="margin-left:5rpx;font-size:28rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);"></input>
+    </view>
+  </view>
+  <button bindtap='handleDeleteTap'>删除</button>
+  <view class="bottom" bindtap='handleSaveTap'>保存</view>
 
-          <view class="input_box">
-               证件号码：
-               <input class="input" placeholder='必填' placeholder-style="margin-left:5rpx;font-size:28rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);"></input>
-          </view>
+  <!--证件类型Popup 开始-->
+  <view class="popup-example--bottom zan-popup zan-popup--bottom {{ isShowCardTypeBottomPopup ? 'zan-popup--show' : ''}}">
+    <view class="zan-popup__mask" catchtap="toggleCardTypeBottomPopup"></view>
+    <view class="zan-popup__container">
+      <view class="zan-btns">
+        <block wx:for="{{constant.passengerCardType}}" wx:key="{{passengerCardTypeList}}" wx:for-index="idx" wx:for-item="listItem">
+          <button class="zan-btn" data-id="{{listItem.id}}" data-title="{{listItem.title}}" catchtap="handleSeletedCardType">
+            {{listItem.title}}
+          </button>
+        </block>
+        <button class="zan-btn" catchtap="toggleCardTypeBottomPopup">
+          取消
+        </button>
+      </view>
+    </view>
+  </view>
+  <!--证件类型Popup 结束-->
 
-          <view class="input_sex">性别:
-               <view class="choice_box">
-                    <view class="choice_sex">
-                         <view class="checked">
-                              <view class="check-type"></view>男</view>
-                         <view class="checked" style='margin-left:120rpx'>
-                              <view class="uncheck-type"></view>女</view>
-                    </view>
-                    <view class="choice_age">
-                         <view class="checked">
-                              <view class="check-type"></view>成人</view>
-                         <view class="checked" style='margin-left:90rpx'>
-                              <view class="uncheck-type"></view>儿童</view>
-                    </view>
+  <!--职业身份Popup 开始-->
+  <view class="popup-example--bottom zan-popup zan-popup--bottom {{ isShowTitleBottomPopup ? 'zan-popup--show' : ''}}">
+    <view class="zan-popup__mask" catchtap="toggleTitleBottomPopup"></view>
+    <view class="zan-popup__container">
+      <view class="zan-btns">
+        <block wx:for="{{constant.passengerTitle}}" wx:key="{{passengerTitleList}}" wx:for-index="idx" wx:for-item="listItem">
+          <button class="zan-btn" data-id="{{listItem.id}}" data-title="{{listItem.title}}" catchtap="handleSeletedTitle">
+            {{listItem.title}}
+          </button>
+        </block>
+        <button class="zan-btn" catchtap="toggleTitleBottomPopup">
+          取消
+        </button>
+      </view>
+    </view>
+  </view>
+  <!--职业身份Popup 结束-->
 
-               </view>
-          </view>
-
-
-
-
-
-          <view class="input_box">
-               联系电话：
-               <input class="input" placeholder='必填' placeholder-style="margin-left:5rpx;font-size:28rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);"></input>
-          </view>
-
-     </view>
-
-
-
-     <view class="bottom" bindtap='back'>保存</view>
+  <!-- 直接使用 zan-toast 模板，并且直接传入 zanToast -->
+  <template is="zan-toast" data="{{ zanToast }}"></template>
 </view>

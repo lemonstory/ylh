@@ -102,10 +102,7 @@ Page({
           })
      },
 
-
-
-
-     bindBlur: function (e) {
+bindBlur: function (e) {
           inputContent[e.currentTarget.id] = e.detail.value
      },
      changeIndicatorDots: function (e) {

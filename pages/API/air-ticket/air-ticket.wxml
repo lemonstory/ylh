@@ -42,7 +42,6 @@
     <view class="bottom-right">
       <navigator url="../hotel-require/hotel-require">下一步</navigator>
     </view>
-=======
     </view>
 
     <view class="air-ask zhiding">指定航空公司：</view>
@@ -55,7 +54,6 @@
   <view class="bottom">
     <view class="bottom-left" bindtap='handleTapPreStep'>上一步</view>
     <view class="bottom-right" bindtap='handleTapNextStep'>下一步</view>
->>>>>>> 64eabf6e55eff8bd99445162a6b1c4764c48bc53
   </view>
 
   <!-- 直接使用 zan-toast 模板，并且直接传入 zanToast -->

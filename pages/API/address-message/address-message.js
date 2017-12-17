@@ -73,10 +73,7 @@ Page(Object.assign({}, Toast, {
   onLoad: function (options) {
 
     var that = this;
-<<<<<<< HEAD
 
-  },
-=======
     //接收从上一个的传值
     //数据示例
     options.lineDetail = {
@@ -141,7 +138,6 @@ Page(Object.assign({}, Toast, {
   
 
 },
->>>>>>> 80ed853eb3619f354fa3817412eb05852c0bbf79
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -176,11 +172,8 @@ Page(Object.assign({}, Toast, {
         'passengerIdStr': ''
       })
     }
-
-<<<<<<< HEAD
-=======
     console.log(that.data.formData);
->>>>>>> 80ed853eb3619f354fa3817412eb05852c0bbf79
+
   },
 
   /**

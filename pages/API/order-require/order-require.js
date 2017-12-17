@@ -55,8 +55,8 @@ Page(Object.assign({}, Toast, {
         'InvitationType': 0,            //邀请函类型(1邀请函客人自备,2邀请函我司提供(number,required)
       },
       'visa': {
-        'reason': 1,                    //签证原因(1因公，2因私)(number,required)
-        'type': 1,                      //签证类型(1个人旅游签,2ADS团队旅游签,3商签)(number,required)
+        'reason': 0,                    //签证原因(1因公，2因私)(number,required)
+        'type': 0,                      //签证类型(1个人旅游签,2ADS团队旅游签,3商签)(number,required)
       }
     },
 

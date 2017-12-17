@@ -23,6 +23,15 @@ function isMobile(value) {
   return true;
 }
 
+function isEmail(value) {
+
+  var pattern = /^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$/;
+  if (!pattern.test(value)) {
+    return false;
+  }
+  return true;
+}
+
 function getTitleWithId(mapArr,idValue) {
 
   var title = '';
@@ -35,9 +44,12 @@ function getTitleWithId(mapArr,idValue) {
   return title;
 }
 
+
+
 module.exports = {
   formatTime: formatTime,
   isMobile: isMobile,
+  isEmail: isEmail,
   getTitleWithId: getTitleWithId,
 }
 

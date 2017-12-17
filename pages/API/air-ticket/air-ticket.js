@@ -43,20 +43,8 @@ Page(Object.assign({}, Toast, {
 
 
     that.setData({
-// <<<<<<< HEAD
-//       isShowOptionsView: !this.data.isShowOptionsView,
-//     })
-//   },
-//   onChangeShow: function () {
-//    var that = this;
-//     that.setData({
-//       isShowView: (!this.data.isShowView),
-//       })
-// },
-// =======
       currentPlaneTicketShippingSpaceId: defaultPlaneTicketShippingSpaceId,
       currentPlaneTicketShippingSpaceTitle: defaultPlaneTicketShippingSpaceTitle,
-// >>>>>>> 64eabf6e55eff8bd99445162a6b1c4764c48bc53
 
       currentPlaneTicketTypeId: defaultPlaneTicketTypeId,
       currentPlaneTicketTypeTypeTitle: defaultPlaneTicketTypeTitle,
@@ -248,7 +236,7 @@ Page(Object.assign({}, Toast, {
     
     var that = this;
     var url = '../hotel-require/hotel-require';
-    wx: wx.redirectTo({
+    wx.redirectTo({
       url: url,
       success: function (res) { },
       fail: function (res) {

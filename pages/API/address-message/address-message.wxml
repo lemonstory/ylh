@@ -1,18 +1,19 @@
 <!--pages/API/address-message/address-message.wxml-->
+<import src="/zanui-weapp/dist/toast/index.wxml" />
 <view class="container">
-    
+
   <!--出行时间开始  -->
   <view class="go">
-    <view class="go-time">出行时间：2017-10-20</view>
-    <view class="go-add">周庄古镇、苏州园林 纯玩2日巴士跟团游（[天天发车车周庄古镇、苏州园林</view>
-    <view class="go-plan">行程：2天1晚</view>
+    <view class="go-time">出行时间：{{formData.travelDate}}</view>
+    <view class="go-add">{{title}}</view>
+    <view class="go-plan">行程：{{day}}天{{night}}晚</view>
   </view>
   <!--出行时间结束  -->
 
   <!--选择出行人数开始  -->
   <view class="choice">
     <view class="person">选择出行人数</view>
-    <view class="choice-num">2成人 1儿童</view>
+    <view class="choice-num">{{formData.tourers.subNum.adult}}成人 {{formData.tourers.subNum.child}}儿童</view>
     <view class="choice-num">是否包含1岁以下的婴儿</view>
     <view class="choice-num">是否包含70岁以上的老人</view>
     <navigator url="../choice-person/choice-person?passengerIdStr={{passengerIdStr}}">
@@ -43,7 +44,7 @@
   <view class="lianxi-box">
     <view class="lianxi-message">联系人信息</view>
     <view class="input-name">姓名：
-      <input class="input"  placeholder="必填" placeholder-style="font-size:26rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);" style='padding-left:82rpx; box-sizing: border-box;' bindinput='bindInputValueChange' id="formData.linkMan" value='{{formData.linkMan}}'>></input>
+      <input class="input" placeholder="必填" placeholder-style="font-size:26rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);" style='padding-left:82rpx; box-sizing: border-box;' bindinput='bindInputValueChange' id="formData.linkMan" value='{{formData.linkMan}}'>></input>
 
     </view>
     <view class="input-name">手机号：
@@ -62,7 +63,8 @@
   <view class="all-box">
     <view class="yufu">
       <view class="yufu-text">预付单房差</view>
-      <view class="yufu-money">+ ¥750</view>
+      <!-- 单房差是固定的，加号只是个标识，没有其他意义 -->
+      <view class="yufu-money">+ ¥{{difference/100}}</view>
     </view>
   </view>
   <!--全程单房差结束  -->
@@ -86,10 +88,12 @@
     </view>
 
     <view class="input-name">抬头：
-      <input class="input" placeholder="请输入抬头" placeholder-style="font-size:26rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);" style='padding-left:82rpx; box-sizing: border-box;' bindinput='bindInputValueChange' id="formData.orderBill.title" value='{{formData.orderBill.title}}'></input>
+      <input class="input" placeholder="请输入抬头" placeholder-style="font-size:26rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);" style='padding-left:82rpx; box-sizing: border-box;' bindinput='bindInputValueChange' id="formData.orderBill.title"
+        value='{{formData.orderBill.title}}'></input>
     </view>
     <view class="input-name">税号：
-      <input class="input" placeholder="请填写纳税人识别号" placeholder-style="font-size:26rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);" style='padding-left:82rpx; box-sizing: border-box;' bindinput='bindInputValueChange' id="formData.orderBill.taxNum" value='{{formData.orderBill.taxNum}}'></input>
+      <input class="input" placeholder="请填写纳税人识别号" placeholder-style="font-size:26rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);" style='padding-left:82rpx; box-sizing: border-box;' bindinput='bindInputValueChange' id="formData.orderBill.taxNum"
+        value='{{formData.orderBill.taxNum}}'></input>
     </view>
 
     <view class="shuoming">说明：所开发票为增值税普通发票，金额为实际支付的商品费用，内容为代办签证费。</view>
@@ -101,7 +105,7 @@
     <view class="fapiao">收货地址</view>
 
     <navigator url="../choice-address/choice-address?profileId={{profileId}}">
-      <view class="choice-add ">{{profile}}
+      <view class="choice-add ">{{formData.receiverAddress != '' ? formData.receiverAddress : defaultReceiverAddress}}
         <image class='back' src='http://image.365zhiding.com/wxapp/20171114/1.png' mode='widthFix'></image>
       </view>
     </navigator>
@@ -147,15 +151,11 @@
 
       <!-- 底部提示框结束 -->
 
-
-
-
-
-
-
     </view>
-    <view class="bottom-right">
-      <navigator url="../pay-confirm/pay-confirm">下一步</navigator>
-    </view>
+    <view class="bottom-right" bindtap='handleTapNextStep'>下一步</view>
   </view>
+
+  <!-- 直接使用 zan-toast 模板，并且直接传入 zanToast -->
+  <template is="zan-toast" data="{{ zanToast }}"></template>
+
 </view>

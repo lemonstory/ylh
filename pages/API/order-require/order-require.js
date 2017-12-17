@@ -29,19 +29,19 @@ Page(Object.assign({}, Toast, {
       'agentId': app.constant.agentId,  //代理商ID(number,required),
       'tradeId': app.constant.tradeId,  //系统来源,10悦旅汇，20小程序(number,required),
       'planeTicket': {                  //机票要求
-        'type': 1,                      //机型(1直达，2转机，99无要求)(number,required)
-        'ShippingSpace': 1,             //仓位(1经济舱，2公务舱，3头等舱)(number,required),
+        'type': 0,                      //机型(1直达，2转机，99无要求)(number,required)
+        'ShippingSpace': 0,             //仓位(1经济舱，2公务舱，3头等舱)(number,required),
         'appoint': '',                  //指定航空公司(string,required)
       },
       'hotel': {                        //酒店要求
-        'type': 1,                      //酒店类型（1国际连锁，2常规15km，3市区10km，4市中心5km，99无要求）(number,required),
-        'stars': 1,                     //星级（1三星，2四星，3五星）(number,required)
-        'roomStandard': 1,              //客房标准(1标准双人间，2单间，3套房)(number,required),
+        'type': 0,                      //酒店类型（1国际连锁，2常规15km，3市区10km，4市中心5km，99无要求）(number,required),
+        'stars': 0,                     //星级（1三星，2四星，3五星）(number,required)
+        'roomStandard': 0,              //客房标准(1标准双人间，2单间，3套房)(number,required),
         'appoint': '',                  //指定酒店(string,required)
       },
       'cars': {                         //车辆要求
-        'sites': 1,                     //座位数量(number,required),
-        'type': 1,                    //类型(1司导分离,2司兼导)(number,required)
+        'sites': 0,                     //座位数量(number,required),
+        'type': 0,                    //类型(1司导分离,2司兼导)(number,required)
         'appoint': '',                //指定车型(string,required),  
       },
       'food': {
@@ -52,11 +52,11 @@ Page(Object.assign({}, Toast, {
       },
       'activity': {
         'title': '',                    //活动名称(string,required)
-        'InvitationType': 1,             //邀请函类型(1邀请函客人自备,2邀请函我司提供(number,required)
+        'InvitationType': 0,            //邀请函类型(1邀请函客人自备,2邀请函我司提供(number,required)
       },
       'visa': {
-        'reason': 1,                    //签证原因(1因公，2因私)(number,required)
-        'type': 1,                      //签证类型(1个人旅游签,2ADS团队旅游签,3商签)(number,required)
+        'reason': 0,                    //签证原因(1因公，2因私)(number,required)
+        'type': 0,                      //签证类型(1个人旅游签,2ADS团队旅游签,3商签)(number,required)
       }
     },
 

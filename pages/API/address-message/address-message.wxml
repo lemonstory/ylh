@@ -1,5 +1,6 @@
 <!--pages/API/address-message/address-message.wxml-->
 <view class="container">
+    
   <!--出行时间开始  -->
   <view class="go">
     <view class="go-time">出行时间：2017-10-20</view>
@@ -42,14 +43,15 @@
   <view class="lianxi-box">
     <view class="lianxi-message">联系人信息</view>
     <view class="input-name">姓名：
-      <input class="input" placeholder="必填" placeholder-style="font-size:26rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);" style='padding-left:82rpx; box-sizing: border-box;'></input>
+      <input class="input"  placeholder="必填" placeholder-style="font-size:26rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);" style='padding-left:82rpx; box-sizing: border-box;' bindinput='bindInputValueChange' id="formData.linkMan" value='{{formData.linkMan}}'>></input>
+
     </view>
     <view class="input-name">手机号：
-      <input class="input" placeholder="请输入11位手机号码" placeholder-style="font-size:26rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);" style='padding-left:56rpx; box-sizing: border-box;'></input>
+      <input class="input" placeholder="请输入11位手机号码" placeholder-style="font-size:26rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);" style='padding-left:56rpx; box-sizing: border-box;' bindinput='bindInputValueChange' id="formData.linkTel" value='{{formData.linkTel}}'></input>
     </view>
 
     <view class="input-name">邮箱：
-      <input class="input" placeholder="请输入电子邮箱地址" placeholder-style="font-size:26rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);" style='padding-left:82rpx; box-sizing: border-box;'></input>
+      <input class="input" placeholder="请输入电子邮箱地址" placeholder-style="font-size:26rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);" style='padding-left:82rpx; box-sizing: border-box;' bindinput='bindInputValueChange' id="formData.linkEmail" value='{{formData.linkEmail}}'></input>
     </view>
   </view>
 
@@ -58,7 +60,6 @@
 
   <!--全程单房差开始  -->
   <view class="all-box">
-    <view class="quancheng">全程单房差</view>
     <view class="yufu">
       <view class="yufu-text">预付单房差</view>
       <view class="yufu-money">+ ¥750</view>
@@ -77,22 +78,21 @@
     <view class="fapiao-type">
       <view class="type-name">类型：</view>
 
-      <radio-group class="radio-group" bindchange="radioChange">
-        <label class="radio" wx:for="{{items}}">
-          <radio value="{{item.name}}" checked="{{item.checked}}" />{{item.value}}
+      <radio-group id="formData.orderBill.type" class="radio-group" bindchange="bindInputValueChange">
+        <label class="radio" wx:for="{{constant.orderBillType}}" wx:key="items">
+          <radio value="{{item.id}}" />{{item.title}}
         </label>
       </radio-group>
     </view>
 
     <view class="input-name">抬头：
-      <input class="input" placeholder="请输入抬头" placeholder-style="font-size:26rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);" style='padding-left:82rpx; box-sizing: border-box;'></input>
+      <input class="input" placeholder="请输入抬头" placeholder-style="font-size:26rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);" style='padding-left:82rpx; box-sizing: border-box;' bindinput='bindInputValueChange' id="formData.orderBill.title" value='{{formData.orderBill.title}}'></input>
     </view>
     <view class="input-name">税号：
-      <input class="input" placeholder="请填写纳税人识别号" placeholder-style="font-size:26rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);" style='padding-left:82rpx; box-sizing: border-box;'></input>
+      <input class="input" placeholder="请填写纳税人识别号" placeholder-style="font-size:26rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);" style='padding-left:82rpx; box-sizing: border-box;' bindinput='bindInputValueChange' id="formData.orderBill.taxNum" value='{{formData.orderBill.taxNum}}'></input>
     </view>
 
     <view class="shuoming">说明：所开发票为增值税普通发票，金额为实际支付的商品费用，内容为代办签证费。</view>
-    <view class="comfire">确定</view>
   </view>
   <!--开具发票结束  -->
 
@@ -114,7 +114,7 @@
   <view class="bottom">
     <view class="bottom-left">
       <view class='total'>总计：
-        <view class="total-money">￥1450</view>
+        <view class="total-money">￥{{formData.amount / 100}}</view>
       </view>
       <view class="mingxi" bindtap='actionSheetTap'>明细
         <image src="http://image.365zhiding.com/wxapp/20171121/shang.png" class="{{isShowOptionsView?'rotate':''}}" style='width:24rpx;height:14rpx'></image>
@@ -155,7 +155,7 @@
 
     </view>
     <view class="bottom-right">
-      <navigator url="../pay-confirm/pay-confirm">去付款</navigator>
+      <navigator url="../pay-confirm/pay-confirm">下一步</navigator>
     </view>
   </view>
 </view>

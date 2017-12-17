@@ -10,7 +10,7 @@ Page({
           show: false
      },
 
-     
+
 
      /**
       * 生命周期函数--监听页面加载
@@ -59,12 +59,12 @@ Page({
      callPhone: function () {
           wx.makePhoneCall({
                phoneNumber: '400-189-0876',
-              })
+          })
           var that = this;
           that.setData({
-          showView: false
+               showView: false
           })
-          },
+     },
      /**
        * 生命周期函数--监听页面隐藏
        */

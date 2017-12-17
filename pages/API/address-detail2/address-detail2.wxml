@@ -23,7 +23,7 @@
           </view>
      </view>
      <!--顶部结束  -->
-      <!-- 优惠开始 -->
+     <!-- 优惠开始 -->
      <view class="youhui" bindtap="change">
           <view class="youhui-img">
                <image src='http://image.365zhiding.com/wxapp/20171114/youhui.png'></image>
@@ -48,9 +48,7 @@
      <!-- 弹出框交互结束 -->
 
 
-
      <!-- 优惠结束 -->
-
      <!--出发开始  -->
      <view class="gobox">
           <view class="dingwei" bindtap="choiceAddress">
@@ -91,31 +89,23 @@
                </view>
                <view class="dingtext">出发日期：{{FilterData}}</view>
           </view>
-          
+
           <view class="dataform-box">
-          <scroll-view class="dataform" scroll-x="true">
-               <view class="dataul {{currentItem==item.id?'active_tag':''}}" wx:for="{{dataList}}" data-id='{{item.id}}' wx:key="id" bindtap="tagChooseData">
-                    <view class="riqi {{currentItem==item.id?'active':''}}">{{item.data}}</view>
-                    <view class="money">￥{{item.money}}</view>
-               </view>
-        </scroll-view>
-          
-              <view class="back11 ">
+               <scroll-view class="dataform" scroll-x="true">
+                    <view class="dataul {{currentItem==item.id?'active_tag':''}}" wx:for="{{dataList}}" data-id='{{item.id}}' wx:key="id" bindtap="tagChooseData">
+                         <view class="riqi {{currentItem==item.id?'active':''}}">{{item.data}}</view>
+                         <view class="money">￥{{item.money}}</view>
+                    </view>
+               </scroll-view>
+
+               <view class="back11 ">
                     <image src='http://image.365zhiding.com/wxapp/20171114/1.png'></image>
                </view>
-               </view>
-               </view>
-   
-         
-      
+          </view>
+     </view>
 
 
-
-
-
-
-
-     <!--领队开始  -->
+<!--领队开始  -->
      <view class="leader " bindtap='leaderintroduce'>
           <view class="person ">
                <image src="http://image.365zhiding.com/wxapp/20171114/ren.png "></image>
@@ -218,4 +208,3 @@
 
      </view>
 </view>
-

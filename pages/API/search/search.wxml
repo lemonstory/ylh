@@ -2,9 +2,9 @@
 <view class="container">
      <view class="main">
           <view class="search">
-               <input id="myInput" bindblur="bindBlur" placeholder='搜索国家或地区' placeholder-style='font-size:24rpx; color:#666;' style='padding-left:72rpx; box-sizing: border-box;'>
+               <input id="myInput" bindblur="bindBlur" placeholder='搜索国家或地区' placeholder-style='font-size:24rpx; color:#666;' style='padding-left:72rpx; box-sizing: border-box;' value="{{searchValue}}">
                </input>
-               <view class="cancel" bindtap='back'>取消</view>
+               <view class="cancel" bindtap='back'>{{}}</view>
           </view>
           <view class="route-hot">线路热搜目的地</view>
           <view class="add-url">

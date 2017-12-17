@@ -60,9 +60,9 @@ Page({
      onShareAppMessage: function () {
 
      },
-getData:function (type) {
+getData:function () {
           var that = this;
-          var url = that.data.constant.domain + '/distrbuter/search/getHotAreaList/'+type;
+          var url = that.data.constant.domain + '/distrbuter/search/getHotAreaList';
           console.log("url = " + url);
           wx.request({
                url: url,

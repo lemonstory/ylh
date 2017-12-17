@@ -112,25 +112,16 @@ swiper {
      height: 30rpx;
      width: 60rpx;
      margin-left: 20rpx;
-     background: #FF8533;
      margin-top: 8rpx;
      border-radius: 10rpx;
      display: flex;
      justify-content: center;
      align-items: center;
+     font-size: 20rpx;
+     color:#fff;
 }
 
-.baokuan {
-     height: 30rpx;
-     width: 60rpx;
-     margin-left: 20rpx;
-     background: #F26A6A;
-     margin-top: 8rpx;
-     border-radius: 10rpx;
-     display: flex;
-     justify-content: center;
-     align-items: center;
-}
+
 .banner-text1 {
      width: 361rpx;
      height: 23rpx;
@@ -154,13 +145,11 @@ swiper {
      bottom: 20rpx;
      z-index: 999;
 }
-
 .youhui {
      width: 750rpx;
      height: 96rpx;
      background: #fff2f2;
      position: relative;
-
 }
 
 .youhui-img {
@@ -921,3 +910,92 @@ box-sizing: border-box;
 
 
 /*normal样式结束  */
+
+
+/*选项卡开始  */
+.hidden-box{
+  width: 750rpx;
+  height:100vh;
+  position:absolute;
+  background: #000;
+  opacity: 0.4;
+  z-index: 99;
+  top:0;
+  left:0;
+}
+.hidden{
+width:540rpx;
+height:288rpx; 
+background:rgba(255,255,255,1);
+opacity:0.9;
+border-radius: 26rpx;
+position: absolute;
+top:35%;
+z-index: 999;
+left:15%;  
+}
+.hide{
+ display:none;
+}
+.xianshi{ 
+ display: block;
+}
+.hidden-text1{
+font-size:34rpx;
+font-family:PingFang-SC-Regular;
+color:rgba(0,0,0,1);
+line-height:40rpx;
+position: absolute;
+top:43rpx;
+left: 201rpx;
+}
+.hidden-text2{
+font-size:26rpx;
+font-family:PingFang-SC-Regular;
+color:rgba(17,17,17,1);
+position: absolute;
+top:101rpx;
+left:175rpx; 
+}
+.hidden-text3{
+font-size:26rpx;
+font-family:PingFang-SC-Regular;
+color:rgba(17,17,17,1);
+position: absolute;
+top:135rpx;
+left:117rpx; 
+}
+.line{
+width:540rpx;
+height:2rpx; 
+background:#CDCED2;
+position: absolute;
+bottom:89rpx;
+left: 0;
+opacity: 0.5;
+}
+.line2{
+width:1rpx;
+height:90rpx; 
+background:rgba(205,206,210,1);
+opacity: 0.5;
+position:absolute;
+bottom:0;
+left: 270rpx;
+}
+.cancel{
+font-size:34rpx;
+font-family:PingFang-SC-Regular;
+color:rgba(102,102,102,1);
+position: absolute;
+bottom:27rpx;
+left:103rpx;
+}
+.sure{
+font-size:34rpx;
+font-family:PingFang-SC-Regular;
+color:#0076FF;
+position: absolute;
+bottom:27rpx;
+right:103rpx;
+}

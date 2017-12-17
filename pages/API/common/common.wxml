@@ -1,5 +1,6 @@
 <!--pages/API/common/common.wxml-->
-<view class="ul" wx:for="{{lineList}}" bindtap='choiceadd' wx:for-index="idx" data-id='item.lineId'>
+<import src="../../zanui-weapp/dist/loadmore/index.wxml" />
+<view class="ul" wx:for="{{lineList}}" bindtap='choiceadd' wx:for-index="idx" data-id='item.lineId' wx:key="item">
      <view class="tuijuan-img">
           <image src="{{item.image}}"></image>
      </view>
@@ -13,3 +14,7 @@
           </view>
      </view>
 </view>
+
+
+<template is="zan-loadmore" wx:if="{{isLoading}}" data="{{loading: true}}" />
+<template is="zan-loadmore" wx:if="{{isNoMore}}" data="{{nodata: true,nodata_str:'加载完成'}}" />

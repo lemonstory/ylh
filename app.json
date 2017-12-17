@@ -1,11 +1,11 @@
 {
      "pages": [
-
-                    "pages/API/my-order/my-order",
-
-          "pages/index/index",
+         "pages/index/index",
+          "pages/API/air-ticket/air-ticket",
+          "pages/API/my-order/my-order", 
           "pages/API/address/address",
           "pages/API/more-address/more-address",
+          "pages/API/order-require/order-require",
           "pages/API/my/my",
           "pages/API/visa/visa",
           "pages/API/common/common",
@@ -25,19 +25,12 @@
           "pages/API/travel-mess/travel-mess",
           "pages/API/search/search",
           "pages/API/search-detail/search-detail",
-          "pages/API/order-require/order-require",
-          "pages/API/air-ticket/air-ticket",
           "pages/API/hotel-require/hotel-require",
           "pages/API/car-require/car-require",
           "pages/API/food-require/food-require",
           "pages/API/login/login",
           "pages/API/next-management/next-management",
-
-
           "pages/API/my-order-detail/my-order-detail",
-  
-    
-     
           "pages/API/order-sou/order-sou",
           "pages/API/store-setting/store-setting",
           "pages/API/my-money/my-money",
@@ -98,4 +91,3 @@
      },
      "debug": true
 }
-

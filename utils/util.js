@@ -44,6 +44,13 @@ function getTitleWithId(mapArr,idValue) {
   return title;
 }
 
+function sortBy(field1, field2) {
+  return function (a, b) {
+    if (a.field1 == b.field1) return a.field2 - b.field2;
+    return a.field1 - b.field1;
+  }
+}
+
 
 
 module.exports = {
@@ -51,6 +58,8 @@ module.exports = {
   isMobile: isMobile,
   isEmail: isEmail,
   getTitleWithId: getTitleWithId,
+  sortBy: sortBy,
+  
 }
 
 

@@ -154,6 +154,9 @@ Page(Object.assign({}, Toast, {
       var checkedPassengerListTemp = that.data.checkedPassengerList;
       for (var i = 0; i < checkedPassengerListTemp.length; i++) {
         passengerIdArrTemp.push(checkedPassengerListTemp[i].id);
+
+        
+
       }
       passengerIdStrTemp = passengerIdArrTemp.join(',')
       that.setData({
@@ -166,7 +169,7 @@ Page(Object.assign({}, Toast, {
         'passengerIdStr': ''
       })
     }
-    console.log(that.data.formData);
+
 
   },
 

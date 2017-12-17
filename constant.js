@@ -199,6 +199,15 @@ var constant = {
     title: '商签'
   }],
 
+  //发票类型,1个人,2企业
+  "orderBillType": [{
+    id: '1',
+    title: '个人'
+  }, {
+    id: '2',
+    title: '企业'
+  }],
+
 
 }
 module.exports.constant = constant;

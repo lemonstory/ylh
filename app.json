@@ -1,8 +1,8 @@
 {
      "pages": [
-         "pages/index/index",
+          "pages/index/index",
+          "pages/API/my-order/my-order",    
           "pages/API/air-ticket/air-ticket",
-          "pages/API/my-order/my-order", 
           "pages/API/address/address",
           "pages/API/more-address/more-address",
           "pages/API/order-require/order-require",

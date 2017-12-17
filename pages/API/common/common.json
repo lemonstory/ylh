@@ -1,3 +1,4 @@
 {
-  "navigationBarTitleText": "目的地名称"
+  "navigationBarTitleText": "目的地名称",
+  "enablePullDownRefresh": true
 }

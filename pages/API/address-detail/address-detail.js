@@ -11,7 +11,8 @@ Page({
           interval: 5000,
           duration: 1000,
           select: 0,
-          show: 0
+          show: 0,
+          showCall: false
      },
      leaderIntroduce: function (event) {
           var id = event.currentTarget.dataset.id;
@@ -35,7 +36,7 @@ Page({
                show: "0"
           });
      },
- 
+
      bindDateChange: function (e) {
           var id = e.currentTarget.dataset.id;
           if (id == "goDate") {
@@ -69,7 +70,7 @@ Page({
                url: url,
                data: {},
                header: {
-                    'content-type':'application/json', // 默认值
+                    'content-type': 'application/json', // 默认值
                },
                success: function (res) {
                     console.log(res.data);
@@ -77,7 +78,31 @@ Page({
                }
           })
      },
-     bindBlur: function (e) {
+
+     blindCellPhone: function () {
+          var that = this;
+          console.log(999999999)
+          that.setData({
+               showView: (!that.data.showView)
+          })
+     },
+     cancel1: function () {
+          var that = this;
+          that.setData({
+               showView: false
+          })
+     },
+     callPhone: function () {
+          wx.makePhoneCall({
+               phoneNumber: '400-189-0876',
+          })
+          var that = this;
+          that.setData({
+               showView: false
+          })
+     },
+
+bindBlur: function (e) {
           inputContent[e.currentTarget.id] = e.detail.value
      },
      changeIndicatorDots: function (e) {
@@ -104,7 +129,7 @@ Page({
      },
 
 
-tagChooseData: function (e) {
+     tagChooseData: function (e) {
           var path = "/pages/API/start-order/start-order";
           wx.navigateTo({
                url: path
@@ -113,7 +138,7 @@ tagChooseData: function (e) {
           var dataIdx = e.currentTarget.dataset.data_idx;
           //设置当前样式
           if (this.data.currentItem === dataIdx) {
-              
+
           } else {
                var showMode = e.currentTarget.dataset.dataIdx == 0;
                this.setData({
@@ -121,8 +146,8 @@ tagChooseData: function (e) {
                     FilterData: this.data.priceList[dataIdx].date,
                })
           }
-},
-onChangeShowState: function () {
+     },
+     onChangeShowState: function () {
           var that = this;
           that.setData({
                isShowView: !this.data.isShowOptionsView,

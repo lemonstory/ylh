@@ -60,6 +60,8 @@
        </view>
        <!-- 一个签证详情结束 -->
 
+       
+       
        <!-- 一个签证详情开始 -->
        <view class='od_cate'>
           <view>
@@ -72,19 +74,15 @@
           <view class='od_qianzheng'>线路</view>
        </view>
        <!-- 一个签证详情结束 -->
+       </view>
+<!-- 订单类型结束 -->
 
-    </view>
-
-    <!-- 订单类型结束 -->
-
-    <!-- 按钮-发送邮箱离开始 -->
+<!-- 按钮-发送邮箱离开始 -->
     <view class='button'>
         <navigator url="../divide-order-detail1/divide-order-detail1"><view>发送到邮箱</view></navigator>
     </view>
 
     <!-- 按钮-发送邮箱离结束 -->
-
-
 </view>
 <!-- 全局结束 -->
 

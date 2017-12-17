@@ -1,54 +1,29 @@
 <view class="container">
      <view class="nav">
-          <view class="taga {{currentItem==item.id?'active-tag':''}}" wx:for="{{category}}" data-id="{{item.id}}" bindtap="" wx:key="item">
+          <view class="taga {{currentItem==item.id?'active-tag':''}}" wx:for="{{category}}" data-category_id="{{item.id}}" bindtap="tagChooseCate" wx:key="item">
                {{item.name}}
           </view>
      </view>
-     <!--热门目的地选项卡的展示-->
-     <!-- <view class="nav-right" wx:for="{{areaList}}" wx:key="id" wx:for-index="i">
-    <view class="lii">{{item.name}}</view>
-    <view class="ul">
-      <view class="li" wx:for="{{imglist}}">
-        <image src="{{item.imgurl}}"></image>
-      </view>
-    </view>
-<view class="nav-bottom">
-      推荐线路
-    </view>
-    <view class="list">
-    <view class="addul" wx:for="{{tuijianlist}}">
-        <view class="addli">
-          <view class="liimg">
-            <image src="{{item.imgurl}}" bindtap="chosecountry"></image>
-          </view>
-          <view class="litext">{{item.text}}</view>
-          <view class="back">
-            <image src="../image/1.png"></image>
-          </view>
-        </view>
-        <view class="line"></view>
-      </view>
-    </view>
-  </view>   -->
-     <!--热门目的地选项卡的展示-->
-
 
      <!--国家详情选项卡的展示-->
-     <view class="nav-right">
-          <view class="lii">热门目的地</view>
+     <view class="nav-right" wx:for="{{category}}">
+          <view class="lii">{{category[currentItem].name}}</view>
           <view class="ul">
-               <view class="li" wx:for="{{areaList}}" data-id="{{item.id}}" bindtap="choseCountry" wx:key="item">
+               <!-- {{category[currentItem].id}} -->
+               <view class="li" wx:for="{{areaList}}" data-id="{{item.id}}" bindtap="choseCountry" wx:key="item" wx:key="item">
                     <image src="{{item.image}}"></image>
                     <view class="country">{{item.name}}</view>
-                    <view class="english">France</view>
+                    <!-- <view class="english">France</view> -->
                </view>
           </view>
-          <!-- <view class="lii">全部目的地</view>
+
+
+          <view class="lii">全部目的地</view>
           <view class="addname">
-               <view class="li" wx:for="{{countrylist}}" wx:key="item">
-                    <navigator url="../common/common">{{item.name}}</navigator>
+               <view class="li" wx:for="{{mapping}}" wx:key="item">
+                
                </view>
-          </view> -->
+          </view>
           <view class="nav-bottom">
                推荐线路
           </view>

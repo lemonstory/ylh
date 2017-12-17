@@ -21,12 +21,8 @@
                <view class="tuijuan-bottom">
                     <view class="text2">¥{{minPrice}}
                          <view class="personal">/人起</view>
-                         <view class="tehui">{{tags.name}}
-                              <!-- <image src="http://image.365zhiding.com/wxapp/20171114/tehui.png"></image> -->
-                         </view>
-                         <view class="baokuan">
-                              <!-- <image src="http://image.365zhiding.com/wxapp/20171114/baokuan.png"></image> -->
-                         </view>
+                         <view class="tehui" wx:for="{{tags}}" wx:key="tags" wx:for-index="idx" style="background:{{item.color}}">{{item.name}}</view>
+
                     </view>
                </view>
           </view>
@@ -88,7 +84,7 @@
           <scroll-view class="dataform" scroll-x="true">
                <view class="dataul {{currentItem==data_idx?'active_tag':''}}" wx:for="{{priceList}}" wx:key="idx" bindtap="tagChooseData" wx:for-index="data_idx" data-data_idx="{{data_idx}}">
                     <view class="riqi {{currentItem==data_idx?'active':''}}">{{item.date}}</view>
-                    <view class="money">￥{{item.suitList.oldprice}}</view>
+                    <view class="money" wx:for="{{item.suitList}}" wx:key="item">￥{{item.adultprice}}</view>
                </view>
           </scroll-view>
           <view class="back11">
@@ -96,8 +92,6 @@
           </view>
      </view>
      <!--出发日期结束-->
-
-
 
      <!--领队开始-->
      <block wx:if="{{template.name=='normal'||template.name=='custom'}}">
@@ -115,8 +109,6 @@
           </view>
      </block>
      <!--领队介绍结束 -->
-
-
 
      <!--行程亮点开始  -->
      <view class="xingcheng ">
@@ -146,14 +138,11 @@
           <image class="planimg" wx:for="{{template.public}}" wx:key="idx" src='{{item}}' mode='widthFix'></image>
 
 
-
-
           <!-- 出发地弹出框交互结束 -->
-          <block wx:if="{{template.name == 'normal'}}">
-               <template is="address-detail-normal" data="{{templateData:template}}" />
+          <block wx:if="{{template.name =='normal'}}">
+               <template is="address-detail-normal" data="{{template:template}}" />
           </block>
-          <block wx:elif="{{template.name == 'simple'}}">
-
+          <block wx:elif="{{template.name =='simple'}}">
                <template is="address-detail-simple" data="{{template:template}}" />
           </block>
           <block wx:else="{{template.name == 'custom'}}">
@@ -173,7 +162,6 @@
           </view>
      </view>
      <!--温馨提示结束  -->
-
 
      <!-- 费用说明开始 -->
      <view class="pay">
@@ -202,11 +190,26 @@
      <!--用户评价结束  -->
      <!--底部开始  -->
      <view class="bottom">
-          <image class="zixun" src="http://image.365zhiding.com/wxapp/20171121/zixun.png"></image>
+
+          <image class="zixun" src="http://image.365zhiding.com/wxapp/20171121/zixun.png" bindtap='blindCellPhone'></image>
           <view class="zixuntext">资询</view>
+
           <view class="yuding">
                <navigator url="../start-order/start-order">开始预订</navigator>
           </view>
      </view>
-     <!--底部结束 -->
+     <!--底部结束-->
 </view>
+
+<!--弹出信息的展示开始-->
+<view class="hidden-box hide{{showCall?'xianshi':''}}"></view>
+<view class="hidden hide{{showCall?'xianshi':''}}">
+     <view class="hidden-text1">呼叫客服</view>
+     <view class="hidden-text2">400-189-0876</view>
+     <view class="hidden-text3">周一至周六 09:30-18:30</view>
+     <view class="line"></view>
+     <view class="line2"></view>
+     <view class="cancel" bindtap='cancel1'>取消</view>
+     <view class="sure" bindtap='callPhone'>呼叫</view>
+</view>
+<!--弹出信息的展示结束-->

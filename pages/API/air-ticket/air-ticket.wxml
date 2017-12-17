@@ -27,6 +27,22 @@
       <view class="hidden-li {{item.id == currentPlaneTicketTypeId?'choosedbtn':'choosenobtn'}}" wx:for="{{constant.planeTicketType}}" wx:key="constant.planeTicketType" wx:for-item="item" wx:for-index="idx" data-id="{{item.id}}" data-title="{{item.title}}" bindtap="handleChoosePlaneTicketType">
         {{item.title}}
       </view>
+
+
+
+<view class="air-ask zhiding">指定航空公司：</view>
+    <view class="settion">
+      <textarea placeholder="请输入您指定的航空公司" placeholder-style="font-size:28rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);" style='width:690rpx;height:260rpx;margin-left:30rpx;margin-right:30rpx;border:1rpx solid #eee; padding-left:30rpx;padding-top:30rpx;box-sizing: border-box; border-radius: 10rpx;margin-bottom:30rpx;'/>
+    </view>
+  </view>
+
+
+<view class="bottom">
+    <view class="bottom-left" bindtap='back'>上一步</view>
+    <view class="bottom-right">
+      <navigator url="../hotel-require/hotel-require">下一步</navigator>
+    </view>
+=======
     </view>
 
     <view class="air-ask zhiding">指定航空公司：</view>
@@ -39,6 +55,7 @@
   <view class="bottom">
     <view class="bottom-left" bindtap='handleTapPreStep'>上一步</view>
     <view class="bottom-right" bindtap='handleTapNextStep'>下一步</view>
+>>>>>>> 64eabf6e55eff8bd99445162a6b1c4764c48bc53
   </view>
 
   <!-- 直接使用 zan-toast 模板，并且直接传入 zanToast -->

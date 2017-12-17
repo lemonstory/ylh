@@ -4,26 +4,30 @@ const Toast = require('../../../zanui-weapp/dist/toast/index');
 var util = require('../../../utils/util.js')
 Page(Object.assign({}, Toast, {
   data: {
+
     'constant': app.constant,
+
     currentPlaneTicketShippingSpaceId: '',
     currentPlaneTicketShippingSpaceTitle: '',
     currentPlaneTicketTypeId: '',
     currentPlaneTicketTypeTypeTitle: '',
-    currentAppointValue:'',
+    currentAppointValue: '',
+
     isShowPlaneTicketTypeView: false,
     isShowPlaneTicketShippingSpacesView: false,
-    currentPlaneTicketShippingSpaceId: defaultPlaneTicketShippingSpaceId,
-    currentPlaneTicketShippingSpaceTitle: defaultPlaneTicketShippingSpaceTitle,
-    currentPlaneTicketTypeId: defaultPlaneTicketTypeId,
-    currentPlaneTicketTypeTypeTitle: defaultPlaneTicketTypeTitle,
-    currentAppointValue: defaultAppointValue
+
+    currentPlaneTicketShippingSpaceId: '',
+    currentPlaneTicketShippingSpaceTitle: '',
+    currentPlaneTicketTypeId: '',
+    currentPlaneTicketTypeTypeTitle: '',
+    currentAppointValue: ''
   },
-/**
-     * 生命周期函数--监听页面加载
-     */
-onLoad: function (options) {
+  /**
+       * 生命周期函数--监听页面加载
+       */
+  onLoad: function (options) {
     // 生命周期函数--监听页面加载
-var that = this;
+    var that = this;
     //将上一页的数据在显示在当前页面
     var pages = getCurrentPages();
     var currPage = pages[pages.length - 1];   //当前页面
@@ -31,7 +35,7 @@ var that = this;
 
     var prevPageFormDataTemp = prevPage.data.formData;
     var defaultPlaneTicketShippingSpaceId = prevPageFormDataTemp.planeTicket.ShippingSpace;
-    var defaultPlaneTicketShippingSpaceTitle = util.getTitleWithId(app.constant.planeTicketShippingSpace,defaultPlaneTicketShippingSpaceId)
+    var defaultPlaneTicketShippingSpaceTitle = util.getTitleWithId(app.constant.planeTicketShippingSpace, defaultPlaneTicketShippingSpaceId)
 
     var defaultPlaneTicketTypeId = prevPageFormDataTemp.planeTicket.type;
     var defaultPlaneTicketTypeTitle = util.getTitleWithId(app.constant.planeTicketType, defaultPlaneTicketTypeId)
@@ -229,7 +233,7 @@ var that = this;
    * 下一步
    */
   handleTapNextStep: function () {
-    
+
     var that = this;
     var url = '../hotel-require/hotel-require';
     wx.redirectTo({

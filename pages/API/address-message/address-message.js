@@ -9,6 +9,9 @@ Page({
     //已选择的出行人信息
     'checkedPassengerList': [],
     'passengerIdStr': '',
+    // 选择的地址信息
+    'profile': '请添加您的收货地址',
+    'profileId':0,
 
     items: [
       { name: 'per', value: '个人', checked: 'true' },
@@ -22,6 +25,7 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
+
   },
 
   /**
@@ -55,6 +59,7 @@ Page({
         'passengerIdStr': ''
       })
     }
+
   },
 
   /**

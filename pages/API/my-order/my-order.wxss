@@ -1,7 +1,6 @@
 /* pages/API/my-order/my-order.wxss */
 
 .container {
-  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -129,6 +128,7 @@ color:rgba(102,102,102,1);
   font-size:32rpx;
   font-family:PingFang-SC-Regular;
   color:rgba(102,102,102,1);
+  direction: row-reverse;
 }
 .route1{
   margin-top:10rpx; 

@@ -1,8 +1,12 @@
 {
      "pages": [
+
+                "pages/API/new-add-address/new-add-address",
+        "pages/API/my-order/my-order",
+        
          "pages/index/index",
           "pages/API/air-ticket/air-ticket",
-          "pages/API/my-order/my-order", 
+        
           "pages/API/address/address",
           "pages/API/more-address/more-address",
           "pages/API/order-require/order-require",
@@ -14,7 +18,7 @@
           "pages/API/leader-introduce/leader-introduce",
           "pages/API/start-order/start-order",
           "pages/API/choice-address/choice-address",
-          "pages/API/new-add-address/new-add-address",
+
           "pages/API/address-message/address-message",
           "pages/API/choice-person/choice-person",
           "pages/API/add-person-message/add-person-message",

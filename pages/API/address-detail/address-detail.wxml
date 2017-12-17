@@ -82,139 +82,134 @@
 
      <view class="dataform-box">
           <scroll-view class="dataform" scroll-x="true">
-               <view class="dataul {{currentItem==data_idx?'active_tag':''}}" wx:for="{{priceList}}" wx:key="idx" bindtap="tagChooseData" wx:for-index="data_idx" data-data_idx="{{data_idx}}">
-                    <view class="riqi {{currentItem==data_idx?'active':''}}" wx:key="item" wx:for="{{item.list}}">{{item.date}}</view>
-                    <view class="money" wx:for="{{item.suitList}}" wx:key="item">￥{{item.adultprice}}</view>
-                    <view class="dataul {{currentItem==data_idx?'active_tag':''}}" wx:for="{{startDatePriceListFormat}}" wx:key="idx" bindtap="tagChooseData" wx:for-index="data_idx" data-data_idx="{{data_idx}}" date-date="{{item.date}}">
-                         <view class="riqi {{currentItem==data_idx?'active':''}}">{{item.dateStr}}</view>
-                         <view class="money">￥{{item.min}}</view>
-                         </view>
-                         </view>
+               <view class="dataul {{currentItem==data_idx?'active_tag':''}}" wx:for="{{startDatePriceListFormat}}" wx:key="idx" bindtap="tagChooseData" wx:for-index="data_idx" data-data_idx="{{data_idx}}" date-date="{{item.date}}">
+                    <view class="riqi {{currentItem==data_idx?'active':''}}" >{{item.dateStr}}</view>
+                    <view class="money" >￥{{item.min}}</view>
+               </view>
           </scroll-view>
           <view class="back11">
                <image src='http://image.365zhiding.com/wxapp/20171114/1.png'></image>
           </view>
-          </view>
-          
-          <!--出发日期结束-->
+     </view>
+     <!--出发日期结束-->
 
-          <!--领队开始-->
-          <block wx:if="{{template.name=='normal'||template.name=='custom'}}">
-               <view class="leader " bindtap='leaderIntroduce'>
-                    <view class="person ">
-                         <image src="{{leader.image}}" mode="aspectFillt"> </image>
-                    </view>
-                    <view class="react"></view>
-                    <view class="leadertitle">领队介绍</view>
-                    <view class="react1 "></view>
-                    <view class="content ">{{leader.intro}}</view>
-                    <view class="back2">
-                         <image src='http://image.365zhiding.com/wxapp/20171114/1.png'></image>
-                    </view>
+     <!--领队开始-->
+     <block wx:if="{{template.name=='normal'||template.name=='custom'}}">
+          <view class="leader " bindtap='leaderIntroduce'>
+               <view class="person ">
+                    <image src="{{leader.image}}" mode="aspectFillt"> </image>
                </view>
+               <view class="react"></view>
+               <view class="leadertitle">领队介绍</view>
+               <view class="react1 "></view>
+               <view class="content ">{{leader.intro}}</view>
+               <view class="back2">
+                    <image src='http://image.365zhiding.com/wxapp/20171114/1.png'></image>
+               </view>
+          </view>
+     </block>
+     <!--领队介绍结束 -->
+
+     <!--行程亮点开始  -->
+     <view class="xingcheng ">
+          <view class="react"></view>
+          <view class="leadertitle">行程亮点</view>
+          <view class="react1 "></view>
+          <view class="xingcont ">
+               <view>{{merits}}</view>
+          </view>
+     </view>
+     <!--行程亮点结束  -->
+
+
+
+     <!--行程安排开始  -->
+     <view class="plan ">
+          <view>3日行程</view>
+          <view>温馨提示</view>
+          <view>费用说明</view>
+          <view>用户评价</view>
+     </view>
+     <!--行程详情安排  -->
+     <view class="plandetail ">
+          <view class="react "></view>
+          <view class="leadertitle ">3日行程</view>
+          <view class="react1 "></view>
+          <image class="planimg" wx:for="{{template.public}}" wx:key="idx" src='{{item}}' mode='widthFix'></image>
+
+
+          <!-- 出发地弹出框交互结束 -->
+          <block wx:if="{{template.name =='normal'}}">
+               <template is="address-detail-normal" data="{{template:template}}" />
           </block>
-          <!--领队介绍结束 -->
-
-          <!--行程亮点开始  -->
-          <view class="xingcheng ">
-               <view class="react"></view>
-               <view class="leadertitle">行程亮点</view>
-               <view class="react1 "></view>
-               <view class="xingcont ">
-                    <view>{{merits}}</view>
-               </view>
-          </view>
-          <!--行程亮点结束  -->
-
-
-
-          <!--行程安排开始  -->
-          <view class="plan ">
-               <view>3日行程</view>
-               <view>温馨提示</view>
-               <view>费用说明</view>
-               <view>用户评价</view>
-          </view>
-          <!--行程详情安排  -->
-          <view class="plandetail ">
-               <view class="react "></view>
-               <view class="leadertitle ">3日行程</view>
-               <view class="react1 "></view>
-               <image class="planimg" wx:for="{{template.public}}" wx:key="idx" src='{{item}}' mode='widthFix'></image>
-
-
-               <!-- 出发地弹出框交互结束 -->
-               <block wx:if="{{template.name =='normal'}}">
-                    <template is="address-detail-normal" data="{{template:template}}" />
-               </block>
-               <block wx:elif="{{template.name =='simple'}}">
-                    <template is="address-detail-simple" data="{{template:template}}" />
-               </block>
-               <block wx:else="{{template.name == 'custom'}}">
-                    <template is="address-detail-custom" data="{{template:template}}" />
-               </block>
-          </view>
-
-          <!--行程安排结束  -->
-
-          <!--温馨提示开始-->
-          <view class="point">
-               <view class="react"></view>
-               <view class="leadertitle">温馨提示</view>
-               <view class="react1"></view>
-               <view class="pointtext">
-                    <view class="text1">{{tips}}</view>
-               </view>
-          </view>
-          <!--温馨提示结束  -->
-
-          <!-- 费用说明开始 -->
-          <view class="pay">
-               <view class="react"></view>
-               <view class="leadertitle">费用说明</view>
-               <view class="react1"></view>
-               <view class="paytext">
-                    <view class="ptext1">{{expense}}</view>
-               </view>
-          </view>
-
-          <!--费用说明结束  -->
-
-          <!-- 用户评价开始 -->
-          <view class="discuss">
-               <view class="react"></view>
-               <view class="leadertitle">用户评价</view>
-               <view class="react1"></view>
-               <view class="user">{{comment.name}}</view>
-               <image class="star" src="http://image.365zhiding.com/wxapp/20171114/xing.png"></image>
-               <view class="time">{{comment.date}}</view>
-               <view class="content1">{{comment.content}}</view>
-               <view class="more" bindtap='bindMoreComment'> 查看全部{{comment.total}}条店评论</view>
-               <image class="morell" src='http://image.365zhiding.com/wxapp/20171114/1.png'></image>
-          </view>
-          <!--用户评价结束  -->
-          <!--底部开始  -->
-          <view class="bottom">
-
-               <image class="zixun" src="http://image.365zhiding.com/wxapp/20171121/zixun.png" bindtap='blindCellPhone'></image>
-               <view class="zixuntext">资询</view>
-
-               <view class="yuding">
-                    <navigator url="../start-order/start-order">开始预订</navigator>
-               </view>
-          </view>
-          <!--底部结束-->
+          <block wx:elif="{{template.name =='simple'}}">
+               <template is="address-detail-simple" data="{{template:template}}" />
+          </block>
+          <block wx:else="{{template.name == 'custom'}}">
+               <template is="address-detail-custom" data="{{template:template}}" />
+          </block>
      </view>
 
-     <!--弹出信息的展示开始-->
-     <view class="hidden-box hide{{showCall?'xianshi':''}}"></view>
-     <view class="hidden hide{{showCall?'xianshi':''}}">
-          <view class="hidden-text1">呼叫客服</view>
-          <view class="hidden-text2">400-189-0876</view>
-          <view class="hidden-text3">周一至周六 09:30-18:30</view>
-          <view class="line"></view>
-          <view class="line2"></view>
-          <view class="cancel" bindtap='cancel1'>取消</view>
-          <view class="sure" bindtap='callPhone'>呼叫</view>
+     <!--行程安排结束  -->
+
+     <!--温馨提示开始-->
+     <view class="point">
+          <view class="react"></view>
+          <view class="leadertitle">温馨提示</view>
+          <view class="react1"></view>
+          <view class="pointtext">
+               <view class="text1">{{tips}}</view>
+          </view>
      </view>
-     <!--弹出信息的展示结束-->
+     <!--温馨提示结束  -->
+
+     <!-- 费用说明开始 -->
+     <view class="pay">
+          <view class="react"></view>
+          <view class="leadertitle">费用说明</view>
+          <view class="react1"></view>
+          <view class="paytext">
+               <view class="ptext1">{{expense}}</view>
+          </view>
+     </view>
+
+     <!--费用说明结束  -->
+
+     <!-- 用户评价开始 -->
+     <view class="discuss">
+          <view class="react"></view>
+          <view class="leadertitle">用户评价</view>
+          <view class="react1"></view>
+          <view class="user">{{comment.name}}</view>
+          <image class="star" src="http://image.365zhiding.com/wxapp/20171114/xing.png"></image>
+          <view class="time">{{comment.date}}</view>
+          <view class="content1">{{comment.content}}</view>
+          <view class="more"> 查看全部10条店评论</view>
+          <image class="morell" src='http://image.365zhiding.com/wxapp/20171114/1.png'></image>
+     </view>
+     <!--用户评价结束  -->
+     <!--底部开始  -->
+     <view class="bottom">
+
+          <image class="zixun" src="http://image.365zhiding.com/wxapp/20171121/zixun.png" bindtap='blindCellPhone'></image>
+          <view class="zixuntext">资询</view>
+
+          <view class="yuding">
+               <navigator url="../start-order/start-order">开始预订</navigator>
+          </view>
+     </view>
+     <!--底部结束-->
+</view>
+
+<!--弹出信息的展示开始-->
+<view class="hidden-box hide{{showCall?'xianshi':''}}"></view>
+<view class="hidden hide{{showCall?'xianshi':''}}">
+     <view class="hidden-text1">呼叫客服</view>
+     <view class="hidden-text2">400-189-0876</view>
+     <view class="hidden-text3">周一至周六 09:30-18:30</view>
+     <view class="line"></view>
+     <view class="line2"></view>
+     <view class="cancel" bindtap='cancel1'>取消</view>
+     <view class="sure" bindtap='callPhone'>呼叫</view>
+</view>
+<!--弹出信息的展示结束-->

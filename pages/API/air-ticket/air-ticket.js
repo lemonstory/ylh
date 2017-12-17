@@ -1,4 +1,4 @@
-pages/API/air-ticket/air-ticket.js
+//pages/API/air-ticket/air-ticket.js
 const app = getApp();
 const Toast = require('../../../zanui-weapp/dist/toast/index');
 var util = require('../../../utils/util.js')
@@ -40,21 +40,7 @@ var that = this;
 
 
     that.setData({
-<<<<<<< HEAD
-      isShowOptionsView: !this.data.isShowOptionsView,
-    })
-  },
-  onChangeShow: function () {
-   var that = this;
-    that.setData({
-      isShowView: (!this.data.isShowView),
-      })
-},
-      
-   
 
-=======
->>>>>>> 21d042d8ac3e3ddf04a8d6a6e2d04d03b59fae8f
       currentPlaneTicketShippingSpaceId: defaultPlaneTicketShippingSpaceId,
       currentPlaneTicketShippingSpaceTitle: defaultPlaneTicketShippingSpaceTitle,
 

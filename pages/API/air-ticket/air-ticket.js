@@ -1,38 +1,35 @@
-// pages/API/air-ticket/air-ticket.js
+pages/API/air-ticket/air-ticket.js
 const app = getApp();
 const Toast = require('../../../zanui-weapp/dist/toast/index');
 var util = require('../../../utils/util.js')
 Page(Object.assign({}, Toast, {
   data: {
-
     'constant': app.constant,
     currentPlaneTicketShippingSpaceId: '',
     currentPlaneTicketShippingSpaceTitle: '',
-
     currentPlaneTicketTypeId: '',
     currentPlaneTicketTypeTypeTitle: '',
-
     currentAppointValue:'',
-
     isShowPlaneTicketTypeView: false,
     isShowPlaneTicketShippingSpacesView: false,
+    currentPlaneTicketShippingSpaceId: defaultPlaneTicketShippingSpaceId,
+    currentPlaneTicketShippingSpaceTitle: defaultPlaneTicketShippingSpaceTitle,
+    currentPlaneTicketTypeId: defaultPlaneTicketTypeId,
+    currentPlaneTicketTypeTypeTitle: defaultPlaneTicketTypeTitle,
+    currentAppointValue: defaultAppointValue
   },
-
-  /**
+/**
      * 生命周期函数--监听页面加载
      */
-  onLoad: function (options) {
+onLoad: function (options) {
     // 生命周期函数--监听页面加载
-
-    var that = this;
-
+var that = this;
     //将上一页的数据在显示在当前页面
     var pages = getCurrentPages();
     var currPage = pages[pages.length - 1];   //当前页面
     var prevPage = pages[pages.length - 2];  //上一个页面
 
     var prevPageFormDataTemp = prevPage.data.formData;
-
     var defaultPlaneTicketShippingSpaceId = prevPageFormDataTemp.planeTicket.ShippingSpace;
     var defaultPlaneTicketShippingSpaceTitle = util.getTitleWithId(app.constant.planeTicketShippingSpace,defaultPlaneTicketShippingSpaceId)
 
@@ -43,6 +40,21 @@ Page(Object.assign({}, Toast, {
 
 
     that.setData({
+<<<<<<< HEAD
+      isShowOptionsView: !this.data.isShowOptionsView,
+    })
+  },
+  onChangeShow: function () {
+   var that = this;
+    that.setData({
+      isShowView: (!this.data.isShowView),
+      })
+},
+      
+   
+
+=======
+>>>>>>> 21d042d8ac3e3ddf04a8d6a6e2d04d03b59fae8f
       currentPlaneTicketShippingSpaceId: defaultPlaneTicketShippingSpaceId,
       currentPlaneTicketShippingSpaceTitle: defaultPlaneTicketShippingSpaceTitle,
 
@@ -194,7 +206,6 @@ Page(Object.assign({}, Toast, {
     console.log(prevPage.data.formData);
   },
 
-
   /**
    * 检查用户输入
    */
@@ -214,7 +225,6 @@ Page(Object.assign({}, Toast, {
 
     console.log(parseInt(that.data.currentPlaneTicketShippingSpaceId));
     console.log(parseInt(that.data.currentPlaneTicketTypeId));
-
     return true;
 
   },

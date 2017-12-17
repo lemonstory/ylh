@@ -213,6 +213,20 @@ Page(Object.assign({}, Toast, {
     }
   },
 
+  cancel:function(){
+       var that = this;
+       that.setData({
+            showView: false,
+       })
+  },
+
+  onChangeShowState: function () {
+       var that = this;
+       that.setData({
+            showView: (!that.data.showView)
+       })
+  },
+
 
   footerTap: app.footerTap
 }))

@@ -24,7 +24,7 @@
         <!--性别单选 -开始-->
         <view class="choice_sex">
           <radio-group class="radio-group" bindchange="genderRadioChange">
-            <label class="radio" wx:for="{{constant.gender}}">
+            <label class="radio" wx:for="{{constant.gender}}" wx:key="constant.gender">
               <radio value="{{item.id}}" checked="{{gender == item.id ? true : false}}" />{{item.title}}
             </label>
           </radio-group>
@@ -34,7 +34,7 @@
         <!--年龄分组 -开始-->
         <view class="choice_age">
           <radio-group class="radio-group" bindchange="ageGroupRadioChange">
-            <label class="radio" wx:for="{{constant.passengerAgeGroup}}">
+            <label class="radio" wx:for="{{constant.passengerAgeGroup}}" wx:key="constant.passengerAgeGroup">
               <radio value="{{item.id}}" checked="{{ageGroup == item.id ? true : false}}" />{{item.title}}
             </label>
           </radio-group>
@@ -57,7 +57,7 @@
     <view class="zan-popup__mask" catchtap="toggleCardTypeBottomPopup"></view>
     <view class="zan-popup__container">
       <view class="zan-btns">
-        <block wx:for="{{constant.passengerCardType}}" wx:key="{{passengerCardTypeList}}" wx:for-index="idx" wx:for-item="listItem">
+        <block wx:for="{{constant.passengerCardType}}" wx:key="{{passengerCardTypeList}}" wx:for-index="idx" wx:for-item="listItem" wx:key="passengerCardTypeList">
           <button class="zan-btn" data-id="{{listItem.id}}" data-title="{{listItem.title}}" catchtap="handleSeletedCardType">
             {{listItem.title}}
           </button>

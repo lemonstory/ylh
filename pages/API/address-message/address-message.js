@@ -11,60 +11,53 @@ Page(Object.assign({}, Toast, {
     //已选择的出行人信息
     'checkedPassengerList': [],
     'passengerIdStr': '',
+
     // 选择的地址信息
-    'profile': '请添加您的收货地址',
-    'profileId':0,
+    'defaultReceiverAddress': '请添加您的收货地址',
+    'profileId': 0,
 
     //用户创建订单数据
     'formData': {
-      'pid': 1,                       //产品id(number,required)
-      'travelDate': '2017-11-05',     //出行时间(string,required)
-      'linkMan': '张三',               //订单联系人（string,required）
-      'linkTel': '18971122495',       //订单联系电话(string,required)
-      'linkEmail': 'drk@163.com',     //联系人邮件(string,required)
-      'isIncludeBaby': 1,             //是否包含婴儿(number,required)
-      'isIncludeOld': 1,              //是否包含老人(number,required)
+      'pid': 0,                       //产品id(number,required)
+      'travelDate': '',               //出行时间(string,required)
+      'linkMan': '',                  //订单联系人（string,required）
+      'linkTel': '',                  //订单联系电话(string,required)
+      'linkEmail': '',                //联系人邮件(string,required)
+      'isIncludeBaby': 0,             //是否包含婴儿(number,required)
+      'isIncludeOld': 0,              //是否包含老人(number,required)
       'tourers': {                    //出行人信息(array,required)
         "subNum": {
-          'child': 10,                //小孩数量
-          'adult': 3,                 //成人数量
+          'child': 0,                 //小孩数量
+          'adult': 0,                 //成人数量
         },
         "list": [                     //出行人列表(array,required)
           {
-            'tourerName': '游客姓名',  //出行人姓名
-            'cardType': 1,            //证件类型 1身份证，2军官证，3护照，4港澳通行证，5台湾通行证，99其它
-            'cardNumber': '证件号码',  //证件号码
-            'title': 1,               //职业身份 1学龄前儿童，2在校学生，3在职人员，4自由职业者，5退休人员
-            'gender': 1,              //性别 0未知，1男，2女
-            'ageGroup': 2,            //年龄分组，2儿童，3成人
+            'name': '',               //出行人姓名
+            'cardType': 0,            //证件类型 1身份证，2军官证，3护照，4港澳通行证，5台湾通行证，99其它
+            'cardNumber': '',         //证件号码
+            'title': 0,               //职业身份 1学龄前儿童，2在校学生，3在职人员，4自由职业者，5退休人员
+            'gender': 0,              //性别 0未知，1男，2女
+            'ageGroup': 0,            //年龄分组，2儿童，3成人
           },
         ],
       },
-      'amount': 5000,                 //订单总额(单位分)(number,required)
+      'amount': 0,                    //订单总额(单位分)(number,required)
       'orderBill': {                  //发票信息（array,required）
-        'title': '发票抬头',           //发票抬头
-        'type': 1,                    //发票类型,1个人,2企业
-        'taxNum': 'aabbcc'            //税号
+        'title': '',                  //发票抬头
+        'type': 0,                    //发票类型,1个人,2企业
+        'taxNum': ''                  //税号
       },
-      'receiverAddress': '高碑店',     //收货地址(string,required)
-      'agentId': 1,                   //代理商ID(number,required)
-      'tradeId': 1,                   //系统来源(number,required) 10 悦旅汇，20小程序
+      'receiverAddress': '',          //收货地址(string,required)
+      'agentId': app.constant.agentId,//代理商ID(number,required)
+      'tradeId': app.constant.tradeId,//系统来源(number,required) 10 悦旅汇，20小程序
     },
 
     //线路名称（标题）
-    'title': '',
-    'day': 0,
-    'night': 0,
-    'difference':0,
-
-
-
-    // items: [
-    //   { name: 'per', value: '个人', checked: 'true' },
-    //   { name: 'danwei', value: '单位' },
-    // ],
-
-
+    'title': '',                     //标题
+    'day': 0,                        //行程-几天
+    'night': 0,                      //行程-几晚
+    'difference': 0,                  //单房差
+    "postage": 0,                    //邮费
   },
 
   /**
@@ -78,6 +71,8 @@ Page(Object.assign({}, Toast, {
     //数据示例
     options.lineDetail = {
 
+      //产品id
+      'pid': 1,
       //出行时间
       'travelDate': '2017-11-05',
       //线路名称
@@ -92,7 +87,7 @@ Page(Object.assign({}, Toast, {
       'difference': 75000,
 
       //订单总额(单位分)
-      'amount': 100000,
+      'amount': 650000,
 
       //TODO:缺少费用明细里面的数据
 
@@ -100,9 +95,9 @@ Page(Object.assign({}, Toast, {
       'tourers': {
         "subNum": {
           //小孩数量
-          'child': 10,
+          'child': 1,
           //成人数量
-          'adult': 3,
+          'adult': 1,
         },
       },
 
@@ -115,7 +110,7 @@ Page(Object.assign({}, Toast, {
     }
 
 
-    if (typeof(options.lineDetail) != 'undefined') {
+    if (typeof (options.lineDetail) != 'undefined') {
 
       // var lineDetail = JSON.parse(options.lineDetail);
       var lineDetail = options.lineDetail;
@@ -127,17 +122,16 @@ Page(Object.assign({}, Toast, {
         night: lineDetail.night,
         difference: lineDetail.difference,
         'formData.travelDate': lineDetail.travelDate,
+        'formData.amount': lineDetail.amount,
         'formData.tourers.subNum.child': lineDetail.tourers.subNum.child,
         'formData.tourers.subNum.adult': lineDetail.tourers.subNum.adult,
         'formData.tourers.isIncludeBaby': lineDetail.isIncludeBaby,
         'formData.tourers.isIncludeOld': lineDetail.isIncludeOld,
-    })
-  }
+      })
+    }
 
-  console.log(that.data.formData);
-  
-
-},
+    console.log(that.data.formData);
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -160,6 +154,9 @@ Page(Object.assign({}, Toast, {
       var checkedPassengerListTemp = that.data.checkedPassengerList;
       for (var i = 0; i < checkedPassengerListTemp.length; i++) {
         passengerIdArrTemp.push(checkedPassengerListTemp[i].id);
+
+        
+
       }
       passengerIdStrTemp = passengerIdArrTemp.join(',')
       that.setData({
@@ -172,7 +169,7 @@ Page(Object.assign({}, Toast, {
         'passengerIdStr': ''
       })
     }
-    console.log(that.data.formData);
+
 
   },
 
@@ -224,15 +221,11 @@ Page(Object.assign({}, Toast, {
     that.setData({
       [event.currentTarget.id]: event.detail.value
     })
-    console.log("id = " + event.currentTarget.id);
-    console.log('用户输入值为：', event.detail.value)
-    console.log(that.data);
+    // console.log("id = " + event.currentTarget.id);
+    // console.log('用户输入值为：', event.detail.value)
+    // console.log(that.data);
   },
 
-
-  radioChange: function (e) {
-    console.log('radio发生change事件，携带value值为：', e.detail.value)
-  },
 
   actionSheetTap: function (e) {
     this.setData({
@@ -246,8 +239,62 @@ Page(Object.assign({}, Toast, {
     })
   },
 
-  bindItemTap: function (e) {
-    console.log('tap ' + e.currentTarget.dataset.name)
+  /**
+ * 检查用户输入
+ */
+  checkInput: function () {
+
+    var that = this;
+    // if (that.data.formData.linkMan.length <= 0) {
+
+    //   that.showZanToast("请填写姓名");
+    //   return false;
+    // }
+
+    // if (!util.isMobile(that.data.formData.linkTel)) {
+
+    //   that.showZanToast("请输入联系电话");
+    //   return false;
+    // }
+
+    // if (that.data.formData.tourers.list.length < that.data.formData.tourers.subNum.child + that.data.formData.tourers.subNum.adult) {
+
+    //   that.showZanToast("请选择出行人");
+    //   return false;
+    // }
+    // if (that.data.formData.receiverAddress.length <= 0) {
+
+    //   that.showZanToast("请添加您的收货地址");
+    //   return false;
+    // }
+
+    // if (that.data.formData.linkEmail.length > 0 && !util.isEmail(that.data.formData.linkEmail)) {
+
+    //   that.showZanToast("请检查输入的电子邮箱地址");
+    //   return false;
+    // }
+    return true;
   },
 
+  /**
+ * 
+ * 下一步
+ */
+  handleTapNextStep: function () {
+
+    var that = this;
+    if (that.checkInput()) {
+
+      var url = '../pay-confirm/pay-confirm';
+      console.log("url = " + url);
+      wx.navigateTo({
+        url: url,
+        success: function (res) { },
+        fail: function (res) {
+          that.showZanToast("页面跳转错误");
+        },
+        complete: function (res) { },
+      })
+    }
+  }
 }));

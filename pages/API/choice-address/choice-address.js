@@ -156,7 +156,7 @@ Page(Object.assign({}, Toast,{
       var prevPage = pages[pages.length - 2];  //上一个页面
       prevPage.setData({
         profileId: that.data.selectAddress,
-        profile: that.data.selectAddressDetail,
+        'formData.receiverAddress': that.data.selectAddressDetail,
       })
       wx.navigateBack();
     }

@@ -40,6 +40,7 @@ var that = this;
 
 
     that.setData({
+<<<<<<< HEAD
       isShowOptionsView: !this.data.isShowOptionsView,
     })
   },
@@ -52,6 +53,8 @@ var that = this;
       
    
 
+=======
+>>>>>>> 21d042d8ac3e3ddf04a8d6a6e2d04d03b59fae8f
       currentPlaneTicketShippingSpaceId: defaultPlaneTicketShippingSpaceId,
       currentPlaneTicketShippingSpaceTitle: defaultPlaneTicketShippingSpaceTitle,
 
@@ -243,7 +246,7 @@ var that = this;
     
     var that = this;
     var url = '../hotel-require/hotel-require';
-    wx: wx.redirectTo({
+    wx.redirectTo({
       url: url,
       success: function (res) { },
       fail: function (res) {

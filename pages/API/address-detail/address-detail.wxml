@@ -82,9 +82,15 @@
 
      <view class="dataform-box">
           <scroll-view class="dataform" scroll-x="true">
+<<<<<<< HEAD
                <view class="dataul {{currentItem==data_idx?'active_tag':''}}" wx:for="{{priceList}}" wx:key="idx" bindtap="tagChooseData" wx:for-index="data_idx" data-data_idx="{{data_idx}}">
                     <view class="riqi {{currentItem==data_idx?'active':''}}" wx:key="item"  wx:for="{{item.list}}">{{item.date}}</view>
                     <view class="money" wx:for="{{item.suitList}}" wx:key="item">￥{{item.adultprice}}</view>
+=======
+               <view class="dataul {{currentItem==data_idx?'active_tag':''}}" wx:for="{{startDatePriceListFormat}}" wx:key="idx" bindtap="tagChooseData" wx:for-index="data_idx" data-data_idx="{{data_idx}}" date-date="{{item.date}}">
+                    <view class="riqi {{currentItem==data_idx?'active':''}}" >{{item.dateStr}}</view>
+                    <view class="money" >￥{{item.min}}</view>
+>>>>>>> 21d042d8ac3e3ddf04a8d6a6e2d04d03b59fae8f
                </view>
           </scroll-view>
           <view class="back11">

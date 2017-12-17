@@ -21,7 +21,7 @@ Page({
   },
 
   onReady: function () {
-    this.getData();
+
   },
 
 
@@ -121,9 +121,6 @@ Page({
         startDatePriceListFormatTemp.push(itemDateFormat);
       }
     }
-
-    console.log("😀😀😀")
-    console.log(startDatePriceListFormatTemp);
 
     that.setData({
       startDatePriceListFormat: startDatePriceListFormatTemp

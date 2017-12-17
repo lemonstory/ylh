@@ -1,36 +1,33 @@
 <!--pages/API/new-add-address/new-add-address.wxml-->
 <view class="container">
-<view class="main-box">
-  <view class="input-name">联系人：
-      <input class="input" placeholder="收货人姓名" placeholder-style="margin-left:59rpx;font-size:26rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);"></input>
-      <view class="cicle"></view>
-      <view class="man">先生</view>
-      <view class="cicle1"></view>
-      <view class="man">女士</view>
+     <view class="main-box">
+          <view class="input-name">联系人：
+               <input class="input" placeholder="收货人姓名" placeholder-style="margin-left:59rpx;font-size:26rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);"></input>
+               <view class="cicle"></view>
+               <view class="man">先生</view>
+               <view class="cicle1"></view>
+               <view class="man">女士</view>
 
-  </view>
+          </view>
 
- <view class="input-name tell">手机号码：
-      <input class="input" bindinput='validatemobile' placeholder="环球悦旅会联系您的电话" placeholder-style="margin-left:30rpx;font-size:26rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);"></input>
-  </view>
+          <view class="input-name tell">手机号码：
+               <input class="input" bindinput='validatemobile' placeholder="环球悦旅会联系您的电话" placeholder-style="margin-left:30rpx;font-size:26rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);"></input>
+          </view>
 
- <view class="input-name">常用邮箱：
-      <input class="input" placeholder="请输入您的邮箱" placeholder-style="margin-left:30rpx;font-size:26rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);"></input>
-  </view> 
+          <view class="input-name">常用邮箱：
+               <input class="input" placeholder="请输入您的邮箱" placeholder-style="margin-left:30rpx;font-size:26rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);"></input>
+          </view>
 
-<view class="input-name">所在城市：
-      <input class="input" placeholder="请选择城市" placeholder-style="margin-left:30rpx;font-size:26rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);"></input>
-      
-  <image class="back" src="http://image.365zhiding.com/wxapp/20171114/1.png"></image>
-           
-</view> 
+          <view class="input-name">所在城市：
+               <input class="input" placeholder="请选择城市" placeholder-style="margin-left:30rpx;font-size:26rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);"></input>
+               <image class="back" src="http://image.365zhiding.com/wxapp/20171114/1.png"></image>
+          </view>
 
+          <view class="input-name add">详细地址：
+               <input class="input" placeholder="请输入楼号门牌号等详细信息" placeholder-style="margin-left:30rpx;font-size:26rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);"></input>
+          </view>
+     </view>
 
-<view class="input-name add" >详细地址：
-      <input class="input"  placeholder="请输入楼号门牌号等详细信息" placeholder-style="margin-left:30rpx;font-size:26rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);"></input>
-  </view> 
-</view>
-
-<view class="bottom" bindtap='back'>保存</view>
+     <view class="bottom" bindtap='back'>保存</view>
 
 </view>

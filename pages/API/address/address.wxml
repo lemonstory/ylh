@@ -30,7 +30,7 @@
      <!--热门目的地开始  -->
      <view class="hot">
           <view class="hot-font">
-               <view>热门目的地</view>
+               <view>{{areaList.title}}</view>
                <view style='font-size:24rpx;color:#666;' bindtap='bindMoreaddress'>
                     更多目的地
                     <image style="width:14rpx;height:24rpx; margin-left:20rpx;" src="http://image.365zhiding.com/wxapp/20171114/1.png"></image>
@@ -41,9 +41,9 @@
 
 
      <scroll-view class="hot-image" scroll-x="true">
-          <view class="li" wx:for="{{areaList}}" data-id='item.areaId' wx:key="areaList">
-               <image src="{{item.image}}" bindtap='choiceCountry'></image>
-               <view class="address-text">{{item.areaName}}</view>
+          <view class="li" wx:for="{{areaList.list}}" data-id='item.areaId' wx:key="areaList">
+     <image src="{{item.image}}" bindtap='handleCountry' data-src="{{item.url}}" ></image>
+               <!-- <view class="address-text">{{item.areaName}}</view> -->
           </view>
      </scroll-view>
 
@@ -74,4 +74,5 @@
      </view>
 </view>
 
-<template is="zan-loadmore" data="{{loading: true}}" />
+<template is="zan-loadmore" wx:if="{{isLoading}}" data="{{loading: true}}" />
+<template is="zan-loadmore" wx:if="{{isNoMore}}" data="{{nodata: true,nodata_str:'加载完成'}}" />

@@ -9,55 +9,33 @@ Page({
           autoplay: true,
           interval: 5000,
           duration: 1000,
-     },
-     bindBlur: function (e) {
-          inputContent[e.currentTarget.id] = e.detail.value
+          pageIndex: 1,
+          pageCount: 1,
+          Pagesize: 20,
+          //是否还有更多数据
+          'isNoMore': false,
+          //是否正在加载中
+          'isLoading': false,
      },
      onLoad(e) {
-          console.log(e.title)
-
-     },
-     onReady: function () {
+          console.log(e.title);
           this.getData();
      },
-     changeIndicatorDots: function (e) {
-          this.setData({
-               indicatorDots: !this.data.indicatorDots
+     onReady: function () {
+     },
+     onShow: function (e) {
+          wx.getSystemInfo({
+               success: (res) => {
+                    this.setData({
+                         windowHeight: res.windowHeight,
+                         windowWidth: res.windowWidth
+                    })
+               }
           })
      },
-     choiceadd: function () {
-          wx.navigateTo({
-               url: "../address-detail2/address-detail2"
-          })
-     },
-     changeAutoplay: function (e) {
-          this.setData({
-               autoplay: !this.data.autoplay
-          })
-     },
-     intervalChange: function (e) {
-          this.setData({
-               interval: e.detail.value
-          })
-     },
-     durationChange: function (e) {
-          this.setData({
-               duration: e.detail.value
-          })
-     },
-     onReachBottom: function () {
-          setTimeout(() => {
-               this.setData({
-                    isHideLoadMore: true,
-                    recommends: [
-                         {
-                              imageurl: '../image/firsticon.png'
-                         },
-                    ],
-               })
-          }, 1000)
-     },
-     //获取接口
+
+
+//获取接口
      getData: function () {
           var that = this;
           wx.request({
@@ -81,18 +59,25 @@ Page({
                url: path
           })
      },
-     handleAd:function(event){
+     handleAd: function (event) {
           var src = event.currentTarget.dataset.src;
-          console.log(src);
+          console.log(11111);
           var path = "/pages/web-view/web-view?src=" + src;
           wx.navigateTo({
                url: path
           })
      },
-
+     handleCountry:function(event){
+          console.log(1111111);
+          var src = event.currentTarget.dataset.src;
+         var path = "/pages/web-view/web-view?src=" + src;
+          wx.navigateTo({
+               url: path
+          })
+ 
+     },
      bindAddressDetail: function (event) {
           var id = event.currentTarget.dataset.id;
-          console.log(444444444444444444)
           console.log(id);
           var path = "/pages/API/address-detail/address-detail?id=" + id;
           wx.navigateTo({
@@ -100,25 +85,33 @@ Page({
           })
      },
 
-     bindMoreaddress:function(){
-     var path = "/pages/API/more-address/more-address"
-     wx.navigateTo({
-          url: path
-     })
-     },
-
-onShow: function (e) {
-          wx.getSystemInfo({
-               success: (res) => {
-                    this.setData({
-                         windowHeight: res.windowHeight,
-                         windowWidth: res.windowWidth
-                    })
-               }
+     bindMoreaddress: function () {
+          var path = "/pages/API/more-address/more-address"
+          wx.navigateTo({
+               url: path
           })
      },
-
-
+     changeIndicatorDots: function (e) {
+          this.setData({
+               indicatorDots: !this.data.indicatorDots
+          })
+     },
+ 
+     changeAutoplay: function (e) {
+          this.setData({
+               autoplay: !this.data.autoplay
+          })
+     },
+     intervalChange: function (e) {
+          this.setData({
+               interval: e.detail.value
+          })
+     },
+     durationChange: function (e) {
+          this.setData({
+               duration: e.detail.value
+          })
+     },
      choiceCountry: function () {
           wx.navigateTo({
                url: '../common/common',
@@ -127,16 +120,84 @@ onShow: function (e) {
                complete: function (res) { },
           })
      },
-
-
+     bindBlur: function (e) {
+          inputContent[e.currentTarget.id] = e.detail.value
+     },
      onPullDownRefresh: function () {
-          wx.showToast({
-               title: '加载中...',
-               icon: 'loading'
+     
+     },
+
+     getDataMore: function (pageIndex, Pagesize) {
+          var that = this;
+          var url = that.data.constant.domain + '/distrbuter/line/recommendlist/' + pageIndex + "/" + Pagesize;
+          console.log(url);
+          if (!that.data.isNoMore) {
+               wx.request({
+                    url: url,
+                    data: {},
+                    header: {
+                         'content-type': 'application/json', // 默认值
+                    },
+                    success: function (res) {
+                         wx.hideLoading();
+                         var lineListlen = res.data.lineList.length;
+                         if (lineListlen > 0) {
+                              // 加入数据
+                              var lineListTemp = that.data.lineList;
+                              Array.prototype.push.apply(lineListTemp, res.data.lineList);
+                              var pageCount;
+                              that.setData({
+                                   pageIndex: res.data.pageIndex,
+                                   pageCount: res.data.totalPage,
+                                   lineList: lineListTemp,
+                              })
+                              if (pageIndex == pageCount) {
+                                   that.setData({
+                                        'isNoMore': true,
+                                        'isLoading': false
+                                   })
+                              }
+                         }
+                         else {
+                              that.setData({
+                                   'isNoMore': true,
+                                   'isLoading': false,
+                              });
+                         }
+                    }
+               })
+          }
+     },
+     /**
+             * 停止下拉刷新动画
+             */
+     stopPullDownRefresh: function () {
+          wx.stopPullDownRefresh({
+               complete: function (res) {
+               }
           });
      },
 
+     /**
+     * 获取数据成功回调
+     */
+     setDataCallBack: function () {
+
+     },
+     onReachBottom: function () {
+          if (!this.data.isNoMore) {
+               this.setData({
+                    'isLoading': true,
+                    'pageIndex': this.data.pageIndex + 1,
+               });
+               setTimeout(() => {
+                    this.getDataMore(this.data.pageIndex, this.data.Pagesize);
+               }, 500);
+          } else {
+               this.setData({
+                    'isLoading': false,
+               });
+          }
+     },
+
 })
-
-
-

@@ -81,6 +81,7 @@ Page({
      // 处理banner图点击事件
      handleBanner: function (event) {
           var src = event.currentTarget.dataset.src;
+          console.log(src)
           var path = "/pages/web-view/web-view?src=" + src;
           wx.navigateTo({
                url: path

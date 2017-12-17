@@ -46,8 +46,7 @@ chooseItem: function (e) {
     that.setData({
       isShowView: (!this.data.isShowView),
       })
-    
-      },
+},
 
 
 /**

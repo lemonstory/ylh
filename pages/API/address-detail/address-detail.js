@@ -13,8 +13,7 @@ Page({
     select: 0,
     show: 0,
     showCall: false,
-
-    //出发日期
+//出发日期
     startDatePriceListFormat:[]
 },
 

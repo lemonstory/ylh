@@ -49,9 +49,7 @@ Page(Object.assign({}, Toast, {
 
       var item = JSON.parse(itemJsonStr);
       that.setData({
-
         'isUpdate':true,
-
         'id': item.id,
         'name': item.name,
         'title': item.title,

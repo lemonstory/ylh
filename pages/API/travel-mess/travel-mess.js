@@ -62,5 +62,12 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+
+  bindPassPort:function(){
+       var path = "/pages/API/passport/passport";
+    wx.navigateTo({
+         url: path,
+    })
   }
 })

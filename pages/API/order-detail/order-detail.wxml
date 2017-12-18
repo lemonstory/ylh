@@ -1,235 +1,311 @@
 <!--pages/API/order-detail/order-detail.wxml-->
 <view class="container">
 
-  <!--提示框开始  -->
-  <view class="tishi">
-    <view class="star">*</view>退款提示：订单已支付成功，已不能进行退款操作！
-  </view>
+     <!--提示框开始  -->
+     <view class="tishi">
+          <view class="star">*</view>退款提示：订单已支付成功，已不能进行退款操作！
+     </view>
 
-  <!-- </提示框结束> -->
-
-
-  <!--出行时间开始  -->
-  <view class="go">
-    <view class="go-time">
-      <view>待发团</view>
-      <view class="go-for" bindtap='onChangeShowState'>
-        <image src="http://image.365zhiding.com/wxapp/20171121/zixun.png"></image>
-      </view>
-    </view>
-    <view class="go-add">
-      <view class="go-text">
-        周庄古镇、苏州园林 纯玩2日巴士跟团游（[天天发车车周庄古镇、苏州园林
-      </view>
-      <view class="go-more">
-        <image src="http://image.365zhiding.com/wxapp/20171112/back.png"></image>
-      </view>
-    </view>
-  </view>
-  <!--出行时间结束  -->
-
-   <!--弹出信息的展示开始  -->
-    <view class="hidden-box hide{{showView?'show':''}}"></view>
-    <view class="hidden hide{{showView?'show':''}}">
-    <view class="hidden-text1">呼叫客服</view>
-    <view class="hidden-text2">400-189-0876</view>
-    <view class="hidden-text3">周一至周六 09:30-18:30</view>
-    <view class="line"></view>
-    <view class="line2"></view>
-    <view class="cancel" bindtap='cancel'>取消</view>
-    <view class="sure" bindtap='callPhone'>呼叫</view>
-    </view>
-  <!--弹出信息的展示结束-->
+     <!-- </提示框结束> -->
 
 
-  <!--订单信息开始  -->
-  <view class="order-box">
-    <view class="order-ul">
-      <view class="order-li">
-        <view class="time">10月27日</view>
-        <view class="date">周五出发</view>
-      </view>
-      <view class="order-li">
-        <view class="person">2成人1儿童</view>
-        <view class="person">北京出发</view>
-      </view>
-      <view class="order-li">
-        <view class="time">10月30日</view>
-        <view class="date">周一返回</view>
-      </view>
-    </view>
-    <view class="order-money">
-      <view class="money-text">订单金额：
-        <view class="price">￥899</view>
-      </view>
-      <view class="pay-text">费用说明</view>
-    </view>
-    <view class="order-money">
-      <view class="money-text">订单编号：
-        <view class="bianhao">123456789</view>
-      </view>
-    </view>
-    <view class="order-money1">
-      <view class="money-text">下单时间：
-        <view class="bianhao">2017-10-23</view>
-      </view>
-    </view>
-  </view>
-  <!--订单信息结束  -->
-  <!--机票信息开始  -->
-  <view class="jipiao-box">
-    <view class="jipiao-text">机票信息</view>
-    <view class="flat-box">
-      <view class="flat-left">
-        <view class="flat-date">2017-11-23</view>
-        <view class="flat-time">21:05</view>
-        <view class="flat-address">首都国际机场T2</view>
-      </view>
-      <view class="flat-center">
-        <view class="flat-heng">中国南方航空CZ3288</view>
-        <view class="flat-img">
-          <image src="http://image.365zhiding.com/wxapp/20171121/flat.png"></image>
-        </view>
-        <view class="flat-xingli">738 行李额</view>
-      </view>
+     <!--出行时间开始  -->
+     <view class="go">
+          <view class="go-time">
+               <view>待发团</view>
+               <view class="go-for" bindtap='onChangeShowState'>
+                    <image src="http://image.365zhiding.com/wxapp/20171121/zixun.png"></image>
+               </view>
+          </view>
+          <view class="go-add">
+               <view class="go-text">
+                    周庄古镇、苏州园林 纯玩2日巴士跟团游（[天天发车车周庄古镇、苏州园林
+               </view>
+               <view class="go-more">
+                    <image src="http://image.365zhiding.com/wxapp/20171112/back.png"></image>
+               </view>
+          </view>
+     </view>
+     <!--出行时间结束  -->
 
-      <view class="flat-right">
-        <view class="flat-date">2017-11-23</view>
-        <view class="flat-time">21:05</view>
-        <view class="flat-address">首都国际机场T2</view>
-      </view>
-    </view>
+     <!--弹出信息的展示开始  -->
+     <view class="hidden-box hide{{showView?'show':''}}"></view>
+     <view class="hidden hide{{showView?'show':''}}">
+          <view class="hidden-text1">呼叫客服</view>
+          <view class="hidden-text2">400-189-0876</view>
+          <view class="hidden-text3">周一至周六 09:30-18:30</view>
+          <view class="line"></view>
+          <view class="line2"></view>
+          <view class="cancel" bindtap='cancel'>取消</view>
+          <view class="sure" bindtap='callPhone'>呼叫</view>
+     </view>
+     <!--弹出信息的展示结束-->
 
 
- <view class="flat-box">
-      <view class="flat-left">
-        <view class="flat-date">2017-11-23</view>
-        <view class="flat-time">21:05</view>
-        <view class="flat-address">首都国际机场T2</view>
-      </view>
-      <view class="flat-center">
-        <view class="flat-heng">中国南方航空CZ3288</view>
-        <view class="flat-img">
-          <image src="http://image.365zhiding.com/wxapp/20171121/flat.png"></image>
-        </view>
-        <view class="flat-xingli">738 行李额</view>
-      </view>
+     <!--订单信息开始  -->
+     <view class="order-box">
+          <view class="order-ul">
+               <view class="order-li">
+                    <view class="time">10月27日</view>
+                    <view class="date">周五出发</view>
+               </view>
+               <view class="order-li">
+                    <view class="person">2成人1儿童</view>
+                    <view class="person">北京出发</view>
+               </view>
+               <view class="order-li">
+                    <view class="time">10月30日</view>
+                    <view class="date">周一返回</view>
+               </view>
+          </view>
+          <view class="order-money">
+               <view class="money-text">订单金额：
+                    <view class="price">￥899</view>
+               </view>
+               <view class="pay-text" bindtap='bindPaychange'>费用说明</view>
+          </view>
+          <view class="order-money">
+               <view class="money-text">订单编号：
+                    <view class="bianhao">123456789</view>
+               </view>
+          </view>
+          <view class="order-money1">
+               <view class="money-text">下单时间：
+                    <view class="bianhao">2017-10-23</view>
+               </view>
+          </view>
+     </view>
+     <!--订单信息结束  -->
+     <!--机票信息开始  -->
+     <view class="jipiao-box">
+          <view class="jipiao-text" bindtap='bindAirMessage'>机票信息</view>
 
-      <view class="flat-right">
-        <view class="flat-date">2017-11-23</view>
-        <view class="flat-time">21:05</view>
-        <view class="flat-address">首都国际机场T2</view>
-      </view>
-    </view>
 
+          <view class="flat-box">
+               <view class="flat-left">
+                    <view class="flat-date">2017-11-23</view>
+                    <view class="flat-time">21:05</view>
+                    <view class="flat-address">首都国际机场T2</view>
+               </view>
+               <view class="flat-center">
+                    <view class="flat-heng">中国南方航空CZ3288</view>
+                    <view class="flat-img">
+                         <image src="http://image.365zhiding.com/wxapp/20171121/flat.png"></image>
+                    </view>
+                    <view class="flat-xingli" bindtap='bindDudschange'>738 行李额</view>
+               </view>
+
+               <view class="flat-right">
+                    <view class="flat-date">2017-11-23</view>
+                    <view class="flat-time">21:05</view>
+                    <view class="flat-address">首都国际机场T2</view>
+               </view>
+          </view>
+
+
+          <!-- <view class="flat-box">
+               <view class="flat-left">
+                    <view class="flat-date">2017-11-23</view>
+                    <view class="flat-time">21:05</view>
+                    <view class="flat-address">首都国际机场T2</view>
+               </view>
+               <view class="flat-center">
+                    <view class="flat-heng">中国南方航空CZ3288</view>
+                    <view class="flat-img">
+                         <image src="http://image.365zhiding.com/wxapp/20171121/flat.png"></image>
+                    </view>
+                    <view class="flat-xingli">738 行李额</view>
+               </view>
+
+               <view class="flat-right">
+                    <view class="flat-date">2017-11-23</view>
+                    <view class="flat-time">21:05</view>
+                    <view class="flat-address">首都国际机场T2</view>
+               </view>
+          </view> -->
+
+     </view>
+     <!--机票信息结束  -->
+
+     <!--酒店信息开始  -->
+     <view class="lianxi-box">
+          <view class="lianxi-message">酒店信息</view>
+
+          <view class="input-name">入住日期:
+               <view class="lianxi-name" style='margin-left:29rpx;'>2017-12-03</view>
+          </view>
+          <view class="input-name">入住酒店:
+               <view class="lianxi-tell" style='margin-left:29rpx;'>酒店名称酒店名称</view>
+          </view>
+          <view class="input-name">酒店地址:
+               <view class="lianxi-name" style='margin-left:29rpx;'>酒店地址酒店地址酒店地址</view>
+          </view>
+
+          <view class="input-name">入住日期:
+               <view class="lianxi-name" style='margin-left:29rpx;'>2017-12-03</view>
+          </view>
+          <view class="input-name">入住酒店:
+               <view class="lianxi-tell" style='margin-left:29rpx;'>酒店名称酒店名称</view>
+          </view>
+          <view class="input-name">酒店地址:
+               <view class="lianxi-name" style='margin-left:29rpx;'>酒店地址酒店地址酒店地址</view>
+          </view>
+
+     </view>
+
+
+     <!--酒店信息结束  -->
+
+
+     <!--全程单房差开始  -->
+     <view class="all-box">
+          <view class="yufu">
+               <view class="yufu-text">预付单房差</view>
+               <view class="yufu-money">¥750</view>
+          </view>
+          <view class="yufu-shuoming">因旅游过程中的住宿一般是两个床位的标准间，而团费是根据一名成人占一张床计算的，所以当您的出游人数（成人）为奇数时，需要补足另一个床位的费用。</view>
+
+
+     </view>
+     <!--全程单房差结束  -->
+
+
+
+
+     <!--联系人信息开始  -->
+     <view class="lianxi-box">
+          <view class="lianxi-message">联系人信息</view>
+          <view class="input-name">姓名:
+               <view class="lianxi-name" style='margin-left:86rpx;'>李明</view>
+          </view>
+          <view class="input-name">手机号:
+               <view class="lianxi-tell" style='margin-left:52rpx;'>123456789</view>
+          </view>
+          <view class="input-name">邮箱:
+               <view class="lianxi-name" style='margin-left:86rpx;'>12455444ggg.com</view>
+          </view>
+     </view>
+
+     <!--联系人信息结束  -->
+
+     <!--出行人信息开始  -->
+     <view class="lianxi-box">
+          <view class="lianxi-message" bindtap='test'>出行人信息</view>
+
+          <view class="input-name">中文名称:
+               <view class="lianxi-tell" style='margin-left:29rpx;'>李明</view>
+          </view>
+          <view class="input-name">身份证号:
+               <view class="lianxi-tell" style='margin-left:29rpx;'>李明</view>
+          </view>
+          <view class="input-name">身份证号:
+               <view class="lianxi-name" style='margin-left:29rpx;'>125747455466852468</view>
+          </view>
+     </view>
+
+
+
+
+     <!--出行人信息结束  -->
+
+     <view class="fapiao-box">
+          <view class="fapiao">
+               <view class="fapiao-text">开具发票</view>
+          </view>
+          <view class="fapiao-type">
+               <view class="type-name">类型：</view>
+               <view style='margin-left:81rpx'>单位</view>
+          </view>
+          <view class="input-name">抬头：
+               <view style='margin-left:81rpx'>和表现就比较</view>
+          </view>
+          <view class="input-name input-shui">税号：
+               <view style='margin-left:81rpx'>纳税人识别纳税人识别</view>
+          </view>
+     </view>
+
+
+     <!--开具发票结束  -->
+
+     <!--收获地址开始  -->
+     <view class="get-add">
+          <view class="fapiao">收获地址</view>
+          <view class="choice-add ">北京市高碑店西店村37栋</view>
+     </view>
 </view>
-<!--机票信息结束  -->
 
-<!--酒店信息开始  -->
-<view class="lianxi-box">
-    <view class="lianxi-message">酒店信息</view>
-    
-    <view class="input-name">入住日期:
-      <view class="lianxi-name" style='margin-left:29rpx;'>2017-12-03</view>
-    </view>
-    <view class="input-name">入住酒店:
-      <view class="lianxi-tell" style='margin-left:29rpx;'>酒店名称酒店名称</view>
-    </view>
-    <view class="input-name">酒店地址:
-      <view class="lianxi-name" style='margin-left:29rpx;'>酒店地址酒店地址酒店地址</view>
-    </view>
 
-<view class="input-name">入住日期:
-      <view class="lianxi-name" style='margin-left:29rpx;'>2017-12-03</view>
-    </view>
-    <view class="input-name">入住酒店:
-      <view class="lianxi-tell" style='margin-left:29rpx;'>酒店名称酒店名称</view>
-    </view>
-    <view class="input-name">酒店地址:
-      <view class="lianxi-name" style='margin-left:29rpx;'>酒店地址酒店地址酒店地址</view>
-    </view>
 
+<!--费用明细弹出框交互-->
+<view class="shadow {{selectPay == 0 ? 'hiddenPay':'activemessage'}}">
+     <view class="shadow-box">
+          <view class="text-title" style='width:100%;height:90rpx;text-align:center;line-height:90rpx;border-bottom:1rpx solid #eee;'>费用说明</view>
+          <view class="text-content">
+               <view style='color:rgba(102,102,102,1);'>订单总额</view>
+               <view style='color:rgba(255,102,0,1)'>￥3980</view>
+          </view>
+          <view class="text-content">
+               <view style='color:rgba(102,102,102,1);'>单房差费用</view>
+               <view style='color:rgba(255,102,0,1)'>￥280</view>
+          </view>
+          <view class="text-content">
+               <view style='color:rgba(102,102,102,1);'>待支付</view>
+               <view style='color:rgba(255,102,0,1)'>￥3980</view>
+          </view>
+          <view class="text-content">
+               <view style='color:rgba(102,102,102,1);'>已支付</view>
+               <view style='color:rgba(255,102,0,1)'>￥3980</view>
+          </view>
+     </view>
+
+     <view class="goback" bindtap='bindPaycancel'>
+          <image src="../image/back.png"></image>
+     </view>
 </view>
 
+<!-- 费用明细弹出框交互结束 -->
 
-<!--酒店信息结束  -->
+<!--行李额说明弹出框交互开始  -->
+<view class="shadow {{selectDuds == 0 ? 'hiddenPay':'activemessage'}}">
+     <view class="shadow-box">
+          <view class="text-title" style='width:100%;height:90rpx;text-align:center;line-height:90rpx;border-bottom:1rpx solid #eee;'>行李额说明</view>
+          <view class="text-content">
+               <view style='color:rgba(102,102,102,1);'>行李额</view>
+               <view style='color:rgba(102,102,102,1);'>20KG以下免托运行李费用。</view>
+          </view>
+     </view>
 
+     <view class="goback" bindtap='bindDudscancel'>
+          <image src="../image/back.png"></image>
+     </view>
+</view>
+<!--行李额说明弹出框交互结束  -->
 
-  <!--全程单房差开始  -->
-  <view class="all-box">
-   <view class="yufu">
-      <view class="yufu-text">预付单房差</view>
-      <view class="yufu-money">¥750</view>
-    </view>
-  <view class="yufu-shuoming">因旅游过程中的住宿一般是两个床位的标准间，而团费是根据一名成人占一张床计算的，所以当您的出游人数（成人）为奇数时，需要补足另一个床位的费用。</view>
+<!--机票信息弹出框交互开始-->
+<view class="shadow {{selectAir == 0 ? 'hiddenPay':'activemessage'}}">
+     <view class="shadow-box">
+          <view class="text-title" style='width:100%;height:90rpx;text-align:center;line-height:90rpx;border-bottom:1rpx solid #eee;'>机票信息</view>
+          <view class="text-content" style='border-bottom:none'>
+               <view>详情／退改细则</view>
+          </view>
+          <view class="text-content" style='border-bottom:none'>
+               <view>中国南方航空  CZ3288  北京-桂林</view>
+          </view>
 
+          <view class="ruels">
+          <view>退改签规则</view>
+          <view class="rules_detail">
+          <view>同舱改期手续费</view>
+          <view>起飞前2小时内：720元／人</view>
+          <view>起飞前2小时外：360元／人</view>
+          <view>起飞后：720元／人</view>
+          </view>
+          </view>
+     </view>
 
-  </view>
-  <!--全程单房差结束  -->
-
-
-
-
-  <!--联系人信息开始  -->
-  <view class="lianxi-box">
-    <view class="lianxi-message">联系人信息</view>
-    <view class="input-name">姓名:
-      <view class="lianxi-name" style='margin-left:86rpx;'>李明</view>
-    </view>
-    <view class="input-name">手机号:
-      <view class="lianxi-tell" style='margin-left:52rpx;'>123456789</view>
-    </view>
-    <view class="input-name">邮箱:
-      <view class="lianxi-name" style='margin-left:86rpx;'>12455444ggg.com</view>
-    </view>
-  </view>
-
-  <!--联系人信息结束  -->
-
-<!--出行人信息开始  -->
-<view class="lianxi-box">
-    <view class="lianxi-message" bindtap='test'>出行人信息</view>
-    
-    <view class="input-name">中文名称:
-      <view class="lianxi-tell" style='margin-left:29rpx;'>李明</view>
-    </view>
-    <view class="input-name">身份证号:
-      <view class="lianxi-tell" style='margin-left:29rpx;'>李明</view>
-    </view>
-    <view class="input-name">身份证号:
-      <view class="lianxi-name" style='margin-left:29rpx;'>125747455466852468</view>
-    </view>
+     <view class="goback" bindtap='bindAircancel'>
+          <image src="../image/back.png"></image>
+     </view>
 </view>
 
-
-
-
-<!--出行人信息结束  -->
-
-
-
-  <view class="fapiao-box">
-    <view class="fapiao">
-      <view class="fapiao-text">开具发票</view>
-    </view>
-    <view class="fapiao-type">
-      <view class="type-name">类型：</view>
-      <view style='margin-left:81rpx'>单位</view>
-    </view>
-    <view class="input-name">抬头：
-      <view style='margin-left:81rpx'>和表现就比较</view>
-    </view>
-    <view class="input-name input-shui">税号：
-      <view style='margin-left:81rpx'>纳税人识别纳税人识别</view>
-    </view>
-  </view>
-
-
-  <!--开具发票结束  -->
-
-  <!--收获地址开始  -->
-  <view class="get-add">
-    <view class="fapiao">收获地址</view>
-    <view class="choice-add ">北京市高碑店西店村37栋</view>
-  </view>
-</view>
+<!-- 机票信息弹出框交互结束-->

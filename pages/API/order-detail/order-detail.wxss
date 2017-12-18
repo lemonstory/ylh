@@ -509,3 +509,94 @@ bottom:27rpx;
 right:103rpx;
 }
 
+/*费用说明弹出框交互开始  */
+.shadow {
+     position: absolute;
+     left: 0;
+     top: 0;
+     width: 100%;
+     height: 100%;
+     background: rgba(0, 0, 0, 0.4);
+     z-index: 99;
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: center;
+     align-content: center;
+}
+
+.hiddenPay {
+     display: none;
+}
+
+.activemessage {
+     display: flex;
+}
+
+.shadow-box {
+     width: 540rpx;
+     height: 434rpx;
+     background: rgba(255, 255, 255, 1);
+     border-radius: 10rpx;
+     position: absolute;
+     top: 350rpx;
+     z-index: 999;
+     left:105rpx;
+}
+.text-content{
+     display: flex;
+     height:85rpx;
+     padding-left: 30rpx;
+     padding-right:30rpx;
+     width:100%;
+     box-sizing: border-box;
+     justify-content: space-between;
+     align-items: center;
+     border-bottom: 1rpx solid #eee;
+     font-size:26rpx;
+     font-family:PingFang-SC-Regular;
+}
+
+.goback {
+     width: 58rpx;
+     height: 58rpx;
+     position: absolute;
+     bottom: 60rpx;
+     z-index: 999;
+}
+
+.goback image {
+     width: 100%;
+     height: 100%;
+}
+
+.ruels{
+     height:auto;
+     display: flex;
+     padding-left: 30rpx;
+     padding-right: 30rpx;
+     box-sizing: border-box;
+     font-size:24rpx;
+     font-family:PingFang-SC-Regular;
+     color:rgba(102,102,102,1);
+}
+.rules_detail{
+     height:auto;
+     display: flex;
+     margin-left: 55rpx;
+     box-sizing: border-box;
+     font-size:24rpx;
+     font-family:PingFang-SC-Regular;
+     color:rgba(102,102,102,1);
+     flex-direction: column;
+}
+
+
+/*费用说明地弹出层交互结束  */
+
+/*行李额说明弹出层交互开始  */
+
+.hiddenDuds{
+     display: none;
+}
+
+/*行李额说明弹出层交互结束  */

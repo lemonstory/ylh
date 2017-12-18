@@ -5,7 +5,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+       selectPay:0,
+       selectDuds:0,
+       selectAir:0,
   },
   
   /**
@@ -83,5 +85,48 @@ Page({
    */
   onShareAppMessage: function () {
   
-  }
+  },
+
+
+
+bindPaychange: function () {
+     var that = this;
+     that.setData({
+          selectPay: !that.data.selectPay
+     });
+},
+bindPaycancel: function () {
+     var that = this;
+     that.setData({
+          selectPay: 0,
+     });
+},
+
+bindDudschange:function(){
+     var that = this;
+     that.setData({
+          selectDuds: !that.data.selectDuds
+     });  
+},
+
+bindDudscancel: function () {
+     var that = this;
+     that.setData({
+          selectDuds: 0,
+     });
+},
+bindAirMessage:function(){
+     var that = this;
+     that.setData({
+          selectAir: !that.data.selectAir,
+     });
+},
+bindAircancel: function () {
+     var that = this;
+     that.setData({
+          selectAir: 0,
+     });
+},
+
+
 })

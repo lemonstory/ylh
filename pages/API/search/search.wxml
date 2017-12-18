@@ -3,7 +3,7 @@
   <view class="main">
     <view class="search">
       <!-- id="myInput" -->
-      <input id="keyword" placeholder='搜索国家或地区' placeholder-style='font-size:24rpx; color:#666;' style='padding-left:72rpx; box-sizing: border-box;' value="{{keyword}}" bindinput="bindInputValueChange" confirm-type="done" bindconfirm='getSearchWithKeyWord'>
+      <input id="keyword" focus='{{keywordInputFocus}}' placeholder='搜索国家或地区' placeholder-style='font-size:24rpx; color:#666;' style='padding-left:72rpx; box-sizing: border-box;' value="{{keyword}}" bindinput="bindInputValueChange" confirm-type="done" bindconfirm='getSearchWithKeyWord'>
       </input>
       <view style='font-size:24rpx;' bindtap="getSearchWithKeyWord" data-id='1'>搜索</view>
       <view class="cancel" bindtap='bindCancel' data-id='2'>取消</view>
@@ -16,19 +16,18 @@
     <block wx:if="{{isShowHotAreaList}}">
       <view class="route-hot">线路热搜目的地</view>
       <view class="add-url">
-        <view class="add-li" wx:for="{{hotAreaList.lineList}}" bindtap='handleTapLineListItem' wx:for-index="idx" data-id="{{item.id}}" wx:key="address">{{item.name}}</view>
+        <view class="add-li" wx:for="{{hotAreaList.lineList}}" bindtap='handleTapHotAreaLineLiseItem' wx:for-index="idx" data-area_id="{{item.id}}" wx:key="address">{{item.name}}</view>
       </view>
       <view class="route-hot">签证热搜目的地</view>
       <view class="add-url">
-        <view class="add-li" wx:for="{{hotAreaList.visaList}}" bindtap='handleTapVisaListItem' wx:for-index="idx " data-id="{{item.id}}" wx:key="visa">{{item.name}}</view>
+        <view class="add-li" wx:for="{{hotAreaList.visaList}}" bindtap='handleTapHotAreaVisaListItem' wx:for-index="idx " data-area_id="{{item.id}}" wx:key="visa">{{item.name}}</view>
       </view>
     </block>
 
     <!-- 搜索接口显示-开始 -->
     <block wx:if="{{!isShowHotAreaList}}">
-      
       <!-- 线路产品 -->
-      <block wx:for="{{areaGoods.lineList}}" wx:key="item" wx:for-index="idx" data-areaId="{{item.areaId}}">
+      <block wx:for="{{areaGoods.lineList}}" wx:key="item" wx:for-index="idx" data-area_id="{{item.areaId}}">
         <view class="tuijuan">
           <view>{{item.areaName}}线路产品推荐</view>
           <view class="more" bindtap='handleTapLineListMore' data-area_id="{{item.areaId}}">更多

@@ -14,6 +14,9 @@ Page(Object.assign({}, Toast, {
 
     isShowHotAreaList: true,
     keyword: '',
+    
+    //搜索输入框获取焦点
+    keywordInputFocus:true
   },
 
 
@@ -134,12 +137,20 @@ Page(Object.assign({}, Toast, {
     })
   },
 
-  handleTapHotAreaItem: function (event) {
-    var id = event.currentTarget.dataset.id;
-    var path = "/pages/API/search-detail/search-detail?id=" + id;
-    wx.navigateTo({
-      url: path
-    })
+  /**
+   * 线路热搜目的地-点击
+   */
+  handleTapHotAreaLineLiseItem: function (e) {
+    var that = this;
+    that.handleTapLineListMore(e)
+  },
+
+  /**
+   * 签证热搜目的地-点击
+   */
+  handleTapHotAreaVisaListItem: function (e) {
+    var that = this;
+    that.handleTapVisaListMore(e)
   },
 
   /**
@@ -178,7 +189,7 @@ Page(Object.assign({}, Toast, {
   },
 
   /**
- * 点击搜索结果-线路-更多
+ * 点击搜索结果-线路-每一条
  */
   handleTapLineListItem: function (e) {
 

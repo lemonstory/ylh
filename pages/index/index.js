@@ -111,7 +111,7 @@ Page(Object.assign({}, Toast, {
     console.log("🌲 🌲 🌲");
     console.log(event);
     console.log(event.currentTarget.dataset);
-    var path = "/pages/API/address-detail/address-detail?id=" + id;
+    var path = "/pages/API/line-detail/line-detail?id=" + id;
     wx.navigateTo({
       url: path
     })

@@ -56,7 +56,7 @@ Page({
 
      bindLineDetail:function(event){
           var id = event.currentTarget.dataset.id;
-          var path = "/pages/API/address-detail/address-detail?id=" + id;
+          var path = "/pages/API/line-detail/line-detail?id=" + id;
           console.log(path);
           wx.navigateTo({
                url: path

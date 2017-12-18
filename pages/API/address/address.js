@@ -79,7 +79,7 @@ Page({
      bindAddressDetail: function (event) {
           var id = event.currentTarget.dataset.id;
           console.log(id);
-          var path = "/pages/API/address-detail/address-detail?id=" + id;
+          var path = "/pages/API/line-detail/line-detail?id=" + id;
           wx.navigateTo({
                url: path
           })

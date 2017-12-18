@@ -232,7 +232,7 @@ Page(Object.assign({}, Toast, {
   //处理点击推荐线路事件
   handleTapLineDetail: function (event) {
     var id = event.currentTarget.dataset.id;
-    var path = "/pages/API/address-detail/address-detail?id=" + id;
+    var path = "/pages/API/line-detail/line-detail?id=" + id;
     wx.navigateTo({
       url: path
     })

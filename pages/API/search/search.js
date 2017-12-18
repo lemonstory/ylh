@@ -195,7 +195,7 @@ Page(Object.assign({}, Toast, {
 
     var that = this;
     var id = e.currentTarget.dataset.area_id;
-    var path = "/pages/API/address-detail/address-detail?id=" + id;
+    var path = "/pages/API/line-detail/line-detail?id=" + id;
     wx.navigateTo({
       url: path
     })

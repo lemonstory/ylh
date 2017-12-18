@@ -1,72 +1,215 @@
 // pages/API/addressdetail/addressdetail.js
 const app = getApp();
-Page({
-  cityFilterTitle: "北京市",
+const Toast = require('../../../zanui-weapp/dist/toast/index');
+var util = require('../../../utils/util.js')
+
+Page(Object.assign({}, Toast, {
+
+
   data: {
-    'constant': app.constant,
-    isShowView: false,
+
+    constant: app.constant,
+
+    //轮播图
     inputContent: {},
     indicatorDots: true,
     autoplay: true,
     interval: 5000,
     duration: 1000,
-    select: 0,
-    show: 0,
-    showCall: false,
-//出发日期
-    startDatePriceListFormat:[]
-},
 
+    //电话弹窗
+    isShowPhoneDialog: false,
+
+    //优惠弹窗
+    isShowActivityDetail: false,
+
+    //出发日期
+    startDatePriceListFormat: [],
+
+    //已选择的出发日期
+    selectedTravelDate: '',
+
+    //评论分页
+    id: '',
+    pageIndex: 1,
+    pageSize: app.constant.pageSize,
+    isShowCommendList: '',
+    commendList: [],
+
+    //是否还有更多数据
+    'isNoMore': false,
+    //是否正在加载中
+    'isLoading': false,
+  },
+
+  onLoad: function (options) {
+
+    console.log(options);
+    //接收页面参数
+    var id = options.id;
+    this.getLineDetailData(id);
+  },
+
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
   onReady: function () {
 
   },
 
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
 
-  onLoad: function (options) {
-    console.log(options);
-    //接收页面参数
-    var id = options.id;
-    this.getData(id);
-  },
-
-  leaderIntroduce: function (event) {
-    var id = event.currentTarget.dataset.id;
-    console.log(id)
-    var path = "/pages/API/leader-introduce/leader-introduce?id=" + id;
-    wx.navigateTo({
-      url: path
-    })
 
   },
-  change: function () {
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+
+    var that = this;
+    if (that.data.isShowCommendList) {
+
+      if (!that.data.isNoMore) {
+        this.setData({
+          'isLoading': true,
+        });
+
+        var nextPageIndex = that.data.pageIndex + 1;
+        setTimeout(() => {
+          that.getCommendListData(that.data.id, that.data.pageIndex, that.data.pageSize)
+        }, 500);
+
+      } else {
+        that.setData({
+          'isLoading': false,
+        });
+      }
+    }
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+
+  },
+
+  /**
+   * 咨询-点击
+   */
+  handleTapPhone: function () {
+
     var that = this;
     that.setData({
-      select: !that.data.select
+      isShowPhoneDialog: true,
+    });
+
+    console.log(that.data.isShowPhoneDialog);
+  },
+
+  /**
+   * 咨询-取消
+   */
+  handleTapCancelPhoneDialog: function () {
+
+    var that = this;
+    that.setData({
+      isShowPhoneDialog: false,
     });
   },
-  cancel: function () {
+
+  /**
+   * 咨询-确认
+   */
+  handleTapConfirmPhoneDialog: function () {
+
     var that = this;
     that.setData({
-      select: "0",
+      isShowPhoneDialog: false,
+    });
+
+    wx.makePhoneCall({
+      phoneNumber: '400-189-0876',
+    })
+  },
+
+  /**
+   * 优惠-点击
+   */
+  handleTapActivity: function () {
+
+    var that = this;
+    that.setData({
+      isShowActivityDetail: that.data.isShowActivityDetail
+    });
+  },
+
+  /**
+   * 优惠弹窗-关闭
+   */
+  handleTapActivityDetailCancel: function () {
+    var that = this;
+    that.setData({
+      isShowActivityDetail: false,
       show: "0"
     });
   },
 
-  bindDateChange: function (e) {
-    var id = e.currentTarget.dataset.id;
-    if (id == "goDate") {
-      this.setData({
-        goDate: e.detail.value
-      })
-    } else if (id == "backDate") {
-      this.setData({
-        backDate: e.detail.value
-      })
-    }
+  /**
+   * 领队-点击
+   */
+  handleTapLeaderIntroduce: function (event) {
+
+    var id = event.currentTarget.dataset.id;
+    var path = "/pages/API/leader-introduce/leader-introduce?id=" + id;
+    console.log("path = " + path);
+    wx.navigateTo({
+      url: path
+    })
   },
 
-  //获取接口
-  getData: function (id) {
+  /**
+   * 评论更多-点击
+   */
+  handleTapCommendMore: function (event) {
+
+    console.log(event);
+    var that = this;
+    var id = event.currentTarget.dataset.id;
+    that.getCommendListData(that.data.id, that.data.pageIndex, that.data.pageSize)
+    that.setData({
+      isShowCommendList: true
+    })
+  },
+
+  //获取线路详情数据
+  getLineDetailData: function (id) {
     var that = this;
     var url = that.data.constant.domain + '/distrbuter/line/detail/' + id;
     console.log("url = " + url);
@@ -77,17 +220,88 @@ Page({
         'content-type': 'application/json', // 默认值
       },
       success: function (res) {
-        console.log(res.data);
-        that.setData(res.data);
-        that.setDataCallBack();
+        if (res.statusCode == 200) {
+
+          console.log(res.data);
+          that.setData(res.data);
+          that.setDataCallBack();
+
+        } else {
+
+          var message = JSON.stringify(res.data)
+          that.showZanToast(message);
+        }
       }
     })
   },
 
+  //获取评论数据
+  getCommendListData: function (id, pageIndex, pageSize) {
+
+    var that = this;
+    var url = `${that.data.constant.domain}/distrbuter/line/commend/list/${id}/${pageIndex}/${pageSize}`
+    console.log("url = " + url);
+    wx.request({
+      url: url,
+      data: {},
+      header: {
+        'content-type': 'application/json', // 默认值
+      },
+      success: function (res) {
+        if (res.statusCode == 200) {
+
+          if (res.data.list.length > 0) {
+
+            var commendListTemp = [];
+            if (typeof (that.data.commendList) != "undefined" && that.data.commendList.length > 0) {
+              commendListTemp = that.data.commendList;
+            }
+            Array.prototype.push.apply(commendListTemp, res.data.list);
+            that.setData({
+              pageIndex: res.data.pageIndex,
+              totalPage: res.data.totalPage,
+              commendList: commendListTemp,
+            })
+            if (pageIndex >= res.data.totalPage) {
+
+              that.setData({
+                'isNoMore': true,
+              })
+            }
+
+          } else {
+
+            that.setData({
+              'isNoMore': true,
+            });
+          }
+        } else {
+
+          var message = JSON.stringify(res.data)
+          that.showZanToast(message);
+        }
+      },
+      fail: function (res) { },
+      complete: function (res) {
+
+        if (that.data.isLoading) {
+          wx.stopPullDownRefresh()
+        }
+        
+        that.setData({
+          'isLoading': false,
+        });
+      }
+    })
+  },
+
+
+
   /**
    * 处理出发日期下面的数据
    */
-  setDataCallBack:function() {
+  setDataCallBack: function () {
+
     var that = this;
     var startDatePriceListTemp = [];
     if (that.data.priceList.length > 0) {
@@ -96,13 +310,13 @@ Page({
         if (that.data.priceList[i].list.length > 0) {
           for (var j = 0; j < that.data.priceList[i].list.length; j++) {
             startDatePriceListTemp.push(that.data.priceList[i].list[j])
-          }    
+          }
         }
     }
 
     var startDatePriceListFormatTemp = [];
     if (startDatePriceListTemp.length > 0) {
-      
+
       for (var i = 0; i < startDatePriceListTemp.length; i++) {
 
         var item = startDatePriceListTemp[i];
@@ -118,66 +332,18 @@ Page({
       }
     }
 
+    var commendListTemp = [];
+    commendListTemp.push(that.data.comment);
     that.setData({
-      startDatePriceListFormat: startDatePriceListFormatTemp
+      startDatePriceListFormat: startDatePriceListFormatTemp,
+      commendList: commendListTemp
     })
   },
 
-  blindCellPhone: function () {
-    var that = this;
-    console.log(999999999)
-    that.setData({
-      showView: (!that.data.showView)
-    })
-  },
-
-  cancel1: function () {
-    var that = this;
-    that.setData({
-      showView: false
-    })
-  },
-
-  callPhone: function () {
-    wx.makePhoneCall({
-      phoneNumber: '400-189-0876',
-    })
-    var that = this;
-    that.setData({
-      showView: false
-    })
-  },
-
-  bindBlur: function (e) {
-    inputContent[e.currentTarget.id] = e.detail.value
-  },
-
-  changeIndicatorDots: function (e) {
-    this.setData({
-      indicatorDots: !this.data.indicatorDots
-    })
-  },
-  changeAutoplay: function (e) {
-    this.setData({
-      autoplay: !this.data.autoplay
-    })
-  },
-
-  //处理点击推荐线路事件
-  intervalChange: function (e) {
-    this.setData({
-      interval: e.detail.value
-    })
-  },
-
-  durationChange: function (e) {
-    this.setData({
-      duration: e.detail.value
-    })
-  },
-
-
-  tagChooseData: function (e) {
+  /**
+   * 出发日期-点击
+   */
+  handleTapChooseDate: function (e) {
     var path = "/pages/API/start-order/start-order";
     wx.navigateTo({
       url: path
@@ -191,17 +357,10 @@ Page({
       var showMode = e.currentTarget.dataset.dataIdx == 0;
       this.setData({
         currentItem: dataIdx,
-        FilterData: e.currentTarget.dataset.date
+        selectedTravelDate: e.currentTarget.dataset.date
       })
     }
   },
 
-  onChangeShowState: function () {
-    var that = this;
-    that.setData({
-      isShowView: !this.data.isShowOptionsView,
-    })
-  },
-
-})
+}));
 

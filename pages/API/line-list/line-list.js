@@ -135,10 +135,6 @@ Page(Object.assign({}, Toast, {
 
   },
 
-  onReady: function () {
-
-  },
-
   //获取接口
   getData: function (areaId, category, attrId, pageIndex, pageSize) {
 

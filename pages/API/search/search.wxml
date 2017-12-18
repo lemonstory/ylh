@@ -1,4 +1,5 @@
 <!--pages/API/search/search.wxml-->
+<import src="/zanui-weapp/dist/toast/index.wxml" />
 <view class="container">
   <view class="main">
     <view class="search">
@@ -60,4 +61,7 @@
     </block>
     <!-- 搜索接口显示-结束 -->
   </view>
+
+  <!-- 直接使用 zan-toast 模板，并且直接传入 zanToast -->
+  <template is="zan-toast" data="{{ zanToast }}"></template>
 </view>

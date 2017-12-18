@@ -181,7 +181,7 @@ Page(Object.assign({}, Toast, {
     var category = 0;
     var pageIndex = 1;
     var pageSize = app.constant.pageSize;
-    var path = "/pages/API/common/common?areaId=" + areaId + "&category=" + category + "&pageIndex=" + pageIndex + "&pageSize=" + pageSize;
+    var path = "/pages/API/line-list/line-list?areaId=" + areaId + "&category=" + category + "&pageIndex=" + pageIndex + "&pageSize=" + pageSize;
     console.log(path);
     wx.navigateTo({
       url: path

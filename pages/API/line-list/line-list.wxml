@@ -1,0 +1,23 @@
+<!--pages/API/common/common.wxml-->
+<import src="/zanui-weapp/dist/toast/index.wxml" />
+<import src="/zanui-weapp/dist/loadmore/index.wxml" />
+
+<view class="ul" wx:for="{{lineList}}" bindtap='choiceadd' wx:for-index="idx" data-id='item.lineId' wx:key="item">
+  <view class="tuijuan-img">
+    <image src="{{item.image}}"></image>
+  </view>
+  <view class="tuijuan-text">
+    <view class="text1">【{{item.attr}}】{{item.title}}</view>
+    <view class="tuijuan-bottom">
+      <view class="text2">¥{{item.price}}
+        <view class="person">/人起</view>
+      </view>
+      <view class="address">{{item.areaName}}</view>
+    </view>
+  </view>
+</view>
+
+<!-- 直接使用 zan-toast 模板，并且直接传入 zanToast -->
+<template is="zan-toast" data="{{ zanToast }}"></template>
+<template is="zan-loadmore" wx:if="{{isLoading}}" data="{{loading: true}}" />
+<template is="zan-loadmore" wx:if="{{isNoMore}}" data="{{nodata: true,nodata_str:'加载完成'}}" />

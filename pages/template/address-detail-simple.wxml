@@ -10,5 +10,4 @@
                <image class="jing-img" src="{{imageItem}}" wx:for="{{item.images}}" wx:key="jing-img" wx:for-item="imageItem" mode='aspectFit'></image>
           </view>
      </block>
-
 </template>

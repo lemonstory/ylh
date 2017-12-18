@@ -4,7 +4,10 @@
      <view class="calendar" bindtap="tap">
           <view class="calendar-panel">
                <!-- <view class="day">{{canlender.date}}日</view>      -->
-               <view class="month">{{canlender.month}}月
+               <view class="month">{{canlender.month-1}}月
+                    <view class="price">￥{{canlender.price}}起</view>
+               </view>
+                 <view class="month">{{canlender.month}}月
                     <view class="price">￥{{canlender.price}}起</view>
                </view>
           </view>
@@ -69,10 +72,11 @@
      <!--检测信息-->
      <view class="yanger">
           <view class="chengren">是否包含1岁以下的婴儿</view>
+          <view class="ischeck"></view>
      </view>
-     <view class="old">
+     <!-- <view class="old">
           <view class="chengren">是否包含70岁以上的老人</view>
-     </view>
+     </view> -->
 
      
      

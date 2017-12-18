@@ -181,6 +181,7 @@
      align-items: center;
      border-bottom: 1rpx solid #eee;
      margin: 0 auto;
+     justify-content: space-between;
 }
 
 .old {
@@ -245,4 +246,11 @@
 .calender-body-date-week .hidden {
      background: #fff;
      color: #fff;
+}
+
+.ischeck {
+     width: 17rpx;
+     height: 17rpx;
+     border: 4rpx solid #AAA;
+     border-radius: 50%;
 }

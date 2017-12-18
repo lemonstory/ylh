@@ -1,6 +1,6 @@
 {
   "pages": [
-    "pages/API/search/search",
+    
     "pages/index/index",
     "pages/API/air-ticket/air-ticket",
     "pages/API/new-add-address/new-add-address",
@@ -22,6 +22,7 @@
     "pages/API/order-detail/order-detail",
     "pages/API/ziliao-proce/ziliao-proce",
     "pages/API/travel-mess/travel-mess",
+    "pages/API/search/search",
     "pages/API/search-detail/search-detail",
     "pages/API/hotel-require/hotel-require",
     "pages/API/car-require/car-require",

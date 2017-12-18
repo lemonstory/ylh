@@ -104,7 +104,7 @@ Page(Object.assign({}, Toast, {
       },
 
       //是否【已选择】包含婴儿(number,required)
-      'isAllowBabySelected': 0,
+      'isAllowBabySelected': 1,
 
       "adultprice": 200,                  //成人费用
       "childprice": 100,                  //儿童费用

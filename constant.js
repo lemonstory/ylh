@@ -6,7 +6,8 @@ var constant = {
   'agentId': 1,
   //系统来源,10悦旅汇，20小程序
   'tradeId': 20,
-
+  //每页显示条数
+  'pageSize':20,
 
   //旅客证件类型
   "passengerCardType": [{

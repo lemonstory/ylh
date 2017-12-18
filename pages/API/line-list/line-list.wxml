@@ -1,7 +1,7 @@
 <!--pages/API/common/common.wxml-->
 <import src="/zanui-weapp/dist/toast/index.wxml" />
 <import src="/zanui-weapp/dist/loadmore/index.wxml" />
-
+<view class="container">
 <view class="ul" wx:for="{{lineList}}" bindtap='choiceadd' wx:for-index="idx" data-id='item.lineId' wx:key="item" bindtap='handleTapLineDetail'>
   <view class="tuijuan-img">
     <image src="{{item.image}}"></image>
@@ -15,6 +15,7 @@
       <view class="address">{{item.areaName}}</view>
     </view>
   </view>
+</view>
 </view>
 
 <!-- 直接使用 zan-toast 模板，并且直接传入 zanToast -->

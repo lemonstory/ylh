@@ -1,8 +1,21 @@
 /* pages/API/common/common.wxss */
+.container {
+  box-sizing: border-box;
+  background: #F7F7F7;
+  width: 100%;
+  height:auto;
+}
+.ul{
+  width:100%;
+  height:auto;
+  background: #fff;
+  margin-top:10rpx; 
+}
 .tuijuan-img {
   width: 690rpx;
   height: 276rpx;
   margin-left: 30rpx;
+ 
 }
 
 .tuijuan-img image {

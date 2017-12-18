@@ -9,7 +9,9 @@
   width:100%;
   height:auto;
   background: #fff;
-  margin-top:10rpx; 
+  margin-top:10rpx;
+  padding-top: 30rpx;
+  box-sizing: border-box; 
 }
 .tuijuan-img {
   width: 690rpx;

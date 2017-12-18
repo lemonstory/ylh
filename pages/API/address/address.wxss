@@ -24,6 +24,7 @@
   opacity: 0.8;
   display: flex;
   align-content: center;
+  line-height: 68rpx;
 }
 
 .search-icon {
@@ -63,6 +64,7 @@ swiper {
   position: absolute;
   top: 10rpx;
   right: 31rpx;
+  opacity: 0.8;
 }
 
 .search image {

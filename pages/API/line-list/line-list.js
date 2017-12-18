@@ -14,11 +14,17 @@ Page(Object.assign({}, Toast, {
     pageSize: app.constant.pageSize,
     attrId: 0,
 
+    //目的地名称
+    title: '目的地名称',
+
 
     //是否还有更多数据
     'isNoMore': false,
     //是否正在加载中
-    'isLoading': false
+    'isLoading': false,
+    //是否重新加载
+    'isReload': false
+
   },
 
 
@@ -94,9 +100,11 @@ Page(Object.assign({}, Toast, {
 
     var that = this;
     that.setData({
-      pageIndex: 1
+      isReload: true
     })
-    that.getData(that.data.areaId, that.data.category, that.data.attrId, that.data.pageIndex, that.data.pageSize);
+    v
+    var nextPageIndex = 1;
+    that.getData(that.data.areaId, that.data.category, that.data.attrId, nextPageIndex, that.data.pageSize);
   },
 
   /**
@@ -104,19 +112,21 @@ Page(Object.assign({}, Toast, {
    */
   onReachBottom: function () {
 
-    if (!this.data.isNoMore) {
+    var that = this;
+    if (!that.data.isNoMore) {
       this.setData({
         'isLoading': true,
-        'pageIndex': this.data.pageIndex + 1,
       });
 
+      var nextPageIndex = that.data.pageIndex;
+
       setTimeout(() => {
-        that.getData(that.data.areaId, that.data.category, that.data.attrId, that.data.pageIndex, that.data.pageSize);
+        that.getData(that.data.areaId, that.data.category, that.data.attrId, nextPageIndex, that.data.pageSize);
       }, 500);
 
     } else {
 
-      this.setData({
+      that.setData({
         'isLoading': false,
       });
     }
@@ -136,10 +146,16 @@ Page(Object.assign({}, Toast, {
   //获取接口
   getData: function (areaId, category, attrId, pageIndex, pageSize) {
 
+    // console.log("🚀 🚀 🚀")
     var that = this;
     var path = `${that.data.constant.domain}/distrbuter/line/list/${areaId}/${category}/${attrId}/${pageIndex}/${pageSize}`
     console.log(path);
     if (!that.data.isNoMore) {
+
+      // wx.showLoading({
+      //   title: '加载中',
+      // })
+
       wx.request({
         url: path,
         data: {},
@@ -147,42 +163,58 @@ Page(Object.assign({}, Toast, {
           'content-type': 'application/json', // 默认值
         },
         success: function (res) {
+
           if (res.statusCode == 200) {
+
             wx.hideLoading();
-            var lineListlen = res.data.lineList.length;
-            console.log(lineListlen);
-            if (lineListlen > 0) {
+            var lineListLen = res.data.lineList.length;
+
+            if (lineListLen > 0) {
+
+
               // 加入数据
-              var lineListTemp = res.data.lineList;
-              console.log(lineListTemp);
-              Array.prototype.push.apply(lineListTemp, res.data.lineList);
-              var pageCount;
+              var lineListTemp = [];
+
+              if (!that.data.isReload) {
+                if (typeof (that.data.lineList) != "undefined" && that.data.lineList.length > 0) {
+                  lineListTemp = that.data.lineList;
+                }
+                Array.prototype.push.apply(lineListTemp, res.data.lineList);
+              }
               that.setData({
+                title: res.data.title,
                 pageIndex: res.data.pageIndex,
                 pageCount: res.data.totalPage,
                 lineList: lineListTemp,
               })
-              if (pageIndex == pageCount) {
+              
+              that.setDataCallBack();
+
+              if (pageIndex >= res.data.totalPage) {
+
                 that.setData({
                   'isNoMore': true,
                   'isLoading': false
                 })
               }
-            }
-            else {
+            } else {
+
               that.setData({
                 'isNoMore': true,
                 'isLoading': false,
               });
+
             }
           } else {
-            console.log(res);
+
             var message = JSON.stringify(res.data)
             that.showZanToast(message);
           }
         },
-        fail:function(res) {},
-        complete:function(res) {}
+
+        fail: function (res) { },
+        complete: function (res) { }
+
       })
     }
   },
@@ -190,27 +222,19 @@ Page(Object.assign({}, Toast, {
   /** 获取数据成功回调*/
   setDataCallBack: function () {
 
+    var that = this;
+    var title = that.data.title;
+    wx.setNavigationBarTitle({
+      title: title,
+    });
   },
 
-
-  intervalChange: function (e) {
-    this.setData({
-      interval: e.detail.value
-    })
-  },
-
-  durationChange: function (e) {
-    this.setData({
-      duration: e.detail.value
-    })
-  },
-
-  // 处理banner图点击事件
-  handleBanner: function (event) {
-    var bannerId = event.currentTarget.dataset.id;
-    var bannerUrl = "" + bannerId;
+  //处理点击推荐线路事件
+  handleTapLineDetail: function (event) {
+    var id = event.currentTarget.dataset.id;
+    var path = "/pages/API/address-detail/address-detail?id=" + id;
     wx.navigateTo({
-      url: bannerUrl
+      url: path
     })
   },
 }));

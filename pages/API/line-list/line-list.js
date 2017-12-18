@@ -17,16 +17,13 @@ Page(Object.assign({}, Toast, {
     //目的地名称
     title: '目的地名称',
 
-
     //是否还有更多数据
     'isNoMore': false,
     //是否正在加载中
     'isLoading': false,
     //是否重新加载
     'isReload': false
-
   },
-
 
   onLoad: function (options) {
 
@@ -102,7 +99,6 @@ Page(Object.assign({}, Toast, {
     that.setData({
       isReload: true
     })
-    v
     var nextPageIndex = 1;
     that.getData(that.data.areaId, that.data.category, that.data.attrId, nextPageIndex, that.data.pageSize);
   },
@@ -118,7 +114,7 @@ Page(Object.assign({}, Toast, {
         'isLoading': true,
       });
 
-      var nextPageIndex = that.data.pageIndex;
+      var nextPageIndex = that.data.pageIndex + 1;
 
       setTimeout(() => {
         that.getData(that.data.areaId, that.data.category, that.data.attrId, nextPageIndex, that.data.pageSize);
@@ -171,7 +167,6 @@ Page(Object.assign({}, Toast, {
 
             if (lineListLen > 0) {
 
-
               // 加入数据
               var lineListTemp = [];
 
@@ -179,29 +174,28 @@ Page(Object.assign({}, Toast, {
                 if (typeof (that.data.lineList) != "undefined" && that.data.lineList.length > 0) {
                   lineListTemp = that.data.lineList;
                 }
-                Array.prototype.push.apply(lineListTemp, res.data.lineList);
               }
+              Array.prototype.push.apply(lineListTemp, res.data.lineList);
+
               that.setData({
                 title: res.data.title,
                 pageIndex: res.data.pageIndex,
                 pageCount: res.data.totalPage,
                 lineList: lineListTemp,
               })
-              
+
               that.setDataCallBack();
 
               if (pageIndex >= res.data.totalPage) {
 
                 that.setData({
                   'isNoMore': true,
-                  'isLoading': false
                 })
               }
             } else {
 
               that.setData({
                 'isNoMore': true,
-                'isLoading': false,
               });
 
             }
@@ -213,8 +207,16 @@ Page(Object.assign({}, Toast, {
         },
 
         fail: function (res) { },
-        complete: function (res) { }
+        complete: function (res) {
 
+          if (that.data.isLoading) {
+            wx.stopPullDownRefresh()
+          }
+
+          that.setData({
+            'isLoading': false,
+          });
+        }
       })
     }
   },

@@ -11,7 +11,7 @@
     </swiper>
 
     <view class="search" bindtap='bindSearch'>
-      <input id="myInput" bindblur="bindBlur" placeholder='搜索国家或地区' placeholder-style='font-size:24rpx; color:#fff;opacity:0.8;' style='padding-left:72rpx;' />
+      <view id="myInput" style='font-size:24rpx; color:#fff;opacity:0.8;padding-left:72rpx;line-height:'>搜索国家或地区</view>
       <view class="search-icon">
         <image src="http://image.365zhiding.com/wxapp/20171112/sou.png"></image>
       </view>

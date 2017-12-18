@@ -103,10 +103,8 @@ Page(Object.assign({}, Toast, {
         },
       },
 
-      //是否包含婴儿(number,required)
-      'isIncludeBaby': 1,
-      //是否包含老人(number,required)
-      'isIncludeOld': 1,
+      //是否【已选择】包含婴儿(number,required)
+      'isAllowBabySelected': 1,
 
       "adultprice": 200,                  //成人费用
       "childprice": 100,                  //儿童费用
@@ -125,6 +123,7 @@ Page(Object.assign({}, Toast, {
         day: lineDetail.day,
         night: lineDetail.night,
         difference: lineDetail.difference,
+        isAllowBabySelected: lineDetail.isAllowBabySelected,
         adultprice: lineDetail.adultprice,
         childprice: lineDetail.childprice,
         postage: lineDetail.postage,

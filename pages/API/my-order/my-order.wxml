@@ -7,6 +7,37 @@
                <view class="tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="swichNav">{{ orderType[1].name}}</view>
                <view class="tab-item {{currentTab==2?'active':''}}" data-current="2" bindtap="swichNav">{{ orderType[2].name}}</view>
 
+<<<<<<< HEAD
+          </scroll-view>
+          <swiper class="tab-content" current="{{currentTab}}" duration="300" bindchange="switchTab" style="height:{{winHeight}}rpx">
+               <!--线路开始  -->
+                <swiper-item scroll-y="true"> 
+    
+                      
+                                          <view class="route" wx:for="{{commonOrder}}">
+                         <view class="route-top">
+                              <view>订单号：{{item.ordersn}}</view>
+                              <view>{{item.statusStr}}</view>
+                         </view>
+                         <view class="route-center">
+                              <image class="route-img" src="../image/00.png"></image>
+                              <view class="center-text">
+                                   <view class="text1">{{item.pName}}</view>
+                                   <view class="text2">出行时间：{{item.travelDate}}</view>
+                                   <view class="text3">出行人数：{{item.travelNumber}}人</view>
+                              </view>
+                         </view>
+                         <view class="route-bottom">
+                              <view class="bottom-left">订单金额：¥{{item.amount}}</view>
+                              <view class="all-right">
+                                   <view class="bottom-right" wx:if = "{{item.isAllowCancel ==1}}">取消订单</view>
+                                   <view class="bottom-right" style='color:#FF6600;border:1rpx solid #FF6600; margin-left:20rpx' data-statusId="{{item.statusId}}">{{item.statusId == 101 ? "去支付":"查看线路"}}</view>
+                              </view>
+                         </view>
+                    </view>
+                </swiper-item> 
+               <!--线路结束  -->
+=======
           </view>
 
 
@@ -31,9 +62,26 @@
                </view>
           </block>
 
+>>>>>>> 574b4e0eae8d45ca4f13fc4d68b18c88d5649bf3
 
           <!--线路结束  -->
 
+<<<<<<< HEAD
+                    <view class="route" wx:for="{{customOrder}}">
+                         <view class="route-top">
+                              <view>订单号：{{item.ordersn}}</view>
+                              <view style='color:#FF6600'>{{item.statusStr}}</view>
+                         </view>
+                         <view class="route-center">
+                              <image class="route-img" src="../image/00.png"></image>
+                              <view class="center-text">
+                                        <view class="center-text">
+                                   <view class="text1">{{item.pName}}</view>
+                                   <view class="text2">出行时间：{{item.travelDate}}</view>
+                                   <view class="text3">出行人数：{{item.travelNumber}}人</view>
+                              </view>
+                              </view>
+=======
           <!--常规线路开始  -->
 
           <block wx:elif="{{currentTab==1}}">
@@ -47,14 +95,22 @@
                          <view class="center-text">
                               <view class="text1">{{item.text}}</view>
                               <view class="text2" style='margin-top:20rpx'>{{item.name}} 在职人员</view>
+>>>>>>> 574b4e0eae8d45ca4f13fc4d68b18c88d5649bf3
                          </view>
                     </view>
                     <view class="route-bottom">
                          <view class="bottom-left">订单金额：¥{{item.amount}}</view>
 
+<<<<<<< HEAD
+                              <view class="all-right">
+                                   <view class="bottom-right">取消订单</view>
+                                   <view class="bottom-right" style='color:#FF6600;border:1rpx solid #FF6600;margin-left:20rpx' data-statusId="{{item.statusId}}">{{item.statusId == 101 ? "去支付":"查看线路"}}</view>
+                              </view>
+=======
                          <view class="all-right">
                               <view class="bottom-right">{{item.cancel}}</view>
                               <view class="bottom-right" style='color:#FF6600;border:1rpx solid #FF6600;margin-left:20rpx'>{{item.type1}}</view>
+>>>>>>> 574b4e0eae8d45ca4f13fc4d68b18c88d5649bf3
                          </view>
                     </view>
                </view>

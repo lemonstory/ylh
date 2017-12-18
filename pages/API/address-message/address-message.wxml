@@ -14,8 +14,8 @@
   <view class="choice">
     <view class="person">选择出行人数</view>
     <view class="choice-num">{{formData.tourers.subNum.adult}}成人 {{formData.tourers.subNum.child}}儿童</view>
-    <view class="choice-num">是否包含1岁以下的婴儿</view>
-    <view class="choice-num">是否包含70岁以上的老人</view>
+    <view class="choice-num" wx:if="{{isAllowBabySelected == 1}}">包含1岁以下的婴儿</view>
+    <view class="choice-num" wx:else>不包含1岁以下的婴儿</view>
     <navigator url="../choice-person/choice-person?passengerIdStr={{passengerIdStr}}">
       <view class="choice-person">选择出行人
         <image class='back' src='http://image.365zhiding.com/wxapp/20171114/1.png' mode='widthFix'></image>

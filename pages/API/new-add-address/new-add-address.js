@@ -32,7 +32,7 @@ Page(Object.assign({}, Toast, {
       "province": {
         "id": 0,
         "name": '',
-        "pid":0
+        "pid": 0
       },
       "city": {
         "id": 0,
@@ -46,17 +46,24 @@ Page(Object.assign({}, Toast, {
       }
     },
 
-    isAddressPickShow: true,
+    isAddressPickShow: false,
 
     province: [],
     city: [],
     district: [],
 
-    value: [2, 2, 2],
+    value: [2, 0, 0],
 
     value1Defult: '省',
     value2Defult: '市',
     value3Defult: '区',
+
+    selectProvinceId: 193,
+    selectCityId: 194,
+    selectDistrictId: 200,
+
+    selectValue1: 0,
+    selectValue2: 0,
 
   },
 
@@ -139,11 +146,13 @@ Page(Object.assign({}, Toast, {
         'content-type': 'application/json', // 默认值
       },
       success: function (res) {
-        var allAddressList = res;
+        var allAddressList = res.data;
         that.setData({
           allAddress: allAddressList
         });
         that.getprovince();
+        that.getCity();
+        that.getDistrict();
       },
       fail: function (res) {
         console.log(res);
@@ -162,13 +171,48 @@ Page(Object.assign({}, Toast, {
     var that = this;
     var ItemList = [];
     for (var i = 0; i < that.data.allAddress.length; i++) {
-      if (that.data.allAddress[i].pid == 36) {
+      if (that.data.allAddress[i].pid == 37) {
         var itemprovince = that.data.allAddress[i];
         ItemList.push(itemprovince);
       }
     }
     that.setData({
       province: ItemList
+    })
+  },
+
+  /**
+   * 获取市的集合
+   */
+  getCity: function () {
+    var that = this;
+    var itemCityList = [];
+    for (var i = 0; i < that.data.allAddress.length; i++) {
+      if (that.data.allAddress[i].pid == that.data.selectProvinceId) {
+        var itemCity = that.data.allAddress[i];
+        itemCityList.push(itemCity);
+      }
+    }
+    that.setData({
+      city: itemCityList
+    })
+    console.log(that.data.city);
+  },
+
+  /**
+   * 获取区的集合
+   */
+  getDistrict: function () {
+    var that = this;
+    var itemDistrictList = [];
+    for (var i = 0; i < that.data.allAddress.length; i++) {
+      if (that.data.allAddress[i].pid == that.data.selectCityId) {
+        var itemDistrict = that.data.allAddress[i];
+        itemDistrictList.push(itemDistrict);
+      }
+    }
+    that.setData({
+      district: itemDistrictList
     })
   },
 
@@ -184,6 +228,93 @@ Page(Object.assign({}, Toast, {
       addressInfo: address
     })
     console.log(that.data.addressInfo);
+  },
+
+  /**
+   *  监听地址点击事件
+   */
+  handelAddressTap: function (e) {
+    var that = this;
+    var isShow = that.data.isAddressPickShow;
+    console.log(isShow)
+    if (isShow) {
+      isShow = false;
+    } else {
+      isShow = true;
+    }
+    that.setData({
+      isAddressPickShow: isShow,
+    })
+  },
+
+  /**
+   * 监听地址的选择事件
+   */
+  handleSelectChange: function (e) {
+    var that = this;
+    const val = e.detail.value;
+    var provinceVal = that.data.province[val[0]].id;
+    if (provinceVal != that.data.selectProvinceId) {
+      var selectProvinceName = that.data.province[val[0]].name;
+      that.setData({
+        value1Defult: selectProvinceName,
+        selectProvinceId: provinceVal,
+      })
+      that.getCity();
+    }
+    if (that.data.city.length > 0) {
+      var index1;
+      if (val[1] == that.data.selectValue1) {
+        index1 = 0;
+      } else {
+        index1 = val[1];
+        that.setData({
+          selectValue1: index1
+        })
+      }
+      var cityVal = that.data.city[index1].id;
+
+      if (cityVal != that.data.selectCityId) {
+        var selectCityName = that.data.city[index1].name;
+        that.setData({
+          value2Defult: selectCityName,
+          selectCityId: cityVal,
+        })
+        that.getDistrict();
+      }
+    } else {
+      // 台湾、香港、澳门的处理
+      that.setData({
+        value2Defult: '市',
+        selectCityId: 0,
+      })
+      that.getDistrict();
+    }
+    if (that.data.district.length > 0) {
+      var index2;
+      if (val[2] == that.data.selectValue2) {
+        index2 = 0;
+      } else {
+        index2 = val[2];
+        that.setData({
+          selectValue2: index2
+        })
+      }
+      var districtVal = that.data.district[index2].id;
+      if (districtVal != that.data.selectDistrictId) {
+        var selectDistrictName = that.data.district[index2].name;
+        that.setData({
+          selectDistrictId: districtVal,
+          value3Defult: selectDistrictName
+        })
+      }
+    } else {
+      // 台湾、香港、澳门的处理
+      that.setData({
+        selectDistrictId: 0,
+        value3Defult: "区"
+      })
+    }
   },
 
   /**

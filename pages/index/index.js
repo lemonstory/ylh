@@ -1,7 +1,10 @@
 //index.js
 //获取应用实例
 const app = getApp();
-Page({
+const Toast = require('../../zanui-weapp/dist/toast/index');
+var util = require('../../utils/util.js')
+
+Page(Object.assign({}, Toast, {
   data: {
     'constant': app.constant,
     inputContent: {},
@@ -10,18 +13,65 @@ Page({
     interval: 5000,
     duration: 1000,
   },
+
   onReady: function () {
-    this.getData();
-  },
-  onLoad() {
 
   },
+
+  onLoad: function (options) {
+
+    this.getData();
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+
+  },
+
 
   //获取接口
   getData: function () {
+    
     var that = this;
     var url = that.data.constant.domain + '/distrbuter/index';
     console.log("url = " + url);
+    
     wx.request({
       url: url,
       data: {},
@@ -41,13 +91,9 @@ Page({
         console.log("### complete ###");
         console.log(res);
       },
-
     })
   },
 
-  // bindBlur: function (e) {
-  //      inputContent[e.currentTarget.id] = e.detail.value
-  // },
   changeIndicatorDots: function (e) {
     this.setData({
       indicatorDots: !this.data.indicatorDots
@@ -91,16 +137,6 @@ Page({
     })
   },
 
-
-  //      wx.getLocation({
-  //       type: 'wgs84',
-  //      success: (res) => {
-  //           var latitude = res.latitude // 经度
-  //           var longitude = res.longitude // 纬度
-  //      }
-  // })
-
-
   //处理用户搜索事件
   bindSearch: function () {
     var path = "/pages/API/search/search";
@@ -108,5 +144,19 @@ Page({
       url: path
     })
 
+  },
+
+  //处理热门签证点击
+  handleTapVisaItem:function(event) {
+     
+    var that = this;
+    that.showZanToast("数据未提供");
+  },
+
+  //处理人签证-更多
+  handleTapVisaListMore:function(event) {
+
+    var that = this;
+    that.showZanToast("数据未提供");
   }
-})
+}));

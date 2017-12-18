@@ -12,7 +12,7 @@
           <view class="top-tell">{{item.mobile}}</view>
           <image class="xiugai" src="http://image.365zhiding.com/wxapp/20171121/xiugai.png" catchtap='handelAddressEdit' data-idx="{{idx}}"></image>
         </view>
-        <view class="ul-bottom">北京市高碑店西店村37栋</view>
+        <view class="ul-bottom">{{item.street}}</view>
       </view>
 
     </view>

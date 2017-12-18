@@ -1,31 +1,64 @@
 <!--pages/API/search/search.wxml-->
 <view class="container">
-     <view class="main">
-          <view class="search">
-               <input id="myInput" bindblur="bindBlur" placeholder='搜索国家或地区' placeholder-style='font-size:24rpx; color:#666;' style='padding-left:72rpx; box-sizing: border-box;' value="{{searchValue}}" bindinput="searchValueInput">
-               </input>
-               <view style='font-size:24rpx;' bindtap="bindSearch" data-id='1'>搜索</view>
-               <view class="cancel" bindtap='bindCancel' data-id='2'>取消</view>
+  <view class="main">
+    <view class="search">
+      <!-- id="myInput" -->
+      <input id="keyword" placeholder='搜索国家或地区' placeholder-style='font-size:24rpx; color:#666;' style='padding-left:72rpx; box-sizing: border-box;' value="{{keyword}}" bindinput="bindInputValueChange" confirm-type="done" bindconfirm='getSearchWithKeyWord'>
+      </input>
+      <view style='font-size:24rpx;' bindtap="getSearchWithKeyWord" data-id='1'>搜索</view>
+      <view class="cancel" bindtap='bindCancel' data-id='2'>取消</view>
+    </view>
+    <view class="search_no" wx:if="{{!centent_Show}}">
+      <!-- <text>很抱歉,没有找到您要搜索的资料/(ㄒoㄒ)/~~</text>   -->
+    </view>
+
+
+    <block wx:if="{{isShowHotAreaList}}">
+      <view class="route-hot">线路热搜目的地</view>
+      <view class="add-url">
+        <view class="add-li" wx:for="{{hotAreaList.lineList}}" bindtap='handleTapLineListItem' wx:for-index="idx" data-id="{{item.id}}" wx:key="address">{{item.name}}</view>
+      </view>
+      <view class="route-hot">签证热搜目的地</view>
+      <view class="add-url">
+        <view class="add-li" wx:for="{{hotAreaList.visaList}}" bindtap='handleTapVisaListItem' wx:for-index="idx " data-id="{{item.id}}" wx:key="visa">{{item.name}}</view>
+      </view>
+    </block>
+
+    <!-- 搜索接口显示-开始 -->
+    <block wx:if="{{!isShowHotAreaList}}">
+      
+      <!-- 线路产品 -->
+      <block wx:for="{{areaGoods.lineList}}" wx:key="item" wx:for-index="idx" data-areaId="{{item.areaId}}">
+        <view class="tuijuan">
+          <view>{{item.areaName}}线路产品推荐</view>
+          <view class="more" bindtap='handleTapLineListMore' data-area_id="{{item.areaId}}">更多
+            <image class='back' src='http://image.365zhiding.com/wxapp/20171114/1.png' mode='widthFix'></image>
           </view>
-          <view class="search_no" wx:if="{{!centent_Show}}">  
-  <!-- <text>很抱歉,没有找到您要搜索的资料/(ㄒoㄒ)/~~</text>   -->
-     </view>  
-
-
-
-
-
-
-          <view class="route-hot">线路热搜目的地</view>
-          <view class="add-url">
-               <view class="add-li" wx:for="{{lineList}}" bindtap='bindSearchAdDetail' wx:for-index="idx" data-id="{{item.id}}" wx:key="address">{{item.name}}</view>
+        </view>
+        <view class="tui-box" wx:for="{{item.list}}" wx:key="list" data-id='{{item.id}}' bindtap='handleTapLineListItem'>
+          <view class="tui-text">{{item.title}}</view>
+          <view class="tui-money">￥{{item.price}}
+            <view class='qi'>起</view>
           </view>
-         <view class="route-hot">签证热搜目的地</view>
-          <view class="add-url">
-               <view class="add-li" wx:for="{{visaList}}" bindtap='bindSearchVisaDetail' wx:for-index="idx " data-id="{{item.id}}" wx:key="visa">{{item.name}}</view>
+        </view>
+      </block>Î
+
+      <!-- 签证产品 -->
+      <block wx:for="{{areaGoods.visaList}}" wx:key="item" wx:for-index="idx" data-areaId="{{item.areaId}}">
+        <view class="tuijuan">
+          <view>{{item.areaName}}签证产品推荐</view>
+          <view class="more" bindtap='handleTapVisaListMore' data-area_id="{{item.areaId}}">更多
+            <image class='back' src='http://image.365zhiding.com/wxapp/20171114/1.png' mode='widthFix'></image>
           </view>
-
-     </view>
-
-
+        </view>
+        <view class="tui-box" wx:for="{{item.list}}" wx:key="list" data-id='{{item.id}}' bindtap='handleTapVisaListItem' >
+          <view class="tui-text">{{item.title}}</view>
+          <view class="tui-money">￥{{item.price}}
+            <view class='qi'>起</view>
+          </view>
+        </view>
+      </block>Î
+    </block>
+    <!-- 搜索接口显示-结束 -->
+  </view>
 </view>

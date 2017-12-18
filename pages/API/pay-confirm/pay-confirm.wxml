@@ -22,32 +22,24 @@
     <view class="person">出行人数
       <view class="choice-num">{{prevPageData.formData.tourers.subNum.adult + prevPageData.formData.tourers.subNum.child}}人</view>
     </view>
-    <view class="message">
-      <view class="person-message">成人1:</view>
-      <view class="message-detail">
-        <view class="mess-name">姓名：李明</view>
-        <view class="mess-name">身份证号：110110125478878965</view>
-        <view class="mess-name call">联系电话：11011012547</view>
-      </view>
 
-    </view>
-
-    <view class="message">
-      <view class="person-message">成人1:</view>
-      <view class="message-detail">
-        <view class="mess-name">姓名：李明</view>
-        <view class="mess-name">身份证号：110110125478878965</view>
-        <view class="mess-name call">联系电话：11011012547</view>
+    <block wx:for="{{prevPageData.formData.tourers.list}}" wx:key="prevPageData.formData.tourers.list" wx:for-index="idx" wx:for-item="listItem">
+      <view class="message">
+        <view class="person-message" wx:if="{{listItem.ageGroup == 2}}">儿童 :</view>
+        <view class="person-message" wx:if="{{listItem.ageGroup == 3}}">成人 :</view>
+        <view class="message-detail">
+          <view class="mess-name">姓名：{{listItem.name}}</view>
+          <view class="mess-name" wx:if="{{listItem.cardType == 1}}">身份证：{{listItem.cardNumber}} </view>
+          <view class="mess-name" wx:if="{{listItem.cardType == 2}}">军官证：{{listItem.cardNumber}} </view>
+          <view class="mess-name" wx:if="{{listItem.cardType == 3}}">护照：{{listItem.cardNumber}} </view>
+          <view class="mess-name" wx:if="{{listItem.cardType == 4}}">港澳通行证：{{listItem.cardNumber}} </view>
+          <view class="mess-name" wx:if="{{listItem.cardType == 5}}">台湾通行证：{{listItem.cardNumber}} </view>
+          <view class="mess-name" wx:if="{{listItem.cardType == 99}}">其他：{{listItem.cardNumber}} </view>
+          <view class="mess-name call">联系电话：{{listItem.mobile}}</view>
+        </view>
       </view>
-    </view>
+    </block>
 
-    <view class="message">
-      <view class="person-message">儿童1:</view>
-      <view class="message-detail">
-        <view class="mess-name">姓名：李明</view>
-        <view class="mess-name">身份证号：110110125478878965</view>
-      </view>
-    </view>
 
   </view>
   <!-- 选择出行人数结束  -->
@@ -128,22 +120,21 @@
         </view>
         <view class="item">
           <view class="text">成人费用</view>
-          <view class="item-price">￥899*2</view>
+          <view class="item-price">￥{{prevPageData.adultprice/100}}*{{prevPageData.formData.tourers.subNum.adult}}</view>
         </view>
         <view class="item">
           <view class="text">儿童费用</view>
-          <view class="item-price">￥899*2</view>
+          <view class="item-price">￥{{prevPageData.childprice/100}}*{{prevPageData.formData.tourers.subNum.child}}</view>
         </view>
         <view class="item">
           <view class="text">单房差</view>
-          <view class="item-price">￥34</view>
+          <view class="item-price">￥{{prevPageData.adultprice/100}}</view>
         </view>
         <view class="item ">
           <view class="text">发票快递费</view>
-          <view class="item-price">￥50</view>
+          <view class="item-price">￥{{prevPageData.postage/100}}</view>
         </view>
       </action-sheet>
-      <!-- </block>  -->
       <!-- <action-sheet-cancel class="cancel"></action-sheet-cancel>  -->
 
       <!-- 底部提示框结束 -->

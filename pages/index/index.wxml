@@ -1,6 +1,6 @@
 <!--index.wxml-->
+<import src="/zanui-weapp/dist/toast/index.wxml" />
 <view class="container">
-
   <view class="banner">
     <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
       <block wx:for="{{banner}}" wx:key="banner" wx:for-index="idx">
@@ -10,18 +10,13 @@
       </block>
     </swiper>
 
-
-
     <view class="search" bindtap='bindSearch'>
       <input id="myInput" bindblur="bindBlur" placeholder='搜索国家或地区' placeholder-style='font-size:24rpx; color:#fff;opacity:0.8;' style='padding-left:72rpx;' />
       <view class="search-icon">
         <image src="http://image.365zhiding.com/wxapp/20171112/sou.png"></image>
       </view>
     </view>
-
-
   </view>
-
 
   <view class="box">
     <swiper class="swiper_container" vertical="true" autoplay="true" circular="true" interval="2000">
@@ -34,7 +29,6 @@
       </block>
     </swiper>
   </view>
-
 
   <!--推举线路开始  -->
   <view class="section">
@@ -78,7 +72,7 @@
       <navigator url="../API/visa-find/visa-find">热门签证</navigator>
       <view class="react1 rr2"></view>
     </view>
-    <view class="main" wx:for="{{visaList}}" wx:key="">
+    <view class="main" wx:for="{{visaList}}" wx:key="visaList" bindtap='handleTapVisaItem'>
       <view class="qian-left">
         <image src="{{item.image}}"></image>
       </view>
@@ -91,7 +85,7 @@
         </view>
       </view>
     </view>
-    <view class="more1">
+    <view class="more1"  bindtap='handleTapVisaListMore'>
       查看更多
       <view class="jiantou">
         <image src="../image/jiantou.png"></image>
@@ -137,4 +131,7 @@
       </view>
     </navigator>
   </view>
+
+  <!-- 直接使用 zan-toast 模板，并且直接传入 zanToast -->
+  <template is="zan-toast" data="{{ zanToast }}"></template>
 </view>

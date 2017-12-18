@@ -1,119 +1,218 @@
 // pages/API/search/search.js
 const app = getApp();
-var searchValue = '';
-Page({
-     data: {
-          'constant': app.constant,
-           centent_Show: true,
-           searchValue: '', 
-     },
-     onLoad: function (options) {
+const Toast = require('../../../zanui-weapp/dist/toast/index');
+var util = require('../../../utils/util.js')
 
-     },
-     back: function () {
-          wx.navigateBack({
-          })
-     },
+Page(Object.assign({}, Toast, {
+  data: {
+    constant: app.constant,
+    centent_Show: true,
+    searchValue: '',
 
-     /**
-      * 生命周期函数--监听页面初次渲染完成
-      */
-     onReady: function () {
-      
-     },
+    hotAreaList: {},
+    areaGoods: {},
 
-     /**
-      * 生命周期函数--监听页面显示
-      */
-     onShow: function () {
-      this.bindSearch();
-     },
-
-     /**
-      * 生命周期函数--监听页面隐藏
-      */
-     onHide: function () {
-
-     },
-
-     /**
-      * 生命周期函数--监听页面卸载
-      */
-     onUnload: function () {
-
-     },
-
-     /**
-      * 页面相关事件处理函数--监听用户下拉动作
-      */
-     onPullDownRefresh: function () {
-
-     },
-
-     /**
-      * 页面上拉触底事件的处理函数
-      */
-     onReachBottom: function () {
-
-     },
-
-     /**
-      * 用户点击右上角分享
-      */
-     onShareAppMessage: function () {
-
-     },
-     bindSearch: function (e) {
-     var id = e.currentTarget.dataset.id;
-     console.log(id)
-     var that = this;
-     var url = that.data.constant.domain + '/distrbuter/search/getHotAreaList/1';
-     console.log(url);
-     wx.request({
-          url: url,
-          data: {},
-          header: {
-               'content-type': 'application/json',
-          },
-          success: function (res) {
-               if (res.data.length == 0) {
-                    console.log(nonoono)
-                    that.setData({
-                         centent_Show: false,
-                    });
-               }
-               that.setData({
-                    
-               });
-          },
-          fail: function (e) {
-               wx.showToast({
-                    title: '网络异常！',
-                    duration: 2000
-               });
-          },
-     });
-} ,
-
-searchValueInput: function (e) {
-     var value = e.detail.value;
-     this.setData({
-          searchValue: value,
-     });
-     if (!value && this.data.lineList.length == 0) {
-          this.setData({
-               centent_Show: false,
-          });
-     }
-},  
- 
+    isShowHotAreaList: true,
+    keyword: '',
+  },
 
 
-bindSearchAdDetail:function(event){
-     var id = event.currentTarget.dataset.id;
-     var path = "/pages/API/search-detail/search-detail?id="+id;
-     wx.navigateTo({
-          url: path
-     })
-}
-})
+  onLoad: function (options) {
+
+    var that = this;
+    that.getSearchHotAreaList();
+  },
+
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+
+
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+
+  },
+
+  /**
+   * 获取搜索页默认推荐数据
+   */
+  getSearchHotAreaList: function (e) {
+
+    var that = this;
+    var url = that.data.constant.domain + '/distrbuter/search/getHotAreaList/0';
+    console.log("url = " + url);
+
+    wx.request({
+      url: url,
+      data: {},
+      header: {
+        'content-type': 'application/json', // 默认值
+      },
+      success: function (res) {
+        that.setData({
+          hotAreaList: res.data
+        });
+      },
+      fail: function (res) {
+        console.log(res);
+      },
+      complete: function (res) {
+        console.log(res);
+      },
+    })
+  },
+
+  /**
+   * 关键字搜索
+   */
+  getSearchWithKeyWord: function (e) {
+
+    var that = this;
+    var url = that.data.constant.domain + '/distrbuter/search/getAreaGoods/' + that.data.keyword;
+    console.log("url = " + url);
+
+    wx.request({
+      url: url,
+      data: {},
+      header: {
+        'content-type': 'application/json', // 默认值
+      },
+      success: function (res) {
+        that.setData({
+          areaGoods: res.data
+        });
+      },
+      fail: function (res) {
+        console.log(res);
+      },
+      complete: function (res) {
+        that.setData({
+          isShowHotAreaList: false
+        });
+      },
+    })
+  },
+
+  handleTapHotAreaItem: function (event) {
+    var id = event.currentTarget.dataset.id;
+    var path = "/pages/API/search-detail/search-detail?id=" + id;
+    wx.navigateTo({
+      url: path
+    })
+  },
+
+  /**
+  * 获取input输入的值
+  */
+  bindInputValueChange: function (event) {
+
+    console.log(event);
+    console.log("🚀 🚀 🚀");
+    var that = this;
+
+    that.setData({
+      [event.currentTarget.id]: event.detail.value
+    })
+    console.log("id = " + event.currentTarget.id);
+    console.log('用户输入值为：', event.detail.value)
+    console.log(that.data);
+  },
+
+
+  /**
+   * 点击搜索结果-线路-更多
+   */
+  handleTapLineListMore: function (e) {
+
+    var that = this;
+    var areaId = e.currentTarget.dataset.area_id;
+    var category = 0;
+    var pageIndex = 1;
+    var pageSize = app.constant.pageSize;
+    var path = "/pages/API/common/common?areaId=" + areaId + "&category=" + category + "&pageIndex=" + pageIndex + "&pageSize=" + pageSize;
+    console.log(path);
+    wx.navigateTo({
+      url: path
+    })
+  },
+
+  /**
+ * 点击搜索结果-线路-更多
+ */
+  handleTapLineListItem: function (e) {
+
+    var that = this;
+    var id = e.currentTarget.dataset.area_id;
+    var path = "/pages/API/address-detail/address-detail?id=" + id;
+    wx.navigateTo({
+      url: path
+    })
+  },
+
+  /**
+ * 点击搜索结果-签证-更多
+ */
+  handleTapVisaListMore: function (e) {
+
+    var that = this;
+    that.showZanToast("数据未提供");
+  },
+
+  /**
+   * 点击搜索结果-线路-每一条
+   */
+  handleTapVisaListItem: function (e) {
+
+    var that = this;
+    that.showZanToast("数据未提供");
+  },
+
+
+
+  back: function () {
+    wx.navigateBack({
+    })
+  },
+
+}));

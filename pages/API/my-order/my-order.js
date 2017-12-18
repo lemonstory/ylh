@@ -8,20 +8,21 @@ Page(Object.assign({}, Toast, {
     winHeight: "",//窗口高度
     currentTab: 0, //预设当前项的值
     scrollLeft: 0, //tab标题的滚动条位置
-  // 订单类型
-    orderType:[
-{
-"type":1,
-"name":'普通路线'
-},
-{
-  "type": 100,
-  "name": '定制路线'
-},
-{
-  "type": 8,
-  "name": '签证'
-}
+
+    // 订单类型
+    orderType: [
+      {
+        "type": 1,
+        "name": '普通路线'
+      },
+      {
+        "type": 100,
+        "name": '定制路线'
+      },
+      {
+        "type": 8,
+        "name": '签证'
+      }
     ],
     // 当前选中的订单类型
     selectOrderType: 1,
@@ -74,7 +75,7 @@ Page(Object.assign({}, Toast, {
   getCommonData: function () {
     var that = this;
     if (that.data.commonPageIndex <= that.data.commonPageCount) {
-      var url = that.data.constant.domain +"/distrbuter/member/order/list/1/ "+that.data.commonPageIndex + "/ "+that.data.pageSize;
+      var url = that.data.constant.domain + "/distrbuter/member/order/list/1/ " + that.data.commonPageIndex + "/ " + that.data.pageSize;
       wx.request({
         url: url,
         data: {},
@@ -90,7 +91,7 @@ Page(Object.assign({}, Toast, {
             // 添加数据
             that.setData({
               commonPageIndex: index,
-              commonPageCount:pageCount,
+              commonPageCount: pageCount,
               commonOrder: moreData
             })
           }
@@ -113,7 +114,7 @@ Page(Object.assign({}, Toast, {
    */
   getCustomData: function () {
     var that = this;
-    var url = that.data.constant.domain +"/distrbuter/member/order/list/100/ " +that.data.customPageIndex + "/" + that.data.pageSize;
+    var url = that.data.constant.domain + "/distrbuter/member/order/list/100/ " + that.data.customPageIndex + "/" + that.data.pageSize;
     wx.request({
       url: url,
       data: {},
@@ -148,25 +149,25 @@ Page(Object.assign({}, Toast, {
    * 获得签证订单
    */
   getVisaData: function () {
-    var that = this;
-    var url = that.data.constant.domain +"/distrbuter/member/order/list/8/" +that.data.visaPageIndex +"/"+that.data. pageSize;
-    wx.request({
-      url: url,
-      data: {},
-      header: {
-        'content-type': 'application/json', // 默认值
-      },
-      success: function (res) {
-
-      },
-      fail: function (res) {
-        console.log(res);
-        that.showZanToast(res.message);
-      },
-      complete: function (res) {
-        console.log(res);
-      }
-    })
+    // var that = this;
+    // var url = that.data.constant.domain +"签证订单" +that.data.visaPageIndex +"/"+that.data. pageSize;
+    // wx.request({
+    //   url: url,
+    //   data: {},
+    //   header: {
+    //     'content-type': 'application/json', // 默认值
+    //   },
+    //   success: function (res) {
+    //       // TODO 处理订单数据
+    //   },
+    //   fail: function (res) {
+    //     console.log(res);
+    //     that.showZanToast(res.message);
+    //   },
+    //   complete: function (res) {
+    //     console.log(res);
+    //   }
+    // })
   },
 
 

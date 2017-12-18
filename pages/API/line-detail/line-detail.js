@@ -166,7 +166,7 @@ Page(Object.assign({}, Toast, {
 
     var that = this;
     that.setData({
-      isShowActivityDetail: that.data.isShowActivityDetail
+      isShowActivityDetail: !that.data.isShowActivityDetail
     });
   },
 

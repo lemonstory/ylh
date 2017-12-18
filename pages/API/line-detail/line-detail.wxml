@@ -2,6 +2,8 @@
 <import src="../../template/address-detail-custom" />
 <import src="../../template/address-detail-simple" />
 <import src="../../template/address-detail-normal" />
+<import src="/zanui-weapp/dist/toast/index.wxml" />
+<import src="/zanui-weapp/dist/loadmore/index.wxml" />
 <view class="container">
   <!-- 顶部开始 -->
   <view class="ul">
@@ -170,7 +172,7 @@
   <!--费用说明结束  -->
 
   <!-- 用户评价开始 -->
-  <block wx:for="{{commendList}}" wx:for-index="idx" data-id='item.id' wx:key="commendList" >
+  <block wx:for="{{commendList}}" wx:for-index="idx" data-id='item.id' wx:key="commendList">
     <view class="discuss">
       <view class="react"></view>
       <view class="leadertitle">用户评价</view>
@@ -184,6 +186,10 @@
     </view>
   </block>
   <!--用户评价结束  -->
+
+  <template is="zan-loadmore" wx:if="{{isLoading}}" data="{{loading: true}}" />
+  <template is="zan-loadmore" wx:if="{{isNoMore}}" data="{{nodata: true,nodata_str:'加载完成'}}" />
+
   <!--底部开始  -->
   <view class="bottom">
 
@@ -195,6 +201,8 @@
     </view>
   </view>
   <!--底部结束-->
+
+  <template is="zan-toast" data="{{ zanToast }}"></template>
 </view>
 
 <!--弹出信息的展示开始-->

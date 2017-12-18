@@ -16,9 +16,7 @@ Page({
 
     //出发日期
     startDatePriceListFormat:[]
-
-
-  },
+},
 
   onReady: function () {
 
@@ -91,7 +89,6 @@ Page({
    * 处理出发日期下面的数据
    */
   setDataCallBack:function() {
-
     var that = this;
     var startDatePriceListTemp = [];
     if (that.data.priceList.length > 0) {

@@ -1,4 +1,4 @@
-// pages/API/travel-mess/travel-mess.js
+// pages/API/passport_direction/passport_direction.js
 Page({
 
   /**
@@ -62,12 +62,5 @@ Page({
    */
   onShareAppMessage: function () {
   
-  },
-
-  bindPassPort:function(){
-       var path = "/pages/API/passport/passport";
-    wx.navigateTo({
-         url: path,
-    })
   }
 })

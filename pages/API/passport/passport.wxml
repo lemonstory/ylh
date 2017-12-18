@@ -1,0 +1,23 @@
+<!--pages/API/passport/passport.wxml-->
+<view class="container">
+     <view class="section">
+          <view class="id-box">
+               <view class="idcard"></view>
+          </view>
+          <view class="camera-box">
+               <view class="camera"></view>
+          </view>
+
+
+     <view class="means_rules">
+     <view class="rules_title" style='color:#333;font-size:28rpx;margin-top:30rpx'>资料要求</view>
+     <view style='color:#333;font-size:24rpx;margin-top:30rpx'>· 有效期离出发日期应至少还有6个月</view>
+     <view style='color:#333;font-size:24rpx;margin-top:19rpx'>· 露出四个角，清晰拍照，不要反光</view>
+     </view>
+     <view class="bottom" bindtap='bindPassPortDirection'>确定</view>
+</view>
+    
+
+    
+
+</view>

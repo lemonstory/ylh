@@ -1,6 +1,6 @@
 {
   "pages": [
-    
+  
     "pages/index/index",
     "pages/API/air-ticket/air-ticket",
     "pages/API/new-add-address/new-add-address",
@@ -11,6 +11,7 @@
     "pages/API/my/my",
     "pages/API/visa/visa",
     "pages/API/line-list/line-list",
+    "pages/API/line-detail/line-detail",
     "pages/API/leader-introduce/leader-introduce",
     "pages/API/start-order/start-order",
     "pages/API/choice-address/choice-address",
@@ -45,8 +46,7 @@
     "pages/API/public-active/public-active",
     "pages/API/visa-require/visa-require",
     "pages/API/switchcity/switchcity",
-    "pages/web-view/web-view",
-    "pages/API/line-detail/line-detail"
+    "pages/web-view/web-view"
   ],
   "window": {
     "navigationBarBackgroundColor": "#ffffff",

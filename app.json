@@ -1,5 +1,6 @@
 {
      "pages": [
+
           "pages/index/index",
           "pages/API/order-detail/order-detail",
           "pages/API/my-order-detail/my-order-detail",
@@ -7,7 +8,7 @@
           "pages/API/air-ticket/air-ticket",
           "pages/API/new-add-address/new-add-address",
           "pages/API/my-order/my-order",
-          "pages/API/address/address",
+          "pages/API/line/line",
           "pages/API/more-address/more-address",
           "pages/API/order-require/order-require",
           "pages/API/my/my",
@@ -67,7 +68,7 @@
                     "selectedIconPath": "pages/image/2.png"
                },
                {
-                    "pagePath": "pages/API/address/address",
+                    "pagePath": "pages/API/line/line",
                     "text": "线路",
                     "iconPath": "pages/image/3.png",
                     "selectedIconPath": "pages/image/4.png"

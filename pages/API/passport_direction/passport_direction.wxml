@@ -8,6 +8,9 @@
                <view class="camera"></view>
           </view>
           <view class="bottom">
+
+
+
                <view class="icon_box">
                     <image src="http://image.365zhiding.com/wxapp/20171219/back1.png" style='width:60rpx;height:60rpx;'></image>
                     <image src="http://image.365zhiding.com/wxapp/20171219/back2.png" style='width:60rpx;height:60rpx;'></image>

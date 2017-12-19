@@ -190,7 +190,7 @@
                               <image src='../image/start2.png' style="width:18rpx;height:18rpx;margin-left:10rpx;"></image>
                          </block> 
                     </view>
-                    <view class="time">{{item.date}}</view>
+                    <view class="time">{{item.time}}</view>
                </view>
                <view class="content1">{{item.content}}</view>
 

@@ -182,13 +182,13 @@
       <view class="user_commend">
         <view class="user">{{item.name}}
           <block wx:for="{{item.score}}">
-            <image src='../image/start1.png' style="width:18rpx;height:18rpx;margin-left:10rpx;"></image>
+            <image src='http://image.365zhiding.com/wxapp/20171219/start1.png' style="width:18rpx;height:18rpx;margin-left:10rpx;"></image>
           </block>
           <block wx:for="{{5-item.score}}">
-            <image src='../image/start2.png' style="width:18rpx;height:18rpx;margin-left:10rpx;"></image>
+            <image src='http://image.365zhiding.com/wxapp/20171219/start2.png' style="width:18rpx;height:18rpx;margin-left:10rpx;"></image>
           </block>
         </view>
-        <view class="time">{{item.date}}</view>
+        <view class="time">{{item.time}}</view>
       </view>
       <view class="content1">{{item.content}}</view>
 

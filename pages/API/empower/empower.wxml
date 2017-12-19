@@ -1,0 +1,9 @@
+<!--pages/API/empower/empower.wxml-->
+<view class="container">
+<view class="main">
+
+
+<view class="empower">微信授权登录</view>
+
+</view>
+</view>

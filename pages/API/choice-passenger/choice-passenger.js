@@ -235,9 +235,9 @@ Page(Object.assign({}, Toast, {
     var idx = event.currentTarget.dataset.idx;
     var itemJsonStr = JSON.stringify(that.data.data.list[idx]);
     console.log(itemJsonStr);
-    var url = "../add-person-message/add-person-message?itemJsonStr=" + itemJsonStr;
-    wx.navigateTo({
-      url: url
+    var url = "../add-passenger/add-passenger?itemJsonStr=" + itemJsonStr;
+    wx.redirectTo({
+      url: url,
     })
   }
 

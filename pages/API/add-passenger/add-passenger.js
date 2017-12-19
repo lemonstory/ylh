@@ -317,7 +317,9 @@ Page(Object.assign({}, Toast, {
 
         complete: function (res) {
           wx.hideLoading();
-          wx.navigateBack();
+          wx.redirectTo({
+            url: '/pages/API/choice-passenger/choice-passenger',
+          })
         }
       });
     }

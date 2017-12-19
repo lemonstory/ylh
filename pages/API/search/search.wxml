@@ -10,9 +10,9 @@
         <image src="http://image.365zhiding.com/wxapp/20171112/sou.png"></image>
       </view>
        
-       <view class="close hide{{delButton?'show':''}}"  bindtap='handleClearInput'>
+       <!-- <view class="close hide{{delButton?'show':''}}"  bindtap='handleClearInput'>
       <image src="../image/close.png"></image>
-    </view>
+    </view> -->
 
 
       <view class="cancel" bindtap='handleCancel'>取消</view>

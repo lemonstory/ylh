@@ -4,8 +4,8 @@
           <view class="goto-normal ">{{item.title}}</view>
           <view class="jiaotong-normal" wx:for="{{item.info1}}" wx:for-item="item" wx:key="idx">{{item.key}}：{{item.content}}</view>
           <view class="img-box">
-               <image class="jing-img"  wx:for="{{item.theme}}" wx:key="idx" wx:for-item="itemImage" src="{{itemImage.images}}" mode='aspectFit'></image>
-            </view>
+               <image class="jing-img"  wx:for="{{item.theme}}" wx:key="idx" wx:for-item="itemImage" src="{{itemImage.images[0]}}" mode='aspectFill' style='margin-right:10rpx;'></image>
+             </view>
 
           <view class="jing-text" wx:for="{{item.theme}}" wx:key="idx" wx:for-item="item">{{item.intro}}</view>
 

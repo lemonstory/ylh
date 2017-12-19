@@ -7,17 +7,16 @@
           <view class="camera-box">
                <view class="camera"></view>
           </view>
-
           <view class="bottom">
                <view class="icon_box">
-                    <image src="../image/back1.png" style='width:60rpx;height:60rpx;'></image>
-                    <image src="../image/back2.png" style='width:60rpx;height:60rpx;'></image>
-                    <image src="../image/check.png" style='width:60rpx;height:60rpx;'></image>
+                    <image src="http://image.365zhiding.com/wxapp/20171219/back1.png" style='width:60rpx;height:60rpx;'></image>
+                    <image src="http://image.365zhiding.com/wxapp/20171219/back2.png" style='width:60rpx;height:60rpx;'></image>
+                    <image src="http://image.365zhiding.com/wxapp/20171219/check.png" style='width:60rpx;height:60rpx;'></image>
                </view>
           </view>
           <!-- <view class="bottom">
                <view class="icon_box1">
-                 <image src="../image/check.png" style='width:60rpx;height:60rpx;'></image>
+                 <image src="http://image.365zhiding.com/wxapp/20171219/check.png" style='width:60rpx;height:60rpx;'></image>
                </view>
         </view> -->
      </view>

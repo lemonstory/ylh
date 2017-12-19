@@ -1,7 +1,12 @@
 {
      "pages": [
-
           "pages/index/index",
+          "pages/API/tell/tell",
+           "pages/API/empower/empower",
+          "pages/API/pay-sucess/pay-sucess",
+          "pages/API/visa-find/visa-find",
+          "pages/API/choice-passenger/choice-passenger",
+          "pages/API/address-message/address-message",
           "pages/API/order-detail/order-detail",
           "pages/API/my-order-detail/my-order-detail",
           "pages/API/travel-mess/travel-mess",
@@ -20,11 +25,8 @@
           "pages/API/leader-introduce/leader-introduce",
           "pages/API/start-order/start-order",
           "pages/API/choice-address/choice-address",
-          "pages/API/address-message/address-message",
-          "pages/API/choice-passenger/choice-passenger",
           "pages/API/add-passenger/add-passenger",
           "pages/API/pay-confirm/pay-confirm",
-          "pages/API/pay-sucess/pay-sucess",
           "pages/API/ziliao-proce/ziliao-proce",
           "pages/API/search/search",
           "pages/API/hotel-require/hotel-require",
@@ -43,7 +45,6 @@
           "pages/API/erweima/erweima",
           "pages/API/password-modify/password-modify",
           "pages/API/store-name/store-name",
-          "pages/API/visa-find/visa-find",
           "pages/API/public-active/public-active",
           "pages/API/visa-require/visa-require",
           "pages/API/switchcity/switchcity",

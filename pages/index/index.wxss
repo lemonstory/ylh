@@ -368,8 +368,8 @@ swiper {
      line-height: 48rpx;
 }
 
-.bottom-button{
-     width:430rpx;
+.bottom-button-left{
+     width:200rpx;
      height:88rpx;
      position: absolute;
      bottom:30rpx;
@@ -382,6 +382,19 @@ swiper {
      font-size: 32rpx;
 }
 
+.bottom-button-right{
+     width:200rpx;
+     height:88rpx;
+     position: absolute;
+     bottom:30rpx;
+     right:55rpx;
+     background: green;
+     color:#fff;
+     line-height: 88rpx;
+     text-align: center;
+     border-radius: 10rpx;
+     font-size: 32rpx;
+}
 
 
 

@@ -69,5 +69,6 @@ Page({
     wx.navigateTo({
          url: path,
     })
+    
   }
 })

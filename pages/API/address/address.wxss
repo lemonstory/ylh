@@ -10,12 +10,21 @@
   
 }
 
+
 .banner {
   width: 750rpx;
   height: 350rpx;
   position: relative;
 }
-
+.search {
+  width: 690rpx;
+  height: 68rpx;
+  position: absolute;
+  top: 10rpx;
+  right: 30rpx;
+  opacity: 0.8;
+  box-sizing: border-box;
+}
 #myInput {
   width: 689rpx;
   height: 68rpx;
@@ -24,8 +33,9 @@
   opacity: 0.8;
   display: flex;
   align-content: center;
+  line-height: 68rpx;
+  box-sizing: border-box;
 }
-
 .search-icon {
   position: absolute;
   top: 14rpx;
@@ -57,13 +67,7 @@ swiper {
   height: 350rpx;
 }
 
-.search {
-  width: 689rpx;
-  height: 68rpx;
-  position: absolute;
-  top: 10rpx;
-  right: 31rpx;
-}
+
 
 .search image {
   width: 100%;

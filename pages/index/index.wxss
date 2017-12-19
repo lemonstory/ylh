@@ -15,9 +15,9 @@
   height: 68rpx;
   background: #666;
   border-radius: 10rpx;
-  opacity: 0.8;
   display: flex;
   align-content: center;
+  line-height: 68rpx;
   box-sizing: border-box;
 }
 .search-icon {
@@ -52,6 +52,7 @@ swiper {
   position: absolute;
   top: 10rpx;
   right: 31rpx;
+  opacity: 0.8;
 }
 .search image {
   width: 100%;

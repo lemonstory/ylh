@@ -1,96 +1,94 @@
 {
-  "pages": [
-  
-    
-    
-    "pages/index/index",
-    "pages/API/air-ticket/air-ticket",
-    "pages/API/new-add-address/new-add-address",
-    "pages/API/my-order/my-order",
-    "pages/API/address/address",
-    "pages/API/more-address/more-address",
-    "pages/API/order-require/order-require",
-    "pages/API/my/my",
-    "pages/API/visa/visa",
-    "pages/API/line-list/line-list",
-    "pages/API/line-detail/line-detail",
-    "pages/API/leader-introduce/leader-introduce",
-    "pages/API/start-order/start-order",
-    "pages/API/choice-address/choice-address",
-    "pages/API/address-message/address-message",
-    "pages/API/choice-person/choice-person",
-    "pages/API/add-person-message/add-person-message",
-    "pages/API/pay-confirm/pay-confirm",
-    "pages/API/pay-sucess/pay-sucess",
-    "pages/API/order-detail/order-detail",
-    "pages/API/ziliao-proce/ziliao-proce",
-    "pages/API/travel-mess/travel-mess",
-    "pages/API/search/search",
-    "pages/API/search-detail/search-detail",
-    "pages/API/hotel-require/hotel-require",
-    "pages/API/car-require/car-require",
-    "pages/API/food-require/food-require",
-    "pages/API/login/login",
-    "pages/API/next-management/next-management",
-    "pages/API/my-order-detail/my-order-detail",
-    "pages/API/order-sou/order-sou",
-    "pages/API/store-setting/store-setting",
-    "pages/API/my-money/my-money",
-    "pages/API/my-money-no/my-money-no",
-    "pages/API/clear-log/clear-log",
-    "pages/API/divide-order-detail/divide-order-detail",
-    "pages/API/divide-order-detail1/divide-order-detail1",
-    "pages/API/logo/logo",
-    "pages/API/erweima/erweima",
-    "pages/API/password-modify/password-modify",
-    "pages/API/store-name/store-name",
-    "pages/API/visa-find/visa-find",
-    "pages/API/public-active/public-active",
-    "pages/API/visa-require/visa-require",
-    "pages/API/switchcity/switchcity",
-    "pages/web-view/web-view"
-  ],
-  "window": {
-    "navigationBarBackgroundColor": "#ffffff",
-    "navigationBarTextStyle": "black",
-    "backgroundTextStyle": "dark",
-    "enablePullDownRefresh": true,
-    "disableScroll": false
-  },
-  "tabBar": {
-    "position": "bottom",
-    "backgroundColor": "#FFFFFF",
-    "selectedColor": "#FF6600",
-    "list": [
-      {
-        "pagePath": "pages/index/index",
-        "text": "首页",
-        "iconPath": "pages/image/1.png",
-        "selectedIconPath": "pages/image/2.png"
-      },
-      {
-        "pagePath": "pages/API/address/address",
-        "text": "线路",
-        "iconPath": "pages/image/3.png",
-        "selectedIconPath": "pages/image/4.png"
-      },
-      {
-        "pagePath": "pages/API/visa/visa",
-        "text": "签证",
-        "iconPath": "pages/image/5.png",
-        "selectedIconPath": "pages/image/6.png"
-      },
-      {
-        "pagePath": "pages/API/my/my",
-        "text": "我的",
-        "iconPath": "pages/image/7.png",
-        "selectedIconPath": "pages/image/8.png"
-      }
-    ]
-  },
-  "networkTimeout": {
-    "request": 60000,
-    "downloadFile": 60000
-  },
-  "debug": true
+     "pages": [
+          "pages/index/index",
+          "pages/API/order-detail/order-detail",
+          "pages/API/my-order-detail/my-order-detail",
+          "pages/API/travel-mess/travel-mess",
+          "pages/API/air-ticket/air-ticket",
+          "pages/API/new-add-address/new-add-address",
+          "pages/API/my-order/my-order",
+          "pages/API/address/address",
+          "pages/API/more-address/more-address",
+          "pages/API/order-require/order-require",
+          "pages/API/my/my",
+          "pages/API/passport/passport",
+          "pages/API/visa/visa",
+          "pages/API/passport_direction/passport_direction",
+          "pages/API/line-list/line-list",
+          "pages/API/line-detail/line-detail",
+          "pages/API/leader-introduce/leader-introduce",
+          "pages/API/start-order/start-order",
+          "pages/API/choice-address/choice-address",
+          "pages/API/address-message/address-message",
+          "pages/API/choice-person/choice-person",
+          "pages/API/add-person-message/add-person-message",
+          "pages/API/pay-confirm/pay-confirm",
+          "pages/API/pay-sucess/pay-sucess",
+          "pages/API/ziliao-proce/ziliao-proce",
+          "pages/API/search/search",
+          "pages/API/hotel-require/hotel-require",
+          "pages/API/car-require/car-require",
+          "pages/API/food-require/food-require",
+          "pages/API/login/login",
+          "pages/API/next-management/next-management",
+          "pages/API/order-sou/order-sou",
+          "pages/API/store-setting/store-setting",
+          "pages/API/my-money/my-money",
+          "pages/API/my-money-no/my-money-no",
+          "pages/API/clear-log/clear-log",
+          "pages/API/divide-order-detail/divide-order-detail",
+          "pages/API/divide-order-detail1/divide-order-detail1",
+          "pages/API/logo/logo",
+          "pages/API/erweima/erweima",
+          "pages/API/password-modify/password-modify",
+          "pages/API/store-name/store-name",
+          "pages/API/visa-find/visa-find",
+          "pages/API/public-active/public-active",
+          "pages/API/visa-require/visa-require",
+          "pages/API/switchcity/switchcity",
+          "pages/web-view/web-view"
+     ],
+     "window": {
+          "navigationBarBackgroundColor": "#ffffff",
+          "navigationBarTextStyle": "black",
+          "backgroundTextStyle": "dark",
+          "enablePullDownRefresh": true,
+          "disableScroll": false
+     },
+     "tabBar": {
+          "position": "bottom",
+          "backgroundColor": "#FFFFFF",
+          "selectedColor": "#FF6600",
+          "list": [
+               {
+                    "pagePath": "pages/index/index",
+                    "text": "首页",
+                    "iconPath": "pages/image/1.png",
+                    "selectedIconPath": "pages/image/2.png"
+               },
+               {
+                    "pagePath": "pages/API/address/address",
+                    "text": "线路",
+                    "iconPath": "pages/image/3.png",
+                    "selectedIconPath": "pages/image/4.png"
+               },
+               {
+                    "pagePath": "pages/API/visa/visa",
+                    "text": "签证",
+                    "iconPath": "pages/image/5.png",
+                    "selectedIconPath": "pages/image/6.png"
+               },
+               {
+                    "pagePath": "pages/API/my/my",
+                    "text": "我的",
+                    "iconPath": "pages/image/7.png",
+                    "selectedIconPath": "pages/image/8.png"
+               }
+          ]
+     },
+     "networkTimeout": {
+          "request": 60000,
+          "downloadFile": 60000
+     },
+     "debug": true
 }

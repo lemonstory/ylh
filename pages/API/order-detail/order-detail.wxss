@@ -1,517 +1,582 @@
 /* pages/API/order-detail/order-detail.wxss */
+
 .container {
-  height: 100%;
-  width:100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  background: #f7f7f7;
-  overflow: hidden;
+     height: 100%;
+     width: 100%;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     box-sizing: border-box;
+     margin: 0;
+     padding: 0;
+     background: #f7f7f7;
+     overflow: hidden;
 }
+
 /*提示框开始  */
-.tishi{
-  width:690rpx;
-  height:81rpx;
-  margin-top:20rpx;
-  margin-bottom:20rpx;
-  background:#F4DECA;
-  border-radius: 10rpx ; 
-  font-size:24rpx;
-  font-family:PingFang-SC-Regular;
-  color:#666;
-  display: flex;
-  align-items: center;
-  }
-.star{
-  color:rgba(255,102,0,1);
-  margin-left: 31rpx;
+
+.tishi {
+     width: 690rpx;
+     height: 81rpx;
+     margin-top: 20rpx;
+     margin-bottom: 20rpx;
+     background: #f4deca;
+     border-radius: 10rpx;
+     font-size: 24rpx;
+     font-family: PingFang-SC-Regular;
+     color: #666;
+     display: flex;
+     align-items: center;
 }
+
+.star {
+     color: rgba(255, 102, 0, 1);
+     margin-left: 31rpx;
+}
+
 /*提示框结束  */
 
 /*出行时间开始  */
+
 .go {
-  width: 100%;
-  height: auto;
-  background: #fff;
-  margin-top: 5rpx;
+     width: 100%;
+     height: auto;
+     background: #fff;
+     margin-top: 5rpx;
 }
+
 .go-time {
-  width: 100%;
-  height: 84rpx;
-  font-size: 32rpx;
-  font-family: PingFang-SC-Regular;
-  color:#333;
-  padding-left:30rpx;
- padding-right: 30rpx;
-  display: flex;
-  border-bottom:1rpx solid #eee;
-  align-items: center;
+     width: 100%;
+     height: 84rpx;
+     font-size: 32rpx;
+     font-family: PingFang-SC-Regular;
+     color: #333;
+     padding-left: 30rpx;
+     padding-right: 30rpx;
+     display: flex;
+     border-bottom: 1rpx solid #eee;
+     align-items: center;
 }
-.go-for{
-  width:46rpx;
-  height:46rpx;
-  margin-left: 550rpx;
+
+.go-for {
+     width: 46rpx;
+     height: 46rpx;
+     margin-left: 550rpx;
 }
-.go-for image{
-  width:100%;
-  height:100%;
+
+.go-for image {
+     width: 100%;
+     height: 100%;
 }
+
 .go-add {
-width: 100%;
-padding-left: 30rpx;
-padding-right:30rpx;
-display: flex;
-font-size:28rpx;
-font-family:PingFang-SC-Regular;
-color:rgba(51,51,51,1);
-margin-top: 10rpx;
-margin-bottom: 10rpx;
+     width: 100%;
+     padding-left: 30rpx;
+     padding-right: 30rpx;
+     display: flex;
+     font-size: 28rpx;
+     font-family: PingFang-SC-Regular;
+     color: rgba(51, 51, 51, 1);
+     margin-top: 10rpx;
+     margin-bottom: 10rpx;
 }
-.go-text{
-  width:658rpx;
-  line-height: 48rpx;
+
+.go-text {
+     width: 658rpx;
+     line-height: 48rpx;
 }
-.go-more{
-  width: 14rpx;
-  height:24rpx;
+
+.go-more {
+     width: 14rpx;
+     height: 24rpx;
 }
-.go-more image{
-  width:100%;
-  height:100%;
+
+.go-more image {
+     width: 100%;
+     height: 100%;
 }
+
 .go-plan {
-  width: auto;
-  height: 23rpx;
-  font-size: 24rpx;
-  font-family: PingFang-SC-Regular;
-  color: rgba(102, 102, 102, 1);
-  margin-top: 29rpx;
-  margin-left: 30rpx;
-  padding-bottom: 29rpx;
+     width: auto;
+     height: 23rpx;
+     font-size: 24rpx;
+     font-family: PingFang-SC-Regular;
+     color: rgba(102, 102, 102, 1);
+     margin-top: 29rpx;
+     margin-left: 30rpx;
+     padding-bottom: 29rpx;
 }
+
 /*出行时间结束  */
 
 /* 订单信息开始 */
-.order-box{
-  width:100%;
-   height:auto; 
-  background: #fff;
-  margin-top:10rpx;
+
+.order-box {
+     width: 100%;
+     height: auto;
+     background: #fff;
+     margin-top: 10rpx;
 }
-.order-ul{
-  width: 690rpx;
-  margin-left: 30rpx;
-  margin-right:30rpx;
-  height:109rpx;
-  display: flex;
-  justify-content: space-around;
-  border-bottom: 1rpx solid #eee;
+
+.order-ul {
+     width: 690rpx;
+     margin-left: 30rpx;
+     margin-right: 30rpx;
+     height: 109rpx;
+     display: flex;
+     justify-content: space-around;
+     border-bottom: 1rpx solid #eee;
 }
-.order-li{
-width:33.3%;
-height:auto;
-display: flex;
-justify-content: space-around;
-flex-direction: column;
-align-items: center;
+
+.order-li {
+     width: 33.3%;
+     height: auto;
+     display: flex;
+     justify-content: space-around;
+     flex-direction: column;
+     align-items: center;
 }
-.order-li .time{
-font-size:28rpx;
-font-family:PingFang-SC-Regular;
-color:rgba(51,51,51,1);
+
+.order-li .time {
+     font-size: 28rpx;
+     font-family: PingFang-SC-Regular;
+     color: rgba(51, 51, 51, 1);
 }
-.order-li .date{
-font-size:24rpx;
-font-family:PingFang-SC-Regular;
-color:rgba(153,153,153,1);
+
+.order-li .date {
+     font-size: 24rpx;
+     font-family: PingFang-SC-Regular;
+     color: rgba(153, 153, 153, 1);
 }
-.order-li .person{
-font-size:22rpx;
-font-family:PingFang-SC-Regular;
-color:rgba(102,102,102,1);  
+
+.order-li .person {
+     font-size: 22rpx;
+     font-family: PingFang-SC-Regular;
+     color: rgba(102, 102, 102, 1);
 }
-.order-money{
-  width: 690rpx;
-  margin-left:30rpx;
-  margin-right:30rpx;
-  height:73rpx;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1rpx solid #eee;
+
+.order-money {
+     width: 690rpx;
+     margin-left: 30rpx;
+     margin-right: 30rpx;
+     height: 73rpx;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     border-bottom: 1rpx solid #eee;
 }
-.money-text{
-font-size:24rpx;
-font-family:PingFang-SC-Regular;
-color:rgba(102,102,102,1);
-display: flex;
+
+.money-text {
+     font-size: 24rpx;
+     font-family: PingFang-SC-Regular;
+     color: rgba(102, 102, 102, 1);
+     display: flex;
 }
-.pay-text{
-font-size:24rpx;
-font-family:PingFang-SC-Regular;
-color:rgba(255,102,0,1);
+
+.pay-text {
+     font-size: 24rpx;
+     font-family: PingFang-SC-Regular;
+     color: rgba(255, 102, 0, 1);
 }
-.price{
-color:rgba(255,102,0,1);
+
+.price {
+     color: rgba(255, 102, 0, 1);
 }
-.order-money1{
-  width: 690rpx;
-  margin-left:30rpx;
-  margin-right:30rpx;
-  height:83rpx;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+
+.order-money1 {
+     width: 690rpx;
+     margin-left: 30rpx;
+     margin-right: 30rpx;
+     height: 83rpx;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
 }
+
 /*订单信息结束  */
 
 /*机票信息开始  */
-.jipiao-box{
-width: 100%;
-height:auto;
-background: #fff;
-margin-top: 10rpx;
+
+.jipiao-box {
+     width: 100%;
+     height: auto;
+     background: #fff;
+     margin-top: 10rpx;
 }
-.jipiao-text{
-  width: 690rpx;
-  height:77rpx;
-  line-height: 77rpx;
-  font-size:28rpx;
- font-family:PingFang-SC-Regular;
- color:rgba(51,51,51,1);
- margin-left: 30rpx;
- margin-right: 30rpx;  
- border-bottom: 1rpx solid #eee;
- }
-.flat-box{
-  width: 690rpx;
-  height:193rpx;
-  margin-left: 30rpx;
-  margin-right: 30rpx;
-  border-bottom: 1rpx solid #eee;
-  display: flex;
-  justify-content: space-between;
-  padding-bottom: 10rpx;
+
+.jipiao-text {
+     width: 690rpx;
+     height: 77rpx;
+     line-height: 77rpx;
+     font-size: 28rpx;
+     font-family: PingFang-SC-Regular;
+     color: rgba(51, 51, 51, 1);
+     margin-left: 30rpx;
+     margin-right: 30rpx;
+     border-bottom: 1rpx solid #eee;
 }
-.flat-left{
-  width: 30%;
-  height:100rpx;
-  display: flex;
-  flex-direction: column;
+
+.flat-box {
+     width: 690rpx;
+     height: 193rpx;
+     margin-left: 30rpx;
+     margin-right: 30rpx;
+     border-bottom: 1rpx solid #eee;
+     display: flex;
+     justify-content: space-between;
+     padding-bottom: 10rpx;
 }
-.flat-date{
-font-size:20rpx;
-font-family:PingFang-SC-Regular;
-color:rgba(153,153,153,1);
-margin-top: 30rpx;
+
+.flat-left {
+     width: 30%;
+     height: 100rpx;
+     display: flex;
+     flex-direction: column;
 }
-.flat-time{
-font-size:28rpx;
-font-family:PingFang-SC-Regular;
-color:rgba(51,51,51,1);
-margin-top: 10rpx;
+
+.flat-date {
+     font-size: 20rpx;
+     font-family: PingFang-SC-Regular;
+     color: rgba(153, 153, 153, 1);
+     margin-top: 30rpx;
 }
-.flat-address{
-font-size:22rpx;
-font-family:PingFang-SC-Regular;
-color:rgba(102,102,102,1);
-margin-top: 10rpx;
+
+.flat-time {
+     font-size: 28rpx;
+     font-family: PingFang-SC-Regular;
+     color: rgba(51, 51, 51, 1);
+     margin-top: 10rpx;
 }
-.flat-center{
-  width: 40%;
-  height:100rpx;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+
+.flat-address {
+     font-size: 22rpx;
+     font-family: PingFang-SC-Regular;
+     color: rgba(102, 102, 102, 1);
+     margin-top: 10rpx;
 }
-.flat-right{
-  width: 30%;
-  height:100rpx;
-  display: flex;
-  flex-direction: column;
-  align-content: right;
-  text-align: right;
-  
+
+.flat-center {
+     width: 40%;
+     height: 100rpx;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
 }
-.flat-heng{
-font-size:26rpx;
-font-family:PingFang-SC-Regular;
-color:rgba(51,51,51,1);
-margin-top:30rpx;
+
+.flat-right {
+     width: 30%;
+     height: 100rpx;
+     display: flex;
+     flex-direction: column;
+     align-content: right;
+     text-align: right;
 }
-.flat-img{
-  width: 194rpx;
-  height:38rpx;
-  margin-top: 19rpx;
+
+.flat-heng {
+     font-size: 26rpx;
+     font-family: PingFang-SC-Regular;
+     color: rgba(51, 51, 51, 1);
+     margin-top: 30rpx;
 }
-.flat-img image{
-  width: 100%;
-  height:100%;
+
+.flat-img {
+     width: 194rpx;
+     height: 38rpx;
+     margin-top: 19rpx;
 }
-.flat-xingli{
-font-size:26rpx;
-font-family:PingFang-SC-Regular;
-color:rgba(51,51,51,1);
-margin-top: 20rpx;
+
+.flat-img image {
+     width: 100%;
+     height: 100%;
 }
+
+.flat-xingli {
+     font-size: 26rpx;
+     font-family: PingFang-SC-Regular;
+     color: rgba(51, 51, 51, 1);
+     margin-top: 20rpx;
+}
+
 /*机票信息结束  */
+
 /*酒店信息开始  */
-
-
-
-
-
 
 /*酒店信息结束  */
 
 /*联系人信息开始  */
-.lianxi-box{
-  width:100%;
-  height:auto;
-  margin-top: 10rpx;
-  background: #fff;
+
+.lianxi-box {
+     width: 100%;
+     height: auto;
+     margin-top: 10rpx;
+     background: #fff;
 }
-.lianxi-message{
-  width: 690rpx;
-  height:84rpx;
-  margin-left: 30rpx;
-  margin-right: 30rpx;
-  border-bottom: 1rpx solid #eee;
- font-size:28rpx;
- font-family:PingFang-SC-Regular;
- color:rgba(51,51,51,1);
- line-height: 84rpx;
+
+.lianxi-message {
+     width: 690rpx;
+     height: 84rpx;
+     margin-left: 30rpx;
+     margin-right: 30rpx;
+     border-bottom: 1rpx solid #eee;
+     font-size: 28rpx;
+     font-family: PingFang-SC-Regular;
+     color: rgba(51, 51, 51, 1);
+     line-height: 84rpx;
 }
-.input-name{
-  width: 630rpx;
-  height:84rpx;
-  margin-left: 60rpx;
-  margin-right: 60rpx;
-  border-bottom: 1rpx solid #eee;
- font-size:28rpx;
- font-family:PingFang-SC-Regular;
- color:rgba(51,51,51,1);
- line-height: 84rpx;
- display: flex;
+
+.input-name {
+     width: 630rpx;
+     height: 84rpx;
+     margin-left: 60rpx;
+     margin-right: 60rpx;
+     border-bottom: 1rpx solid #eee;
+     font-size: 28rpx;
+     font-family: PingFang-SC-Regular;
+     color: rgba(51, 51, 51, 1);
+     line-height: 84rpx;
+     display: flex;
 }
-.input-shui{
-  border-bottom: none;
+
+.input-shui {
+     border-bottom: none;
 }
+
 /*联系人信息结束  */
 
 /*全程单房差开始  */
-.all-box{
-  width:100%;
-  height:auto;
-  margin-top: 10rpx;
-  background: #fff;
+
+.all-box {
+     width: 100%;
+     height: auto;
+     margin-top: 10rpx;
+     background: #fff;
 }
-.quancheng{
-  width: 690rpx;
-  margin-left: 30rpx;
-  margin-right: 30rpx;
-  border-bottom: 1rpx solid #eee;
-  height: 84rpx;
-  line-height: 84rpx;
-  font-size: 28rpx;
-  font-family: PingFang-SC-Regular;
-  color: rgba(51, 51, 51, 1);
+
+.quancheng {
+     width: 690rpx;
+     margin-left: 30rpx;
+     margin-right: 30rpx;
+     border-bottom: 1rpx solid #eee;
+     height: 84rpx;
+     line-height: 84rpx;
+     font-size: 28rpx;
+     font-family: PingFang-SC-Regular;
+     color: rgba(51, 51, 51, 1);
 }
-.yufu{
-  width: 690rpx;
-  margin-left: 30rpx;
-  margin-right: 30rpx;
-  height: 84rpx;
-  line-height: 84rpx;
-  font-size: 28rpx;
-  font-family: PingFang-SC-Regular;
-  color: rgba(51, 51, 51, 1);
-  display: flex;
-  justify-content: space-between;
-  border-bottom: 1px solid #eee;
+
+.yufu {
+     width: 690rpx;
+     margin-left: 30rpx;
+     margin-right: 30rpx;
+     height: 84rpx;
+     line-height: 84rpx;
+     font-size: 28rpx;
+     font-family: PingFang-SC-Regular;
+     color: rgba(51, 51, 51, 1);
+     display: flex;
+     justify-content: space-between;
+     border-bottom: 1px solid #eee;
 }
-.yufu-money{
-  color:#FF6600 ;
+
+.yufu-money {
+     color: #f60;
 }
-.yufu-shuoming{
-width:690rpx;
-height:89rpx; 
-font-size:26rpx;
-font-family:PingFang-SC-Regular;
-color:rgba(51,51,51,1);
-margin-top: 30rpx;
-margin-left: 30rpx;
-margin-bottom: 30rpx;
+
+.yufu-shuoming {
+     width: 690rpx;
+     height: 89rpx;
+     font-size: 26rpx;
+     font-family: PingFang-SC-Regular;
+     color: rgba(51, 51, 51, 1);
+     margin-top: 30rpx;
+     margin-left: 30rpx;
+     margin-bottom: 30rpx;
 }
 
 /*  全程单房差结束*/
+
 /*开具发票开始  */
-.fapiao-box{
-width: 100%;
-height:auto;
-margin-top: 10rpx;
-background: #fff;
-padding-bottom: 30rpx;
-}
-.fapiao{
-  width: 690rpx;
-  height:84rpx;
-  margin-left: 30rpx;
-  margin-right: 30rpx;
-  border-bottom: 1rpx solid #eee;
- font-size:28rpx;
- font-family:PingFang-SC-Regular;
- color:rgba(51,51,51,1);
- line-height: 84rpx;
- display: flex;
- }
- .fapiao-pay{
-font-size:26rpx;
-font-family:PingFang-SC-Regular;
-color:rgba(153,153,153,1);
-margin-left:58rpx;
-}
-.fapiao-radio{
-  margin-left: 240rpx;
-}
-.fapiao-type{
-  width: 660rpx;
-  margin-left: 60rpx;
-  margin-right: 30rpx;
-  height:84rpx;
-  line-height: 84rpx;
-  font-size:26rpx;
-  font-family:PingFang-SC-Regular;
-  color:rgba(51,51,51,1);
-  border-bottom: 1rpx solid #eee;
-  display: flex;
+
+.fapiao-box {
+     width: 100%;
+     height: auto;
+     margin-top: 10rpx;
+     background: #fff;
+     padding-bottom: 30rpx;
 }
 
+.fapiao {
+     width: 690rpx;
+     height: 84rpx;
+     margin-left: 30rpx;
+     margin-right: 30rpx;
+     border-bottom: 1rpx solid #eee;
+     font-size: 28rpx;
+     font-family: PingFang-SC-Regular;
+     color: rgba(51, 51, 51, 1);
+     line-height: 84rpx;
+     display: flex;
+}
+
+.fapiao-pay {
+     font-size: 26rpx;
+     font-family: PingFang-SC-Regular;
+     color: rgba(153, 153, 153, 1);
+     margin-left: 58rpx;
+}
+
+.fapiao-radio {
+     margin-left: 240rpx;
+}
+
+.fapiao-type {
+     width: 660rpx;
+     margin-left: 60rpx;
+     margin-right: 30rpx;
+     height: 84rpx;
+     line-height: 84rpx;
+     font-size: 26rpx;
+     font-family: PingFang-SC-Regular;
+     color: rgba(51, 51, 51, 1);
+     border-bottom: 1rpx solid #eee;
+     display: flex;
+}
 
 /*收获地址开始  */
-.get-add{
-  width: 100%;
-  height:auto;
-  margin-top: 10rpx;
-  background: white;
-}
-.choice-add{
-  width: 630rpx;
-  margin-left: 60rpx;
-  margin-right: 60rpx;
-  border-bottom: 1rpx solid #eee;
-  font-size: 26rpx;
-  font-family: PingFang-SC-Regular;
-  color: rgba(51, 51, 51, 1);
-  height: 84rpx;
-  line-height: 84rpx;
-  text-align: right;
-  display: flex;
-  align-content: center;
-  justify-content: space-between;
-}
-.back {
-  width: 14rpx;
-  height: 24rpx;
-  margin-top: 30rpx;
-  margin-left: 30rpx;
+
+.get-add {
+     width: 100%;
+     height: auto;
+     margin-top: 10rpx;
+     background: white;
 }
 
+.choice-add {
+     width: 630rpx;
+     margin-left: 60rpx;
+     margin-right: 60rpx;
+     border-bottom: 1rpx solid #eee;
+     font-size: 26rpx;
+     font-family: PingFang-SC-Regular;
+     color: rgba(51, 51, 51, 1);
+     height: 84rpx;
+     line-height: 84rpx;
+     text-align: right;
+     display: flex;
+     align-content: center;
+     justify-content: space-between;
+}
+
+.back {
+     width: 14rpx;
+     height: 24rpx;
+     margin-top: 30rpx;
+     margin-left: 30rpx;
+}
 
 /*选项卡开始  */
-.hidden-box{
-  width: 750rpx;
-  height:100vh;
-  position:absolute;
-  background: #000;
-  opacity: 0.4;
-  z-index: 99;
-  top:0;
-  left:0;
+
+.hidden-box {
+     width: 750rpx;
+     height: 100vh;
+     position: fixed;
+     background: #000;
+     opacity: 0.4;
+     z-index: 99;
+     top: 0;
+     left: 0;
 }
-.hidden{
-width:540rpx;
-height:288rpx; 
-background:rgba(255,255,255,1);
-opacity:0.9;
-border-radius: 26rpx;
-position: absolute;
-top:35%;
-z-index: 999;
-left:15%;  
+
+.hidden {
+     width: 540rpx;
+     height: 288rpx;
+     background: rgba(255, 255, 255, 1);
+     opacity: 0.9;
+     border-radius: 26rpx;
+     position: fixed;
+     top: 35%;
+     z-index: 999;
+     left: 15%;
 }
-.hide{
- display:none;
+
+.hide {
+     display: none;
 }
-.show{ 
- display: block;
+
+.show {
+     display: block;
 }
-.hidden-text1{
-font-size:34rpx;
-font-family:PingFang-SC-Regular;
-color:rgba(0,0,0,1);
-line-height:40rpx;
-position: absolute;
-top:43rpx;
-left: 201rpx;
+
+.hidden-text1 {
+     font-size: 34rpx;
+     font-family: PingFang-SC-Regular;
+     color: rgba(0, 0, 0, 1);
+     line-height: 40rpx;
+     position: absolute;
+     top: 43rpx;
+     left: 201rpx;
 }
-.hidden-text2{
-font-size:26rpx;
-font-family:PingFang-SC-Regular;
-color:rgba(17,17,17,1);
-position: absolute;
-top:101rpx;
-left:175rpx; 
+
+.hidden-text2 {
+     font-size: 26rpx;
+     font-family: PingFang-SC-Regular;
+     color: rgba(17, 17, 17, 1);
+     position: absolute;
+     top: 101rpx;
+     left: 175rpx;
 }
-.hidden-text3{
-font-size:26rpx;
-font-family:PingFang-SC-Regular;
-color:rgba(17,17,17,1);
-position: absolute;
-top:135rpx;
-left:117rpx; 
+
+.hidden-text3 {
+     font-size: 26rpx;
+     font-family: PingFang-SC-Regular;
+     color: rgba(17, 17, 17, 1);
+     position: absolute;
+     top: 135rpx;
+     left: 117rpx;
 }
-.line{
-width:540rpx;
-height:2rpx; 
-background:#CDCED2;
-position: absolute;
-bottom:89rpx;
-left: 0;
-opacity: 0.5;
+
+.line {
+     width: 540rpx;
+     height: 2rpx;
+     background: #cdced2;
+     position: absolute;
+     bottom: 89rpx;
+     left: 0;
+     opacity: 0.5;
 }
-.line2{
-width:1rpx;
-height:90rpx; 
-background:rgba(205,206,210,1);
-opacity: 0.5;
-position:absolute;
-bottom:0;
-left: 270rpx;
+
+.line2 {
+     width: 1rpx;
+     height: 90rpx;
+     background: rgba(205, 206, 210, 1);
+     opacity: 0.5;
+     position: absolute;
+     bottom: 0;
+     left: 270rpx;
 }
-.cancel{
-font-size:34rpx;
-font-family:PingFang-SC-Regular;
-color:rgba(102,102,102,1);
-position: absolute;
-bottom:27rpx;
-left:103rpx;
+
+.cancel {
+     font-size: 34rpx;
+     font-family: PingFang-SC-Regular;
+     color: rgba(102, 102, 102, 1);
+     position: absolute;
+     bottom: 27rpx;
+     left: 103rpx;
 }
-.sure{
-font-size:34rpx;
-font-family:PingFang-SC-Regular;
-color:#0076FF;
-position: absolute;
-bottom:27rpx;
-right:103rpx;
+
+.sure {
+     font-size: 34rpx;
+     font-family: PingFang-SC-Regular;
+     color: #0076ff;
+     position: absolute;
+     bottom: 27rpx;
+     right: 103rpx;
 }
 
 /*费用说明弹出框交互开始  */
+
 .shadow {
-     position: absolute;
+     position: fixed;
      left: 0;
      top: 0;
      width: 100%;
@@ -537,23 +602,24 @@ right:103rpx;
      height: 434rpx;
      background: rgba(255, 255, 255, 1);
      border-radius: 10rpx;
-     position: absolute;
+     position: fixed;
      top: 350rpx;
      z-index: 999;
-     left:105rpx;
+     left: 105rpx;
 }
-.text-content{
+
+.text-content {
      display: flex;
-     height:85rpx;
+     height: 85rpx;
      padding-left: 30rpx;
-     padding-right:30rpx;
-     width:100%;
+     padding-right: 30rpx;
+     width: 100%;
      box-sizing: border-box;
      justify-content: space-between;
      align-items: center;
      border-bottom: 1rpx solid #eee;
-     font-size:26rpx;
-     font-family:PingFang-SC-Regular;
+     font-size: 26rpx;
+     font-family: PingFang-SC-Regular;
 }
 
 .goback {
@@ -569,33 +635,33 @@ right:103rpx;
      height: 100%;
 }
 
-.ruels{
-     height:auto;
+.ruels {
+     height: auto;
      display: flex;
      padding-left: 30rpx;
      padding-right: 30rpx;
      box-sizing: border-box;
-     font-size:24rpx;
-     font-family:PingFang-SC-Regular;
-     color:rgba(102,102,102,1);
+     font-size: 24rpx;
+     font-family: PingFang-SC-Regular;
+     color: rgba(102, 102, 102, 1);
 }
-.rules_detail{
-     height:auto;
+
+.rules_detail {
+     height: auto;
      display: flex;
      margin-left: 55rpx;
      box-sizing: border-box;
-     font-size:24rpx;
-     font-family:PingFang-SC-Regular;
-     color:rgba(102,102,102,1);
+     font-size: 24rpx;
+     font-family: PingFang-SC-Regular;
+     color: rgba(102, 102, 102, 1);
      flex-direction: column;
 }
-
 
 /*费用说明地弹出层交互结束  */
 
 /*行李额说明弹出层交互开始  */
 
-.hiddenDuds{
+.hiddenDuds {
      display: none;
 }
 

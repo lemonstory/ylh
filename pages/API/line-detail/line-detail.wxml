@@ -5,215 +5,233 @@
 <import src="/zanui-weapp/dist/toast/index.wxml" />
 <import src="/zanui-weapp/dist/loadmore/index.wxml" />
 <view class="container">
-  <!-- 顶部开始 -->
-  <view class="ul">
-    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-      <block wx:for="{{banner}}" wx:key="banner" wx:for-index="idx">
-        <swiper-item data-src="{{item.url}}" bindtap="handleBanner" data-index="{{idx}}" data-id="{{item.id}}">
-          <image src="{{item.image}}" class="tuijuan-img" width="750rpx" height="350rpx" />
-          <view class="banner-text1">{{subTitle}}</view>
-          <view class="banner-text2">{{item.text2}}</view>
-        </swiper-item>
-      </block>
-    </swiper>
+     <!-- 顶部开始 -->
 
-    <view class="tuijuan-text">
-      <view class="text1">【{{attr}}】{{title}}</view>
-      <view class="tuijuan-bottom">
-        <view class="text2">¥{{minPrice}}
-          <view class="personal">/人起</view>
-          <view class="tehui" wx:for="{{tags}}" wx:key="tags" wx:for-index="idx" style="background:{{item.color}}">{{item.name}}</view>
-        </view>
-      </view>
-    </view>
-  </view>
+     <view class="ul">
+          <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+               <block wx:for="{{banner}}" wx:key="banner" wx:for-index="idx">
+                    <swiper-item data-src="{{item.url}}" bindtap="handleBanner" data-index="{{idx}}" data-id="{{item.id}}">
+                         <image src="{{item.image}}" class="tuijuan-img" width="750rpx" height="350rpx" />
+                         <view class="banner-text1">{{subTitle}}</view>
+                         <view class="banner-text2">{{item.text2}}</view>
+                    </swiper-item>
+               </block>
+          </swiper>
 
-  <!--顶部结束 -->
-  <!-- 优惠开始 -->
-  <view class="youhui" bindtap="handleTapActivity">
-    <view class="youhui-img" style='font-size:28rpx;color:#fff'>
-      {{activity.key}}
-    </view>
-    <view class="youhui-text">{{activity.title}}</view>
-    <view class="back">
-      <image src='http://image.365zhiding.com/wxapp/20171114/1.png'></image>
-    </view>
-  </view>
-  <!--弹出框交互  -->
-  <view class="shadow {{isShowActivityDetail == 0 ? 'hidden':'active1'}}">
-    <view class="shadow-box">
-      <view class="text-title">{{activity.key}}</view>
-      <view class="text-content" wx:for="{{activity.group}}" wx:key="item">{{item.name}}
-        <view class="text-content1" wx:for="{{item.list}}" wx:key="item">{{item}}</view>
-      </view>
-    </view>
+          <view class="tuijuan-text">
+               <view class="text1">【{{attr}}】{{title}}</view>
+               <view class="tuijuan-bottom">
+                    <view class="text2">¥{{minPrice}}
+                         <view class="personal">/人起</view>
+                         <view class="tehui" wx:for="{{tags}}" wx:key="tags" wx:for-index="idx" style="background:{{item.color}}">{{item.name}}</view>
+                    </view>
+               </view>
+          </view>
+     </view>
 
-    <view class="goback" bindtap='handleTapActivityDetailCancel'>
-      <image src="../image/back.png"></image>
-    </view>
-  </view>
+     <!--顶部结束 -->
+     <!-- 优惠开始 -->
+     <view class="youhui" bindtap="handleTapActivity">
+          <view class="youhui-img" style='font-size:28rpx;color:#fff'>
+               {{activity.key}}
+          </view>
+          <view class="youhui-text">{{activity.title}}</view>
+          <view class="back">
+               <image src='http://image.365zhiding.com/wxapp/20171114/1.png'></image>
+          </view>
+     </view>
+     <!--弹出框交互  -->
+     <view class="shadow {{isShowActivityDetail == 0 ? 'hidden':'active1'}}">
+          <view class="shadow-box">
+               <view class="text-title">{{activity.key}}</view>
+               <view class="text-content" wx:for="{{activity.group}}" wx:key="item">{{item.name}}
+                    <view class="text-content1" wx:for="{{item.list}}" wx:key="item">{{item}}</view>
+               </view>
+          </view>
 
-  <!-- 弹出框交互结束 -->
+          <view class="goback" bindtap='handleTapActivityDetailCancel'>
+               <image src="../image/back.png"></image>
+          </view>
+     </view>
 
-  <!-- 优惠结束 -->
-  <view class="gobox">
-    <view class="dingwei" bindtap="choiceAddress">
-      <view class='dingicon'>
-        <image src="http://image.365zhiding.com/wxapp/20171114/ding.png"></image>
-      </view>
-      <view class="dingtext" wx:for="{{areaList}}" wx:key="item" data-area_id="{{item.areaId}}">出发地：{{item.areaName}}</view>
-      <!-- <view class="back1">
+     <!-- 弹出框交互结束 -->
+
+     <!-- 优惠结束 -->
+     <view class="gobox">
+          <view class="dingwei" bindtap="choiceAddress">
+               <view class='dingicon'>
+                    <image src="http://image.365zhiding.com/wxapp/20171114/ding.png"></image>
+               </view>
+               <view class="dingtext" wx:for="{{areaList}}" wx:key="item" data-area_id="{{item.areaId}}">出发地：{{item.areaName}}</view>
+               <!-- <view class="back1">
                     <image src='http://image.365zhiding.com/wxapp/20171114/1.png'></image>
                </view> -->
-    </view>
-  </view>
+          </view>
+     </view>
 
 
 
-  <!--出发日期开始-->
-  <view class="dingwei data">
-    <view class='dingicon'>
-      <image src="http://image.365zhiding.com/wxapp/20171114/data.png"></image>
-    </view>
-    <view class="dingtext">出发日期:</view>
-  </view>
+     <!--出发日期开始-->
+     <view class="dingwei data">
+          <view class='dingicon'>
+               <image src="http://image.365zhiding.com/wxapp/20171114/data.png"></image>
+          </view>
+          <view class="dingtext">出发日期:</view>
+     </view>
 
-  <view class="dataform-box">
-    <scroll-view class="dataform" scroll-x="true">
-      <view class="dataul {{currentItem==data_idx?'active_tag':''}}" wx:for="{{startDatePriceListFormat}}" wx:key="idx" bindtap="handleTapChooseDate" wx:for-index="data_idx" data-data_idx="{{data_idx}}" data-date="{{item.date}}">
-        <view class="riqi {{currentItem==data_idx?'active':''}}">{{item.dateStr}}</view>
-        <view class="money">￥{{item.min}}</view>
-      </view>
-    </scroll-view>
-    <view class="back11">
-      <image src='http://image.365zhiding.com/wxapp/20171114/1.png'></image>
-    </view>
-  </view>
-  <!--出发日期结束-->
+     <view class="dataform-box">
+          <scroll-view class="dataform" scroll-x="true">
+               <view class="dataul {{currentItem==data_idx?'active_tag':''}}" wx:for="{{startDatePriceListFormat}}" wx:key="idx" bindtap="handleTapChooseDate" wx:for-index="data_idx" data-data_idx="{{data_idx}}" data-date="{{item.date}}">
+                    <view class="riqi {{currentItem==data_idx?'active':''}}">{{item.dateStr}}</view>
+                    <view class="money">￥{{item.min}}</view>
+               </view>
+          </scroll-view>
+          <view class="back11">
+               <image src='http://image.365zhiding.com/wxapp/20171114/1.png'></image>
+          </view>
+     </view>
+     <!--出发日期结束-->
 
-  <!--领队开始-->
-  <block wx:if="{{template.name=='normal'||template.name=='custom'}}">
-    <view class="leader " bindtap='handleTapLeaderIntroduce'>
-      <view class="person ">
-        <image src="{{leader.image}}" mode="aspectFillt"> </image>
-      </view>
-      <view class="react"></view>
-      <view class="leadertitle">领队介绍</view>
-      <view class="react1 "></view>
-      <view class="content ">{{leader.intro}}</view>
-      <view class="back2">
-        <image src='http://image.365zhiding.com/wxapp/20171114/1.png'></image>
-      </view>
-    </view>
-  </block>
-  <!--领队介绍结束 -->
+     <!--领队开始-->
+     <block wx:if="{{template.name=='normal'||template.name=='custom'}}">
+          <view class="leader " bindtap='handleTapLeaderIntroduce'>
+               <view class="person ">
+                    <image src="{{leader.image}}" mode="aspectFillt"> </image>
+               </view>
+               <view class="react"></view>
+               <view class="leadertitle">领队介绍</view>
+               <view class="react1 "></view>
+               <view class="content ">{{leader.intro}}</view>
+               <view class="back2">
+                    <image src='http://image.365zhiding.com/wxapp/20171114/1.png'></image>
+               </view>
+          </view>
+     </block>
+     <!--领队介绍结束 -->
 
-  <!--行程亮点开始  -->
-  <view class="xingcheng ">
-    <view class="react"></view>
-    <view class="leadertitle">行程亮点</view>
-    <view class="react1 "></view>
-    <view class="xingcont ">
-      <view>{{merits}}</view>
-    </view>
-  </view>
-  <!--行程亮点结束  -->
+     <!--行程亮点开始  -->
+     <view class="xingcheng ">
+          <view class="react"></view>
+          <view class="leadertitle">行程亮点</view>
+          <view class="react1 "></view>
+          <view class="xingcont ">
+               <view>{{merits}}</view>
+          </view>
+     </view>
+     <!--行程亮点结束  -->
 
-  <!--行程安排开始  -->
-  <view class="plan ">
-    <view>3日行程</view>
-    <view>温馨提示</view>
-    <view>费用说明</view>
-    <view>用户评价</view>
-  </view>
-  <!--行程详情安排  -->
-  <view class="plandetail ">
-    <view class="react "></view>
-    <view class="leadertitle ">3日行程</view>
-    <view class="react1 "></view>
-    <image class="planimg" wx:for="{{template.public}}" wx:key="idx" src='{{item}}' mode='widthFix'></image>
+     <!--行程安排开始  -->
+     <view class="plan ">
+          <view>3日行程</view>
+          <view>温馨提示</view>
+          <view>费用说明</view>
+          <view>用户评价</view>
+     </view>
+     <!--行程详情安排  -->
+     <view class="plandetail ">
+          <view class="react "></view>
+          <view class="dataplan">3日行程</view>
+          <view class="react1 "></view>
+          <image class="planimg" wx:for="{{template.public}}" wx:key="idx" src='{{item}}' mode='aspectFill'></image>
 
 
-    <!-- 出发地弹出框交互结束 -->
-    <block wx:if="{{template.name =='normal'}}">
-      <template is="address-detail-normal" data="{{template:template}}" />
-    </block>
-    <block wx:elif="{{template.name =='simple'}}">
-      <template is="address-detail-simple" data="{{template:template}}" />
-    </block>
-    <block wx:else="{{template.name == 'custom'}}">
-      <template is="address-detail-custom" data="{{template:template}}" />
-    </block>
-  </view>
+          <!-- 出发地弹出框交互结束 -->
+          <block wx:if="{{template.name =='normal'}}">
+               <template is="address-detail-normal" data="{{template:template}}" />
+          </block>
+          <block wx:elif="{{template.name =='simple'}}">
+               <template is="address-detail-simple" data="{{template:template}}" />
+          </block>
+          <block wx:else="{{template.name == 'custom'}}">
+               <template is="address-detail-custom" data="{{template:template}}" />
+          </block>
+     </view>
 
-  <!--行程安排结束  -->
+     <!--行程安排结束  -->
 
-  <!--温馨提示开始-->
-  <view class="point">
-    <view class="react"></view>
-    <view class="leadertitle">温馨提示</view>
-    <view class="react1"></view>
-    <view class="pointtext">
-      <view class="text1">{{tips}}</view>
-    </view>
-  </view>
-  <!--温馨提示结束  -->
+     <!--温馨提示开始-->
+     <view class="point">
+          <view class="react"></view>
+          <view class="leadertitle">温馨提示</view>
+          <view class="react1"></view>
+          <view class="pointtext">
+               {{tips}}
+          </view>
+     </view>
+     <!--温馨提示结束  -->
 
-  <!-- 费用说明开始 -->
-  <view class="pay">
-    <view class="react"></view>
-    <view class="leadertitle">费用说明</view>
-    <view class="react1"></view>
-    <view class="paytext">
-      <view class="ptext1">{{expense}}</view>
-    </view>
-  </view>
+     <!-- 费用说明开始 -->
+     <view class="pay">
+          <view class="react"></view>
+          <view class="leadertitle">费用说明</view>
+          <view class="react1"></view>
+          <view class="paytext">
+               {{expense}}
+               <!-- <view class="ptext1">{{expense}}</view> -->
+          </view>
+     </view>
 
-  <!--费用说明结束  -->
+     <!--费用说明结束  -->
 
-  <!-- 用户评价开始 -->
-  <block wx:for="{{commendList}}" wx:for-index="idx" data-id='item.id' wx:key="commendList">
-    <view class="discuss">
-      <view class="react"></view>
-      <view class="leadertitle">用户评价</view>
-      <view class="react1"></view>
-      <view class="user">{{item.name}}</view>
-      <image class="star" src="http://image.365zhiding.com/wxapp/20171114/xing.png"></image>
-      <view class="time">{{item.date}}</view>
-      <view class="content1">{{item.content}}</view>
-      <view class="more" bindtap='handleTapCommendMore' data-id="{{id}}"> 查看全部{{comment.total}}条评论</view>
-      <image class="morell" src='http://image.365zhiding.com/wxapp/20171114/1.png'></image>
-    </view>
-  </block>
-  <!--用户评价结束  -->
+     <!-- 用户评价开始 -->
 
-  <template is="zan-loadmore" wx:if="{{isLoading}}" data="{{loading: true}}" />
-  <template is="zan-loadmore" wx:if="{{isNoMore}}" data="{{nodata: true,nodata_str:'加载完成'}}" />
+     <view class="discuss">
+          <view class="react"></view>
+          <view class="user_commend_title">用户评价</view>
+          <view class="react1"></view>
+          <block wx:for="{{commendList}}" wx:for-index="idx" data-id='item.id' wx:key="commendList">
 
-  <!--底部开始  -->
-  <view class="bottom">
+               <view class="user_commend">
+                    <view class="user">{{item.name}}
+                         <block wx:for="{{item.score}}">
+                              <image src='../image/start1.png' style="width:18rpx;height:18rpx;margin-left:10rpx;"></image>
+                         </block>
+                          <block wx:for="{{5-item.score}}">
+                              <image src='../image/start2.png' style="width:18rpx;height:18rpx;margin-left:10rpx;"></image>
+                         </block> 
+                    </view>
+                    <view class="time">{{item.date}}</view>
+               </view>
+               <view class="content1">{{item.content}}</view>
 
-    <image class="zixun" src="http://image.365zhiding.com/wxapp/20171121/zixun.png" bindtap='handleTapPhone'></image>
-    <view class="zixuntext">资询</view>
+          </block>
 
-    <view class="yuding">
-      <navigator url="../start-order/start-order">开始预订</navigator>
-    </view>
-  </view>
-  <!--底部结束-->
+          <template is="zan-loadmore" wx:if="{{isLoading}}" data="{{loading: true}}" />
+          <template is="zan-loadmore" wx:if="{{isNoMore}}" data="{{nodata: true,nodata_str:'加载完成'}}" />
+          <view class="more" bindtap='handleTapCommendMore' data-id="{{id}}"> 查看全部{{comment.total}}条评论
+               <image class="morell" src='http://image.365zhiding.com/wxapp/20171114/1.png'></image>
+          </view>
 
-  <template is="zan-toast" data="{{ zanToast }}"></template>
+     </view>
+
+     <!--用户评价结束  -->
+
+
+
+
+     <!--底部开始  -->
+     <view class="bottom">
+          <image class="zixun" src="http://image.365zhiding.com/wxapp/20171121/zixun.png" bindtap='handleTapPhone'></image>
+          <view class="zixuntext">资询</view>
+          <view class="yuding">
+               <navigator url="../start-order/start-order">开始预订</navigator>
+          </view>
+     </view>
+     <!--底部结束-->
+
+     <template is="zan-toast" data="{{ zanToast }}"></template>
 </view>
 
 <!--弹出信息的展示开始-->
 <view class="hidden-box hide {{isShowPhoneDialog? 'xianshi':''}}"></view>
 <view class="hidden hide {{isShowPhoneDialog? 'xianshi':''}}">
-  <view class="hidden-text1">呼叫客服</view>
-  <view class="hidden-text2">400-189-0876</view>
-  <view class="hidden-text3">周一至周六 09:30-18:30</view>
-  <view class="line"></view>
-  <view class="line2"></view>
-  <view class="cancel" bindtap='handleTapCancelPhoneDialog'>取消</view>
-  <view class="sure" bindtap='handleTapConfirmPhoneDialog'>呼叫</view>
+     <view class="hidden-text1">呼叫客服</view>
+     <view class="hidden-text2">{{link.linkTel}}</view>
+     <view class="hidden-text3">{{link.date}}{{link.time}}</view>
+     <view class="line1"></view>
+     <view class="line2"></view>
+     <view class="cancel" bindtap='handleTapCancelPhoneDialog'>取消</view>
+     <view class="sure" bindtap='handleTapConfirmPhoneDialog'>呼叫</view>
 </view>
+
 <!--弹出信息的展示结束-->

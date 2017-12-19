@@ -1,4 +1,5 @@
 /* pages/API/addressdetail/addressdetail.wxss */
+
 .container {
      padding: 0;
      margin: 0;
@@ -7,7 +8,7 @@
      overflow: hidden;
 }
 
- .data12 {
+.data12 {
      width: 750rpx;
      background: #fff;
      padding-left: 30rpx;
@@ -52,13 +53,15 @@
      color: rgba(102, 102, 102, 1);
      margin-left: 20rpx;
 }
+
 .banner swiper swiper-item image {
-  width: 750rpx;
-  height: 350rpx;
+     width: 750rpx;
+     height: 350rpx;
 }
+
 swiper {
-  width: 750rpx;
-  height: 350rpx;
+     width: 750rpx;
+     height: 350rpx;
 }
 
 .tuijuan-img {
@@ -118,9 +121,8 @@ swiper {
      justify-content: center;
      align-items: center;
      font-size: 20rpx;
-     color:#fff;
+     color: #fff;
 }
-
 
 .banner-text1 {
      width: 361rpx;
@@ -145,6 +147,7 @@ swiper {
      bottom: 20rpx;
      z-index: 999;
 }
+
 .youhui {
      width: 750rpx;
      height: 96rpx;
@@ -158,12 +161,13 @@ swiper {
      position: absolute;
      top: 25rpx;
      left: 30rpx;
-     background:#EF4545; 
+     background: #ef4545;
      border-radius: 10rpx;
      display: flex;
      justify-content: center;
      align-items: center;
 }
+
 .youhui-text {
      width: 420rpx;
      height: 96rpx;
@@ -205,8 +209,8 @@ swiper {
      position: relative;
 }
 
-.data{
-     width:100%;
+.data {
+     width: 100%;
      background: #fff;
      padding-left: 30rpx;
      padding-right: 30rpx;
@@ -309,9 +313,11 @@ swiper {
      position: absolute;
      top: 110rpx;
      left: 251rpx;
-     line-height: 42rpx; 
+     line-height: 44rpx;
+     display: -webkit-box;
+     -webkit-line-clamp: 4;
+     -webkit-box-orient: vertical;
      overflow: hidden;
-     text-overflow: ellipsis;
 }
 
 .back2 {
@@ -326,7 +332,6 @@ swiper {
      width: 100%;
      height: 100%;
 }
-
 .xingcheng {
      width: 750rpx;
      height: 208rpx;
@@ -334,7 +339,6 @@ swiper {
      margin-top: 10rpx;
      position: relative;
 }
-
 .xingcont {
      width: 597rpx;
      height: 77rpx;
@@ -367,19 +371,29 @@ swiper {
      height: auto;
      position: relative;
      margin-top: 1rpx;
+     padding-bottom: 30rpx;
+     box-sizing: border-box;
      background: white;
 }
 
-.planimg {
-     width: 692rpx;
-     margin-left: 29rpx;
-     margin-top: 89rpx;
+.dataplan {
+     width: 128rpx;
+     height: 80rpx;
+     font-size: 32rpx;
+     font-family: PingFang-SC-Regular;
+     color: rgba(51, 51, 51, 1);
+     line-height: 90rpx;
+     margin-left: 310rpx;
+     text-align: center;
+     overflow: hidden;
 }
 
-.planimg1 {
-     width: 692rpx;
-     margin-left: 29rpx;
-     margin-top: 9rpx;
+.planimg {
+     width: 690rpx;
+     height: 280rpx;
+     border-radius: 10rpx;
+     margin-left: 30rpx;
+     margin-top: 10rpx;
 }
 
 .day {
@@ -397,12 +411,14 @@ swiper {
 .day1img {
      width: 599rpx;
      margin-left: 120rpx;
-     height:auto;
+     height: auto;
 }
-.day1img image{
-     width:100%;
-     height:auto;
+
+.day1img image {
+     width: 100%;
+     height: auto;
 }
+
 .day1text {
      width: 609rpx;
      height: auto;
@@ -414,78 +430,82 @@ swiper {
      line-height: 38rpx;
 }
 
-
 /*simple样式  */
+
 .day1 {
-  width: auto;
-  font-size: 32rpx;
-  font-family: PingFang-SC-Regular;
-  color: rgba(255, 102, 0, 1);
-  margin-top: 20rpx;
-  margin-left: 332rpx;
+     width: auto;
+     font-size: 32rpx;
+     font-family: PingFang-SC-Regular;
+     color: rgba(255, 102, 0, 1);
+     margin-top: 20rpx;
+     margin-left: 332rpx;
 }
 
 .line {
-  width: 117rpx;
-  height: 2rpx;
-  margin-left: 317rpx;
-  
+     width: 117rpx;
+     height: 2rpx;
+     margin-left: 317rpx;
 }
 
 .jiaotong {
-  height: 31rpx;
-  font-size: 32rpx;
-  font-family: PingFang-SC-Regular;
-  color: rgba(255, 102, 0, 1);
-  margin-left: 29rpx;
-  margin-top: 20rpx;
+     height: 31rpx;
+     font-size: 32rpx;
+     font-family: PingFang-SC-Regular;
+     color: rgba(255, 102, 0, 1);
+     margin-left: 29rpx;
+     margin-top: 20rpx;
 }
 
 .shijian {
-  width: 300rpx;
-  font-size: 26rpx;
-  font-family: PingFang-SC-Regular;
-  color: rgba(153, 153, 153, 1);
-  margin-left: 110rpx;
-  margin-top: 29rpx;
-  height: 24rpx;
+     width: 300rpx;
+     font-size: 26rpx;
+     font-family: PingFang-SC-Regular;
+     color: rgba(153, 153, 153, 1);
+     margin-left: 110rpx;
+     margin-top: 29rpx;
+     height: 24rpx;
 }
 
 .shuoming {
-  width: 609rpx;
-  height: auto;
-  font-size: 26rpx;
-  font-family: PingFang-SC-Regular;
-  color: rgba(51, 51, 51, 1);
-  margin-left: 110rpx;
-  margin-top: 29rpx;
-  line-height: 42rpx;
+     width: 609rpx;
+     height: auto;
+     font-size: 26rpx;
+     font-family: PingFang-SC-Regular;
+     color: rgba(51, 51, 51, 1);
+     margin-left: 110rpx;
+     margin-top: 29rpx;
+     line-height: 42rpx;
 }
+
 .img-box {
-  width: 600rpx;
-  height: auto;
-  margin-left: 120rpx;
-  margin-top: 29rpx;
-  display: flex;
-  justify-content: space-between;
+     width: 600rpx;
+     height: auto;
+     margin-left: 120rpx;
+     margin-top: 29rpx;
+     display: flex;
+     justify-content: space-between;
 }
+
 .jing-img {
- height:193rpx;
+     height: 193rpx;
+     border-radius: 10rpx;
 }
+
 .jing-text {
-  width: 609rpx;
-  height: auto;
-  margin-top: 29rpx;
-  margin-left: 110rpx;
-  font-size: 26rpx;
-  font-family: PingFang-SC-Regular;
-  color: rgba(51, 51, 51, 1);
-  line-height: 42rpx;
+     width: 609rpx;
+     height: auto;
+     margin-top: 29rpx;
+     margin-left: 110rpx;
+     font-size: 26rpx;
+     font-family: PingFang-SC-Regular;
+     color: rgba(51, 51, 51, 1);
+     line-height: 42rpx;
 }
 
 .free-img {
-  width: 600rpx;
+     width: 600rpx;
 }
+
 /*simple样式结束  */
 
 /*行程结束  */
@@ -494,22 +514,23 @@ swiper {
 
 .point {
      width: 750rpx;
-     height: 464rpx;
+     height: auto;
      background: rgba(255, 255, 255, 1);
      margin-top: 10rpx;
      position: relative;
+     padding-bottom: 30rpx;
+     box-sizing: border-box;
 }
 
 .pointtext {
      width: 689rpx;
      height: auto;
+     margin-top: 90rpx;
      font-size: 26rpx;
      font-family: PingFang-SC-Regular;
      color: rgba(102, 102, 102, 1);
-     position: absolute;
-     top: 91rpx;
-     left: 30rpx;
      line-height: 42rpx;
+     margin-left: 30rpx;
 }
 
 /*温馨提示结束*/
@@ -518,22 +539,23 @@ swiper {
 
 .pay {
      width: 750rpx;
-     height: 565rpx;
+     height: auto;
      background: rgba(255, 255, 255, 1);
      margin-top: 10rpx;
      position: relative;
+     padding-bottom: 30rpx;
+     box-sizing: border-box;
 }
 
 .paytext {
      width: 689rpx;
      height: auto;
+     margin-top: 90rpx;
      font-size: 26rpx;
      font-family: PingFang-SC-Regular;
      color: rgba(102, 102, 102, 1);
-     position: absolute;
-     top: 91rpx;
-     left: 30rpx;
      line-height: 42rpx;
+     margin-left: 30rpx;
 }
 
 .ptext1 {
@@ -554,83 +576,89 @@ swiper {
 
 .discuss {
      width: 750rpx;
-     height: 294rpx;
+     height: auto;
      background: rgba(255, 255, 255, 1);
      margin-top: 10rpx;
-     position: relative;
+     margin-bottom: 98rpx;
+     padding-bottom: 30rpx;
+     box-sizing: border-box;
+     position: relative; 
 }
-
+.user_commend_title{
+     height:90rpx;
+     line-height: 90rpx;
+     font-size: 32rpx;
+     font-family: PingFang-SC-Regular;
+     color: rgba(51, 51, 51, 1);
+     margin-left: 310rpx;
+}
+.user_commend{
+display: flex;
+justify-content: space-between;
+padding-left: 30rpx;
+padding-right: 30rpx;
+box-sizing: border-box;
+margin-top: 30rpx;
+} 
 .user {
      width: auto;
      height: 24rpx;
      font-size: 26rpx;
      font-family: PingFang-SC-Regular;
      color: rgba(51, 51, 51, 1);
-     position: absolute;
-     left: 29rpx;
-     top: 91rpx;
+     display: inline-block;
 }
-.star {
-     position: absolute;
-     top: 95rpx;
-     left: 200rpx;
-     width: 135rpx;
-     height: 18rpx;
-}
+
 .time {
-     position: absolute;
-     top: 93rpx;
-     right: 30rpx;
-     width: auto;
-     height: 20rpx;
+     height: 24rpx;
      font-size: 26rpx;
      font-family: PingFang-SC-Regular;
      color: rgba(51, 51, 51, 1);
+     display: inline-block;
+    
 }
-
 .content1 {
      width: 670rpx;
      height: auto;
      font-size: 24rpx;
      font-family: PingFang-SC-Regular;
      color: rgba(102, 102, 102, 1);
-     position: absolute;
-     top: 145rpx;
-     left: 31rpx;
-     line-height: 42rpx;
-     overflow: hidden;
-     text-overflow: ellipsis;
+     margin-top: 30rpx;
+     margin-left: 30rpx;
 }
 .more {
-     position: absolute;
-     bottom: 31rpx;
+     display: flex;
      right: 64rpx;
-     width: auto;
-     height: 23rpx;
+     width: 100%;
+     height:auto;
      font-size: 24rpx;
      font-family: PingFang-SC-Regular;
      color: rgba(153, 153, 153, 1);
+     padding-right: 30rpx;
+     box-sizing:border-box;
+     margin-top: 30rpx;
+     align-items: center;
+     justify-content: flex-end;
+
 }
 
 .morell {
      width: 14rpx;
      height: 24rpx;
-     position: absolute;
-     right: 30rpx;
-     bottom: 22rpx;
+     margin-left: 20rpx;
 }
 
 /*用户评价结束  */
 
 /*底部开始  */
 
-.bottom {
+ .bottom {
      width: 750rpx;
      height: 98rpx;
      background: rgba(255, 255, 255, 1);
-     position: relative;
-     margin-top: 5rpx;
-}
+     position: fixed;
+     bottom: 0;
+} 
 
 .zixun {
      width: 46rpx;
@@ -671,7 +699,7 @@ swiper {
 /*弹出框交互  */
 
 .shadow {
-     position: absolute;
+     position: fixed;
      left: 0;
      top: 0;
      width: 100%;
@@ -697,7 +725,7 @@ swiper {
      height: 720rpx;
      background: rgba(255, 255, 255, 1);
      border-radius: 10rpx;
-     position: absolute;
+     position: fixed;
      bottom: 300rpx;
      z-index: 999;
 }
@@ -755,68 +783,23 @@ swiper {
      opacity: 50%;
 }
 
-/*出发地弹出层交互  */
-
-.address_ul {
-     width: 100%;
-     height: auto;
-     padding: 30rpx 15rpx 30rpx 30rpx;
-     box-sizing: border-box;
-     display: flex;
-     flex-wrap: wrap;
-}
-
-.address_li {
-     width: 146rpx;
-     height: 58rpx;
-     border: 1rpx solid #aaa;
-     border-radius: 10rpx;
-     margin-right: 15rpx;
-     margin-bottom: 15rpx;
-     box-sizing: border-box;
-     display: flex;
-     flex-direction: column;
-     justify-content: space-around;
-     align-items: center;
-}
-
-.choice_address {
-     font-size: 24rpx;
-     font-family: PingFang-SC-Regular;
-     color: rgba(102, 102, 102, 1);
-}
-
-.choice_money {
-     font-size: 20rpx;
-     font-family: PingFang-SC-Regular;
-     color: rgba(255, 102, 0, 1);
-}
-
-.active-tag {
-     border: 1rpx solid #f60;
-     color: #f60;
-}
-
-.active {
-     color: #f60;
-}
-
-
-
 /*normal 样式开始*/
-.dataform-box{
-     width:100%;
-     padding-left:10rpx;
-     display: flex; 
+
+.dataform-box {
+     width: 100%;
+     padding-left: 10rpx;
+     display: flex;
      align-items: center;
      justify-content: space-between;
-     height: 90rpx;
+     height: 120rpx;
      box-sizing: border-box;
      background: #fff;
      overflow: scroll;
      padding-right: 30rpx;
+     padding-bottom: 30rpx;
 }
-.dataform{
+
+.dataform {
      width: 680rpx;
      height: 90rpx;
      align-content: center;
@@ -830,7 +813,7 @@ swiper {
 .dataul {
      width: 146rpx;
      height: 80rpx;
-     border: 1rpx solid #AAA;
+     border: 1rpx solid #aaa;
      border-radius: 10rpx;
      margin-left: 20rpx;
      font-size: 24rpx;
@@ -839,163 +822,174 @@ swiper {
      text-align: center;
      display: inline-block;
      line-height: 40rpx;
-    
 }
-.active_tag{
+
+.active_tag {
      border: 1rpx solid #e98836;
 }
 
-.back11{
-  width:14rpx;
-  height:24rpx;
-  display: flex;
- 
-}
-.back11 image{
-  width:100%;
-  height:100%;
-  }
-  .riqi{
-font-size:24rpx;
-font-family:PingFang-SC-Regular;
-color:#666666 ;
-  }
-  .money{
-font-size:26rpx;
-font-family:PingFang-SC-Regular;
-color:rgba(255,102,0,1);
-  }
-  .active{
-     color:#f60;
+.back11 {
+     width: 14rpx;
+     height: 24rpx;
+     display: flex;
 }
 
-.oneday{
-width:690rpx;
-height:42rpx; 
-font-size:32rpx;
-line-height: 42rpx;
-font-family:PingFang-SC-Regular;
-color:rgba(255,102,0,1);
-margin-left:30rpx;
-margin-top:29rpx;
-}
-.goto-normal{
-width:500px;
-height:auto; 
-font-size:26rpx;
-font-family:PingFang-SC-Regular;
-color:rgba(255,102,0,1);
-margin-left: 120rpx;
-margin-top: 20rpx;
+.back11 image {
+     width: 100%;
+     height: 100%;
 }
 
-.jiaotong-normal{
-width:620rpx;
-height:auto; 
-font-size:26rpx;
-font-family:PingFang-SC-Regular;
-color:rgba(153,153,153,1);
-margin-left: 120rpx;
-margin-top: 29rpx;
-box-sizing: border-box;
+.riqi {
+     font-size: 24rpx;
+     font-family: PingFang-SC-Regular;
+     color: #666;
 }
 
-.hidden{
+.money {
+     font-size: 26rpx;
+     font-family: PingFang-SC-Regular;
+     color: rgba(255, 102, 0, 1);
+}
+
+.active {
+     color: #f60;
+}
+
+.oneday {
+     width: 690rpx;
+     height: 42rpx;
+     font-size: 32rpx;
+     line-height: 42rpx;
+     font-family: PingFang-SC-Regular;
+     color: rgba(255, 102, 0, 1);
+     margin-left: 30rpx;
+     margin-top: 29rpx;
+}
+
+.goto-normal {
+     width: 500px;
+     height: auto;
+     font-size: 26rpx;
+     font-family: PingFang-SC-Regular;
+     color: rgba(255, 102, 0, 1);
+     margin-left: 120rpx;
+     margin-top: 20rpx;
+}
+
+.jiaotong-normal {
+     width: 620rpx;
+     height: auto;
+     font-size: 26rpx;
+     font-family: PingFang-SC-Regular;
+     color: rgba(153, 153, 153, 1);
+     margin-left: 120rpx;
+     margin-top: 29rpx;
+     box-sizing: border-box;
+}
+
+.hidden {
      display: none;
 }
-.show{
+
+.show {
      display: block;
 }
 
-
-
 /*normal样式结束  */
 
-
 /*选项卡开始  */
-.hidden-box{
-  width: 750rpx;
-  height:100vh;
-  position:absolute;
-  background: #000;
-  opacity: 0.4;
-  z-index: 99;
-  top:0;
-  left:0;
+
+.hidden-box {
+     width: 750rpx;
+     height: 100vh;
+     position: fixed;
+     background: #000;
+     opacity: 0.4;
+     top: 0;
+     left: 0;
 }
-.hidden{
-width:540rpx;
-height:288rpx; 
-background:rgba(255,255,255,1);
-opacity:0.9;
-border-radius: 26rpx;
-position: absolute;
-top:35%;
-z-index: 999;
-left:15%;  
+
+.hidden {
+     width: 540rpx;
+     height: 288rpx;
+     background: rgba(255, 255, 255, 1);
+     border-radius: 26rpx;
+     position: fixed;
+     top: 35%;
+     z-index: 999;
+     left: 15%;
 }
-.hide{
- display:none;
+
+.hide {
+     display: none;
 }
-.xianshi{ 
- display: block;
+
+.xianshi {
+     display: block;
 }
-.hidden-text1{
-font-size:34rpx;
-font-family:PingFang-SC-Regular;
-color:rgba(0,0,0,1);
-line-height:40rpx;
-position: absolute;
-top:43rpx;
-left: 201rpx;
+
+.hidden-text1 {
+     font-size: 34rpx;
+     font-family: PingFang-SC-Regular;
+     color: rgba(0, 0, 0, 1);
+     line-height: 40rpx;
+     position: absolute;
+     top: 43rpx;
+     left: 201rpx;
 }
-.hidden-text2{
-font-size:26rpx;
-font-family:PingFang-SC-Regular;
-color:rgba(17,17,17,1);
-position: absolute;
-top:101rpx;
-left:175rpx; 
+
+.hidden-text2 {
+     font-size: 26rpx;
+     font-family: PingFang-SC-Regular;
+     color: rgba(17, 17, 17, 1);
+     position: absolute;
+     top: 101rpx;
+     left: 175rpx;
 }
-.hidden-text3{
-font-size:26rpx;
-font-family:PingFang-SC-Regular;
-color:rgba(17,17,17,1);
-position: absolute;
-top:135rpx;
-left:117rpx; 
+
+.hidden-text3 {
+     font-size: 26rpx;
+     font-family: PingFang-SC-Regular;
+     color: rgba(17, 17, 17, 1);
+     position: absolute;
+     top: 135rpx;
+     left: 117rpx;
 }
-.line{
-width:540rpx;
-height:2rpx; 
-background:#CDCED2;
-position: absolute;
-bottom:89rpx;
-left: 0;
-opacity: 0.5;
+
+.line1 {
+     width: 540rpx;
+     height: 2rpx;
+     background: #cdced2;
+     position: absolute;
+     bottom: 89rpx;
+     left: 0;
+     opacity: 0.5;
 }
-.line2{
-width:1rpx;
-height:90rpx; 
-background:rgba(205,206,210,1);
-opacity: 0.5;
-position:absolute;
-bottom:0;
-left: 270rpx;
+
+.line2 {
+     width: 1rpx;
+     height: 90rpx;
+     background: rgba(205, 206, 210, 1);
+     opacity: 0.5;
+     position: absolute;
+     bottom: 0;
+     left: 270rpx;
 }
-.cancel{
-font-size:34rpx;
-font-family:PingFang-SC-Regular;
-color:rgba(102,102,102,1);
-position: absolute;
-bottom:27rpx;
-left:103rpx;
+
+.cancel {
+     font-size: 34rpx;
+     font-family: PingFang-SC-Regular;
+     color: rgba(102, 102, 102, 1);
+     position: absolute;
+     bottom: 27rpx;
+     left: 103rpx;
 }
-.sure{
-font-size:34rpx;
-font-family:PingFang-SC-Regular;
-color:#0076FF;
-position: absolute;
-bottom:27rpx;
-right:103rpx;
+
+.sure {
+     font-size: 34rpx;
+     font-family: PingFang-SC-Regular;
+     color: #0076ff;
+     position: absolute;
+     bottom: 27rpx;
+     right: 103rpx;
 }

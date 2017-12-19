@@ -13,7 +13,7 @@
   <!--选择出行人数开始  -->
   <view class="choice">
     <view class="person">选择出行人数</view>
-    <view class="choice-num">{{formData.tourers.subNum.adult}}成人 {{formData.tourers.subNum.child}}儿童</view>
+    <view class="choice-num">{{formData.tourers.subNum.adult}}成人 {{formData.tourers.subNum.child}}儿童 {{formData.tourers.subNum.old}}老人 </view>
     <view class="choice-num" wx:if="{{isAllowBabySelected == 1}}">包含1岁以下的婴儿</view>
     <view class="choice-num" wx:else>不包含1岁以下的婴儿</view>
     <navigator url="../choice-person/choice-person?passengerIdStr={{passengerIdStr}}">

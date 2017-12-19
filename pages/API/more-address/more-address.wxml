@@ -12,7 +12,7 @@
     <view class="lii">{{category[currentCategoryIndex].name}}</view>
     <view class="ul">
       <view class="li" wx:for="{{currentMappingAreaList}}" data-id="{{item.id}}" bindtap="handleTapAreaItem" wx:key="item">
-        <image src="{{item.image}}"></image>
+         <image src="{{item.image}}"><view class="hiddenl"></view></image> 
         <view class="country">{{item.name}}</view>
       </view>
     </view>

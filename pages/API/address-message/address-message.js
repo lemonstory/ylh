@@ -57,65 +57,68 @@ Page(Object.assign({}, Toast, {
     'day': 0,                        //行程-几天
     'night': 0,                      //行程-几晚
     'difference': 0,                 //单房差
-    "adultprice":0,                  //成人费用
-    "childprice":0,                  //儿童费用
-    "postage":0                      //快递费用                       
+    "adultprice": 0,                  //成人费用
+    "childprice": 0,                  //儿童费用
+    "postage": 0                      //快递费用                       
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
+  //接收从上一个的传值
+  //数据示例
+  // options.lineDetail = {
+  // //产品id
+  // 'pid': 1,
+  // //出行时间
+  // 'travelDate': '2017-11-05',
+  // //线路名称
+  // 'title': '4日双飞，赶海踏浪，扬帆出海，极地海洋世界，玩海零距离',
+  // //线路持续天数
+  // 'day': 4,
+  // //线路持续夜数
+  // 'night': 3,
+
+  // //预付单房差
+  // //选择日期 -> suitList->difference
+  // 'difference': 75000,
+
+  // //订单总额(单位分)
+  // 'amount': 650000,
+
+  // //TODO:缺少费用明细里面的数据
+
+  // //出行人信息(array,required)
+  // 'tourers': {
+  //   "subNum": {
+  //     //小孩数量
+  //     'child': 1,
+  //     //成人数量
+  //     'adult': 1,
+  //     //老人数量
+  //     'old': 1,
+  //   },
+  // },
+  // //是否【已选择】包含婴儿(number,required)
+  // 'isAllowBabySelected': 1,
+  // "adultprice": 200,                  //成人费用
+  // "adultprice": 200,                  //成人费用
+  // "childprice": 100,                  //儿童费用
+  // "oldprice": 100,                    //老人费用
+  // "postage": 20                       //快递费用  
+  // "isAddedDifference": false        //是否增加单房差 
+  // }
   onLoad: function (options) {
 
     var that = this;
-
-    //接收从上一个的传值
-    //数据示例
-    options.lineDetail = {
-
-      //产品id
-      'pid': 1,
-      //出行时间
-      'travelDate': '2017-11-05',
-      //线路名称
-      'title': '4日双飞，赶海踏浪，扬帆出海，极地海洋世界，玩海零距离',
-      //线路持续天数
-      'day': 4,
-      //线路持续夜数
-      'night': 3,
-
-      //预付单房差
-      //选择日期 -> suitList->difference
-      'difference': 75000,
-
-      //订单总额(单位分)
-      'amount': 650000,
-
-      //TODO:缺少费用明细里面的数据
-
-      //出行人信息(array,required)
-      'tourers': {
-        "subNum": {
-          //小孩数量
-          'child': 1,
-          //成人数量
-          'adult': 1,
-        },
-      },
-
-      //是否【已选择】包含婴儿(number,required)
-      'isAllowBabySelected': 1,
-
-      "adultprice": 200,                  //成人费用
-      "childprice": 100,                  //儿童费用
-      "postage": 20                      //快递费用   
-    }
-
-
     if (typeof (options.lineDetail) != 'undefined') {
 
-      // var lineDetail = JSON.parse(options.lineDetail);
-      var lineDetail = options.lineDetail;
+      console.log("😀 😀 😀");
+      console.log()
+      console.log(options.lineDetail);
+
+      var lineDetail = JSON.parse(options.lineDetail);
+      // var lineDetail = options.lineDetail;
       //将接收的数据设置到本页面
       that.setData({
 
@@ -131,12 +134,13 @@ Page(Object.assign({}, Toast, {
         'formData.amount': lineDetail.amount,
         'formData.tourers.subNum.child': lineDetail.tourers.subNum.child,
         'formData.tourers.subNum.adult': lineDetail.tourers.subNum.adult,
+        'formData.tourers.subNum.old': lineDetail.tourers.subNum.old,
         'formData.tourers.isIncludeBaby': lineDetail.isIncludeBaby,
         'formData.tourers.isIncludeOld': lineDetail.isIncludeOld,
       })
     }
 
-    console.log(that.data.formData);
+    // console.log(that.data.formData);
   },
 
   /**
@@ -173,8 +177,6 @@ Page(Object.assign({}, Toast, {
         'passengerIdStr': ''
       })
     }
-
-
   },
 
   /**

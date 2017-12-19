@@ -17,14 +17,14 @@ Page(Object.assign({}, Toast, {
     'id': 0,
     'newId': 0,
     'cardTitle': '',
-    'passengerTitle':'',
+    'passengerTitle': '',
 
     //显示底部弹窗
     'isShowCardTypeBottomPopup': false,
     'isShowTitleBottomPopup': false,
 
     //是否是修改
-    'isUpdate':false,
+    'isUpdate': false,
   },
 
   /**
@@ -49,7 +49,7 @@ Page(Object.assign({}, Toast, {
 
       var item = JSON.parse(itemJsonStr);
       that.setData({
-        'isUpdate':true,
+        'isUpdate': true,
         'id': item.id,
         'name': item.name,
         'title': item.title,
@@ -61,7 +61,7 @@ Page(Object.assign({}, Toast, {
 
 
         'cardTitle': util.getTitleWithId(app.constant.passengerTitle, item.cardType),
-        'passengerTitle': util.getTitleWithId(app.constant.passengerCardType, item.title) 
+        'passengerTitle': util.getTitleWithId(app.constant.passengerCardType, item.title)
       })
 
       console.log(that.data);
@@ -218,7 +218,7 @@ Page(Object.assign({}, Toast, {
     })
   },
 
-  checkInput:function() {
+  checkInput: function () {
 
     var that = this;
     if (that.data.name.length <= 0) {
@@ -271,7 +271,7 @@ Page(Object.assign({}, Toast, {
   handleSaveTap: function (event) {
 
     var that = this;
-    if(that.checkInput()) {
+    if (that.checkInput()) {
 
       wx.showLoading({
         title: '加载中',
@@ -281,7 +281,7 @@ Page(Object.assign({}, Toast, {
       var url = that.data.constant.domain + '/distrbuter/member/passenger';
 
       //修改出行人接口
-      if(that.data.isUpdate) {
+      if (that.data.isUpdate) {
         url = url + "/update";
       }
 
@@ -301,7 +301,7 @@ Page(Object.assign({}, Toast, {
         header: {
           'Content-Type': 'application/x-www-form-urlencoded'
         },
-        
+
         success: function (res) {
           var id = res.data.id
           that.setData({
@@ -327,7 +327,7 @@ Page(Object.assign({}, Toast, {
    * 处理删除按钮
    */
   handleDeleteTap: function (event) {
-  
+
     var that = this;
     wx.showLoading({
       title: '加载中',
@@ -364,6 +364,6 @@ Page(Object.assign({}, Toast, {
         wx.navigateBack();
       }
     });
-  
+
   }
 }));

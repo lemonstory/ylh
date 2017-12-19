@@ -5,9 +5,7 @@ var util = require('../../../utils/util.js')
 
 Page(Object.assign({}, Toast, {
 
-
   data: {
-
     constant: app.constant,
 
     //轮播图
@@ -287,7 +285,7 @@ Page(Object.assign({}, Toast, {
         if (that.data.isLoading) {
           wx.stopPullDownRefresh()
         }
-        
+
         that.setData({
           'isLoading': false,
         });
@@ -309,6 +307,10 @@ Page(Object.assign({}, Toast, {
 
         if (that.data.priceList[i].list.length > 0) {
           for (var j = 0; j < that.data.priceList[i].list.length; j++) {
+
+            var DatePriceListItemTemp = {};
+            DatePriceListItemTemp = that.data.priceList[i].list[j];
+            DatePriceListItemTemp.monthIndex = i;
             startDatePriceListTemp.push(that.data.priceList[i].list[j])
           }
         }
@@ -318,9 +320,7 @@ Page(Object.assign({}, Toast, {
     if (startDatePriceListTemp.length > 0) {
 
       for (var i = 0; i < startDatePriceListTemp.length; i++) {
-
         var item = startDatePriceListTemp[i];
-        console.log(item);
         var itemDateArr = item.date.split("-");
         var itemDateFormatStr = itemDateArr[1] + "月" + itemDateArr[2] + "日";
         var itemDateFormat = {};
@@ -328,6 +328,7 @@ Page(Object.assign({}, Toast, {
         itemDateFormat.date = item.date;
         itemDateFormat.dateStr = itemDateFormatStr;
         itemDateFormat.min = item.min;
+        itemDateFormat.monthIndex = item.monthIndex;
         startDatePriceListFormatTemp.push(itemDateFormat);
       }
     }
@@ -338,28 +339,41 @@ Page(Object.assign({}, Toast, {
       startDatePriceListFormat: startDatePriceListFormatTemp,
       commendList: commendListTemp
     })
+
+    console.log("🚀 🚀 🚀 ")
+    console.log(that.data.startDatePriceListFormat);
+
   },
 
   /**
    * 出发日期-点击
    */
   handleTapChooseDate: function (e) {
-    var path = "/pages/API/start-order/start-order";
-    wx.navigateTo({
-      url: path
-    })
+
+    //选中的出行日期
+    var currentSelectedTravelDate = e.currentTarget.dataset.date;
+    //选中的出行日期所在的月份索引值
+    var currentSelectedMonthIndex = e.currentTarget.dataset.month_index;
+    var path = "/pages/API/start-order/start-order?currentSelectedTravelDate=" + currentSelectedTravelDate + "&currentSelectedMonthIndex=" + currentSelectedMonthIndex;
+    console.log(path);
+
     var that = this;
     var dataIdx = e.currentTarget.dataset.data_idx;
-    //设置当前样式
-    if (this.data.currentItem === dataIdx) {
 
-    } else {
+    //设置当前样式
+    if (this.data.currentItem != dataIdx) {
+
       var showMode = e.currentTarget.dataset.dataIdx == 0;
       this.setData({
         currentItem: dataIdx,
         selectedTravelDate: e.currentTarget.dataset.date
       })
     }
+
+    wx.navigateTo({
+      url: path
+    })
+
   },
 
 }));

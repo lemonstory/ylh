@@ -19,7 +19,7 @@
 
     <view class="bottom">
       <view class="bottom-left">
-        <navigator url="../new-add-address/new-add-address">新增地址</navigator>
+        <navigator open-type="redirect" url="../add-address/add-address">新增地址</navigator>
       </view>
       <view class="bottom-right" bindtap='back'>完成</view>
     </view>

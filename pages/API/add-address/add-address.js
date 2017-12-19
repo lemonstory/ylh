@@ -1,4 +1,4 @@
-// pages/API/new-add-address/new-add-address.js
+// pages/API/add-address/add-address.js
 
 const app = getApp();
 const Toast = require('../../../zanui-weapp/dist/toast/index');
@@ -72,6 +72,7 @@ Page(Object.assign({}, Toast, {
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+
     var that = this;
     that.getAllAddress();
     console.log(options);
@@ -82,6 +83,14 @@ Page(Object.assign({}, Toast, {
         addressInfo: editAddress,
       })
     }
+
+    //设置标题
+    if (that.data.addressInfo.id != 0) {
+      wx.setNavigationBarTitle({
+        title: '修改地址',
+      })
+    }
+
   },
 
   /**
@@ -321,7 +330,12 @@ Page(Object.assign({}, Toast, {
    * 新建地址
    */
   createAddress: function () {
+
     var that = this;
+    wx.showLoading({
+      title: '加载中',
+    })
+
     var url = '';
     if (that.data.addressInfo.id == 0) {       //新建
       url = that.data.constant.domain + '/distrbuter/member/address';
@@ -344,9 +358,13 @@ Page(Object.assign({}, Toast, {
         console.log(res);
         that.showZanToast(res.message);
       },
+
       complete: function (res) {
-        console.log(res);
-      },
+        wx.hideLoading();
+        wx.redirectTo({
+          url: '/pages/API/choice-address/choice-address',
+        })
+      }
     })
   },
 

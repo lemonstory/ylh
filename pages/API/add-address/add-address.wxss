@@ -1,4 +1,4 @@
-/* pages/API/new-add-address/new-add-address.wxss */
+/* pages/API/add-address/add-address.wxss */
 
 .container {
   box-sizing: border-box;

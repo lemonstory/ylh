@@ -85,8 +85,7 @@ Page(Object.assign({}, Toast, {
 
       success: function (res) {
 
-        if (res.statusCode == 200) {
-        
+        if (res.statusCode == 200) {       
           console.log(res.data);
           that.setData(res.data);
           that.setDataCallBack();

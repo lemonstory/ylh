@@ -140,6 +140,13 @@ function getCanlenderData (year, month) {
   return data;
 }
 
+/**
+ * 获取http header Authorization value
+ */
+function getAuthorizationValue() {
+
+
+}
 
 
 module.exports = {

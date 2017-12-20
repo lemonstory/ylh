@@ -4,9 +4,12 @@ const app = getApp();
 const Toast = require('../../zanui-weapp/dist/toast/index');
 var util = require('../../utils/util.js')
 
+//测试
+
+
 Page(Object.assign({}, Toast, {
   data: {
-    'constant': app.constant,
+    constant: app.constant,
     inputContent: {},
     indicatorDots: true,
     autoplay: true,
@@ -67,11 +70,11 @@ Page(Object.assign({}, Toast, {
 
   //获取接口
   getData: function () {
-    
+
     var that = this;
     var url = that.data.constant.domain + '/distrbuter/index';
     console.log("url = " + url);
-    
+
     wx.request({
       url: url,
       data: {},
@@ -147,16 +150,17 @@ Page(Object.assign({}, Toast, {
   },
 
   //处理热门签证点击
-  handleTapVisaItem:function(event) {
-     
+  handleTapVisaItem: function (event) {
+
     var that = this;
     that.showZanToast("数据未提供");
   },
 
   //处理人签证-更多
-  handleTapVisaListMore:function(event) {
+  handleTapVisaListMore: function (event) {
 
     var that = this;
     that.showZanToast("数据未提供");
-  }
+  },
+
 }));

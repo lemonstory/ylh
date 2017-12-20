@@ -1,9 +1,12 @@
 <!--pages/API/empower/empower.wxml-->
+<import src="/zanui-weapp/dist/toast/index.wxml" />
 <view class="container">
-<view class="main">
+  <view class="main">
 
 
-<view class="empower">微信授权登录</view>
+    <button class="empower" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber"> 微信授权登录 </button>
 
+  </view>
 </view>
-</view>
+<!-- 直接使用 zan-toast 模板，并且直接传入 zanToast -->
+<template is="zan-toast" data="{{ zanToast }}"></template>

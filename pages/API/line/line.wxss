@@ -1,217 +1,228 @@
 /* pages/address/address.wxss */
 
 .container {
-  box-sizing: border-box;
-  margin: 0;
-  padding:0;
-  width: 100%;
-  overflow: hidden;
-  background: #f7f7f7;
-  
+     box-sizing: border-box;
+     margin: 0;
+     padding: 0;
+     width: 100%;
+     overflow: hidden;
+     background: #f7f7f7;
 }
-
 
 .banner {
-  width: 750rpx;
-  height: 350rpx;
-  position: relative;
+     width: 750rpx;
+     height: 350rpx;
+     position: relative;
 }
+
 .search {
-  width: 690rpx;
-  height: 68rpx;
-  position: absolute;
-  top: 10rpx;
-  right: 30rpx;
-  opacity: 0.8;
-  box-sizing: border-box;
+     width: 690rpx;
+     height: 68rpx;
+     position: absolute;
+     top: 10rpx;
+     right: 30rpx;
+     opacity: 0.8;
+     box-sizing: border-box;
 }
+
 #myInput {
-  width: 689rpx;
-  height: 68rpx;
-  background: #666;
-  border-radius: 10rpx;
-  opacity: 0.8;
-  display: flex;
-  align-content: center;
-  line-height: 68rpx;
-  box-sizing: border-box;
+     width: 689rpx;
+     height: 68rpx;
+     background: #666;
+     border-radius: 10rpx;
+     opacity: 0.8;
+     display: flex;
+     align-content: center;
+     line-height: 68rpx;
+     box-sizing: border-box;
 }
+
 .search-icon {
-  position: absolute;
-  top: 14rpx;
-  left: 20rpx;
-  height: 32rpx;
-  width: 32rpx;
+     position: absolute;
+     top: 14rpx;
+     left: 20rpx;
+     height: 32rpx;
+     width: 32rpx;
 }
 
 .back {
-  position: absolute;
-  top: 22rpx;
-  right: 52rpx;
-  height: 36rpx;
-  width: 36rpx;
+     position: absolute;
+     top: 22rpx;
+     right: 52rpx;
+     height: 36rpx;
+     width: 36rpx;
 }
 
 .back image {
-  width: 100%;
-  height: 100%;
+     width: 100%;
+     height: 100%;
 }
 
 .banner swiper swiper-item image {
-  width: 750rpx;
-  height: 350rpx;
+     width: 750rpx;
+     height: 350rpx;
 }
 
 swiper {
-  width: 750rpx;
-  height: 350rpx;
+     width: 750rpx;
+     height: 350rpx;
 }
 
-
-
 .search image {
-  width: 100%;
-  height: 100%;
+     width: 100%;
+     height: 100%;
 }
 
 .order {
-  width: 690rpx;
-  height: 137rpx;
-  margin-top: 10rpx;
-  overflow: hidden;
+     width: 690rpx;
+     height: 137rpx;
+     margin-top: 10rpx;
+     overflow: hidden;
 }
 
 .order image {
-  width: 100%;
-  height: 100%;
+     width: 100%;
+     height: 100%;
 }
 
 .hot {
-  width: 100%;
-  height:auto;
-  background: #fff;
-  margin-top: 10rpx;
-}   
+     width: 100%;
+     height: auto;
+     background: #fff;
+     margin-top: 10rpx;
+}
 
 .hot-font {
-  height: 30rpx;
-  width: 690rpx;                                                                                            margin-top: 30rpx;
-  margin-left: 30rpx;
-  display: flex;
-  justify-content: space-between;
-  font-size: 30rpx;
-  font-family: PingFang-SC-Regular;
-  color: rgba(51, 51, 51, 1);
-  line-height: 30rpx;
- 
+     height: 30rpx;
+     width: 690rpx;
+     margin-top: 30rpx;
+     margin-left: 30rpx;
+     display: flex;
+     justify-content: space-between;
+     font-size: 30rpx;
+     font-family: PingFang-SC-Regular;
+     color: rgba(51, 51, 51, 1);
+     line-height: 30rpx;
 }
- .hot-image {
-  width: 750rpx;
-  background: #fff;
-  padding-top:30rpx;
-  height: auto;
-  white-space: nowrap; 
-  display: flex;
-  box-sizing: border-box;
-  padding-left: 30rpx;
-  padding-bottom: 30rpx;
-  overflow: scroll;
-} 
 
- .hot-image .li {
-  width: 200rpx;
-  height: 200rpx;
-  margin-right: 20rpx;
-  position: relative; 
-  display: inline-block;
- } 
-.address-text{
-font-size:30rpx;
-font-family:PingFang-SC-Regular;
-color:rgba(255,255,255,1);
-position: absolute;
-top: 0;
-bottom: 0;
-left: 0;
-right: 0;
-margin: auto;
-width: auto;
-height: 40rpx;
-text-align: center;
+.hot-image {
+     width: 750rpx;
+     background: #fff;
+     padding-top: 30rpx;
+     height: auto;
+     white-space: nowrap;
+     display: flex;
+     box-sizing: border-box;
+     padding-left: 30rpx;
+     padding-bottom: 30rpx;
+     overflow: scroll;
 }
+
+.hot-image .li {
+     width: 200rpx;
+     height: 200rpx;
+     margin-right: 20rpx;
+     position: relative;
+     border-radius: 10rpx;
+     display: inline-block;
+     background: #000;
+}
+
+.address-text {
+     font-size: 30rpx;
+     font-family: PingFang-SC-Regular;
+     color: rgba(255, 255, 255, 1);
+     position: absolute;
+     top: 0;
+     bottom: 0;
+     left: 0;
+     right: 0;
+     margin: auto;
+     width: auto;
+     height: 40rpx;
+     text-align: center;
+}
+
 .hot-image .li image {
-  width: 100%;
-  height: 100%;
+     width: 100%;
+     height: 100%;
+     border-radius: 10rpx;
+     opacity: 0.8;
 }
+
 .section {
-  width: 750rpx;
-  height: auto;
-  overflow: hidden;
-  background: #fff;
-  margin-top:10rpx;
+     width: 750rpx;
+     height: auto;
+     overflow: hidden;
+     background: #fff;
+     margin-top: 10rpx;
 }
+
 .tuijian {
-  height: 34rpx;
-  font-size: 30rpx;
-  font-family: PingFang-SC-Regular;
-  color: rgba(51, 51, 51, 1);
-  line-height: 34rpx;
-   margin-top: 30rpx;
-  margin-bottom: 30rpx;
-  text-align: left;
-  padding-left: 30rpx;
+     height: 34rpx;
+     font-size: 30rpx;
+     font-family: PingFang-SC-Regular;
+     color: rgba(51, 51, 51, 1);
+     line-height: 34rpx;
+     margin-top: 30rpx;
+     margin-bottom: 30rpx;
+     text-align: left;
+     padding-left: 30rpx;
 }
 
 .tuijuan-img {
-  width: 690rpx;
-  height: 276rpx;
-  margin-left: 30rpx;
- }
+     width: 690rpx;
+     height: 276rpx;
+     margin-left: 30rpx;
+}
 
 .tuijuan-img image {
-  width: 100%;
-  height: 100%;
+     width: 100%;
+     height: 100%;
 }
 
 .tuijuan-text {
-  padding-top: 20rpx;
-  font-size: 28rpx;
-  font-family: PingFang-SC-Regular;
-  color: rgba(51, 51, 51, 1);
-  line-height: 27rpx;
-  padding-right: 30rpx;
-  width: 100%;
-  height:auto;
-  box-sizing: border-box;
-  padding-left: 30rpx;
+     padding-top: 20rpx;
+     font-size: 28rpx;
+     font-family: PingFang-SC-Regular;
+     color: rgba(51, 51, 51, 1);
+     line-height: 27rpx;
+     padding-right: 30rpx;
+     width: 100%;
+     height: auto;
+     box-sizing: border-box;
+     padding-left: 30rpx;
 }
-.text1{
-  width: auto;
-  display: flex;
-  line-height: 47rpx;
+
+.text1 {
+     width: auto;
+     display: flex;
+     line-height: 47rpx;
 }
-.text2 {                                                                    
-  margin-top: 20rpx;
-  font-size: 24rpx;
-  font-family: PingFang-SC-Regular;
-  color: rgba(255, 102, 0, 1);
-  margin-bottom: 20rpx;
-  display: flex;
-  padding-left: 10rpx;
+
+.text2 {
+     margin-top: 20rpx;
+     font-size: 24rpx;
+     font-family: PingFang-SC-Regular;
+     color: rgba(255, 102, 0, 1);
+     margin-bottom: 20rpx;
+     display: flex;
+     padding-left: 10rpx;
 }
+
 .person {
-  color: #999;
+     color: #999;
 }
 
 .tuijuan-bottom {
-  display: flex;
-  justify-content: space-between;
-  line-height: 32rpx;
+     display: flex;
+     justify-content: space-between;
+     line-height: 32rpx;
 }
 
 .address {
-  color: #999;
-  margin-top: 16rpx;
-  height: 38rpx;
-  line-height: 38rpx;
+     color: #999;
+     margin-top: 16rpx;
+     height: 38rpx;
+     line-height: 38rpx;
 }

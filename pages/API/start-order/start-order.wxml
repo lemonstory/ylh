@@ -61,9 +61,9 @@
      <!--套餐开始  -->
      <scroll-view class="taocan" scroll-x="true">
           <block wx:if="{{currentSuitList.length > 1}}">
-               <view class="tname {{idx == currentSuitSelectedIndex?'active-tag':''}} " wx:for="{{currentSuitList}}" wx:key="item" wx:for-index="idx" data-idx="{{idx}}" bindtap='handleSelectSuitItem' >
-               {{item.suitName}}
-          </view>
+               <view class="tname {{idx == currentSuitSelectedIndex?'active-tag':''}} " wx:for="{{currentSuitList}}" wx:key="item" wx:for-index="idx" data-idx="{{idx}}" bindtap='handleSelectSuitItem'>
+                    {{item.suitName}}
+               </view>
           </block>
      </scroll-view>
      <!--套餐结束  -->
@@ -109,7 +109,7 @@
                <view class='total' style='background:#fff'>总计：
                     <view class="total-money">￥{{userSelectedLineDetail.amount / 100}}</view>
                </view>
-               <view class="mingxi"  style='background:#fff' bindtap='actionSheetChange'>明细
+               <view class="mingxi" style='background:#fff' bindtap='actionSheetChange'>明细
                     <image src="http://image.365zhiding.com/wxapp/20171121/shang.png" class="{{isShowOptionsView?'rotate':''}}" style='width:24rpx;height:14rpx'></image>
                </view>
 

@@ -1,4 +1,4 @@
-const app = getApp();
+var constant = require('../constant.js');
 
 const formatTime = date => {
   const year = date.getFullYear()
@@ -149,15 +149,15 @@ function getCanlenderData(year, month) {
 function getUserAccessData() {
 
   var userAccessDataValue = '';
-  if (isEmptyObject(app.constant.userAccessData)) {
+  if (isEmptyObject(constant.constant.userAccessData)) {
 
     console.log("全局 accessToken为空");
     try {
-      var userAccessData = wx.getStorageSync(app.constant.userAccessDataKey);
+      var userAccessData = wx.getStorageSync(constant.constant.userAccessDataKey);
       if (typeof (userAccessData) != "undefined") {
 
         userAccessDataValue = userAccessData;
-        app.constant.userAccessData = userAccessData;
+        constant.constant.userAccessData = userAccessData;
 
       }
     } catch (e) {
@@ -167,7 +167,7 @@ function getUserAccessData() {
     }
   } else {
     console.log("全局 accessToken 不为空");
-    userAccessDataValue = app.constant.userAccessData;
+    userAccessDataValue = constant.constant.userAccessData;
   }
 
   return userAccessDataValue;
@@ -179,6 +179,19 @@ function isEmptyObject(e) {
     return !1;
   return !0
 }
+
+/** 
+ * 是否为空字符串，有空格不是空字符串 
+ * @param str 
+ * @returns {Boolean} 
+ */
+function isEmptyStr(str) {
+  if (str == null || typeof str == "undefined" ||
+    str == "") {
+    return true;
+  }
+  return false;
+};
 
 function getAuthorizationValue() {
 
@@ -215,8 +228,8 @@ function isDistributer() {
 
   var ret = false;
   try {
-    var distributerIdValue = wx.getStorageSync(app.constant.distributerIdKey)
-    var distributerAccessDataValue = wx.getStorageSync(app.constant.distributerAccessDataKey)
+    var distributerIdValue = wx.getStorageSync(constant.constant.distributerIdKey)
+    var distributerAccessDataValue = wx.getStorageSync(constant.constant.distributerAccessDataKey)
     if (distributerIdValue && distributerAccessDataValue) {
       ret = true;
     }
@@ -235,7 +248,7 @@ function isOwnDistributerId() {
 
   var ret = false;
   try {
-    var distributerIdValue = wx.getStorageSync(app.constant.distributerIdKey)
+    var distributerIdValue = wx.getStorageSync(constant.constant.distributerIdKey)
     if (distributerIdValue) {
       ret = true;
     }
@@ -258,7 +271,7 @@ function setDistributerId(distributerId) {
 
   //写入本地存储
   wx.setStorage({
-    key: app.constant.distributerIdKey,
+    key: constant.constant.distributerIdKey,
     data: distributerId,
     fail: function (res) {
 
@@ -267,6 +280,29 @@ function setDistributerId(distributerId) {
     }
   })
 }
+
+/**
+ * 获取代理商Id
+ */
+function getDistributerId() {
+
+  //读取本地存储
+  var distributerIdValue = ''
+  try {
+    distributerIdValue = wx.getStorageSync(constant.constant.distributerIdKey)
+  } catch (e) {
+    console.warn(e);
+  }
+  return distributerIdValue;
+}
+
+/**
+ * 代理商是否登录
+ */
+function isDistributerLogin() {
+  return false;
+}
+
 
 
 module.exports = {
@@ -277,15 +313,23 @@ module.exports = {
   getTitleWithId: getTitleWithId,
   sortBy: sortBy,
   getCanlenderData: getCanlenderData,
+  
   getUserAccessData: getUserAccessData,
   getAuthorizationValue: getAuthorizationValue,
+  
   getRequestHeader: getRequestHeader,
   postRequestHeader: postRequestHeader,
 
+  isEmptyObject: isEmptyObject,
+  isEmptyStr: isEmptyStr,
 
   isDistributer: isDistributer,
   isOwnDistributerId: isOwnDistributerId,
+  isDistributerLogin: isDistributerLogin,
   setDistributerId: setDistributerId,
+  getDistributerId: getDistributerId,
+
+
 }
 
 

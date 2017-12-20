@@ -1,170 +1,175 @@
 //app.js
 var constant = require('constant.js');
+var utils = require('./utils/util.js');
 var guid = '';
+
 App({
+
   onLaunch: function (options) {
 
-    console.log("😀 😀 😀 😀");
+    console.log("🚀 App->onLaunch options ↓");
     console.log(options);
-    console.log("😀 😀 😀 😀");
-
+    
     var that = this;
-    wx.checkSession({
-      success: function () {
-        //session 未过期，并且在本生命周期一直有效
-      },
+    //代理商处理
+    //场景 - 公众号自定义菜单
+    //跳转代理商登录页
+    //TODO: 检查代理商登录状态
+    if (options.scene == 1035 && !utils.isDistributerLogin()) {
 
-      fail: function () {
+      wx: wx.redirectTo({
+        url: '../pages/API/login/login',
+        success: function (res) { },
+        fail: function (res) {
+          console.warn(res);
+        },
+        complete: function (res) { },
+      })
 
-        console.log("🚀 🚀 🚀 -- fail");
-        //登录态过期
-        //重新登录
-        wx.login({
+    } else {
 
-          success: function (res) {
+      //非代理商处理
+      //get取得代理商Id
+      var getParamDistributerId = options.query.distributerId;
+      //本地读取代理商Id
+      var localDistributerId = utils.getDistributerId();
 
-            console.log("🏃 🏃 🏃");
-            console.log(res);
-            console.log(constant);
-            var url = constant.constant.domain + "/weixin/get_session";
-            console.log("url = " + url);
-            if (res.code) {
-              //发起网络请求
-              wx.request({
-                url: url,
-                data: {
-                  //小程序code
-                  code: res.code,
-                  //TODO:小程序 代理商distributor
-                  distributerId: constant.constant.agentId
-                },
+      var distributerId = '';
 
-                header: {
-                  'content-type': 'application/json' // 默认值
-                },
 
-                success: function (res) {
+      if (!utils.isEmptyStr(localDistributerId)) {
 
-                  console.log("🍺 🍺 🍺");
-                  console.log(res.data)
-                  
-                  guid = res.data.guid;
-                  // 本地存储用户信息
-                  wx.setStorage({
-                    key: constant.constant.userAccessDataKey,
-                    data: res.data,
-                    fail: function (res) {
-                      console.warn(res);
-                    }
-                  });
+        distributerId = localDistributerId;
 
-                  // 获取用户信息
-                  wx.getSetting({
-                    success: res => {
-                      if (res.authSetting['scope.userInfo']) {
-                        // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
-                        that.getWxUserInfo();
-                      } else {
-                        // 未授权
-                        wx.authorize({
-                          scope: 'scope.userInfo',
-                          success() {
+      } else if (!utils.isEmptyStr(getParamDistributerId)) {
 
-                            //获取微信用户信息
-                            that.getWxUserInfo();
-                          }
-                        })
+        distributerId = getParamDistributerId;
+      }
 
-                      }
-                    }
-                  })
-                },
+      console.log("🚚 🚚 🚚 [代理商ID] getParamDistributerId = " + getParamDistributerId + ", localDistributerId = " + localDistributerId);
+      console.log(typeof (distributerId));
+      if (!utils.isEmptyStr(distributerId)) {
 
-                fail: function (res) {
-                  console.warn(res);
-                },
-                complete: function (res) { }
-              })
-            } else {
-              console.log('获取用户登录态失败！' + res.errMsg)
-            }
+
+        wx.checkSession({
+          success: function () {
+            //session 未过期，并且在本生命周期一直有效
           },
 
+          fail: function () {
+
+            console.log("🚀 🚀 🚀 -- fail");
+            //登录态过期
+            //重新登录
+            wx.login({
+
+              success: function (res) {
+
+                console.log("🏃 🏃 🏃");
+                console.log(res);
+                console.log(constant);
+                var url = constant.constant.domain + "/weixin/get_session";
+                console.log("url = " + url);
+                if (res.code) {
+                  //发起网络请求
+                  wx.request({
+                    url: url,
+                    data: {
+                      code: res.code,
+                      distributerId: distributerId
+                    },
+
+                    header: {
+                      'content-type': 'application/json' // 默认值
+                    },
+
+                    success: function (res) {
+
+                      guid = res.data.guid;
+                      // 本地存储用户信息
+                      wx.setStorage({
+                        key: constant.constant.userAccessDataKey,
+                        data: res.data,
+                        fail: function (res) {
+                          console.warn(res);
+                        }
+                      });
+
+                      //代理商信息存储
+                      if (!utils.isEmptyStr(res.data.distributerId)) {
+                        utils.setDistributerId(res.data.distributerId);
+                      } else {
+                        console.warn("res.data.distributerId = " + res.data.distributerId);
+                      }
+
+                      // 获取用户信息
+                      wx.getSetting({
+                        success: res => {
+
+                          console.log(res.authSetting);
+                          if (res.authSetting['scope.userInfo']) {
+                            // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
+                            that.getWxUserInfo();
+                          } else {
+                            // 未授权
+                            console.log("💥 未授权");
+                            //TODO:这里在模拟器上不稳定
+                            wx.authorize({
+                              scope: 'scope.userInfo',
+                              success() {
+                                //获取微信用户信息
+                                that.getWxUserInfo();
+                              },
+                              fail() {
+                                console.log("失败 调用")
+                                console.warn(res);
+                              },
+                              complete() {
+                                console.log("完成 调用")
+                              }
+                            })
+
+                          }
+                        }
+                      })
+                    },
+
+                    fail: function (res) {
+                      console.warn(res);
+                    },
+                    complete: function (res) { }
+                  })
+                } else {
+                  console.log('获取用户登录态失败！' + res.errMsg)
+                }
+              },
+
+              fail: function (res) {
+                console.warn(res);
+              },
+
+              complete: function (res) { }
+
+            });
+
+          },
+
+          complete: function () { }
+        });
+      
+      } else {
+
+        //跳转到订单查询
+        wx: wx.redirectTo({
+          url: '../pages/API/visa-find/visa-find',
+          success: function (res) { },
           fail: function (res) {
             console.warn(res);
           },
-
-          complete: function (res) { }
-
-        });
-
-      },
-
-      complete: function () {
-
-        console.log("🚀 🚀 🚀 -- complete");
-
+          complete: function (res) { },
+        })
       }
-    });
-
-
-
-
-    // // 登录
-    // wx.login({
-    //   success: res => {
-    //     // 发送 res.code 到后台换取 openId, sessionKey, unionId
-    //   }
-    // })
-
-
-  },
-
-  /**
-   * 用户信息获取成功后回调
-   */
-  userInfoReadyCallback: function (res) {
-
-    console.log("用户信息获取成功后回调执行");
-    console.log(res);
-    console.log("😀 guid = " + guid);
-
-
-    var url = constant.constant.domain + "/weixin/userinfo";
-    //发起网络请求
-    wx.request({
-      
-      url: url,
-      method:'POST',
-      header: {
-        'content-type': 'application/json' // 默认值
-      },
-
-      data: {
-        guid: guid,
-        userInfo: res.userInfo,
-        encryptedData: res.encryptedData,
-        iv:res.iv,
-        errMsg: res.errMsg
-      },
-
-      success: function (res) {
-
-        console.log("第二步：小程序获取用户信息->解析用户信息并存储 成功");
-        if(res.statusCode == 200) {
-
-
-        }
-        console.log(res);
-
-      },
-
-      fail: function (res) {
-        console.warn(res);
-      },
-
-      complete: function (res) {}
-    });
+    }
   },
 
   /**
@@ -176,8 +181,6 @@ App({
       withCredentials: true,
       lang: 'zh_CN',
       success: res => {
-        // 可以将 res 发送给后台解码出 unionId
-        this.globalData.userInfo = res.userInfo
 
         // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
         // 所以此处加入 callback 以防止这种情况
@@ -195,13 +198,54 @@ App({
       }
 
     })
-
   },
 
+  /**
+ * 用户信息获取成功后回调
+ */
+  userInfoReadyCallback: function (res) {
 
-  globalData: {
-    // userInfo:null,
+    console.log("💥 用户信息获取成功后回调");
+    var url = constant.constant.domain + "/weixin/userinfo";
+    //发起网络请求
+    wx.request({
 
+      url: url,
+      method: 'POST',
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+
+      data: {
+        guid: guid,
+        userInfo: res.userInfo,
+        encryptedData: res.encryptedData,
+        iv: res.iv,
+        errMsg: res.errMsg
+      },
+
+      success: function (res) {
+
+        console.log("第二步：小程序获取用户信息->解析用户信息并存储 成功");
+        if (res.statusCode == 200) {
+          //TODO 暂不处理
+        }
+        console.log(res);
+
+      },
+
+      fail: function (res) {
+        console.warn(res);
+      },
+
+      complete: function (res) { }
+    });
   },
+
+  // globalData: {
+  //   // userInfo:null,
+
+  // },
+
   constant: constant.constant,
 })

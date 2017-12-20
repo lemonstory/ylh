@@ -12,8 +12,8 @@ Page(Object.assign({}, Toast, {
     modalHidden: true,
     show: false,
 
-    isDistributer:false,
-    isOwnDistributerId:false
+    isDistributer: false,
+    isOwnDistributerId: false
   },
 
 
@@ -35,12 +35,12 @@ Page(Object.assign({}, Toast, {
 
       //用户没有代理商id
       if (!that.data.isOwnDistributerId) {
-        wx:wx.redirectTo({
+        wx: wx.redirectTo({
           url: '../visa-find/visa-find',
-          success: function(res) {},
-          fail: function(res) {},
-          complete: function(res) {},
-        })   
+          success: function (res) { },
+          fail: function (res) { },
+          complete: function (res) { },
+        })
       }
     }
     console.log(that.data);
@@ -92,6 +92,16 @@ Page(Object.assign({}, Toast, {
    */
   onShareAppMessage: function () {
 
+    return {
+      title: 'AA自定义转发标题',
+      path: '/pages/API/my/my?distributerId=123',
+      success: function (res) {
+        // 转发成功
+      },
+      fail: function (res) {
+        // 转发失败
+      }
+    }
   },
 
   toast: function () {

@@ -1,15 +1,27 @@
 <template name="address-detail-normal">
-     <block wx:for="{{template.normal}}" wx:for-index="idx" wx:for-item="item" wx:key="idx">
-          <view class="oneday ">{{item.key}}</view>
-          <view class="goto-normal ">{{item.title}}</view>
-          <view class="jiaotong-normal" wx:for="{{item.info1}}" wx:for-item="item" wx:key="idx">{{item.key}}：{{item.content}}</view>
-          <view class="img-box">
-               <image class="jing-img"  wx:for="{{item.theme}}" wx:key="idx" wx:for-item="itemImage" src="{{itemImage.images[0]}}" mode='aspectFill' style='margin-right:10rpx;'></image>
-             </view>
+     <view class="plan ">
+          <view>3日行程</view>
+          <view>温馨提示</view>
+          <view>费用说明</view>
+          <view>用户评价</view>
+     </view>
+     <view class="plandetail ">
+          <view class="react "></view>
+          <view class="dataplan">3日行程</view>
+          <view class="react1 "></view>
+          <image class="planimg" wx:for="{{template.public}}" wx:key="idx" src='{{item}}' mode='aspectFill'></image>
+          <block wx:for="{{template.normal}}" wx:for-index="idx" wx:for-item="item" wx:key="idx">
+               <view class="oneday ">{{item.key}}</view>
+               <view class="goto-normal ">{{item.title}}</view>
+               <view class="jiaotong-normal" wx:for="{{item.info1}}" wx:for-item="item" wx:key="idx">{{item.key}}：{{item.content}}</view>
+               <view class="img-box">
+                    <image class="jing-img" wx:for="{{item.theme}}" wx:key="idx" wx:for-item="itemImage" src="{{itemImage.images[0]}}" mode='aspectFill' style='margin-right:10rpx;'></image>
+               </view>
 
-          <view class="jing-text" wx:for="{{item.theme}}" wx:key="idx" wx:for-item="item">{{item.intro}}</view>
+               <view class="jing-text" wx:for="{{item.theme}}" wx:key="idx" wx:for-item="item">{{item.intro}}</view>
 
-          <view class="shijian" wx:for="{{item.info2}}" wx:key="idx" wx:for-item="item">{{item.key}}：{{item.content}}</view>
-     </block>
+               <view class="shijian" wx:for="{{item.info2}}" wx:key="idx" wx:for-item="item">{{item.key}}：{{item.content}}</view>
+          </block>
+     </view>
      <!-- template end-->
 </template>

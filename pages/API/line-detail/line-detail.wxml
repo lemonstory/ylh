@@ -119,105 +119,95 @@
      <!--行程亮点结束  -->
 
      <!--行程安排开始  -->
-     <view class="plan ">
-          <view>3日行程</view>
-          <view>温馨提示</view>
-          <view>费用说明</view>
-          <view>用户评价</view>
-     </view>
+
      <!--行程详情安排  -->
-     <view class="plandetail ">
-          <view class="react "></view>
-          <view class="dataplan">3日行程</view>
-          <view class="react1 "></view>
-          <image class="planimg" wx:for="{{template.public}}" wx:key="idx" src='{{item}}' mode='aspectFill'></image>
 
 
-          <!-- 出发地弹出框交互结束 -->
-          <block wx:if="{{template.name =='normal'}}">
-               <template is="address-detail-normal" data="{{template:template}}" />
-          </block>
-          <block wx:elif="{{template.name =='simple'}}">
-               <template is="address-detail-simple" data="{{template:template}}" />
-          </block>
-          <block wx:else="{{template.name == 'custom'}}">
-               <template is="address-detail-custom" data="{{template:template}}" />
-          </block>
+
+     <!-- 出发地弹出框交互结束 -->
+     <block wx:if="{{template.name =='normal'}}">
+          <template is="address-detail-normal" data="{{template:template}}" />
+     </block>
+     <block wx:elif="{{template.name =='simple'}}">
+          <template is="address-detail-simple" data="{{template:template}}" />
+     </block>
+     <block wx:else="{{template.name == 'custom'}}">
+          <template is="address-detail-custom" data="{{template:template}}" />
+     </block>
+
+<!--行程安排结束  -->
+
+<!--温馨提示开始-->
+<view class="point">
+     <view class="react"></view>
+     <view class="leadertitle">温馨提示</view>
+     <view class="react1"></view>
+     <view class="pointtext">
+          {{tips}}
      </view>
+</view>
+<!--温馨提示结束  -->
 
-     <!--行程安排结束  -->
-
-     <!--温馨提示开始-->
-     <view class="point">
-          <view class="react"></view>
-          <view class="leadertitle">温馨提示</view>
-          <view class="react1"></view>
-          <view class="pointtext">
-               {{tips}}
-          </view>
+<!-- 费用说明开始 -->
+<view class="pay">
+     <view class="react"></view>
+     <view class="leadertitle">费用说明</view>
+     <view class="react1"></view>
+     <view class="paytext">
+          {{expense}}
+          <!-- <view class="ptext1">{{expense}}</view> -->
      </view>
-     <!--温馨提示结束  -->
+</view>
 
-     <!-- 费用说明开始 -->
-     <view class="pay">
-          <view class="react"></view>
-          <view class="leadertitle">费用说明</view>
-          <view class="react1"></view>
-          <view class="paytext">
-               {{expense}}
-               <!-- <view class="ptext1">{{expense}}</view> -->
-          </view>
-     </view>
+<!--费用说明结束  -->
 
-     <!--费用说明结束  -->
+<!-- 用户评价开始 -->
 
-     <!-- 用户评价开始 -->
+<view class="discuss">
+     <view class="react"></view>
+     <view class="user_commend_title">用户评价</view>
+     <view class="react1"></view>
+     <block wx:for="{{commendList}}" wx:for-index="idx" data-id='item.id' wx:key="commendList">
 
-     <view class="discuss">
-          <view class="react"></view>
-          <view class="user_commend_title">用户评价</view>
-          <view class="react1"></view>
-          <block wx:for="{{commendList}}" wx:for-index="idx" data-id='item.id' wx:key="commendList">
-
-               <view class="user_commend">
-                    <view class="user">{{item.name}}
-                         <block wx:for="{{item.score}}">
-                              <image src='http://image.365zhiding.com/wxapp/20171219/start1.png' style="width:18rpx;height:18rpx;margin-left:10rpx;"></image>
-                         </block>
-                         <block wx:for="{{5-item.score}}">
-                              <image src='http://image.365zhiding.com/wxapp/20171219/start2.png' style="width:18rpx;height:18rpx;margin-left:10rpx;"></image>
-                         </block>
-                    </view>
-                    <view class="time">{{item.time}}</view>
+          <view class="user_commend">
+               <view class="user">{{item.name}}
+                    <block wx:for="{{item.score}}">
+                         <image src='http://image.365zhiding.com/wxapp/20171219/start1.png' style="width:18rpx;height:18rpx;margin-left:10rpx;"></image>
+                    </block>
+                    <block wx:for="{{5-item.score}}">
+                         <image src='http://image.365zhiding.com/wxapp/20171219/start2.png' style="width:18rpx;height:18rpx;margin-left:10rpx;"></image>
+                    </block>
                </view>
-               <view class="content1">{{item.content}}</view>
-
-          </block>
-
-          <template is="zan-loadmore" wx:if="{{isLoading}}" data="{{loading: true}}" />
-          <template is="zan-loadmore" wx:if="{{isNoMore}}" data="{{nodata: true,nodata_str:'加载完成'}}" />
-          <view class="more" bindtap='handleTapCommendMore' data-id="{{id}}"> 查看全部{{comment.total}}条评论
-               <image class="morell" src='http://image.365zhiding.com/wxapp/20171114/1.png'></image>
+               <view class="time">{{item.time}}</view>
           </view>
+          <view class="content1">{{item.content}}</view>
 
+     </block>
+
+     <template is="zan-loadmore" wx:if="{{isLoading}}" data="{{loading: true}}" />
+     <template is="zan-loadmore" wx:if="{{isNoMore}}" data="{{nodata: true,nodata_str:'加载完成'}}" />
+     <view class="more" bindtap='handleTapCommendMore' data-id="{{id}}"> 查看全部{{comment.total}}条评论
+          <image class="morell" src='http://image.365zhiding.com/wxapp/20171114/1.png'></image>
      </view>
 
-     <!--用户评价结束  -->
+</view>
+
+<!--用户评价结束  -->
 
 
 
 
-     <!--底部开始  -->
-     <view class="bottom">
-          <image class="zixun" src="http://image.365zhiding.com/wxapp/20171121/zixun.png" bindtap='handleTapPhone'></image>
-          <view class="zixuntext">资询</view>
-          <view class="yuding">
-               <navigator url="../start-order/start-order?currentSelectedTravelDate={{startDatePriceListFormat[0].date}}&currentSelectedMonthIndex={{startDatePriceListFormat[0].monthIndex}}">开始预订</navigator>
-          </view>
+<!--底部开始  -->
+<view class="bottom">
+     <image class="zixun" src="http://image.365zhiding.com/wxapp/20171121/zixun.png" bindtap='handleTapPhone'></image>
+     <view class="zixuntext">资询</view>
+     <view class="yuding">
+          <navigator url="../start-order/start-order?currentSelectedTravelDate={{startDatePriceListFormat[0].date}}&currentSelectedMonthIndex={{startDatePriceListFormat[0].monthIndex}}">开始预订</navigator>
      </view>
-     <!--底部结束-->
+</view>
+<!--底部结束-->
 
-     <template is=" zan-toast " data="{{ zanToast }} "></template>
+<template is=" zan-toast " data="{{ zanToast }} "></template>
 </view>
 
 <!--弹出信息的展示开始-->

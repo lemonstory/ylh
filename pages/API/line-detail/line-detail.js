@@ -198,7 +198,6 @@ Page(Object.assign({}, Toast, {
    * 评论更多-点击
    */
   handleTapCommendMore: function (event) {
-
     console.log(event);
     var that = this;
     var id = event.currentTarget.dataset.id;

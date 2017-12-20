@@ -75,28 +75,34 @@
           <view class="fapiao">
                <view class="fapiao-text">开具发票</view>
                <view class="fapiao-pay">（快递费¥{{postage/100}}）</view>
-               <radio class="fapiao-radio" color='#FF6600' style='width:30rpx;height:30rpx;'></radio>
+               <image class="ischeck" src="{{isSelected?isSelect:isUnSelect}}" bindtap='handleTapSelectType'></image>
+               <!-- <radio class="fapiao-radio" color='#FF6600' style='width:30rpx;height:30rpx;'></radio>  -->
           </view>
-          <view class="fapiao-type">
-               <view class="type-name">类型：</view>
+          <!--发票信息的显示与隐藏 -->
+          <view class="fapiao-hidden {{isSelected?'fapiao-active':''}}">
+               <view class="fapiao-type">
 
-               <radio-group id="formData.orderBill.type" class="radio-group" bindchange="bindInputValueChange">
-                    <label class="radio" wx:for="{{constant.orderBillType}}" wx:key="items">
-                         <radio value="{{item.id}}" />{{item.title}}
-                    </label>
-               </radio-group>
-          </view>
+                    <view class="type-name">类型：</view>
 
-          <view class="input-name">抬头：
-               <input class="input" placeholder="请输入抬头" placeholder-style="font-size:26rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);" style='padding-left:82rpx; box-sizing: border-box;' bindinput='bindInputValueChange' id="formData.orderBill.title"
-                    value='{{formData.orderBill.title}}'></input>
-          </view>
-          <view class="input-name">税号：
-               <input class="input" placeholder="请填写纳税人识别号" placeholder-style="font-size:26rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);" style='padding-left:82rpx; box-sizing: border-box;' bindinput='bindInputValueChange' id="formData.orderBill.taxNum"
-                    value='{{formData.orderBill.taxNum}}'></input>
-          </view>
+                    <radio-group id="formData.orderBill.type" class="radio-group" bindchange="bindInputValueChange">
+                         <label class="radio" wx:for="{{constant.orderBillType}}" wx:key="items">
+                              <radio value="{{item.id}}" />{{item.title}}
+                         </label>
+                    </radio-group>
+               </view>
 
-          <view class="shuoming">说明：所开发票为增值税普通发票，金额为实际支付的商品费用，内容为代办签证费。</view>
+               <view class="input-name">抬头：
+                    <input class="input" placeholder="请输入抬头" placeholder-style="font-size:26rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);" style='padding-left:82rpx; box-sizing: border-box;' bindinput='bindInputValueChange' id="formData.orderBill.title"
+                         value='{{formData.orderBill.title}}'></input>
+               </view>
+               <view class="input-name">税号：
+                    <input class="input" placeholder="请填写纳税人识别号" placeholder-style="font-size:26rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);" style='padding-left:82rpx; box-sizing: border-box;' bindinput='bindInputValueChange' id="formData.orderBill.taxNum"
+                         value='{{formData.orderBill.taxNum}}'></input>
+               </view>
+
+               <view class="shuoming">说明：所开发票为增值税普通发票，金额为实际支付的商品费用，内容为代办签证费。</view>      
+             <view class="comfire">确定</view>
+          </view>
      </view>
      <!--开具发票结束  -->
 

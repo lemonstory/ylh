@@ -12,7 +12,7 @@
                          <view class="price">￥{{item.min}}起</view>
 
                          <view wx:if="{{canlenderMonthDataListIndex == currentSelectedMonthIndex}}">
-                              <image src="../image/choice.png" style='width:50rpx;height:18rpx;position:absolute;left:75rpx;bottom:-3rpx'></image>
+                              <image src="http://image.365zhiding.com/wxapp/20171220/choice.png" style='width:50rpx;height:18rpx;position:absolute;left:75rpx;bottom:-3rpx'></image>
                          </view>
                          <view wx:else></view>
                     </view>
@@ -61,9 +61,9 @@
      <!--套餐开始  -->
      <scroll-view class="taocan" scroll-x="true">
           <block wx:if="{{currentSuitList.length > 1}}">
-               <view class="tname {{idx == currentSuitSelectedIndex?'active-tag':''}} " wx:for="{{currentSuitList}}" wx:key="item" wx:for-index="idx" data-idx="{{idx}}" bindtap='handleSelectSuitItem' >
-               {{item.suitName}}
-          </view>
+               <view class="tname {{idx == currentSuitSelectedIndex?'active-tag':''}} " wx:for="{{currentSuitList}}" wx:key="item" wx:for-index="idx" data-idx="{{idx}}" bindtap='handleSelectSuitItem'>
+                    {{item.suitName}}
+               </view>
           </block>
      </scroll-view>
      <!--套餐结束  -->
@@ -99,7 +99,7 @@
      <!-- 是否包含婴儿 -开始 -->
      <view class="yanger" wx:if="{{currentSuitList[currentSuitSelectedIndex].isAllowBaby == 1}}" style='margin-bottom:130rpx'>
           <view class="chengren">是否包含1岁以下的婴儿</view>
-          <view class="ischeck"></view>
+          <image class="ischeck" src="{{isSelected?isSelect:isUnSelect}}" bindtap='handleTapSelectType'></image>
      </view>
      <!-- 是否包含婴儿 -结束 -->
 
@@ -109,7 +109,7 @@
                <view class='total' style='background:#fff'>总计：
                     <view class="total-money">￥{{userSelectedLineDetail.amount / 100}}</view>
                </view>
-               <view class="mingxi"  style='background:#fff' bindtap='actionSheetChange'>明细
+               <view class="mingxi" style='background:#fff' bindtap='actionSheetChange'>明细
                     <image src="http://image.365zhiding.com/wxapp/20171121/shang.png" class="{{isShowOptionsView?'rotate':''}}" style='width:24rpx;height:14rpx'></image>
                </view>
 

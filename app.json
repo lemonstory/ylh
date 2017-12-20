@@ -1,8 +1,9 @@
 {
      "pages": [
+          "pages/API/line/line",
           "pages/index/index",
           "pages/API/tell/tell",
-           "pages/API/empower/empower",
+          "pages/API/empower/empower",
           "pages/API/pay-sucess/pay-sucess",
           "pages/API/visa-find/visa-find",
           "pages/API/choice-passenger/choice-passenger",
@@ -13,7 +14,6 @@
           "pages/API/air-ticket/air-ticket",
           "pages/API/add-address/add-address",
           "pages/API/my-order/my-order",
-          "pages/API/line/line",
           "pages/API/more-address/more-address",
           "pages/API/order-require/order-require",
           "pages/API/my/my",
@@ -63,22 +63,10 @@
           "selectedColor": "#FF6600",
           "list": [
                {
-                    "pagePath": "pages/index/index",
-                    "text": "首页",
-                    "iconPath": "pages/image/1.png",
-                    "selectedIconPath": "pages/image/2.png"
-               },
-               {
                     "pagePath": "pages/API/line/line",
                     "text": "线路",
                     "iconPath": "pages/image/3.png",
                     "selectedIconPath": "pages/image/4.png"
-               },
-               {
-                    "pagePath": "pages/API/visa/visa",
-                    "text": "签证",
-                    "iconPath": "pages/image/5.png",
-                    "selectedIconPath": "pages/image/6.png"
                },
                {
                     "pagePath": "pages/API/my/my",

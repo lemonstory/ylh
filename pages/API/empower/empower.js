@@ -20,6 +20,8 @@ Page(Object.assign({}, Toast, {
    */
   onLoad: function (options) {
 
+    util.getUserAccessData();
+
   },
 
   /**
@@ -82,59 +84,51 @@ Page(Object.assign({}, Toast, {
     console.log(e.detail.encryptedData)
 
     var that = this;
-
     //用户允许
     if (typeof (e.detail.iv) != 'undefined' && typeof (e.detail.encryptedData) != 'undefined') {
 
       var url = that.data.constant.domain + "/weixin/phone";
-      wx.getStorage({
-        key: that.data.constant.userAccessDataKey,
-        success: function (res) {
+      var userAccessData = util.getUserAccessData();
+      var guid = userAccessData.guid;
+      if (typeof (guid) != "undefined" && guid.length > 0) {
+        //发起网络请求
+        wx.request({
 
-          console.log("取到了本地数据");
-          console.log(res.data)
-          guid = res.data.guid;
-          if (typeof (guid) != "undefined" && guid.length > 0) {
-            //发起网络请求
-            wx.request({
+          url: url,
+          method: 'POST',
+          header: {
+            'content-type': 'application/json' // 默认值
+          },
 
-              url: url,
-              method: 'POST',
-              header: {
-                'content-type': 'application/json' // 默认值
-              },
+          data: {
+            guid: guid,
+            encryptedData: e.detail.encryptedData,
+            iv: e.detail.iv,
+            errMsg: e.detail.errMsg
+          },
 
-              data: {
-                guid: guid,
-                encryptedData: e.detail.encryptedData,
-                iv: e.detail.iv,
-                errMsg: e.detail.errMsg
-              },
+          success: function (res) {
 
-              success: function (res) {
+            if (res.statusCode == 200) {
+              //覆盖本地存储的用户数据
+              wx.setStorage({
+                key: that.data.constant.userAccessDataKey,
+                data: res.data,
+              })
+            } else {
+              console.warn(res);
+            }
+          },
 
-                if (res.statusCode == 200) {
-                  //覆盖本地存储的用户数据
-                  wx.setStorage({
-                    key: that.data.constant.userAccessDataKey,
-                    data: res.data,
-                  })
-                } else {
-                  console.warn(res);
-                }
-              },
+          fail: function (res) {
+            console.warn(res);
+          },
 
-              fail: function (res) {
-                console.warn(res);
-              },
-
-              complete: function (res) { }
-            });
-          } else {
-            that.showZanToast("guid为空");
-          }
-        }
-      })
+          complete: function (res) { }
+        });
+      } else {
+        that.showZanToast("guid为空");
+      }
     } else {
 
       //用户拒绝
@@ -146,12 +140,7 @@ Page(Object.assign({}, Toast, {
         },
         complete: function (res) { },
       })
-
-
     }
-
-
-
   }
 
 }));

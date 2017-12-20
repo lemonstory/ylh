@@ -3,7 +3,6 @@
 const app = getApp();
 const Toast = require('../../../zanui-weapp/dist/toast/index');
 var util = require('../../../utils/util.js')
-var guid;
 
 /**
  * 
@@ -32,6 +31,7 @@ Page(Object.assign({}, Toast, {
 
     // this.getVcode("18600024911");
     // this.checkVcode("18600024911", "1234");
+    util.getUserAccessData();
 
   },
 
@@ -140,61 +140,54 @@ Page(Object.assign({}, Toast, {
     console.log("🦃 🦃 🦃 getVcode 🦃 🦃 🦃");
     var that = this;
 
-    wx.getStorage({
-      key: that.data.constant.userAccessDataKey,
-      success: function (res) {
-
-        console.log("🦃 🦃 🦃 getStorage 🦃 🦃 🦃");
-        console.log(res.data)
-        guid = res.data.guid;
-        console.log("guid = " + guid);
-
-        if (guid.length > 0) {
-          var url = that.data.constant.domain + '/weixin/sendcode';
-          console.log("url = " + url);
-
-          if (util.isMobile(mobile)) {
-
-            var tempTimer = setInterval(that.setCountDownHint, 1000)
-            that.setData({
-              timer: tempTimer
-            });
-
-            wx.request({
-
-              url: url,
-              header: {
-                'content-type': 'application/json', // 默认值
-              },
-
-              data: {
-                guid: guid,
-                mobile: mobile
-              },
-
-              success: function (res) {
-
-              },
-
-              fail: function (res) {
-                console.warn(res);
-              },
-
-              complete: function (res) { },
-            })
+    console.log("🦃 🦃 🦃 getStorage 🦃 🦃 🦃");
+    var userAccessData = util.getUserAccessData();
+    var guid = userAccessData.guid;
+    console.log(userAccessData);
+    console.log("guid = " + guid);
 
 
-          } else {
-            that.showZanToast("请检查输入的手机号");
-          }
-        } else {
-          that.showZanToast("guid 不能为空");
-        }
-      },
-      fail: function (res) {
-        console.warn(res);
+    if (guid.length > 0) {
+      var url = that.data.constant.domain + '/weixin/sendcode';
+      console.log("url = " + url);
+
+      if (util.isMobile(mobile)) {
+
+        var tempTimer = setInterval(that.setCountDownHint, 1000)
+        that.setData({
+          timer: tempTimer
+        });
+
+        wx.request({
+
+          url: url,
+          header: {
+            'content-type': 'application/json', // 默认值
+          },
+
+          data: {
+            guid: guid,
+            mobile: mobile
+          },
+
+          success: function (res) {
+
+          },
+
+          fail: function (res) {
+            console.warn(res);
+          },
+
+          complete: function (res) { },
+        })
+
+
+      } else {
+        that.showZanToast("请检查输入的手机号");
       }
-    })
+    } else {
+      that.showZanToast("guid 不能为空");
+    }
   },
 
   /**
@@ -204,6 +197,9 @@ Page(Object.assign({}, Toast, {
 
     console.log("😀 😀 😀 checkVcode 😀 😀 😀");
     var that = this;
+    var userAccessData = util.getUserAccessData();
+    var guid = userAccessData.guid;
+    console.log(userAccessData);
     if (guid.length > 0) {
 
       if (util.isMobile(mobile)) {
@@ -222,7 +218,7 @@ Page(Object.assign({}, Toast, {
 
           success: function (res) {
             //覆盖本地用户数据
-            if(res.statusCode == 200) {
+            if (res.statusCode == 200) {
               wx.setStorage({
                 key: that.data.constant.userAccessDataKey,
                 data: res.data,
@@ -230,7 +226,7 @@ Page(Object.assign({}, Toast, {
                   console.warn(res);
                 }
               });
-            }else{
+            } else {
               console.warn(res.data);
             }
             //TODO:跳转对对应页面
@@ -238,6 +234,7 @@ Page(Object.assign({}, Toast, {
 
           fail: function (res) {
             console.warn(res);
+            that.showZanToast(JSON.stringify(res.data));
           },
 
           complete: function (res) { },
@@ -245,7 +242,9 @@ Page(Object.assign({}, Toast, {
       } else {
         that.showZanToast("请检查输入的手机号");
       }
+
     } else {
+      
       console.log("guid为空");
       that.showZanToast("guid为空");
     }

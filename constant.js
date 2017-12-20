@@ -10,6 +10,8 @@ var constant = {
   'pageSize':20,
   //用户登录后返回数据存储key
   'userAccessDataKey':'userAccessData',
+  //用户访问凭证
+  'userAccessData':{},
 
 
   //旅客证件类型

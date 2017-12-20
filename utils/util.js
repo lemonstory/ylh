@@ -1,3 +1,5 @@
+const app = getApp();
+
 const formatTime = date => {
   const year = date.getFullYear()
   const month = date.getMonth() + 1
@@ -32,11 +34,11 @@ function isEmail(value) {
   return true;
 }
 
-function getTitleWithId(mapArr,idValue) {
+function getTitleWithId(mapArr, idValue) {
 
   var title = '';
-  for(var i = 0; i < mapArr.length; i++){
-    if(mapArr[i].id == idValue) {
+  for (var i = 0; i < mapArr.length; i++) {
+    if (mapArr[i].id == idValue) {
       title = mapArr[i].title;
       break;
     }
@@ -59,7 +61,7 @@ function sortBy(field1, field2) {
  *  data.canlender.month = month;
  *  data.canlender.weeks = weeks;
  */
-function getCanlenderData (year, month) {
+function getCanlenderData(year, month) {
 
   var that = this;
 
@@ -141,11 +143,40 @@ function getCanlenderData (year, month) {
 }
 
 /**
+ * 同步获取
  * 获取http header Authorization value
  */
-function getAuthorizationValue() {
+function getUserAccessData() {
 
+  var userAccessDataValue = '';
+  if (isEmptyObject(app.constant.userAccessData)) {
 
+    console.log("全局 accessToken为空");
+    try {
+      var userAccessData = wx.getStorageSync(app.constant.userAccessDataKey);
+      if (typeof (userAccessData) != "undefined") {
+
+        userAccessDataValue = userAccessData;
+        app.constant.userAccessData = userAccessData;
+
+      }
+    } catch (e) {
+      // Do something when catch error
+      console.warn(e);
+    }
+  } else {
+    console.log("全局 accessToken 不为空");
+    userAccessDataValue = app.constant.userAccessData;
+  }
+
+  return userAccessDataValue;
+}
+
+function isEmptyObject(e) {
+  var t;
+  for (t in e)
+    return !1;
+  return !0
 }
 
 
@@ -155,7 +186,8 @@ module.exports = {
   isEmail: isEmail,
   getTitleWithId: getTitleWithId,
   sortBy: sortBy,
-  getCanlenderData: getCanlenderData
+  getCanlenderData: getCanlenderData,
+  getUserAccessData: getUserAccessData
 
 }
 

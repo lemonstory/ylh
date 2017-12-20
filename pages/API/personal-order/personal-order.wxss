@@ -1,0 +1,192 @@
+/* pages/API/personal-order/personal-order.wxss */
+.personal {
+  width: 750rpx;
+  height: 489rpx;
+  background: rgba(255, 255, 255, 1);
+  border-top:1rpx solid #eee;
+  position: relative;
+}
+.tuijian {
+  width: 146rpx;
+  height: 34rpx;
+  font-size: 36rpx;
+  font-family: PingFang-SC-Regular;
+  color: rgba(51, 51, 51, 1);
+  line-height: 34rpx;
+  margin-left: 302rpx;
+  margin-top: 30rpx;
+  margin-bottom: 30rpx;
+ }
+.react {
+  width: 43rpx;
+  height: 3rpx;
+  background: #f60;
+  position: absolute;
+  top: 46rpx;
+  left: 239rpx;
+}
+.react1 {
+  width: 43rpx;
+  height: 3rpx;
+  background: #f60;
+  position: absolute;
+  top: 46rpx;
+  right: 239rpx;
+}
+.ask {
+  width: 630rpx;
+  height: 30rpx;
+  font-size: 30rpx;
+  font-family: PingFang-SC-Regular;
+  /* background: red; */
+  margin-left: 60rpx;
+  margin-top: 20rpx;
+  color: #333;
+}
+.per-icon {
+  width: 550rpx;
+  height: 81rpx;
+  margin-top: 60rpx;
+  /* background: red; */
+  margin-left: 100rpx;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+}
+.goutong image {
+  width: 82rpx;
+  height: 82rpx;
+}
+.go image {
+  width: 68rpx;
+  height: 8rpx;
+}
+.per-font {
+  width: 616rpx;
+  height: 24rpx;
+  position: absolute;
+  top: 316rpx;
+  left: 67rpx;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  line-height: 24rpx;
+  font-family: "PingFang-SC-Regular";
+  font-size: 24rpx;
+  color: #999;
+ }
+
+ .more,.more1,.more2{
+  width: 230rpx;
+  height: 60rpx;
+  border: 1rpx solid #f60;
+  border-radius: 10rpx;
+  font-size: 28rpx;
+  font-family: PingFang-SC-Regular;
+  color: rgba(255, 102, 0, 1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  padding-left: 42rpx;
+  padding-right: 42rpx;
+  margin: 0 auto;
+  margin-top: 10rpx;
+  margin-bottom: 30rpx;
+}
+.more2{
+  margin-top: 120rpx;
+  margin-bottom: 30rpx;
+}
+.jiantou {
+  width: 14rpx;
+  height:24rpx;
+ }
+.jiantou image{
+  width:100%;
+  height:100%;
+  display: flex;
+}
+
+
+.container {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  background: #f7f7f7;
+  height: 100vh;
+}
+.main {
+  width: 100%;
+  height: auto;
+  background: #fff;
+  margin-top: 5rpx;
+}
+.top{
+width: 100%; 
+text-align: center;
+font-size:36rpx;
+font-family:PingFang-SC-Regular;
+color:rgba(51,51,51,1);
+padding-top: 30rpx;
+padding-bottom: 30rpx;
+border-bottom: 1rpx solid #eee;
+display: flex;
+font-weight: bold;
+justify-content: center;
+align-items: center;
+}
+.line{
+width:43rpx;
+height:3rpx;
+background:rgba(255,102,0,1);
+}
+
+#oldpass{
+width: 100%;
+height:88rpx;
+border-bottom: 1rpx solid #eee;
+background: #fff;
+padding-left: 30rpx;
+box-sizing: border-box;
+position: relative;
+}
+.confirm{
+width:690rpx;
+height:88rpx; 
+background:rgba(247,130,16,1);
+border-radius:10rpx; 
+margin-top: 62rpx;
+color: #fff;
+}
+.img2{
+  position: absolute;
+  width: 30rpx;
+  height:30rpx;
+  top:150rpx;
+  right: 30rpx;
+  z-index: 999;
+}
+.img2 image{
+  width:100%;
+  height:100%;
+}
+.yanzhen{
+width:146rpx;
+height:48rpx;
+font-size:24rpx;
+font-family:PingFang-SC-Regular;
+color:rgba(255,102,0,1);
+line-height: 48rpx;
+border: 1rpx solid rgba(255,102,0,1);
+border-radius: 10rpx;
+text-align: center;
+padding:0;
+position: absolute;
+right:30rpx;
+top:220rpx;
+z-index: 99;
+background:#fff;
+}

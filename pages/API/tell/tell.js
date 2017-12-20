@@ -126,7 +126,7 @@ Page(Object.assign({}, Toast, {
       that.setData({
         seed: seedTemp,
         isGetVcodeEnable: false,
-        vcodeHintStr: seedTemp + "秒后继续获取",
+        vcodeHintStr: seedTemp + "秒后重新获取",
       })
     }
     // console.log("🐢 --- " + seedTemp);

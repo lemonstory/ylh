@@ -5,29 +5,12 @@ var util = require('../../../utils/util.js')
 Page(Object.assign({}, Toast, {
 
      data: {
-
+          isSelected:0,
           constant: app.constant,
+          isUnSelect: 'http://image.365zhiding.com/wxapp/20171210/unselect.png',
+          isSelect: 'http://image.365zhiding.com/wxapp/20171210/select.png',
           actionSheetHidden: true,
-
-          // taocanList: [{ name: '套餐名称' },
-          // { name: '套餐名称' },
-          // { name: '套餐名称' },
-          // { name: '套餐名称' },
-          // { name: '套餐名称' }
-          // ],
-
-          // canlender: {
-          // 'month': new Date().getMonth() + 1,
-          // 'date': new Date().getDate(),
-          // "day": new Date().getDay(),
-          // 'year': new Date().getFullYear(),
-          // "weeks": [],
-          // "price": 2039
-          // },
-
-          // currentTapDate: '',
-
-          //上一个页面的数据
+        //上一个页面的数据
           prevPageData: {},
 
           //日历
@@ -374,13 +357,11 @@ Page(Object.assign({}, Toast, {
 
      //计数器-加法运算开始
      handleTapIncrease: function (event) {
-
           console.log("✈️ ️ ️️ ✈️ ️ ️️ ✈️ ️ ️️");
           var that = this;
           var id = event.currentTarget.id;
           var formDataTemp = that.data.userSelectedLineDetail;
           switch (id) {
-
                case 'adult':
                     formDataTemp.tourers.subNum.adult = formDataTemp.tourers.subNum.adult + 1;
                     that.setData({
@@ -406,12 +387,10 @@ Page(Object.assign({}, Toast, {
           //计算价格
           that.calculateAmount();
      },
-
      /**
      * 重置出行人数量(暂保留)
      */
      reSetTourersSubNum: function () {
-
           var that = this;
           that.setData({
                'userSelectedLineDetail.tourers.subNum.adult': 0,
@@ -438,6 +417,14 @@ Page(Object.assign({}, Toast, {
                     'userSelectedLineDetail.isAllowBabySelected': 0
                })
           }
+     },
+
+// 婴儿 - 选择 状态
+     handleTapSelectType:function(){
+          var that = this;
+          that.setData({
+               isSelected: !this.data.isSelected,
+          }) 
      },
 
      /**
@@ -479,6 +466,7 @@ Page(Object.assign({}, Toast, {
      * 
      * 下一步
      */
+    
      handleTapNextStep: function () {
 
           var that = this;

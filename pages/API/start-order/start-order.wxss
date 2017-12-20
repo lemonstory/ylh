@@ -158,13 +158,12 @@ color:#EE6F2E;
 .jian {
      height: 31rpx;
      width: 31rpx;
-     right: 90rpx;
-     margin-right: 26rpx;
 }
 
 .num {
      right: 57rpx;
-     margin-right: 26rpx;
+     width:60rpx;
+     text-align: center;
 }
 
 .add {
@@ -252,12 +251,15 @@ color:#EE6F2E;
 }
 
 .ischeck {
-     width: 17rpx;
-     height: 17rpx;
-     border: 4rpx solid #AAA;
+     width: 18rpx;
+     height: 18rpx;
      border-radius: 50%;
 }
 
+.ischeck image{
+     width:100%;
+     height:100%;
+}
 
 /*底部提示框开始  */
 .item{

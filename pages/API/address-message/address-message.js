@@ -6,6 +6,10 @@ Page(Object.assign({}, Toast, {
   data: {
     'constant': app.constant,
 
+//  开具发票是否为选中状态
+    isSelected: 0,
+    isUnSelect: 'http://image.365zhiding.com/wxapp/20171210/unselect.png',
+    isSelect: 'http://image.365zhiding.com/wxapp/20171210/select.png',
     'actionSheetHidden': true,
 
     //已选择的出行人信息
@@ -243,6 +247,14 @@ Page(Object.assign({}, Toast, {
     this.setData({
       actionSheetHidden: !this.data.actionSheetHidden
     })
+  },
+
+  // 开具发票 - 选择 状态
+  handleTapSelectType: function () {
+       var that = this;
+       that.setData({
+            isSelected: !this.data.isSelected,
+       })
   },
 
   /**

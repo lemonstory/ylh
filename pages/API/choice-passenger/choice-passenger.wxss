@@ -1,4 +1,30 @@
 /* pages/API/choice-person/choice-person.wxss */
+checkbox .wx-checkbox-input {
+margin-right:5px;
+-webkit-appearance:none;
+outline:0;
+border:1px solid #D1D1D1;
+background-color:#FFFFFF;
+border-radius:50%;
+width:32rpx;
+height:32rpx;
+position:relative;
+}
+
+checkbox .wx-checkbox-input.wx-checkbox-input-checked {
+color:red;
+}
+checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
+font:normal normal normal 14px/1 "weui";
+content:"\EA08";
+font-size:30rpx;
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%, -48%) scale(0.73);
+-webkit-transform:translate(-50%, -48%) scale(0.73);
+}
+
 .container {
   height: 100vh;
   display: flex;
@@ -8,6 +34,7 @@
   margin: 0;
   padding: 0;
   background: #f7f7f7;
+  border-top:1rpx solid #eee;
 }
 
 .main-box {
@@ -23,7 +50,6 @@
   border-bottom: 1rpx solid #eee;
   margin-left: 30rpx;
   margin-right: 30rpx;
-  padding-bottom: 30rpx;
   padding-top: 10rpx;
 }
 
@@ -33,17 +59,14 @@
   height: 64rpx;
 }
 
-.check {
-  width: 32rpx;
-  height: 32rpx;
-}
+
 
 .top-name {
   font-size: 28rpx;
   font-family: PingFang-SC-Regular;
   color: rgba(51, 51, 51, 1);
   margin-left: 31rpx;
-  width:auto;
+  width:300rpx;
 }
 
 .top-tell {
@@ -62,11 +85,11 @@
 .ul-bottom {
   margin-left: 63rpx;
   width: auto;
-  height: 64rpx;
+  height: 54rpx;
   font-size: 28rpx;
   font-family: PingFang-SC-Regular;
   color: rgba(102, 102, 102, 1);
-  line-height: 64rpx;
+  line-height: 54rpx;
   display: flex;
 }
 

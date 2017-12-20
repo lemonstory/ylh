@@ -8,6 +8,27 @@
   background: #f7f7f7;
   font-family: PingFang-SC-Regular;
 }
+radio .wx-radio-input {
+margin-right:5px;
+-webkit-appearance:none;
+outline:0;
+border:1px solid #D1D1D1;
+background-color:#FFFFFF;
+border-radius:50%;
+width:32rpx;
+height:32rpx;
+position:relative;
+}
+radio .wx-radio-input.wx-radio-input-checked ::before{
+font:normal normal normal 14px/1 "weui";
+content:"\EA08";
+font-size:30rpx;
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%, -48%) scale(0.73);
+-webkit-transform:translate(-50%, -48%) scale(0.73);
+}
 
 .main {
   width: 100%;
@@ -87,7 +108,6 @@
   border: 6rpx solid #999;
   margin-right: 6rpx;
 }
-
 .uncheck-type {
   width: 20rpx;
   height: 20rpx;
@@ -100,7 +120,11 @@
   display: flex;
   align-items: center;
 }
-
+.radio-group{
+     width: 300rpx;
+     display: flex;
+     justify-content: space-between;
+}
 .bottom {
   position: fixed;
   left: 30rpx;

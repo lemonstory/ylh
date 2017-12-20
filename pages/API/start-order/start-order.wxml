@@ -12,7 +12,7 @@
                          <view class="price">￥{{item.min}}起</view>
 
                          <view wx:if="{{canlenderMonthDataListIndex == currentSelectedMonthIndex}}">
-                              <image src="../image/choice.png" style='width:50rpx;height:18rpx;position:absolute;left:75rpx;bottom:-3rpx'></image>
+                              <image src="http://image.365zhiding.com/wxapp/20171220/choice.png" style='width:50rpx;height:18rpx;position:absolute;left:75rpx;bottom:-3rpx'></image>
                          </view>
                          <view wx:else></view>
                     </view>
@@ -99,7 +99,7 @@
      <!-- 是否包含婴儿 -开始 -->
      <view class="yanger" wx:if="{{currentSuitList[currentSuitSelectedIndex].isAllowBaby == 1}}" style='margin-bottom:130rpx'>
           <view class="chengren">是否包含1岁以下的婴儿</view>
-          <view class="ischeck"></view>
+          <image class="ischeck" src="{{isSelected?isSelect:isUnSelect}}" bindtap='handleTapSelectType'></image>
      </view>
      <!-- 是否包含婴儿 -结束 -->
 

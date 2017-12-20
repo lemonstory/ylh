@@ -171,10 +171,10 @@
 
           <view class="user_commend">
                <view class="user">{{item.name}}
-                    <block wx:for="{{item.score}}">
+                    <block wx:for="{{item.score}}" wx:key="item">
                          <image src='http://image.365zhiding.com/wxapp/20171219/start1.png' style="width:18rpx;height:18rpx;margin-left:10rpx;"></image>
                     </block>
-                    <block wx:for="{{5-item.score}}">
+                    <block wx:for="{{5-item.score}}" wx:key="item">
                          <image src='http://image.365zhiding.com/wxapp/20171219/start2.png' style="width:18rpx;height:18rpx;margin-left:10rpx;"></image>
                     </block>
                </view>
@@ -207,7 +207,7 @@
 </view>
 <!--底部结束-->
 
-<template is=" zan-toast " data="{{ zanToast }} "></template>
+<template is="zan-toast" data="{{zanToast}}"></template>
 </view>
 
 <!--弹出信息的展示开始-->

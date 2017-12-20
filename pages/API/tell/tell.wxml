@@ -3,11 +3,16 @@
 <import src="/zanui-weapp/dist/toast/index.wxml" />
 <view class="container">
      <view class="main">
-         <input id="mobile" bindinput='bindInputValueChange' placeholder='手机号' placeholder-style='font-size:28rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);' value='{{mobile}}'></input>
-         <button class="yanzhen" bindtap='handTapGetVcode'>{{vcodeHintStr}}</button>
 
-         <input id="msgCode" bindinput='bindInputValueChange' placeholder='验证码' placeholder-style='font-size:28rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);' value='{{msgCode}}'></input>
-         </view>
+          <input id="mobile" bindinput='bindInputValueChange' style="height:100rpx;width:690rpx;margin-left:30rpx;border-bottom:1rpx solid #eee; padding-left:68rpx;box-sizing:border-box " placeholder='手机号' placeholder-style='font-size:28rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);'
+               value='{{mobile}}'>
+          </input>
+          <image class="tell" src='http://image.365zhiding.com/wxapp/20171220/tell.png'></image>
+          <button class="yanzhen" bindtap='handTapGetVcode'>{{vcodeHintStr}}</button>
+
+          <input id="msgCode" bindinput='bindInputValueChange' placeholder='验证码' placeholder-style='font-size:28rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);' style="height:100rpx;width:690rpx;margin-left:30rpx;padding-left:68rpx;" value='{{msgCode}}'></input>
+          <image class="yanzheng-img" src='http://image.365zhiding.com/wxapp/20171220/yanzheng.png'></image>
+          </view>
      <button class="confirm" bindtap='handleTapBind'>绑定</button>
 </view>
 <!-- 直接使用 zan-toast 模板，并且直接传入 zanToast -->

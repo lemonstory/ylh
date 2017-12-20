@@ -1,0 +1,6 @@
+<!--pages/API/personal-my-order/personal-my-order.wxml-->
+<view class="container">
+    <image class="image-order" src="http://image.365zhiding.com/wxapp/20171220/order.png"></image>
+   <view class="message">哎呦，您现在还没有订单～</view>
+   <view class="bottom">我要定制旅游</view>
+</view>

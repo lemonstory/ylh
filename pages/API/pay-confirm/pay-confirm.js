@@ -112,9 +112,7 @@ Page(Object.assign({}, Toast, {
       url: url,
       data: that.data.prevPageData.formData,
       method: 'POST',
-      header: {
-        'Content-Type': 'application/x-www-form-urlencoded'
-      },
+      header: util.postRequestHeader(),
 
       success: function (res) {
 

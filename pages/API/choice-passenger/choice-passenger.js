@@ -1,6 +1,7 @@
 // pages/API/choice-person/choice-person.js
 const app = getApp();
 const Toast = require('../../../zanui-weapp/dist/toast/index');
+var util = require('../../../utils/util.js')
 Page(Object.assign({}, Toast, {
   data: {
     'constant': app.constant,
@@ -123,9 +124,7 @@ Page(Object.assign({}, Toast, {
     wx.request({
       url: url,
       data: {},
-      header: {
-        'content-type': 'application/json', // 默认值
-      },
+      header: util.getRequestHeader(),
       success: function (res) {
         that.setData(res);
         that.setDataCallBack();

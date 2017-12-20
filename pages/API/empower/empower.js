@@ -96,9 +96,7 @@ Page(Object.assign({}, Toast, {
 
           url: url,
           method: 'POST',
-          header: {
-            'content-type': 'application/json' // 默认值
-          },
+          header: util.postRequestHeader(),
 
           data: {
             guid: guid,

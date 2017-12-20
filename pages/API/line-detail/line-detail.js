@@ -216,9 +216,7 @@ Page(Object.assign({}, Toast, {
     wx.request({
       url: url,
       data: {},
-      header: {
-        'content-type': 'application/json', // 默认值
-      },
+      header: util.getRequestHeader(),
       success: function (res) {
         if (res.statusCode == 200) {
 
@@ -244,9 +242,7 @@ Page(Object.assign({}, Toast, {
     wx.request({
       url: url,
       data: {},
-      header: {
-        'content-type': 'application/json', // 默认值
-      },
+      header: util.getRequestHeader(),
       success: function (res) {
         if (res.statusCode == 200) {
 

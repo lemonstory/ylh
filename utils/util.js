@@ -162,6 +162,7 @@ function getUserAccessData() {
       }
     } catch (e) {
       // Do something when catch error
+
       console.warn(e);
     }
   } else {
@@ -179,6 +180,34 @@ function isEmptyObject(e) {
   return !0
 }
 
+function getAuthorizationValue() {
+
+  var authorizationValue = 'Bearer '
+  var userAccessData = getUserAccessData();
+  if (!isEmptyObject(userAccessData.access_token)) {
+    authorizationValue = authorizationValue + userAccessData.access_token
+  }
+  return authorizationValue;
+}
+
+function getRequestHeader() {
+
+  var header = {
+    'Authorization': getAuthorizationValue(),
+    'Content-Type': 'application/json', // 默认值
+  }
+  return header;
+}
+
+function postRequestHeader() {
+
+  var header = {
+    'Authorization': getAuthorizationValue(),
+    'Content-Type': 'application/x-www-form-urlencoded'
+  }
+  return header;
+}
+
 
 module.exports = {
   formatTime: formatTime,
@@ -187,8 +216,10 @@ module.exports = {
   getTitleWithId: getTitleWithId,
   sortBy: sortBy,
   getCanlenderData: getCanlenderData,
-  getUserAccessData: getUserAccessData
-
+  getUserAccessData: getUserAccessData,
+  getAuthorizationValue: getAuthorizationValue,
+  getRequestHeader: getRequestHeader,
+  postRequestHeader: postRequestHeader
 }
 
 

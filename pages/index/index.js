@@ -78,9 +78,7 @@ Page(Object.assign({}, Toast, {
     wx.request({
       url: url,
       data: {},
-      header: {
-        'content-type': 'application/json', // 默认值
-      },
+      header: util.getRequestHeader(),
       success: function (res) {
         console.log("### success ###");
         console.log(res.data);

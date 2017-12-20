@@ -204,9 +204,7 @@ Page(Object.assign({}, Toast, {
       url: url,
       data:prevPageFormDataTemp,
       method: 'POST',
-      header: {
-        'Content-Type': 'application/x-www-form-urlencoded'
-      },
+      header: util.postRequestHeader(),
 
       success: function (res) {
         

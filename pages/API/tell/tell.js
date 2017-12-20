@@ -161,10 +161,7 @@ Page(Object.assign({}, Toast, {
         wx.request({
 
           url: url,
-          header: {
-            'content-type': 'application/json', // 默认值
-          },
-
+          header: util.getRequestHeader(),
           data: {
             guid: guid,
             mobile: mobile
@@ -206,9 +203,7 @@ Page(Object.assign({}, Toast, {
         var url = that.data.constant.domain + '/weixin/phonecode';
         wx.request({
           url: url,
-          header: {
-            'content-type': 'application/json', // 默认值
-          },
+          header: util.getRequestHeader(),
 
           data: {
             guid: guid,
@@ -244,7 +239,7 @@ Page(Object.assign({}, Toast, {
       }
 
     } else {
-      
+
       console.log("guid为空");
       that.showZanToast("guid为空");
     }

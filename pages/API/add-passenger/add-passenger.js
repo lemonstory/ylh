@@ -298,9 +298,7 @@ Page(Object.assign({}, Toast, {
           'gender': that.data.gender,
         },
         method: 'POST',
-        header: {
-          'Content-Type': 'application/x-www-form-urlencoded'
-        },
+        header: util.postRequestHeader(),
 
         success: function (res) {
           var id = res.data.id
@@ -343,9 +341,7 @@ Page(Object.assign({}, Toast, {
         'id': that.data.id,
       },
       method: 'POST',
-      header: {
-        'Content-Type': 'application/x-www-form-urlencoded'
-      },
+      header: util.postRequestHeader(),
       success: function (res) {
 
         var code = res.data.code

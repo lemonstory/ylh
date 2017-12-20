@@ -108,9 +108,7 @@ Page(Object.assign({}, Toast, {
     wx.request({
       url: that.data.constant.domain + '/distrbuter/line/index',
       data: {},
-      header: {
-        'content-type': 'application/json', // 默认值
-      },
+      header: util.getRequestHeader(),
       success: function (res) {
         console.log(res.data);
         that.setData(res.data);
@@ -207,9 +205,7 @@ Page(Object.assign({}, Toast, {
       wx.request({
         url: url,
         data: {},
-        header: {
-          'content-type': 'application/json', // 默认值
-        },
+        header: util.getRequestHeader(),
         success: function (res) {
           wx.hideLoading();
           var lineListlen = res.data.lineList.length;

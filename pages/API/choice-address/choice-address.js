@@ -1,6 +1,8 @@
 // pages/API/choice-address/choice-address.js
 const app = getApp();
 const Toast = require('../../../zanui-weapp/dist/toast/index');
+var util = require('../../../utils/util.js')
+
 Page(Object.assign({}, Toast, {
 
   /**
@@ -96,9 +98,7 @@ Page(Object.assign({}, Toast, {
     wx.request({
       url: url,
       data: {},
-      header: {
-        'content-type': 'application/json', // 默认值
-      },
+      header: util.getRequestHeader(),
       success: function (res) {
         that.setData(res);
       },

@@ -260,6 +260,26 @@ function isOwnDistributerId() {
 }
 
 /**
+ * 是否含有accessToken
+ */
+function isOwnAccessToken() {
+
+  var ret = false;
+  try {
+    var accessTokenValue = wx.getStorageSync('access_token')
+    if (!isEmptyStr(accessTokenValue)) {
+      ret = true;
+    }
+  } catch (e) {
+    ret = false;
+  }
+
+  return ret;
+
+}
+
+
+/**
  * 设置代理商ID-异步
  * 
  *  代理商登录
@@ -313,10 +333,10 @@ module.exports = {
   getTitleWithId: getTitleWithId,
   sortBy: sortBy,
   getCanlenderData: getCanlenderData,
-  
+
   getUserAccessData: getUserAccessData,
   getAuthorizationValue: getAuthorizationValue,
-  
+
   getRequestHeader: getRequestHeader,
   postRequestHeader: postRequestHeader,
 
@@ -325,6 +345,7 @@ module.exports = {
 
   isDistributer: isDistributer,
   isOwnDistributerId: isOwnDistributerId,
+  isOwnAccessToken: isOwnAccessToken,
   isDistributerLogin: isDistributerLogin,
   setDistributerId: setDistributerId,
   getDistributerId: getDistributerId,

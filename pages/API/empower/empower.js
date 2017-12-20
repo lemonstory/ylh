@@ -114,7 +114,12 @@ Page(Object.assign({}, Toast, {
                 data: res.data,
               })
             } else {
+              
               console.warn(res);
+              //跳转到绑定手机号页面
+              wx.redirectTo({
+                url: '/pages/API/tell/tell',
+              })
             }
           },
 

@@ -168,7 +168,9 @@ Page(Object.assign({}, Toast, {
           },
 
           success: function (res) {
-
+            if(res.statusCode != 200) {
+              console.warn(res);
+            }
           },
 
           fail: function (res) {
@@ -192,14 +194,22 @@ Page(Object.assign({}, Toast, {
    */
   checkVcode: function (mobile, msgCode) {
 
-    console.log("😀 😀 😀 checkVcode 😀 😀 😀");
     var that = this;
     var userAccessData = util.getUserAccessData();
     var guid = userAccessData.guid;
-    console.log(userAccessData);
+    
     if (guid.length > 0) {
 
-      if (util.isMobile(mobile)) {
+      if (!util.isMobile(mobile)) {
+
+        that.showZanToast("请检查输入的手机号");
+      
+      } else if (util.isEmptyStr(msgCode)) {
+
+        that.showZanToast("请输入验证码");
+      
+      }else{
+
         var url = that.data.constant.domain + '/weixin/phonecode';
         wx.request({
           url: url,
@@ -221,10 +231,20 @@ Page(Object.assign({}, Toast, {
                   console.warn(res);
                 }
               });
-            } else {
+
+              //跳转对对应页面
+              wx.navigateBack();
+
+            } else if (res.statusCode == 500 && res.data.code == 32009001) {
+
+              that.showZanToast(res.data.message);
               console.warn(res.data);
+            
+            } else {
+
+              console.warn(res.data);
+              that.showZanToast(res.data.message); 
             }
-            //TODO:跳转对对应页面
           },
 
           fail: function (res) {
@@ -234,14 +254,10 @@ Page(Object.assign({}, Toast, {
 
           complete: function (res) { },
         })
-      } else {
-        that.showZanToast("请检查输入的手机号");
       }
 
     } else {
-
-      console.log("guid为空");
-      that.showZanToast("guid为空");
+      console.error("guid为空 guid在App onLaunch 处获得");
     }
   },
 

@@ -201,9 +201,7 @@
 <view class="bottom">
      <image class="zixun" src="http://image.365zhiding.com/wxapp/20171121/zixun.png" bindtap='handleTapPhone'></image>
      <view class="zixuntext">资询</view>
-     <view class="yuding">
-          <navigator url="../start-order/start-order?currentSelectedTravelDate={{startDatePriceListFormat[0].date}}&currentSelectedMonthIndex={{startDatePriceListFormat[0].monthIndex}}">开始预订</navigator>
-     </view>
+     <view class="yuding" bindtap='handleTapStartOrder'>开始预订</view>
 </view>
 <!--底部结束-->
 

@@ -23,27 +23,6 @@ Page(Object.assign({}, Toast, {
   onLoad: function (options) {
 
     var that = this;
-    that.setData({
-      isDistributer: util.isDistributer()
-    })
-
-    //用户为非代理商
-    if (!that.data.isDistributer) {
-      that.setData({
-        isOwnDistributerId: util.isOwnDistributerId()
-      })
-
-      //用户没有代理商id
-      if (!that.data.isOwnDistributerId) {
-        wx: wx.redirectTo({
-          url: '../visa-find/visa-find',
-          success: function (res) { },
-          fail: function (res) { },
-          complete: function (res) { },
-        })
-      }
-    }
-    console.log(that.data);
   },
 
   /**
@@ -57,6 +36,38 @@ Page(Object.assign({}, Toast, {
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+
+    var that = this;
+    that.setData({
+      isDistributer: util.isDistributer()
+    })
+
+    //用户为非代理商
+    if (!that.data.isDistributer) {
+      that.setData({
+        isOwnDistributerId: util.isOwnDistributerId()
+      })
+
+      //用户没有代理商id
+      if (!that.data.isOwnDistributerId) {
+        wx: wx.redirectTo({
+          url: '../personal-order/personal-order',
+          success: function (res) { },
+          fail: function (res) { },
+          complete: function (res) { },
+        })
+      } else {
+
+        //用户有代理商Id但未注册
+        wx: wx.redirectTo({
+          url: '../empower/empower',
+          success: function (res) { },
+          fail: function (res) { },
+          complete: function (res) { },
+        })
+      }
+    }
+    console.log(that.data);
   },
 
   /**

@@ -318,7 +318,7 @@ Page(Object.assign({}, Toast, {
       for (var i = 0; i < startDatePriceListTemp.length; i++) {
 
         var item = startDatePriceListTemp[i];
-        console.log(item);
+        // console.log(item);
         var itemDateArr = item.date.split("-");
         var itemDateFormatStr = itemDateArr[1] + "月" + itemDateArr[2] + "日";
         var itemDateFormat = {};
@@ -371,6 +371,30 @@ Page(Object.assign({}, Toast, {
     })
 
   },
+
+  /**
+   * 开始预订-点击
+   */
+  handleTapStartOrder: function (e) {
+
+    var that = this;
+    var url = `../start-order/start-order?currentSelectedTravelDate=${that.data.startDatePriceListFormat[0].date}&currentSelectedMonthIndex=${that.data.startDatePriceListFormat[0].monthIndex}`
+    console.log("url = " + url);
+
+    var isOwnAccessToken = util.isOwnAccessToken()
+    //跳转到绑定手机号
+    if (!isOwnAccessToken) {
+
+      wx.navigateTo({
+        url: '../empower/empower',
+      })
+
+    } else {
+      wx.navigateTo({
+        url: url,
+      })
+    }
+  }
 
 }));
 

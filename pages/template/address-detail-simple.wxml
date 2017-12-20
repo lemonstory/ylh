@@ -10,12 +10,12 @@
           <view class="react "></view>
           <view class="dataplan">1日行程</view>
           <view class="react1 "></view>
-          <image class="planimg" wx:for="{{template.public}}" wx:key="idx" src='{{item}}' mode='aspectFill'></image>
+          <image class="planimg" wx:for="{{template.public}}" wx:key="template.public" src='{{item}}' mode='aspectFill'></image>
           <view class="day1">DAY 1</view>
           <image class="line" src="http://image.365zhiding.com/wxapp/20171121/line.png"></image>
-          <block wx:for="{{template.simple}}" wx:for-index="idx" wx:for-item="item">
+          <block wx:for="{{template.simple}}" wx:for-index="idx" wx:for-item="item" wx:key="template.simple">
                <view class="jiaotong">{{item.key}}</view>
-               <view class="shijian" wx:for="{{item.items}}" wx:for-index="idx" wx:for-item="item">{{item.key}}{{item.value}}</view>
+               <view class="shijian" wx:for="{{item.items}}" wx:for-index="idx" wx:for-item="item" wx:key="item.items">{{item.key}}{{item.value}}</view>
                <view class="shuoming">{{item.intro}}</view>
                <view class="img-box">
                     <image class="jing-img" src="{{imageItem}}" wx:for="{{item.images}}" wx:key="jing-img" wx:for-item="imageItem" mode='aspectFit'></image>

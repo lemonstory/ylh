@@ -43,13 +43,13 @@
   <view   class=".address">{{address.province.id!=0?address.province.name:value1Defult}} - {{address.city.id!=0?address.city.name:value2Defult}} - {{address.district.id!=0?address.district.name:value3Defult}}</view>
   <picker-view indicator-style="height: 40px;" style="width: 100%; height: 240px;"value="{{value}}" bindchange="handleSelectChange">
     <picker-view-column>
-      <view wx:for="{{province}}" style="line-height: 40px">{{item.name}}</view>
+      <view wx:for="{{province}}" style="line-height: 40px" wx:key="province">{{item.name}}</view>
     </picker-view-column>
     <picker-view-column>
-      <view wx:for="{{city}}" style="line-height: 40px">{{item.name}}</view>
+      <view wx:for="{{city}}" style="line-height: 40px" wx:key="city">{{item.name}}</view>
     </picker-view-column>
     <picker-view-column>
-      <view wx:for="{{district}}" style="line-height: 40px">{{item.name}}</view>
+      <view wx:for="{{district}}" style="line-height: 40px" wx:key="district">{{item.name}}</view>
     </picker-view-column>
   </picker-view>
 </view>

@@ -11,6 +11,32 @@
      background: #f7f7f7;
 }
 
+
+radio .wx-radio-input {
+margin-right:5px;
+-webkit-appearance:none;
+outline:0;
+border:1px solid #D1D1D1;
+background-color:#FFFFFF;
+border-radius:50%;
+width:24rpx;
+height:24rpx;
+position:relative;
+}
+.radio{
+     text-align: center;
+}
+radio .wx-radio-input.wx-radio-input-checked ::before{
+font:normal normal normal 14px/1 "weui";
+content:"\EA08";
+font-size:22rpx;
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%, -48%) scale(0.73);
+-webkit-transform:translate(-50%, -48%) scale(0.73);
+}
+
 /*出行时间开始  */
 
 .go {

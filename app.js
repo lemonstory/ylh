@@ -2,7 +2,11 @@
 var constant = require('constant.js');
 var guid = '';
 App({
-  onLaunch: function () {
+  onLaunch: function (options) {
+
+    console.log("😀 😀 😀 😀");
+    console.log(options);
+    console.log("😀 😀 😀 😀");
 
     var that = this;
     wx.checkSession({
@@ -32,7 +36,7 @@ App({
                   //小程序code
                   code: res.code,
                   //TODO:小程序 代理商distributor
-                  distributor: constant.constant.agentId
+                  distributerId: constant.constant.agentId
                 },
 
                 header: {

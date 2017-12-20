@@ -8,10 +8,17 @@ var constant = {
   'tradeId': 20,
   //每页显示条数
   'pageSize':20,
-  //用户登录后返回数据存储key
+  
+  //数据存储key
   'userAccessDataKey':'userAccessData',
-  //用户访问凭证
+  'distributerIdKey': 'distributerId',
+  'distributerAccessDataKey':'distributerAccessData',
+
+  //用户访问数据
   'userAccessData':{},
+  'distributerId':'',
+  'distributerAccessData':{},
+
 
 
   //旅客证件类型

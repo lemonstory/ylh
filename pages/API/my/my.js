@@ -1,102 +1,134 @@
 // pages/API/my/my.js
-Page({
-
-     /**
-      * 页面的初始数据
-      */
-     data: {
-          buttonDisabled: false,
-          modalHidden: true,
-          show: false
-     },
+const app = getApp();
+const Toast = require('../../../zanui-weapp/dist/toast/index');
+var util = require('../../../utils/util.js')
 
 
+Page(Object.assign({}, Toast, {
 
-     /**
-      * 生命周期函数--监听页面加载
-      */
-     onLoad: function (options) {
+  data: {
+    'constant': app.constant,
+    buttonDisabled: false,
+    modalHidden: true,
+    show: false,
 
-     },
-
-     toast: function () {
-          this.setData({
-               modalHidden: !this.data.modalHidden
-          })
-     },
-     modalBindaconfirm: function () {
-          wx.navigateTo({
-               url: '../next-management/next-management'
-          })
-     },
+    isDistributer:false,
+    isOwnDistributerId:false
+  },
 
 
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
 
-     /**
-      * 生命周期函数--监听页面初次渲染完成
-      */
-     onReady: function () {
+    var that = this;
+    that.setData({
+      isDistributer: util.isDistributer()
+    })
 
-     },
+    //用户为非代理商
+    if (!that.data.isDistributer) {
+      that.setData({
+        isOwnDistributerId: util.isOwnDistributerId()
+      })
 
-     /**
-      * 生命周期函数--监听页面显示
-      */
-     onShow: function () {
-     },
-     onChangeShowState: function () {
-          var that = this;
-          that.setData({
-               showView: (!that.data.showView)
-          })
-     },
-     cancel: function () {
-          var that = this;
-          that.setData({
-               showView: false
-          })
-     },
-     callPhone: function () {
-          wx.makePhoneCall({
-               phoneNumber: '400-189-0876',
-          })
-          var that = this;
-          that.setData({
-               showView: false
-          })
-     },
-     /**
-       * 生命周期函数--监听页面隐藏
-       */
-     onHide: function () {
+      //用户没有代理商id
+      if (!that.data.isOwnDistributerId) {
+        wx:wx.redirectTo({
+          url: '../visa-find/visa-find',
+          success: function(res) {},
+          fail: function(res) {},
+          complete: function(res) {},
+        })   
+      }
+    }
+    console.log(that.data);
+  },
 
-     },
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
 
-     /**
-      * 生命周期函数--监听页面卸载
-      */
-     onUnload: function () {
+  },
 
-     },
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+  },
 
-     /**
-      * 页面相关事件处理函数--监听用户下拉动作
-      */
-     onPullDownRefresh: function () {
+  /**
+    * 生命周期函数--监听页面隐藏
+    */
+  onHide: function () {
 
-     },
+  },
 
-     /**
-      * 页面上拉触底事件的处理函数
-      */
-     onReachBottom: function () {
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
 
-     },
+  },
 
-     /**
-      * 用户点击右上角分享
-      */
-     onShareAppMessage: function () {
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
 
-     }
-})
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+
+  },
+
+  toast: function () {
+    this.setData({
+      modalHidden: !this.data.modalHidden
+    })
+  },
+
+  modalBindaconfirm: function () {
+    wx.navigateTo({
+      url: '../next-management/next-management'
+    })
+  },
+
+
+  onChangeShowState: function () {
+    var that = this;
+    that.setData({
+      showView: (!that.data.showView)
+    })
+  },
+
+  cancel: function () {
+    var that = this;
+    that.setData({
+      showView: false
+    })
+  },
+
+  callPhone: function () {
+    wx.makePhoneCall({
+      phoneNumber: '400-189-0876',
+    })
+    var that = this;
+    that.setData({
+      showView: false
+    })
+  },
+
+}))

@@ -208,8 +208,69 @@ function postRequestHeader() {
   return header;
 }
 
+/**
+ * 是否为代理商-同步
+ */
+function isDistributer() {
+
+  var ret = false;
+  try {
+    var distributerIdValue = wx.getStorageSync(app.constant.distributerIdKey)
+    var distributerAccessDataValue = wx.getStorageSync(app.constant.distributerAccessDataKey)
+    if (distributerIdValue && distributerAccessDataValue) {
+      ret = true;
+    }
+  } catch (e) {
+    ret = false;
+  }
+
+  return ret;
+  return true;
+}
+
+/**
+ * 是否含有代理商Id-同步
+ */
+function isOwnDistributerId() {
+
+  var ret = false;
+  try {
+    var distributerIdValue = wx.getStorageSync(app.constant.distributerIdKey)
+    if (distributerIdValue) {
+      ret = true;
+    }
+  } catch (e) {
+    ret = false;
+  }
+
+  return ret;
+}
+
+/**
+ * 设置代理商ID-异步
+ * 
+ *  代理商登录
+ *  代理商二维码识别
+ *  线路首页-分享卡片
+ *  线路详情-分享卡片 
+ */
+function setDistributerId(distributerId) {
+
+  //写入本地存储
+  wx.setStorage({
+    key: app.constant.distributerIdKey,
+    data: distributerId,
+    fail: function (res) {
+
+      console.warn("setDistributerId Fail");
+      console.warn(res)
+    }
+  })
+}
+
 
 module.exports = {
+
   formatTime: formatTime,
   isMobile: isMobile,
   isEmail: isEmail,
@@ -219,7 +280,12 @@ module.exports = {
   getUserAccessData: getUserAccessData,
   getAuthorizationValue: getAuthorizationValue,
   getRequestHeader: getRequestHeader,
-  postRequestHeader: postRequestHeader
+  postRequestHeader: postRequestHeader,
+
+
+  isDistributer: isDistributer,
+  isOwnDistributerId: isOwnDistributerId,
+  setDistributerId: setDistributerId,
 }
 
 

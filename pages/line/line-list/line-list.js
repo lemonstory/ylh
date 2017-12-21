@@ -33,20 +33,20 @@ Page(Object.assign({}, Toast, {
     var pageIndexTemp = that.data.pageIndex;
     var attrIdTemp = that.data.attrId;
 
-    if (typeof (options.areaId) != "undefined") {
+    if (!util.isEmptyStr(options.areaId)) {
       areaIdTemp = options.areaId;
     }
 
-    if (typeof (options.category) != "undefined") {
+    if (!util.isEmptyStr(options.category)) {
       categoryTemp = options.category;
     }
 
-    if (typeof (options.pageIndex) != "undefined") {
+    if (!util.isEmptyStr(options.pageIndex)) {
       pageIndexTemp = options.pageIndex;
     }
 
-    if (typeof (options.attrId) != "undefined") {
-      areaIdTemp = options.attrId;
+    if (!util.isEmptyStr(options.attrId)) {
+      attrIdTemp = options.attrId;
     }
 
     that.setData({

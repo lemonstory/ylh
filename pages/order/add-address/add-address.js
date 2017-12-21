@@ -2,17 +2,17 @@
 const app = getApp();
 const Toast = require('../../../zanui-weapp/dist/toast/index');
 var util = require('../../../utils/util.js')
-
 Page(Object.assign({}, Toast, {
 
   /**
    * 页面的初始数据
    */
   data: {
-
-    'constant': app.constant,
-
-    addressInfo: {
+'constant': app.constant,
+isSelected: 0,
+isUnSelect: 'http://image.365zhiding.com/wxapp/20171210/unselect.png',
+isSelect: 'http://image.365zhiding.com/wxapp/20171210/select.png',
+addressInfo: {
       "id": 0,                    //地址ID
       "name": '',             //姓名
       "gender": 1,           //性别
@@ -292,6 +292,11 @@ Page(Object.assign({}, Toast, {
     if (that.addressIsWhole()){
       that.hideOrShowAddressPicker();
       // 处理地址赋值
+      var addressShow = that.data.de
+
+
+
+
     }else{
       that.showZanToast("请完善地址！");
     }
@@ -413,7 +418,7 @@ Page(Object.assign({}, Toast, {
       complete: function (res) {
         wx.hideLoading();
         wx.redirectTo({
-          url: '/pages/API/choice-address/choice-address',
+          url: '/pages/ordrer/choice-address/choice-address',
         })
       }
     })

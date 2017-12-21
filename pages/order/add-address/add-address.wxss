@@ -19,7 +19,6 @@
   background: white;
   margin-top: 10rpx;
 }
-
 .input-name {
   width: 690rpx;
   height: 84rpx;
@@ -63,6 +62,8 @@
   color: rgba(255, 255, 255, 1);
   text-align: center;
   line-height: 88rpx;
+  border-radius: 10rpx;
+
 }
 
 .back {
@@ -70,7 +71,7 @@
   height: 24rpx;
   margin-top: 34rpx;
   margin-left: 220rpx;
-}
+ }
 
 .cicle {
   width: 18rpx;

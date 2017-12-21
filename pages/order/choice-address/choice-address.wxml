@@ -2,9 +2,7 @@
 <import src="/zanui-weapp/dist/toast/index.wxml" />
 <view class="container">
   <view class="main-box">
-
-
-    <view class="address-ul" wx:for="{{data.list}}" wx:key="list" wx:for-index="idx">
+<view class="address-ul" wx:for="{{data.list}}" wx:key="list" wx:for-index="idx">
       <view catchtap='handelAddressSelect' data-id="{{ item.id}}" data-address="{{item.street}}">
         <view class="ul-top">
           <image class="check" src="{{ selectAddress==item.id ? icSelect :icUnSelect}}"></image>

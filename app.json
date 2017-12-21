@@ -1,6 +1,7 @@
 {
   "pages": [
     
+    
     "pages/line/index/index",
 
     "pages/API/line/line",
@@ -113,7 +114,7 @@
     "selectedColor": "#FF6600",
     "list": [
       {
-        "pagePath": "pages/line/index",
+        "pagePath": "pages/line/index/index",
         "text": "线路",
         "iconPath": "pages/image/3.png",
         "selectedIconPath": "pages/image/4.png"

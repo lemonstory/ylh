@@ -489,7 +489,7 @@ Page(Object.assign({}, Toast, {
           })
 
           var lineDetail = JSON.stringify(that.data.userSelectedLineDetail);
-          var url = '../address-message/address-message?lineDetail=' + lineDetail;
+          var url = '/pages/order/fill-order/fill-order?lineDetail=' + lineDetail;
           wx.navigateTo({
                url: url,
                success: function (res) { },

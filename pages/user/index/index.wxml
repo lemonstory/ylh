@@ -10,7 +10,7 @@
   </view>
 
   <view class="box1">
-    <navigator url="../my-money/my-money">
+    <navigator url="/pages/distributer/commission/commission">
       <view class="list">
         <view class="list-left">
           <view class="icon">
@@ -39,7 +39,7 @@
     </view>
 
 
-    <navigator url="../order-sou/order-sou">
+    <navigator url="/pages/distributer/order-query/order-query">
       <view class="list" style='border-bottom:none'>
         <view class="list-left">
           <view class="icon">
@@ -81,7 +81,7 @@
     </view>
     <!--弹出信息的展示结束-->
 
-    <navigator url="../store-setting/store-setting">
+    <navigator url="/pages/distributer/store-setting/store-setting">
       <view class="list" style='border-bottom:none'>
         <view class="list-left">
           <view class="icon">

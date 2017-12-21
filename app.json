@@ -13,7 +13,6 @@
     "pages/API/pay-sucess/pay-sucess",
     "pages/API/choice-passenger/choice-passenger",
     "pages/API/order-detail/order-detail",
-    "pages/API/my-order-detail/my-order-detail",
     "pages/API/travel-mess/travel-mess",
     "pages/API/air-ticket/air-ticket",
     "pages/API/add-address/add-address",
@@ -76,7 +75,7 @@
     "pages/index/index",
 
     "pages/line/category/category",
-    
+
     "pages/line/leader-introduce/leader-introduce",
     "pages/line/line-detail/line-detail",
     "pages/line/line-list/line-list",
@@ -95,7 +94,6 @@
 
     "pages/user/index/index",
     "pages/user/order/order",
-    "pages/user/order-detail/order-detail",
     "pages/user/send-code/send-code",
     "pages/user/visitor/visitor",
     "pages/user/wx-mobile/wx-mobile",

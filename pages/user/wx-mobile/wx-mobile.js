@@ -118,7 +118,7 @@ Page(Object.assign({}, Toast, {
               console.warn(res);
               //跳转到绑定手机号页面
               wx.redirectTo({
-                url: '/pages/API/tell/tell',
+                url: '/pages/user/send-code/send-code',
               })
             }
           },
@@ -136,7 +136,7 @@ Page(Object.assign({}, Toast, {
 
       //用户拒绝
       wx: wx.redirectTo({
-        url: '/pages/API/tell/tell',
+        url: '/pages/user/send-code/send-code',
         success: function (res) { },
         fail: function (res) {
           console.warn(res)

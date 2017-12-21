@@ -113,6 +113,20 @@ Page(Object.assign({}, Toast, {
                 key: that.data.constant.userAccessDataKey,
                 data: res.data,
               })
+
+              wx.showToast({
+                title: '成功',
+                icon: 'success',
+                duration: 2000
+              })
+
+
+              //当用未注册时点击-我的 tab
+              console.log("当用未注册时点击-我的 tab")
+              wx.switchTab({
+                url: '/pages/user/index/index'
+              })
+
             } else {
               
               console.warn(res);

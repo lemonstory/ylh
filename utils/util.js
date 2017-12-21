@@ -266,7 +266,9 @@ function isOwnAccessToken() {
 
   var ret = false;
   try {
-    var accessTokenValue = wx.getStorageSync('access_token')
+
+    var userAccessData = getUserAccessData();
+    var accessTokenValue = userAccessData.access_token;
     if (!isEmptyStr(accessTokenValue)) {
       ret = true;
     }

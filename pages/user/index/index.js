@@ -13,7 +13,8 @@ Page(Object.assign({}, Toast, {
     show: false,
 
     isDistributer: false,
-    isOwnDistributerId: false
+    isOwnDistributerId: false,
+    isOwnAccessToken: false,
   },
 
 
@@ -45,7 +46,8 @@ Page(Object.assign({}, Toast, {
     //用户为非代理商
     if (!that.data.isDistributer) {
       that.setData({
-        isOwnDistributerId: util.isOwnDistributerId()
+        isOwnDistributerId: util.isOwnDistributerId(),
+        isOwnAccessToken: util.isOwnAccessToken()
       })
 
       //用户没有代理商id
@@ -59,12 +61,15 @@ Page(Object.assign({}, Toast, {
       } else {
 
         //用户有代理商Id但未注册
-        wx: wx.redirectTo({
-          url: '/pages/user/wx-mobile/wx-mobile',
-          success: function (res) { },
-          fail: function (res) { },
-          complete: function (res) { },
-        })
+        console.log(that.data);
+        if (!that.data.isOwnAccessToken) {
+          wx: wx.redirectTo({
+            url: '/pages/user/wx-mobile/wx-mobile',
+            success: function (res) { },
+            fail: function (res) { },
+            complete: function (res) { },
+          })
+        }
       }
     }
     console.log(that.data);

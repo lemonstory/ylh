@@ -291,7 +291,9 @@ function getWxOpenId() {
   try {
 
     var userAccessData = getUserAccessData();
-    openId = userAccessData.openId;
+    
+    //接口里面的返回的openid i是小写
+    openId = userAccessData.openid;
   
   } catch (e) {
   

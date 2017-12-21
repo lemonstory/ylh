@@ -4,7 +4,7 @@ var constant = {
   "domain": "https://qa-api.yuelvhui.com",
   
   //收银台域名
-  "payDomain": "https://payment.yuelvhui.com/prepay",
+  "payDomain": "https://payment.yuelvhui.com",
   //代理商ID(number,required)
   //TODO: 获取代理商信息后需要设置这个值
   'agentId': 1,
@@ -15,7 +15,7 @@ var constant = {
   
   //收银台支付
   "paymentTradeType": "WX_JSAPP",
-  "paymentSysSource": "distributor",
+  "paymentSysSource": "distributor",
 
   //数据存储key
   'userAccessDataKey':'userAccessData',

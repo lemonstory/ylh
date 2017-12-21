@@ -2,6 +2,7 @@
 const app = getApp();
 const Toast = require('../../../zanui-weapp/dist/toast/index');
 var util = require('../../../utils/util.js')
+
 Page(Object.assign({}, Toast, {
 
   /**
@@ -51,6 +52,10 @@ Page(Object.assign({}, Toast, {
       prevPageData: prevPageDataTemp,
       'prepayPostData.openId': util.getWxOpenId()
     })
+
+    console.log("🚀 🚀 🚀")
+    console.log(that.data.prepayPostData);
+
   },
 
   /**
@@ -141,7 +146,7 @@ Page(Object.assign({}, Toast, {
         console.log("🍺 🍺 🍺 [成功] 用户创建线路订单接口")
         console.log(res);
         that.setData({
-          'prepayPostData.prepayBody': res.data,
+          'prepayPostData.prepayBody': res.data.prepayBody,
         })
 
         //调用收银台接口
@@ -150,7 +155,7 @@ Page(Object.assign({}, Toast, {
           url: url,
           data: that.data.prepayPostData,
           method: 'POST',
-          header: util.postRequestHeader(),
+          header: util.getRequestHeader(),
 
           success: function (res) {
 

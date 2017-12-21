@@ -350,7 +350,7 @@ Page(Object.assign({}, Toast, {
     var currentSelectedTravelDate = e.currentTarget.dataset.date;
     //选中的出行日期所在的月份索引值
     var currentSelectedMonthIndex = e.currentTarget.dataset.month_index;
-    var path = "/pages/API/start-order/start-order?currentSelectedTravelDate=" + currentSelectedTravelDate + "&currentSelectedMonthIndex=" + currentSelectedMonthIndex;
+    var path = "/pages/order/choice-date/choice-date?currentSelectedTravelDate=" + currentSelectedTravelDate + "&currentSelectedMonthIndex=" + currentSelectedMonthIndex;
     console.log(path);
 
     var that = this;
@@ -378,7 +378,7 @@ Page(Object.assign({}, Toast, {
   handleTapStartOrder: function (e) {
 
     var that = this;
-    var url = `../start-order/start-order?currentSelectedTravelDate=${that.data.startDatePriceListFormat[0].date}&currentSelectedMonthIndex=${that.data.startDatePriceListFormat[0].monthIndex}`
+    var url = `/pages/order/choice-date/choice-date?currentSelectedTravelDate=${that.data.startDatePriceListFormat[0].date}&currentSelectedMonthIndex=${that.data.startDatePriceListFormat[0].monthIndex}`
     console.log("url = " + url);
 
     var isOwnAccessToken = util.isOwnAccessToken()

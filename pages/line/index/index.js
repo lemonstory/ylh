@@ -118,29 +118,54 @@ Page(Object.assign({}, Toast, {
 
   //处理banner图点击事件
   handleBanner: function (event) {
+
+    var that = this;
+    var path = ''
     var src = event.currentTarget.dataset.src;
-    var path = "/pages/web-view/web-view?src=" + src;
-    wx.navigateTo({
-      url: path
-    })
+    that.navigateToUrl(src);
+  },
+
+  /**
+   * 跳转url
+   */
+  navigateToUrl:function(url) {
+
+    var path
+    if (!util.isEmptyStr(url)) {
+
+      if (util.isHttpUrl(url)) {
+        path = "/pages/web-view/web-view?src=" + url;
+      } else {
+        path = url;
+      }
+
+      wx.navigateTo({
+        url: path
+      })
+
+    } else {
+
+      console.warn("url为空")
+      //测试
+      that.showZanToast("url为空");
+    }
+
   },
 
   handleAd: function (event) {
+    
+    var that = this;
+    var path = ''
     var src = event.currentTarget.dataset.src;
-    console.log(11111);
-    var path = "/pages/web-view/web-view?src=" + src;
-    wx.navigateTo({
-      url: path
-    })
+    that.navigateToUrl(src);
   },
   
-  handleCountry: function (event) {
-    console.log(1111111);
+  handleTapAreaListItem: function (event) {
+
+    var that = this;
+    var path = ''
     var src = event.currentTarget.dataset.src;
-    var path = "/pages/web-view/web-view?src=" + src;
-    wx.navigateTo({
-      url: path
-    })
+    that.navigateToUrl(src);
 
   },
 

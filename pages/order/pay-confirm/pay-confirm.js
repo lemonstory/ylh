@@ -135,9 +135,12 @@ Page(Object.assign({}, Toast, {
 
     //用户创建线路订单接口
     var url = that.data.constant.domain + '/distrbuter/member/order/';
+    var formDataTemp = that.data.prevPageData.formData;
+    formDataTemp.tourers = JSON.stringify(that.data.prevPageData.formData.tourers);
+    formDataTemp.orderBill = JSON.stringify(that.data.prevPageData.formData.orderBill);
     wx.request({
       url: url,
-      data: that.data.prevPageData.formData,
+      data: formDataTemp,
       method: 'POST',
       header: util.postRequestHeader(),
 

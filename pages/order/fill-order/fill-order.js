@@ -2,6 +2,7 @@
 const app = getApp();
 const Toast = require('../../../zanui-weapp/dist/toast/index');
 var util = require('../../../utils/util.js')
+var chinaArea = require('../../../utils/china-area.js')
 Page(Object.assign({}, Toast, {
   data: {
     'constant': app.constant,
@@ -20,9 +21,7 @@ Page(Object.assign({}, Toast, {
     'defaultReceiverAddress': '请添加您的收货地址',
     'profileId':0,
     // 收货地址信息
-    'receiverAddress': {
-      
-    },
+    'receiverAddress': {},
 
     //用户创建订单数据
     'formData': {
@@ -96,7 +95,6 @@ Page(Object.assign({}, Toast, {
 
         'formData.pid': lineDetail.pid,
         'formData.travelDate': lineDetail.travelDate,
-        //TODO
         'formData.isIncludeBaby': lineDetail.isAllowBabySelected,
         'formData.childprice': lineDetail.childprice,
         'formData.adultprice': lineDetail.adultprice,
@@ -105,16 +103,16 @@ Page(Object.assign({}, Toast, {
         'formData.difference': lineDetail.difference,
         'formData.isAddedDifference': lineDetail.isAddedDifference,
 
-
         'formData.amount': lineDetail.amount,
         'formData.tourers.subNum.child': lineDetail.tourers.subNum.child,
         'formData.tourers.subNum.adult': lineDetail.tourers.subNum.adult,
         'formData.tourers.subNum.old': lineDetail.tourers.subNum.old,
 
-        'formDatadistributerId': util.getDistributerId(),
+        'formData.distributerId': util.getDistributerId(),
       })
     }
 
+    console.log("xxxxx");
     console.log(that.data.formData);
   },
 
@@ -150,6 +148,17 @@ Page(Object.assign({}, Toast, {
     } else {
       that.setData({
         'passengerIdStr': ''
+      })
+    }
+
+    //选择地址处理
+    if (!util.isEmptyObject(that.data.receiverAddress)) {
+      that.setData({
+        passengerIdStr: passengerIdStrTemp,
+        'formData.receiverAddress': that.data.receiverAddress.street,
+        'formData.receiverName': that.data.receiverAddress.name,
+        'formData.receiverTel': that.data.receiverAddress.mobile,
+
       })
     }
   },

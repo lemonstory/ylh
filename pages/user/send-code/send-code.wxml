@@ -16,4 +16,4 @@
      <button class="confirm" bindtap='handleTapBind'>绑定</button>
 </view>
 <!-- 直接使用 zan-toast 模板，并且直接传入 zanToast -->
-<template is="zan-toast" data="{{ zanToast }}"></template>
+<template is="zan-toast" data="{{zanToast}}"></template>

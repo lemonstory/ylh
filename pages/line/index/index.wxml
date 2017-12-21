@@ -9,21 +9,22 @@
         </swiper-item>
       </block>
     </swiper>
-    <navigator url="../search/search">
-      <view class="search">
+   
+      <view class="search" bindtap='bindSearch'>
         <view id="myInput" style='font-size:24rpx; color:#fff;opacity:0.8;padding-left:72rpx;line-height:'>搜索国家或地区</view>
         <view class="search-icon">
           <image src="http://image.365zhiding.com/wxapp/20171112/sou.png"></image>
         </view>
       </view>
-    </navigator>
+
   </view>
 
-  <view class="main">
+   <view class="main">
+   
     <view class="order" bindtap='handleAd' data-src="{{ad.url}}">
       <image src="{{ad.image}}" mode='widthFix' style='overflow:hidden'></image>
     </view>
-  </view>
+  </view> 
 
   <!--热门目的地开始  -->
   <view class="hot">

@@ -5,13 +5,11 @@ var util = require('../../../utils/util.js')
 
 
 Page(Object.assign({}, Toast, {
-
-  data: {
+data: {
     'constant': app.constant,
     buttonDisabled: false,
     modalHidden: true,
     show: false,
-
     isDistributer: false,
     isOwnDistributerId: false
   },

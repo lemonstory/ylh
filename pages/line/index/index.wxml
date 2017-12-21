@@ -1,0 +1,74 @@
+<import src="/zanui-weapp/dist/toast/index.wxml" />
+<import src="/zanui-weapp/dist/loadmore/index.wxml" />
+<view class="container">
+  <view class="banner">
+    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+      <block wx:for="{{banner}}" wx:key="banner" wx:for-index="idx">
+        <swiper-item data-src="{{item.url}}" bindtap="handleBanner" data-index="{{idx}}" data-id="{{item.id}}">
+          <image src="{{item.image}}" class="slide-image" width="750rpx" height="350rpx" />
+        </swiper-item>
+      </block>
+    </swiper>
+    <navigator url="../search/search">
+      <view class="search">
+        <view id="myInput" style='font-size:24rpx; color:#fff;opacity:0.8;padding-left:72rpx;line-height:'>搜索国家或地区</view>
+        <view class="search-icon">
+          <image src="http://image.365zhiding.com/wxapp/20171112/sou.png"></image>
+        </view>
+      </view>
+    </navigator>
+  </view>
+
+  <view class="main">
+    <view class="order" bindtap='handleAd' data-src="{{ad.url}}">
+      <image src="{{ad.image}}" mode='widthFix' style='overflow:hidden'></image>
+    </view>
+  </view>
+
+  <!--热门目的地开始  -->
+  <view class="hot">
+    <view class="hot-font">
+      <view>{{areaList.title}}</view>
+      <view style='font-size:24rpx;color:#666;' bindtap='bindMoreaddress'>
+        更多目的地
+        <image style="width:14rpx;height:24rpx; margin-left:20rpx;" src="http://image.365zhiding.com/wxapp/20171114/1.png"></image>
+
+      </view>
+    </view>
+  </view>
+
+  <scroll-view class="hot-image" scroll-x="true">
+    <view class="li" wx:for="{{areaList.list}}" data-id='item.areaId' wx:key="areaList">
+      <image src="{{item.image}}" bindtap='handleCountry' data-src="{{item.url}}"></image>
+      <!-- <view class="address-text">{{item.areaName}}</view> -->
+    </view>
+  </scroll-view>
+
+  <!--推举线路开始  -->
+  <view class="section">
+    <view class="tuijian">
+      推荐线路
+    </view>
+    <view class="ul" wx:for="{{lineList}}" bindtap='bindAddressDetail' wx:for-index="idx" data-id='{{item.lineId}}' wx:key="item">
+      <view class="tuijuan-img">
+        <image src="{{item.image}}" mode='aspectFill'></image>
+      </view>
+      <view class="tuijuan-text">
+        <view class="text1">{{item.title}}</view>
+        <view class="tuijuan-bottom">
+          <view class="text2">¥{{item.price}}
+            <view class="person">/人起</view>
+          </view>
+          <view class="address">{{item.areaName}}</view>
+        </view>
+      </view>
+    </view>
+    <!-- </scroll-view> -->
+    <!--推荐线路结束-->
+  </view>
+</view>
+
+<!-- 直接使用 zan-toast 模板，并且直接传入 zanToast -->
+<template is="zan-toast" data="{{ zanToast }}"></template>
+<template is="zan-loadmore" wx:if="{{isLoading}}" data="{{loading: true}}" />
+<template is="zan-loadmore" wx:if="{{isNoMore}}" data="{{nodata: true,nodata_str:'加载完成'}}" />

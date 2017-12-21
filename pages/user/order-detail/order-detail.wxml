@@ -1,0 +1,59 @@
+<!--pages/API/my-order-detail/my-order-detail.wxml-->
+<view class="container">
+
+ <!--出行时间开始  -->
+  <view class="go">
+    <view class="go-time">
+      <view>待确认</view>
+      <view class="go-for">
+        <image src="http://image.365zhiding.com/wxapp/20171121/zixun.png"></image>
+      </view>
+    </view>
+  
+  </view>
+  <!--出行时间结束  -->
+
+  
+
+
+
+  <!--联系人信息开始  -->
+  <view class="lianxi-box">
+    <view class="lianxi-message">联系人信息</view>
+    <view class="input-name">姓名:
+      <view class="lianxi-name" style='margin-left:86rpx;'>李明</view>
+    </view>
+    <view class="input-name">手机号:
+      <view class="lianxi-tell" style='margin-left:52rpx;'>123456789</view>
+    </view>
+   </view>
+
+  <!--联系人信息结束  -->
+
+<!--出行人信息开始  -->
+<view class="lianxi-box">
+    <view class="lianxi-message">出行信息</view>
+     <view class="input-name" wx:for="{{messagelist}}">
+     <view style="width:120rpx">{{item.titel}}:</view>
+      <view class="lianxi-tell" style='margin-left:18rpx;'>{{item.content}}</view>
+    </view>
+</view>
+
+
+
+
+<!--出行人信息结束  -->
+
+
+<!--出行要求开始  -->
+  <view class="lianxi-box">
+    <view class="lianxi-message">出行要求</view>
+     <view class="input-name" wx:for="{{asklist}}">
+     <view style="width:120rpx">{{item.titel}}:</view>
+      <view class="lianxi-tell" style='margin-left:18rpx;'>{{item.content}}</view>
+    </view>
+</view>
+
+  <!--出行要求结束 -->
+</view>
+  

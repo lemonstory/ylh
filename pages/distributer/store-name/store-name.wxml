@@ -1,0 +1,11 @@
+<!--pages/API/store-name/store-name.wxml-->
+<view class="container">
+<view class="main">
+<input id="oldpass" placeholder='请输入店铺名称' placeholder-style='font-size:28rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1); bindinput='bindKeyInput' value='{{userInput}}'>
+</input>
+
+
+<image class="img" src="../image/close.png" bindtap='clearInput'></image>
+<button class="confirm">确定</button>
+</view>
+</view>

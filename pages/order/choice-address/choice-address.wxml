@@ -1,0 +1,30 @@
+<!--pages/API/choice-address/choice-address.wxml-->
+<import src="/zanui-weapp/dist/toast/index.wxml" />
+<view class="container">
+  <view class="main-box">
+
+
+    <view class="address-ul" wx:for="{{data.list}}" wx:key="list" wx:for-index="idx">
+      <view catchtap='handelAddressSelect' data-id="{{ item.id}}" data-address="{{item.street}}">
+        <view class="ul-top">
+          <image class="check" src="{{ selectAddress==item.id ? icSelect :icUnSelect}}"></image>
+          <view class="top-name">{{item.name}}</view>
+          <view class="top-tell">{{item.mobile}}</view>
+          <image class="xiugai" src="http://image.365zhiding.com/wxapp/20171121/xiugai.png" catchtap='handelAddressEdit' data-idx="{{idx}}"></image>
+        </view>
+        <view class="ul-bottom">{{item.street}}</view>
+      </view>
+
+    </view>
+
+    <view class="bottom">
+      <view class="bottom-left">
+        <navigator open-type="redirect" url="../add-address/add-address">新增地址</navigator>
+      </view>
+      <view class="bottom-right" bindtap='back'>完成</view>
+    </view>
+
+  </view>
+  <!-- 直接使用 zan-toast 模板，并且直接传入 zanToast -->
+  <template is="zan-toast" data="{{ zanToast }}"></template>
+</view>

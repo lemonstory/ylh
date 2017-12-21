@@ -1,0 +1,131 @@
+/* pages/API/choice-person/choice-person.wxss */
+checkbox .wx-checkbox-input {
+margin-right:5px;
+-webkit-appearance:none;
+outline:0;
+border:1px solid #D1D1D1;
+background-color:#FFFFFF;
+border-radius:50%;
+width:32rpx;
+height:32rpx;
+position:relative;
+}
+
+checkbox .wx-checkbox-input.wx-checkbox-input-checked {
+color:red;
+}
+checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
+font:normal normal normal 14px/1 "weui";
+content:"\EA08";
+font-size:30rpx;
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%, -48%) scale(0.73);
+-webkit-transform:translate(-50%, -48%) scale(0.73);
+}
+
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background: #f7f7f7;
+  border-top:1rpx solid #eee;
+}
+
+.main-box {
+  width: 100%;
+  height: auto;
+  margin-top: 5rpx;
+  background: #fff;
+}
+
+.address-ul {
+  width: 690rpx;
+  height: auto;
+  border-bottom: 1rpx solid #eee;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  padding-top: 10rpx;
+}
+
+.ul-top {
+  display: flex;
+  align-items: center;
+  height: 64rpx;
+}
+
+
+
+.top-name {
+  font-size: 28rpx;
+  font-family: PingFang-SC-Regular;
+  color: rgba(51, 51, 51, 1);
+  margin-left: 31rpx;
+  width:300rpx;
+}
+
+.top-tell {
+  font-size: 28rpx;
+  font-family: PingFang-SC-Regular;
+  color: rgba(153, 153, 153, 1);
+ 
+}
+
+.xiugai {
+  width: 32rpx;
+  height: 32rpx;
+  margin-left: 420rpx;
+}
+
+.ul-bottom {
+  margin-left: 63rpx;
+  width: auto;
+  height: 54rpx;
+  font-size: 28rpx;
+  font-family: PingFang-SC-Regular;
+  color: rgba(102, 102, 102, 1);
+  line-height: 54rpx;
+  display: flex;
+}
+
+.bottom {
+  display: flex;
+  width: 100%;
+  height: 98rpx;
+  position: fixed;
+  bottom: 0;
+}
+
+.bottom-left {
+  width: 50%;
+  height: 100%;
+  background: #fff;
+  font-size: 32rpx;
+  font-family: PingFang-SC-Regular;
+  text-align: center;
+  line-height: 98rpx;
+}
+
+.bottom-right {
+  width: 50%;
+  height: 100%;
+  background: #f78210;
+  text-align: center;
+  line-height: 98rpx;
+  color: #fff;
+  font-size: 32rpx;
+  font-family: PingFang-SC-Regular;
+}
+.idcal{
+  margin-left: 58rpx;
+  color:#333;
+}
+.call{
+  margin-left: 30rpx;
+  color:#333;
+}

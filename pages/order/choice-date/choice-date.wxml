@@ -1,0 +1,148 @@
+<!--pages/API/start-order/start-order.wxml-->
+<view class="page">
+
+     <!--日历开始  -->
+     <view class="calendar">
+          <!-- 日历-月份开始 -->
+          <view class="calendar-panel">
+               <!-- <view class="day">{{canlender.date}}日</view>      -->
+               <block wx:for="{{canlenderMonthDataList}}" wx:key="canlenderMonthDataList" wx:for-index="canlenderMonthDataListIndex">
+
+                    <view class="month" data-price_list_index="{{item.priceListIndex}}" data-month_index="{{canlenderMonthDataListIndex}}" bindtap='handleTapMonthHeader'>{{item.month}}月
+                         <view class="price">￥{{item.min}}起</view>
+
+                         <view wx:if="{{canlenderMonthDataListIndex == currentSelectedMonthIndex}}">
+                              <image src="http://image.365zhiding.com/wxapp/20171220/choice.png" style='width:50rpx;height:18rpx;position:absolute;left:75rpx;bottom:-3rpx'></image>
+                         </view>
+                         <view wx:else></view>
+                    </view>
+
+               </block>
+          </view>
+          <!-- 日历-月份结束 -->
+
+          <!-- 日历-日期开始 -->
+          <view class="calendar-header">
+
+               <view class="xingqi">
+                    <view>日</view>
+                    <view>一</view>
+                    <view>二</view>
+                    <view>三</view>
+                    <view>四</view>
+                    <view>五</view>
+                    <view>六</view>
+               </view>
+          </view>
+
+          <view class="calendar-body">
+               <block wx:for="{{canlenderMonthDataList}}" wx:for-item="months" wx:key="canlenderMonthDataListItem" wx:for-index="idx">
+                    <block wx:for="{{months.canlenderData.weeks}}" wx:for-item="days" wx:key="months.canlenderData.weeks" wx:for-index="weekIndex">
+                         <view class="calender-body-date-week" wx:if="{{idx == currentSelectedMonthIndex}}">
+                              <block wx:for="{{days}}" wx:for-item="day" wx:key="item" wx:for-index="dayIndex">
+                                   <view>
+                                        <view class="date {{months.month == day.month?'active':'hidden'}} {{day.date==currentSelectedDay ? 'date-current' :''}}" data-date="{{day.date}}" date-month_index="{{currentSelectedMonthIndex}}" data-week_index="{{weekIndex}}" data-day_index="{{dayIndex}}"
+                                             bindtap='handleTapCanlenderDay'>
+                                             {{day.date}}
+                                             <block wx:if="{{day.suitList.length > 0}}">
+                                                  <view class="money active {{day.date == currentSelectedDay ? 'money-current' : ''}}">￥{{day.suitList[0].adultprice}}</view>
+                                             </block>
+                                        </view>
+                                   </view>
+                              </block>
+                         </view>
+                    </block>
+               </block>
+          </view>
+          <!-- 日历日期结束 -->
+     </view>
+     <!--日历结束-->
+
+     <!--套餐开始  -->
+     <scroll-view class="taocan" scroll-x="true">
+          <block wx:if="{{currentSuitList.length > 1}}">
+               <view class="tname {{idx == currentSuitSelectedIndex?'active-tag':''}} " wx:for="{{currentSuitList}}" wx:key="item" wx:for-index="idx" data-idx="{{idx}}" bindtap='handleSelectSuitItem'>
+                    {{item.suitName}}
+               </view>
+          </block>
+     </scroll-view>
+     <!--套餐结束  -->
+
+     <!--成人儿童类型开始  -->
+     <view class="adult" wx:if="{{currentSuitList[currentSuitSelectedIndex].adultprice > 0}}">
+          <view class="chengren">成人</view>
+          <view class="count">
+               <image class="jian" src="http://image.365zhiding.com/wxapp/20171121/jian.png" id="adult" bindtap='handleTapReduce'></image>
+               <view class="num">{{userSelectedLineDetail.tourers.subNum.adult}}</view>
+               <image class="add" src="http://image.365zhiding.com/wxapp/20171121/add.png" id="adult" bindtap='handleTapIncrease'></image>
+          </view>
+     </view>
+
+     <view class="adult" wx:if="{{currentSuitList[currentSuitSelectedIndex].childprice > 0}}">
+          <view class="chengren">儿童</view>
+          <view class="count">
+               <image class="jian" src="http://image.365zhiding.com/wxapp/20171121/jian.png" id="child" bindtap='handleTapReduce'></image>
+               <view class="num">{{userSelectedLineDetail.tourers.subNum.child}}</view>
+               <image class="add" src="http://image.365zhiding.com/wxapp/20171121/add.png" id="child" bindtap='handleTapIncrease'></image>
+          </view>
+     </view>
+
+     <view class="adult" wx:if="{{currentSuitList[currentSuitSelectedIndex].oldprice > 0}}">
+          <view class="chengren">老人</view>
+          <view class="count">
+               <image class="jian" src="http://image.365zhiding.com/wxapp/20171121/jian.png" id="old" bindtap='handleTapReduce'></image>
+               <view class="num">{{userSelectedLineDetail.tourers.subNum.old}}</view>
+               <image class="add" src="http://image.365zhiding.com/wxapp/20171121/add.png" id="old" bindtap='handleTapIncrease'></image>
+          </view>
+     </view>
+
+     <!-- 是否包含婴儿 -开始 -->
+     <view class="yanger" wx:if="{{currentSuitList[currentSuitSelectedIndex].isAllowBaby == 1}}" style='margin-bottom:130rpx'>
+          <view class="chengren">是否包含1岁以下的婴儿</view>
+          <image class="ischeck" src="{{isSelected?isSelect:isUnSelect}}" bindtap='handleTapSelectType'></image>
+     </view>
+     <!-- 是否包含婴儿 -结束 -->
+
+     <!--底部开始 -->
+     <view class="bottom">
+          <view class="bottom-left">
+               <view class='total' style='background:#fff'>总计：
+                    <view class="total-money">￥{{userSelectedLineDetail.amount / 100}}</view>
+               </view>
+               <view class="mingxi" style='background:#fff' bindtap='actionSheetChange'>明细
+                    <image src="http://image.365zhiding.com/wxapp/20171121/shang.png" class="{{isShowOptionsView?'rotate':''}}" style='width:24rpx;height:14rpx'></image>
+               </view>
+
+               <!--底部提示框  -->
+               <action-sheet hidden="{{actionSheetHidden}}" bindchange="actionSheetChange">
+                    <view class="item deli">
+                         <view class="text">价格明细</view>
+                    </view>
+                    <view class="item">
+                         <view class="text">成人费用</view>
+                         <view class="item-price">￥{{currentSuitList[currentSuitSelectedIndex].adultprice/100}}*{{userSelectedLineDetail.tourers.subNum.adult}}</view>
+                    </view>
+                    <view class="item">
+                         <view class="text">儿童费用</view>
+                         <view class="item-price">￥{{currentSuitList[currentSuitSelectedIndex].childprice/100}}*{{userSelectedLineDetail.tourers.subNum.child}}</view>
+                    </view>
+                    <view class="item">
+                         <view class="text">老人费用</view>
+                         <view class="item-price">￥{{currentSuitList[currentSuitSelectedIndex].oldprice/100}}*{{userSelectedLineDetail.tourers.subNum.child}}</view>
+                    </view>
+                    <view class="item">
+                         <view class="text">单房差</view>
+                         <view class="item-price">￥{{userSelectedLineDetail.isAddedDifference ? currentSuitList[currentSuitSelectedIndex].difference/100 : 0}}</view>
+                    </view>
+                    <view class="item ">
+                         <view class="text">发票快递费</view>
+                         <view class="item-price">￥{{userSelectedLineDetail.postage/100}}</view>
+                    </view>
+               </action-sheet>
+               <!-- 底部提示框结束 -->
+          </view>
+
+          <view class="bottom-right" bindtap='handleTapNextStep'>下一步</view>
+     </view>
+     <!--底部结束-->
+</view>

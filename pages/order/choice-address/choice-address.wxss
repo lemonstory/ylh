@@ -1,0 +1,98 @@
+/* pages/API/choice-address/choice-address.wxss */
+
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background: #f7f7f7;
+}
+
+.main-box {
+  width: 100%;
+  height: auto;
+  margin-top: 5rpx;
+  background: #fff;
+}
+
+.address-ul {
+  width: 690rpx;
+  height: auto;
+  border-bottom: 1rpx solid #eee;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  padding-bottom: 30rpx;
+  padding-top: 10rpx;
+}
+
+.ul-top {
+  display: flex;
+  align-items: center;
+  height: 64rpx;
+}
+
+.check {
+  width: 32rpx;
+  height: 32rpx;
+}
+
+.top-name {
+  font-size: 28rpx;
+  font-family: PingFang-SC-Regular;
+  color: rgba(51, 51, 51, 1);
+  margin-left: 31rpx;
+  width: 120rpx;
+}
+
+.top-tell {
+  font-size: 28rpx;
+  font-family: PingFang-SC-Regular;
+  color: rgba(153, 153, 153, 1);
+}
+
+.xiugai {
+  width: 32rpx;
+  height: 32rpx;
+  margin-left: 280rpx;
+}
+
+.ul-bottom {
+  margin-left: 63rpx;
+  width: auto;
+  height: autopx;
+  font-size: 28rpx;
+  font-family: PingFang-SC-Regular;
+  color: rgba(102, 102, 102, 1);
+}
+
+.bottom {
+  display: flex;
+  width: 100%;
+  height: 98rpx;
+  position: fixed;
+  bottom: 0;
+}
+
+.bottom-left {
+  width: 50%;
+  height: 100%;
+  background: #fff;
+  font-size: 32rpx;
+  font-family: PingFang-SC-Regular;
+  text-align: center;
+  line-height: 98rpx;
+}
+
+.bottom-right {
+  width: 50%;
+  height: 100%;
+  background: #f78210;
+  text-align: center;
+  line-height: 98rpx;
+  color: #fff;
+  font-size: 32rpx;
+  font-family: PingFang-SC-Regular;
+}

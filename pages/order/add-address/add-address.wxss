@@ -1,0 +1,101 @@
+/* pages/API/add-address/add-address.wxss */
+
+.container {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background: #f7f7f7;
+  height: 100vh;
+}
+
+.main-box {
+  width: 100%;
+  height: auto;
+  background: white;
+  margin-top: 10rpx;
+}
+
+.input-name {
+  width: 690rpx;
+  height: 84rpx;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  border-bottom: 1rpx solid #eee;
+  font-size: 28rpx;
+  font-family: PingFang-SC-Regular;
+  color: rgba(51, 51, 51, 1);
+  line-height: 84rpx;
+  display: flex;
+}
+
+.input-name input {
+  height: 84rpx;
+  line-height: 84rpx;
+  width: auto;
+}
+
+.tell input {
+  width: 500rpx;
+}
+
+.add {
+  border-bottom: none;
+}
+
+.add input {
+  width: 500rpx;
+}
+
+.bottom {
+  position: fixed;
+  left: 30rpx;
+  bottom: 30rpx;
+  width: 690rpx;
+  height: 88rpx;
+  background: #f78210;
+  font-size: 32rpx;
+  font-family: PingFang-SC-Regular;
+  color: rgba(255, 255, 255, 1);
+  text-align: center;
+  line-height: 88rpx;
+}
+
+.back {
+  width: 14rpx;
+  height: 24rpx;
+  margin-top: 34rpx;
+  margin-left: 220rpx;
+}
+
+.cicle {
+  width: 18rpx;
+  height: 18rpx;
+  border-radius: 50%;
+  border: 3rpx solid #666;
+  margin-top: 30rpx;
+  margin-left: 35rpx;
+  margin-right: 10rpx;
+}
+
+.cicle1 {
+  width: 18rpx;
+  height: 18rpx;
+  border-radius: 50%;
+  border: 3rpx solid #666;
+  margin-top: 30rpx;
+  margin-left: 40rpx;
+  margin-right: 10rpx;
+}
+
+.address {
+  background: #fff;
+  padding-left: 35rpx;
+  padding-right: 35rpx;
+  height: 88rpx;
+  margin-bottom: 1rpx;
+}

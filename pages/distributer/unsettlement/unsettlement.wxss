@@ -1,0 +1,182 @@
+/* pages/API/my-money-no/my-money-no.wxss */
+.container {
+  height: 100vh;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background: #f7f7f7;
+}
+.global{
+  width: 100%;
+  height:auto;
+  background: #fff;
+  margin-top: 5rpx;
+}
+/* 预计结算开始 */
+.money_no_header{
+  width: 100%;
+  display: flex;
+  }
+.mh_one{
+  width: 50%;
+  background: #eee;
+  font-size:30rpx;
+  font-family:PingFang-SC-Regular;
+  padding: 63rpx 0;
+  box-sizing: border-box;
+  text-align: center;
+  color: #333333 ;
+}
+.mh_two{
+  background:#EEEEEE ; 
+  color: #333333 ;
+
+}
+.money_no_header .one_{
+  margin-bottom: 19rpx;
+}
+
+.weui-bar__item_on{
+      background: #F78210;
+     color:rgba(255,255,255,1);
+}
+/* 预计结算结束 */
+
+/* <!-- 结算订单详情开始 --> */
+.order_detail{
+  width: 100%;
+  box-sizing: border-box;
+}
+.od_cates{
+  width: 100%;
+  padding: 30rpx 30rpx;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  font-size:30rpx;
+  font-family:PingFang-SC-Regular;
+  color:rgba(51,51,51,1);
+  border-bottom: 1rpx solid #EEEEEE;
+
+
+}
+/* <!-- 一个签证详情开始 --> */
+.od_cate{
+  width: 100%;
+  padding: 30rpx 30rpx;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size:24rpx;
+  font-family:PingFang-SC-Regular;
+  color:rgba(51,51,51,1);
+  border-bottom: 1rpx solid #EEEEEE;
+
+
+}
+.od_head{
+  font-size:28rpx;
+  font-family:PingFang-SC-Regular;
+  color:rgba(51,51,51,1);
+  width: 550rpx;
+   overflow: hidden;
+    white-space: nowrap;
+    text-overflow:ellipsis;
+ }
+.od_cate_money{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 19rpx;
+  color: #666666;
+  font-family: PingFang SC;
+
+}
+.od_cate_money view{
+  display: flex;
+}
+.oc_money{
+  color:#FF6600; 
+}
+.od_qianzheng{
+  font-size:24rpx;
+  font-family:PingFang-SC-Regular;
+  color:rgba(51,51,51,1);
+
+}
+.line{
+width:2rpx;
+height:100rpx; 
+background:rgba(238,238,238,1);
+}
+/* <!-- 一个签证详情结束 --> */
+    
+/* <!-- 结算订单详情结束 --> */
+
+
+/* <!-- 按钮-发送邮箱离开始 --> */
+.button{
+  width:100%;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+  position: absolute;
+  bottom: 30rpx;
+  
+}
+.button view{
+  border-radius: 10rpx;
+  padding:30rpx 0;
+  box-sizing: border-box;
+  background: #F78210 ;
+  font-size:32rpx;
+  font-family:PingFang-SC-Regular;
+  color:rgba(255,255,255,1);
+  text-align: center;
+  }
+/* 选项卡开始 */
+.hidden-box{
+  width: 750rpx;
+  height:100vh;
+  position:absolute;
+  background: #000;
+  opacity: 0.4;
+  z-index: 99;
+}
+.hidden{
+width: 750rpx;
+height:auto;
+background: #fff;
+position: absolute;
+z-index: 999;
+padding-left:60rpx;
+padding-right: 60rpx;
+}
+.hidden-li{
+  width: 630rpx;
+  height:84rpx;
+  border-bottom:1rpx solid #eee;
+  font-size:28rpx;
+  font-family:PingFang-SC-Regular;
+  color:#333333;
+  line-height: 84rpx;
+
+}
+.hide{
+ display:none;
+}
+.show{ 
+ display: block;
+}
+.rotate{
+transform: rotate(180deg);
+}
+.choosedbtn{
+  color:#FF6600;
+}
+
+/* 选项卡结束 */
+
+/* 弹出框结束 */
+

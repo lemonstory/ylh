@@ -1,0 +1,5 @@
+<!--pages/API/logo/logo.wxml-->
+<view class="container">
+<image class="logo-img" src="{{tempFilePaths}}" mode='aspectFill'></image>
+<button class="bottom" bindtap="chooseimage">获取图片</button>
+</view>

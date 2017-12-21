@@ -1,0 +1,48 @@
+/* pages/API/empower/empower.wxss */
+.container {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  border-top:1rpx solid #eee;
+  height: 100vh;
+  position: relative;
+}
+.image-order{
+  width: 338rpx;
+  height:312rpx;
+  position: absolute;
+  top:214rpx;
+  left:214rpx;   
+}
+.message{
+width:442rpx;
+height:40rpx; 
+font-size:38rpx;
+font-family:PingFangSC-Regular;
+position: absolute;
+top:573rpx;
+left:154rpx;
+color:rgba(102,102,102,1);
+}
+button{
+     position: fixed;
+     bottom:200rpx;
+     left:30rpx;
+     height:88rpx;
+     width:690rpx; 
+  
+}
+.weixin{
+     position: absolute;
+     top:0;
+     left:0;
+     height:88rpx;
+     width:690rpx;
+     z-index: 999;
+}

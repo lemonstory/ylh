@@ -99,7 +99,6 @@
 
 
 
-    "pages/user/order-detail/order-detail",
     "pages/user/send-code/send-code",
     "pages/user/visitor/visitor",
     "pages/user/wx-mobile/wx-mobile",

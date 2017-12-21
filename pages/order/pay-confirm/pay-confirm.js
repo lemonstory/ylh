@@ -135,7 +135,7 @@ Page(Object.assign({}, Toast, {
       complete: function (res) {
 
         wx.hideLoading();
-        var url = '/pages/API/pay-sucess/pay-sucess';
+        var url = '/pages/order/pay-sucess/pay-sucess';
         wx.navigateTo({
           url: url,
           success: function (res) { },

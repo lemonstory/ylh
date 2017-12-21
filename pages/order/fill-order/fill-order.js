@@ -303,7 +303,7 @@ Page(Object.assign({}, Toast, {
     var that = this;
     if (that.checkInput()) {
 
-      var url = '../pay-confirm/pay-confirm';
+      var url = '/pages/order/pay-confirm/pay-confirm';
       console.log("url = " + url);
       wx.navigateTo({
         url: url,

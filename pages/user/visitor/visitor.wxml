@@ -28,7 +28,7 @@
                <view>定制师规划</view>
                <view>定制师规划</view>
           </view>
-          <navigator url="../API/order-require/order-require">
+          <navigator url="/pages/customized/index/index">
                <view class="more2">开始定制
                     <view class="jiantou">
                          <image src="../../image/jiantou.png"></image>

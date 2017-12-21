@@ -1,6 +1,8 @@
 {
   "pages": [
     
+    "pages/line/index/index",
+
     "pages/API/line/line",
     "pages/API/empower/empower",
     "pages/API/tell/tell",
@@ -57,8 +59,7 @@
     "pages/customized/car-require/car-require",
     "pages/customized/food-require/food-require",
     "pages/customized/hotel-require/hotel-require",
-    "pages/customized/public-active/hotel-require",
-    "pages/customized/air-tickethotel-require",
+    "pages/customized/public-active/public-active",
     
 
     "pages/distributer/commission/commission",
@@ -75,7 +76,7 @@
     "pages/index/index",
 
     "pages/line/category/category",
-    "pages/line/index/index",
+    
     "pages/line/leader-introduce/leader-introduce",
     "pages/line/line-detail/line-detail",
     "pages/line/line-list/line-list",
@@ -114,13 +115,13 @@
     "selectedColor": "#FF6600",
     "list": [
       {
-        "pagePath": "pages/API/line/line",
+        "pagePath": "pages/line/index",
         "text": "线路",
         "iconPath": "pages/image/3.png",
         "selectedIconPath": "pages/image/4.png"
       },
       {
-        "pagePath": "pages/API/my/my",
+        "pagePath": "pages/user/index/index",
         "text": "我的",
         "iconPath": "pages/image/7.png",
         "selectedIconPath": "pages/image/8.png"

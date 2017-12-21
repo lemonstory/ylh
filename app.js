@@ -18,7 +18,7 @@ App({
     if (options.scene == 1035 && !utils.isDistributerLogin()) {
 
       wx: wx.redirectTo({
-        url: '../pages/API/login/login',
+        url: '/pages/distributer/login/login',
         success: function (res) { },
         fail: function (res) {
           console.warn(res);
@@ -161,7 +161,7 @@ App({
 
         //跳转到订单查询
         wx: wx.redirectTo({
-          url: '../pages/API/visa-find/visa-find',
+          url: '/pages/user/visitor/visitor',
           success: function (res) { },
           fail: function (res) {
             console.warn(res);

@@ -235,7 +235,7 @@ Page(Object.assign({}, Toast, {
   handleTapNextStep: function () {
 
     var that = this;
-    var url = '../hotel-require/hotel-require';
+    var url = '/pages/customized/hotel-require/hotel-require';
     wx.redirectTo({
       url: url,
       success: function (res) { },

@@ -21,20 +21,20 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
+			"current": 1,
 			"list": [
 				{
-					"id": -1,
+					"id": 0,
 					"name": "悦旅会-公众号-代理商菜单",
-					"pathName": "pages/API/line/line",
+					"pathName": "pages/line/index/index",
 					"query": "",
 					"scene": "1035",
 					"referrerInfo": {}
 				},
 				{
-					"id": -1,
+					"id": 1,
 					"name": "悦旅会-分享-卡片",
-					"pathName": "pages/API/line/line",
+					"pathName": "pages/line/index/index",
 					"query": "distributerId=119",
 					"scene": "1036",
 					"referrerInfo": {}

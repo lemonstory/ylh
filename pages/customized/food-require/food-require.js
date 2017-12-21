@@ -207,7 +207,7 @@ Page(Object.assign({}, Toast, {
    */
   handleTapPreStep: function () {
     var that = this;
-    var url = '../car-require/car-require';
+    var url = '/pages/customized/car-require/car-require';
     wx.redirectTo({
       url: url,
       success: function (res) { },
@@ -225,7 +225,7 @@ Page(Object.assign({}, Toast, {
   handleTapNextStep: function () {
 
     var that = this;
-    var url = '../public-active/public-active';
+    var url = '/pages/customized/public-active/public-active';
     wx.redirectTo({
       url: url,
       success: function (res) { },

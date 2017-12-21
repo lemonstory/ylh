@@ -238,10 +238,12 @@ Page(Object.assign({}, Toast, {
     console.log(that.data.addressInfo);
   },
 
+
   /**
-   *  监听地址点击事件
+   * 地址选择框的隐藏和显示
    */
-  handelAddressTap: function (e) {
+
+  hideOrShowAddressPicker:function(){
     var that = this;
     var isShow = that.data.isAddressPickShow;
     console.log(isShow)
@@ -253,6 +255,58 @@ Page(Object.assign({}, Toast, {
     that.setData({
       isAddressPickShow: isShow,
     })
+  },
+
+  /**
+   * 判断当前地址是否选择完整
+   */
+  addressIsWhole:function(){
+    var that = this;
+    var isWhole = true;
+    if (that.data.city.length >0){
+      if (that.data.selectCityId == 0 || that.data.value2Defult == "市" ){
+        isWhole = false;
+      }
+    }
+    if (that.data.district.length > 0){
+      if (that.data.selectDistrictId == 0 || that.data.value3Defult == "区" ){
+        isWhole = false;
+      }
+    }
+    return isWhole;
+  },
+
+  /**
+   *  监听地址点击事件
+   */
+  handelAddressTap: function (e) {
+    var that = this;
+    that.hideOrShowAddressPicker();
+  },
+
+  /***
+ *  处理点击地址确定
+ */
+  handelAddressCommit: function (e) {
+    var that = this;
+    if (that.addressIsWhole()){
+      that.hideOrShowAddressPicker();
+      // 处理地址赋值
+    }else{
+      that.showZanToast("请完善地址！");
+    }
+  },
+
+
+
+  /**
+   * 处理地址点击取消
+   */
+
+  handelAddressDis: function (e) {
+    var that = this;
+    that.hideOrShowAddressPicker();
+
   },
 
   /**

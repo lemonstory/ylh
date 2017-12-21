@@ -13,7 +13,8 @@ Page(Object.assign({}, Toast, {
     show: false,
 
     isDistributer: false,
-    isOwnDistributerId: false
+    isOwnDistributerId: false,
+    isOwnAccessToken: false,
   },
 
 
@@ -45,13 +46,14 @@ Page(Object.assign({}, Toast, {
     //用户为非代理商
     if (!that.data.isDistributer) {
       that.setData({
-        isOwnDistributerId: util.isOwnDistributerId()
+        isOwnDistributerId: util.isOwnDistributerId(),
+        isOwnAccessToken: util.isOwnAccessToken()
       })
 
       //用户没有代理商id
       if (!that.data.isOwnDistributerId) {
         wx: wx.redirectTo({
-          url: '../personal-order/personal-order',
+          url: '/pages/user/visitor/visitor',
           success: function (res) { },
           fail: function (res) { },
           complete: function (res) { },
@@ -59,12 +61,15 @@ Page(Object.assign({}, Toast, {
       } else {
 
         //用户有代理商Id但未注册
-        wx: wx.redirectTo({
-          url: '../empower/empower',
-          success: function (res) { },
-          fail: function (res) { },
-          complete: function (res) { },
-        })
+        console.log(that.data);
+        if (!that.data.isOwnAccessToken) {
+          wx: wx.redirectTo({
+            url: '/pages/user/wx-mobile/wx-mobile',
+            success: function (res) { },
+            fail: function (res) { },
+            complete: function (res) { },
+          })
+        }
       }
     }
     console.log(that.data);
@@ -103,6 +108,7 @@ Page(Object.assign({}, Toast, {
    */
   onShareAppMessage: function () {
 
+    //TODO:测试使用
     return {
       title: 'AA自定义转发标题',
       path: '/pages/API/my/my?distributerId=123',
@@ -123,7 +129,7 @@ Page(Object.assign({}, Toast, {
 
   modalBindaconfirm: function () {
     wx.navigateTo({
-      url: '../next-management/next-management'
+      url: '/pages/distributer/subordinate/subordinate'
     })
   },
 

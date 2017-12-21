@@ -1,6 +1,7 @@
 // pages/API/my-order/my-order.js
 const app = getApp();
 const Toast = require('../../../zanui-weapp/dist/toast/index');
+var util = require('../../../utils/util.js');
 Page(Object.assign({}, Toast, {
   data: {
 
@@ -75,7 +76,7 @@ Page(Object.assign({}, Toast, {
   getCommonData: function () {
     var that = this;
     if (that.data.commonPageIndex <= that.data.commonPageCount) {
-      var url = that.data.constant.domain + "/distrbuter/member/order/list/1/ " + that.data.commonPageIndex + "/ " + that.data.pageSize;
+      var url = that.data.constant.domain + "/distrbuter/member/order/list/1/" + that.data.commonPageIndex + "/" + that.data.pageSize;
       wx.request({
         url: url,
         data: {},
@@ -112,7 +113,11 @@ Page(Object.assign({}, Toast, {
    */
   getCustomData: function () {
     var that = this;
-    var url = that.data.constant.domain + "/distrbuter/member/order/list/100/ " + that.data.customPageIndex + "/" + that.data.pageSize;
+    var url = that.data.constant.domain + "/distrbuter/member/order/list/100/" + that.data.customPageIndex + "/" + 
+    that.data.pageSize;
+    var head = util.getRequestHeader();
+    console.log("00000000000000000000000000+");
+    console.log(head);
     wx.request({
       url: url,
       data: {},

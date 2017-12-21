@@ -266,7 +266,9 @@ function isOwnAccessToken() {
 
   var ret = false;
   try {
-    var accessTokenValue = wx.getStorageSync('access_token')
+
+    var userAccessData = getUserAccessData();
+    var accessTokenValue = userAccessData.access_token;
     if (!isEmptyStr(accessTokenValue)) {
       ret = true;
     }
@@ -323,6 +325,21 @@ function isDistributerLogin() {
   return false;
 }
 
+/**
+ * 跳转url是否为web
+ */
+function isHttpUrl(url) {
+
+  console.log("url = " + url);
+  if (!isEmptyStr(url)) {
+    var startIndex = url.indexOf("http");
+    if (startIndex == 0) {
+      return true;
+    }
+  }
+  return false;
+}
+
 
 
 module.exports = {
@@ -342,6 +359,7 @@ module.exports = {
 
   isEmptyObject: isEmptyObject,
   isEmptyStr: isEmptyStr,
+  isHttpUrl: isHttpUrl,
 
   isDistributer: isDistributer,
   isOwnDistributerId: isOwnDistributerId,

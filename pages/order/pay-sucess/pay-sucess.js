@@ -5,37 +5,40 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
+
+  },
   
+  orderDetail: function () {
+    wx.redirectTo({
+      url: '/pages/order/order-detail/order-detail',
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
   },
-  orderDetail:function(){
-   wx.redirectTo({
-        url: '../order-detail/order-detail',
-        success: function(res) {},
-        fail: function(res) {},
-        complete: function(res) {},
-   })
-  },
-  travelMessage:function(){
-       wx.redirectTo({
-            url: '../travel-mess/travel-mess',
-            success: function (res) { },
-            fail: function (res) { },
-            complete: function (res) { },
-       })
+
+  //TODO:这里待确定
+  travelMessage: function () {
+    wx.redirectTo({
+      url: '../travel-mess/travel-mess',
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
   },
 
 
@@ -44,41 +47,41 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-  
+
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-  
+
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
+
   },
 
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+
   }
 })

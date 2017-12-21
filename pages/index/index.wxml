@@ -1,140 +1,135 @@
 <!--index.wxml-->
 <import src="/zanui-weapp/dist/toast/index.wxml" />
 <view class="container">
-     <view class="banner">
-          <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-               <block wx:for="{{banner}}" wx:key="banner" wx:for-index="idx">
-                    <swiper-item data-src="{{item.url}}" bindtap="handleBanner" data-index="{{idx}}" data-id="{{item.id}}">
-                         <image src="{{item.image}}" class="slide-image" width="750rpx" height="350rpx" />
-                    </swiper-item>
-               </block>
-          </swiper>
+  <view class="banner">
+    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+      <block wx:for="{{banner}}" wx:key="banner" wx:for-index="idx">
+        <swiper-item data-src="{{item.url}}" bindtap="handleBanner" data-index="{{idx}}" data-id="{{item.id}}">
+          <image src="{{item.image}}" class="slide-image" width="750rpx" height="350rpx" />
+        </swiper-item>
+      </block>
+    </swiper>
 
-          <view class="search" bindtap='bindSearch'>
-               <view id="myInput" style='font-size:24rpx; color:#fff;opacity:0.8;padding-left:72rpx;line-height:'>搜索国家或地区</view>
-               <view class="search-icon">
-                    <image src="http://image.365zhiding.com/wxapp/20171112/sou.png"></image>
-               </view>
+    <view class="search" bindtap='bindSearch'>
+      <view id="myInput" style='font-size:24rpx; color:#fff;opacity:0.8;padding-left:72rpx;line-height:'>搜索国家或地区</view>
+      <view class="search-icon">
+        <image src="http://image.365zhiding.com/wxapp/20171112/sou.png"></image>
+      </view>
+    </view>
+  </view>
+
+  <view class="box">
+    <swiper class="swiper_container" vertical="true" autoplay="true" circular="true" interval="2000">
+      <block wx:for="{{ad}}" wx:key="item">
+        <swiper-item data-src="{{item.url}}" bindtap="handleAd">
+          <view class="swiper_item">{{item.key}}:{{item.title}}</view>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+
+  <!--推举线路开始  -->
+  <view class="section">
+    <view class="tuijian">
+      <view class="react"></view>推荐线路
+      <view class="react1"></view>
+    </view>
+
+    <view class="ul" wx:for="{{lineList}}" bindtap='bindAddressDetail' wx:for-index="idx" data-id='{{item.lineId}}' wx:key="item">
+      <view class="tuijuan-img">
+        <image src="{{item.image}}" mode='aspectFill'></image>
+      </view>
+      <view class="tuijuan-text">
+        <view class="text1">{{item.title}}</view>
+        <view class="tuijuan-bottom">
+          <view class="text2">¥{{item.price}}
+            <view class="person">/人起</view>
           </view>
-     </view>
+          <view class="address">{{item.areaName}}</view>
+        </view>
+      </view>
+    </view>
 
-     <view class="box">
-          <swiper class="swiper_container" vertical="true" autoplay="true" circular="true" interval="2000">
-               <block wx:for="{{ad}}" wx:key="item">
-                    <navigator url="/pages/index/index?title={{item.url}}" open-type="navigate">
-                         <swiper-item>
-                              <view class="swiper_item">{{item.key}}:{{item.title}}</view>
-                         </swiper-item>
-                    </navigator>
-               </block>
-          </swiper>
-     </view>
-
-     <!--推举线路开始  -->
-     <view class="section">
-          <view class="tuijian">
-               <view class="react"></view>推荐线路
-               <view class="react1"></view>
-          </view>
-
-          <view class="ul" wx:for="{{lineList}}" bindtap='bindAddressDetail' wx:for-index="idx" data-id='{{item.lineId}}' wx:key="item">
-               <view class="tuijuan-img">
-                    <image src="{{item.image}}" mode='aspectFill'></image>
-               </view>
-               <view class="tuijuan-text">
-                    <view class="text1">{{item.title}}</view>
-                    <view class="tuijuan-bottom">
-                         <view class="text2">¥{{item.price}}
-                              <view class="person">/人起</view>
-                         </view>
-                         <view class="address">{{item.areaName}}</view>
-                    </view>
-               </view>
-          </view>
-
-          <navigator url="../API/line-list/line-list">
-               <view class="more">
-                    查看更多
-                    <view class="jiantou">
-                         <image src="../image/jiantou.png"></image>
-                    </view>
-               </view>
-          </navigator>
-     </view>
+    <navigator url="../API/line-list/line-list">
+      <view class="more">
+        查看更多
+        <view class="jiantou">
+          <image src="../image/jiantou.png"></image>
+        </view>
+      </view>
+    </navigator>
+  </view>
 
 
-     <!--推荐线路结束-->
+  <!--推荐线路结束-->
 
-     <!--热门签证开始  -->
-     <view class="qianzheng">
-          <view class="tuijian">
-               <view class="react rr1"></view>
-               <navigator url="../API/visa-find/visa-find">热门签证</navigator>
-               <view class="react1 rr2"></view>
-          </view>
-          <view class="main" wx:for="{{visaList}}" wx:key="visaList" bindtap='handleTapVisaItem'>
-               <view class="qian-left">
-                    <image src="{{item.image}}"></image>
-               </view>
-               <view class="qian-right">
-                    <view class="youqian">{{item.title}}</view>
-                    <view class="qian-bottom">
-                         <view class="price">￥{{item.price}}</view>
-                         <view class="radio">
-                              <view class="chu">出签率：</view>{{item.rate}}</view>
-                    </view>
-               </view>
-          </view>
-          <view class="more1" bindtap='handleTapVisaListMore'>
-               查看更多
-               <view class="jiantou">
-                    <image src="../image/jiantou.png"></image>
-               </view>
-          </view>
-     </view>
-     <!--热门签证结束-->
+  <!--热门签证开始  -->
+  <view class="qianzheng">
+    <view class="tuijian">
+      <view class="react rr1"></view>
+      <navigator url="../API/visa-find/visa-find">热门签证</navigator>
+      <view class="react1 rr2"></view>
+    </view>
+    <view class="main" wx:for="{{visaList}}" wx:key="visaList" bindtap='handleTapVisaItem'>
+      <view class="qian-left">
+        <image src="{{item.image}}"></image>
+      </view>
+      <view class="qian-right">
+        <view class="youqian">{{item.title}}</view>
+        <view class="qian-bottom">
+          <view class="price">￥{{item.price}}</view>
+          <view class="radio">
+            <view class="chu">出签率：</view>{{item.rate}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="more1" bindtap='handleTapVisaListMore'>
+      查看更多
+      <view class="jiantou">
+        <image src="../image/jiantou.png"></image>
+      </view>
+    </view>
+  </view>
+  <!--热门签证结束-->
 
-     <!--私人定制开始  -->
-     <view class="personal">
-          <view class="tuijian">
-               <view class="react "></view>私人定制
-               <view class="react1 "></view>
-          </view>
-          <view class="ask">如果你有明确的出行需求，可直接和定制师沟通</view>
-          <view class="per-icon">
-               <view class="goutong">
-                    <image src="http://image.365zhiding.com/wxapp/20171110/gongtong.png"></image>
-               </view>
-               <view class="go">
-                    <image src="http://image.365zhiding.com/wxapp/20171110/go.png"></image>
-               </view>
-               <view class="goutong">
-                    <image src="http://image.365zhiding.com/wxapp/20171110/pl.png"></image>
-               </view>
-               <view class="go">
-                    <image src="http://image.365zhiding.com/wxapp/20171110/go.png"></image>
-               </view>
-               <view class="goutong">
-                    <image src="http://image.365zhiding.com/wxapp/20171110/chu.png"></image>
-               </view>
-          </view>
-          <view class="per-font">
-               <view>沟通出行意向</view>
-               <view>定制师规划</view>
-               <view>定制师规划</view>
-          </view>
-          <navigator url="../API/order-require/order-require">
-               <view class="more2">开始定制
-                    <view class="jiantou">
-                         <image src="../image/jiantou.png"></image>
-                    </view>
-               </view>
-          </navigator>
-     </view>
+  <!--私人定制开始  -->
+  <view class="personal">
+    <view class="tuijian">
+      <view class="react "></view>私人定制
+      <view class="react1 "></view>
+    </view>
+    <view class="ask">如果你有明确的出行需求，可直接和定制师沟通</view>
+    <view class="per-icon">
+      <view class="goutong">
+        <image src="http://image.365zhiding.com/wxapp/20171110/gongtong.png"></image>
+      </view>
+      <view class="go">
+        <image src="http://image.365zhiding.com/wxapp/20171110/go.png"></image>
+      </view>
+      <view class="goutong">
+        <image src="http://image.365zhiding.com/wxapp/20171110/pl.png"></image>
+      </view>
+      <view class="go">
+        <image src="http://image.365zhiding.com/wxapp/20171110/go.png"></image>
+      </view>
+      <view class="goutong">
+        <image src="http://image.365zhiding.com/wxapp/20171110/chu.png"></image>
+      </view>
+    </view>
+    <view class="per-font">
+      <view>沟通出行意向</view>
+      <view>定制师规划</view>
+      <view>定制师规划</view>
+    </view>
+    <navigator url="../API/order-require/order-require">
+      <view class="more2">开始定制
+        <view class="jiantou">
+          <image src="../image/jiantou.png"></image>
+        </view>
+      </view>
+    </navigator>
+  </view>
 
-     <!-- 直接使用 zan-toast 模板，并且直接传入 zanToast -->
-     <template is="zan-toast" data="{{ zanToast }}"></template>
+  <!-- 直接使用 zan-toast 模板，并且直接传入 zanToast -->
+  <template is="zan-toast" data="{{ zanToast }}"></template>
 </view>
-
-
-

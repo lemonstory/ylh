@@ -1,57 +1,58 @@
 <!--pages/API/new-add-address/new-add-address.wxml-->
 <import src="/zanui-weapp/dist/toast/index.wxml" />
 <view class="container">
-<view class="main-box">
-  <view class="input-name">联系人：
-      <input class="input" placeholder="收货人姓名" placeholder-style="margin-left:59rpx;font-size:26rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);" value="{{addressInfo.name}}" id = 'name'
-       bindinput='handelTextChanged'></input>
+  <view class="main-box">
+    <view class="input-name">联系人：
+      <input class="input" placeholder="收货人姓名" placeholder-style="margin-left:59rpx;font-size:26rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);" value="{{addressInfo.name}}" id='name' bindinput='handelTextChanged'></input>
       <view class="cicle"></view>
       <view class="man">先生</view>
       <view class="cicle1"></view>
       <view class="man">女士</view>
 
+    </view>
+
+    <view class="input-name tell">手机号码：
+      <input class="input" bindinput='validatemobile' placeholder="环球悦旅会联系您的电话" placeholder-style="margin-left:30rpx;font-size:26rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);" value="{{ addressInfo.mobile}}" id='mobile' bindinput='handelTextChanged'></input>
+    </view>
+
+    <view class="input-name">常用邮箱：
+      <input class="input" placeholder="请输入您的邮箱" placeholder-style="margin-left:30rpx;font-size:26rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);" value="{{ addressInfo.email}}" id='email' bindinput='handelTextChanged'></input>
+    </view>
+
+    <view class="input-name" bindtap="handelAddressTap">所在城市：
+      <input class="input" placeholder="请选择城市" placeholder-style="margin-left:30rpx;font-size:26rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);" value="{{addressDetail}}" disabled="{{true}}" id='addres'></input>
+
+      <image class="back" src="http://image.365zhiding.com/wxapp/20171114/1.png"></image>
+
+    </view>
+
+
+    <view class="input-name add">详细地址：
+      <input class="input" placeholder="请输入楼号门牌号等详细信息" placeholder-style="margin-left:30rpx;font-size:26rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);" value="{{addressInfo.street}}" id='street' bindinput='handelTextChanged'></input>
+    </view>
   </view>
 
- <view class="input-name tell">手机号码：
-      <input class="input" bindinput='validatemobile' placeholder="环球悦旅会联系您的电话" placeholder-style="margin-left:30rpx;font-size:26rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);" value="{{ addressInfo.mobile}}" id='mobile' 
-       bindinput='handelTextChanged'></input>
-  </view>
-
- <view class="input-name">常用邮箱：
-      <input class="input" placeholder="请输入您的邮箱" placeholder-style="margin-left:30rpx;font-size:26rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);" value="{{ addressInfo.email}}" id='email'
-       bindinput='handelTextChanged'></input>
-  </view> 
-
-<view class="input-name" bindtap="handelAddressTap">所在城市：
-      <input class="input" placeholder="请选择城市" placeholder-style="margin-left:30rpx;font-size:26rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);"  value="{{addressDetail}}"  disabled="{{true}}" id='addres'></input>
-      
-  <image class="back" src="http://image.365zhiding.com/wxapp/20171114/1.png"></image>
-           
-</view> 
-
-
-<view class="input-name add"  >详细地址：
-      <input class="input"  placeholder="请输入楼号门牌号等详细信息" placeholder-style="margin-left:30rpx;font-size:26rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);" value = "{{addressInfo.street}}" id='street' 
-      bindinput='handelTextChanged'></input>
-  </view> 
-</view>
-
-<view class="bottom" bindtap='handleSubmit'>保存</view>
+  <view class="bottom" bindtap='handleSubmit'>保存</view>
 
 
   <view wx:if="{{isAddressPickShow}}" style="width: 100%; height: 300px;">
-  <view   class=".address">{{address.province.id!=0?address.province.name:value1Defult}} - {{address.city.id!=0?address.city.name:value2Defult}} - {{address.district.id!=0?address.district.name:value3Defult}}</view>
-  <picker-view indicator-style="height: 40px;" style="width: 100%; height: 240px;"value="{{value}}" bindchange="handleSelectChange">
-    <picker-view-column>
-      <view wx:for="{{province}}" style="line-height: 40px" wx:key="province">{{item.name}}</view>
-    </picker-view-column>
-    <picker-view-column>
-      <view wx:for="{{city}}" style="line-height: 40px" wx:key="city">{{item.name}}</view>
-    </picker-view-column>
-    <picker-view-column>
-      <view wx:for="{{district}}" style="line-height: 40px" wx:key="district">{{item.name}}</view>
-    </picker-view-column>
-  </picker-view>
-</view>
+    <view>
+      <view  catchtap='handelAddressDis'> 取消</view>
+
+      <view catchtap='handelAddressCommit'> 完成</view>
+    </view>
+    <view class=".address">{{address.province.id!=0?address.province.name:value1Defult}} - {{address.city.id!=0?address.city.name:value2Defult}} - {{address.district.id!=0?address.district.name:value3Defult}}</view>
+    <picker-view indicator-style="height: 40px;" style="width: 100%; height: 240px;" value="{{value}}" bindchange="handleSelectChange">
+      <picker-view-column>
+        <view wx:for="{{province}}" style="line-height: 40px" wx:key="province">{{item.name}}</view>
+      </picker-view-column>
+      <picker-view-column>
+        <view wx:for="{{city}}" style="line-height: 40px" wx:key="city">{{item.name}}</view>
+      </picker-view-column>
+      <picker-view-column>
+        <view wx:for="{{district}}" style="line-height: 40px" wx:key="district">{{item.name}}</view>
+      </picker-view-column>
+    </picker-view>
+  </view>
   <template is="zan-toast" data="{{ zanToast }}"></template>
 </view>

@@ -117,11 +117,13 @@ Page(Object.assign({}, Toast, {
       url: path
     })
   },
+  
   intervalChange: function (e) {
     this.setData({
       interval: e.detail.value
     })
   },
+
   durationChange: function (e) {
     this.setData({
       duration: e.detail.value
@@ -130,12 +132,20 @@ Page(Object.assign({}, Toast, {
 
   // 处理banner图点击事件
   handleBanner: function (event) {
+
+    var that = this;
     var src = event.currentTarget.dataset.src;
-    console.log(src)
-    var path = "/pages/web-view/web-view?src=" + src;
-    wx.navigateTo({
-      url: path
-    })
+    that.navigateToUrl(src);
+  },
+
+  /**
+   * 广告-点击
+   */
+  handleAd: function (event) {
+
+    var that = this;
+    var src = event.currentTarget.dataset.src;
+    that.navigateToUrl(src);
   },
 
   //处理用户搜索事件
@@ -160,5 +170,33 @@ Page(Object.assign({}, Toast, {
     var that = this;
     that.showZanToast("数据未提供");
   },
+
+  /**
+  * 跳转url
+  */
+  navigateToUrl: function (url) {
+
+    var path
+    if (!util.isEmptyStr(url)) {
+
+      if (util.isHttpUrl(url)) {
+        path = "/pages/web-view/web-view?src=" + url;
+      } else {
+        path = url;
+      }
+
+      wx.navigateTo({
+        url: path
+      })
+
+    } else {
+
+      console.warn("url为空")
+      //测试
+      that.showZanToast("url为空");
+    }
+
+  },
+
 
 }));

@@ -14,6 +14,26 @@ Page(Object.assign({}, Toast, {
 
     //上一个页面的数据
     prevPageData: {},
+
+    //收银台提交的数据
+    prepayPostData: {
+      "prepayBody": {
+        "mchId": 0,
+        "orderNo": "",
+        "orderFee": "",
+        "feeType": "",
+        "productId": "",
+        "body": "",
+        "spbillCreateIp": "",
+        "expireTime": 123456789,
+        "notifyUrl": "",
+        "userId": "",
+        "sign": ""
+      },
+      "tradeType": app.constant.paymentTradeType,
+      "sysSource": app.constant.paymentSysSource,
+      "openId": ''
+    },
   },
 
   /**
@@ -28,7 +48,8 @@ Page(Object.assign({}, Toast, {
 
     var prevPageDataTemp = prevPage.data;
     that.setData({
-      prevPageData: prevPageDataTemp
+      prevPageData: prevPageDataTemp,
+      'prepayPostData.openId': util.getWxOpenId()
     })
   },
 
@@ -101,6 +122,7 @@ Page(Object.assign({}, Toast, {
   */
   handleTapPayment: function () {
 
+    console.log("💥 💥 💥 handleTapPayment")
     var that = this;
     wx.showLoading({
       title: '加载中',
@@ -116,14 +138,67 @@ Page(Object.assign({}, Toast, {
 
       success: function (res) {
 
-        wx.showToast({
-          title: '成功',
-          icon: 'success',
-          duration: 2000
+        console.log("🍺 🍺 🍺 [成功] 用户创建线路订单接口")
+        console.log(res);
+        that.setData({
+          'prepayPostData.prepayBody': res.data,
         })
 
-        console.log("🍺 🍺 🍺")
-        console.log(res);
+        //调用收银台接口
+        var url = that.data.constant.payDomain + '/prepay';
+        wx.request({
+          url: url,
+          data: that.data.prepayPostData,
+          method: 'POST',
+          header: util.postRequestHeader(),
+
+          success: function (res) {
+
+            console.log("🍺 🍺 🍺 [成功] 调用收银台接口")
+            console.log(res);
+
+            //调用微信支付
+            if (util.isEmptyObject(res.data.getwayBody)) {
+              wx.requestPayment({
+                'timeStamp': res.data.getwayBody.timeStamp,
+                'nonceStr': res.data.getwayBody.nonceStr,
+                'package': res.data.getwayBody.package,
+                'signType': res.data.getwayBody.signType,
+                'paySign': res.data.getwayBody.paySign,
+                'success': function (res) {
+                  console.log("🍺 🍺 🍺 [成功] 调用微信支付")
+                },
+                'fail': function (res) {
+                  var res = JSON.stringify(res);
+                  that.showZanToast(res);
+                }
+              })
+            }else{
+              that.showZanToast("getwayBody 为空");
+              console.error("收银台接口返回数据错误：getwayBody 为空");
+            }
+          },
+
+          fail: function (res) {
+            //测试
+            var res = JSON.stringify(res);
+            that.showZanToast(res);
+          },
+
+          complete: function (res) {
+            // wx.hideLoading();
+            // var url = '/pages/order/pay-sucess/pay-sucess';
+            // wx.navigateTo({
+            //   url: url,
+            //   success: function (res) { },
+            //   fail: function (res) {
+            //     console.error(res);
+            //     that.showZanToast("页面跳转错误");
+            //   },
+            //   complete: function (res) { },
+            // })
+          }
+        })
       },
 
       fail: function (res) {
@@ -132,20 +207,7 @@ Page(Object.assign({}, Toast, {
         that.showZanToast(res);
       },
 
-      complete: function (res) {
-
-        wx.hideLoading();
-        var url = '/pages/order/pay-sucess/pay-sucess';
-        wx.navigateTo({
-          url: url,
-          success: function (res) { },
-          fail: function (res) {
-            console.log(res);
-            that.showZanToast("页面跳转错误");
-          },
-          complete: function (res) { },
-        })
-      }
+      complete: function (res) { }
     });
   }
 }));

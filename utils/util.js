@@ -173,6 +173,8 @@ function getUserAccessData() {
   return userAccessDataValue;
 }
 
+
+
 function isEmptyObject(e) {
   var t;
   for (t in e)
@@ -280,6 +282,25 @@ function isOwnAccessToken() {
 
 }
 
+/**
+ * 获取微信OpenId
+ */
+function getWxOpenId() {
+
+  var openId = '';
+  try {
+
+    var userAccessData = getUserAccessData();
+    openId = userAccessData.openId;
+  
+  } catch (e) {
+  
+    console.error(e);
+  }
+
+  return openId;
+}
+
 
 /**
  * 设置代理商ID-异步
@@ -367,6 +388,7 @@ module.exports = {
   isDistributerLogin: isDistributerLogin,
   setDistributerId: setDistributerId,
   getDistributerId: getDistributerId,
+  getWxOpenId: getWxOpenId,
 
 
 }

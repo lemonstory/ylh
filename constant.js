@@ -1,6 +1,10 @@
 var constant = {
 
+  //业务域名
   "domain": "https://qa-api.yuelvhui.com",
+  
+  //收银台域名
+  "payDomain": "https://payment.yuelvhui.com/prepay",
   //代理商ID(number,required)
   //TODO: 获取代理商信息后需要设置这个值
   'agentId': 1,
@@ -9,6 +13,10 @@ var constant = {
   //每页显示条数
   'pageSize':20,
   
+  //收银台支付
+  "paymentTradeType": "WX_JSAPP",
+  "paymentSysSource": "distributor",
+
   //数据存储key
   'userAccessDataKey':'userAccessData',
   'distributerIdKey': 'distributerId',

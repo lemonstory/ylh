@@ -10,10 +10,6 @@ width:32rpx;
 height:32rpx;
 position:relative;
 }
-
-checkbox .wx-checkbox-input.wx-checkbox-input-checked {
-color:red;
-}
 checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
 font:normal normal normal 14px/1 "weui";
 content:"\EA08";
@@ -24,7 +20,6 @@ left:50%;
 transform:translate(-50%, -48%) scale(0.73);
 -webkit-transform:translate(-50%, -48%) scale(0.73);
 }
-
 .container {
   height: 100vh;
   display: flex;
@@ -36,14 +31,12 @@ transform:translate(-50%, -48%) scale(0.73);
   background: #f7f7f7;
   border-top:1rpx solid #eee;
 }
-
 .main-box {
   width: 100%;
   height: auto;
   margin-top: 5rpx;
   background: #fff;
 }
-
 .address-ul {
   width: 690rpx;
   height: auto;
@@ -57,31 +50,30 @@ transform:translate(-50%, -48%) scale(0.73);
   display: flex;
   align-items: center;
   height: 64rpx;
+  justify-content: space-between;
 }
-
-
-
 .top-name {
   font-size: 28rpx;
   font-family: PingFang-SC-Regular;
   color: rgba(51, 51, 51, 1);
-  margin-left: 31rpx;
-  width:300rpx;
+ width:auto;
+ margin-left: 20rpx;
 }
-
 .top-tell {
   font-size: 28rpx;
   font-family: PingFang-SC-Regular;
   color: rgba(153, 153, 153, 1);
+  margin-left: 20rpx;
  
 }
-
 .xiugai {
   width: 32rpx;
   height: 32rpx;
-  margin-left: 420rpx;
 }
-
+.xiugai image{
+     width:100%;
+     height:100%;
+}
 .ul-bottom {
   margin-left: 63rpx;
   width: auto;
@@ -92,13 +84,13 @@ transform:translate(-50%, -48%) scale(0.73);
   line-height: 54rpx;
   display: flex;
 }
-
 .bottom {
   display: flex;
   width: 100%;
   height: 98rpx;
   position: fixed;
   bottom: 0;
+
 }
 
 .bottom-left {

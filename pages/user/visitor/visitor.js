@@ -62,5 +62,10 @@ Page({
    */
   onShareAppMessage: function () {
   
-  }
+  },
+     bindStartOrder:function(){
+          wx.navigateTo({
+               url: '/pages/customized/index/index',
+              })
+     }
 })

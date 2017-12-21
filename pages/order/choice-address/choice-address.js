@@ -149,16 +149,33 @@ Page(Object.assign({}, Toast, {
     if (that.data.selectAddress == 0) {
       this.showZanToast("请选择收货地址！");
     } else {
-      var url = '/pages/API/address-message/address-message';
+      var url = '/pages/order/fill-order/fill-order'; 
       var pages = getCurrentPages();
       var prevPage = pages[pages.length - 2];  //上一个页面
+      var selectItem = that.getSelectAddress();
       prevPage.setData({
         profileId: that.data.selectAddress,
+        receiverAddress: selectItem,
         'formData.receiverAddress': that.data.selectAddressDetail,
       })
+      console.log(prevPage.data.receiverAddress);
       wx.navigateBack();
     }
   },
+
+  /***
+   * 获得选中的地址信息
+   */
+  getSelectAddress: function () {
+    var that = this;
+    var selectAddress;
+    for (var i = 0; i < that.data.data.list.length; i++) {
+      if (that.data.data.list[i].id == that.data.selectAddress){
+        selectAddress = that.data.data.list[i];
+      }
+    }
+    return selectAddress;
+  }
 
 })
 )

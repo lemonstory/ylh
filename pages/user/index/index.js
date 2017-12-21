@@ -158,4 +158,10 @@ Page(Object.assign({}, Toast, {
     })
   },
 
+  goMyOrder:function(e){
+    wx.navigateTo({
+      url: '/pages/user/order/order'
+    })
+  }
+
 }))

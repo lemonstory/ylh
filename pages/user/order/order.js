@@ -10,37 +10,36 @@ Page(Object.assign({}, Toast, {
     currentTab: 0, //预设当前项的值
     scrollLeft: 0, //tab标题的滚动条位置
 
+    selectCancleReson: 0,
+    // 取消的原因
+    cancleResons: ['双方协商一致退款', '拍错/不想去了/无法出行', '行程不成团/商家无法安排', '其他'],
+    // 取消的post信息
+    canclePostData: {
+      'ordersn': '',
+      'reason': ''
+    },
+    // 当前选中的订单
+    selectOrder:'',
+
     // 订单类型
     orderType: [
       {
         "type": 1,
-        "name": '普通路线'
-      },
-      {
-        "type": 100,
-        "name": '定制路线'
+        "name": '线路'
       },
       {
         "type": 8,
         "name": '签证'
       }
     ],
-    // 当前选中的订单类型
-    selectOrderType: 1,
-
     // 普通线路
     commonOrder: [],
-    // 定制线路
-    customOrder: [],
     // 签证
     visaOrder: [],
 
     pageSize: 20,
     commonPageIndex: 1,
     commonPageCount: 1,
-
-    customPageIndex: 1,
-    customPageCount: 1,
 
     visaPageIndex: 1,
     visaPageCount: 1,
@@ -105,45 +104,6 @@ Page(Object.assign({}, Toast, {
       })
     }
 
-  },
-
-
-  /**
-   * 获得定制线路订单
-   */
-  getCustomData: function () {
-    var that = this;
-    var url = that.data.constant.domain + "/distrbuter/member/order/list/100/" + that.data.customPageIndex + "/" + 
-    that.data.pageSize;
-    var head = util.getRequestHeader();
-    console.log("00000000000000000000000000+");
-    console.log(head);
-    wx.request({
-      url: url,
-      data: {},
-      header: util.getRequestHeader(),
-      success: function (res) {
-        if (res.data.orderList.length > 0) {
-          var index = that.data.customPageIndex++;
-          var pageCount = res.data.totalPage;
-          var moreData = that.data.customOrder;
-          Array.prototype.push.apply(moreData, res.data.orderList)
-          // 添加数据
-          that.setData({
-            customPageIndex: index,
-            customPageCount: pageCount,
-            customOrder: moreData
-          })
-        }
-      },
-      fail: function (res) {
-        console.log(res);
-        that.showZanToast(res.message);
-      },
-      complete: function (res) {
-        console.log(res);
-      }
-    })
   },
 
   /**
@@ -215,18 +175,46 @@ Page(Object.assign({}, Toast, {
     }
   },
 
-  cancel:function(){
-       var that = this;
-       that.setData({
-            showView: false,
-       })
+/**
+ * 取消隐藏
+ */
+  dialogCancel: function () {
+    var that = this;
+    that.setData({
+      showView: false,
+    })
+  },
+
+/**
+ * 取消确认
+ */
+  dialogSure: function () {
+    var that = this;
+    var url = that.data.constant.domain + "/distrbuter/member/order/cancel";
+    wx.request({
+      url: url,
+      data: that.data.canclePostData,
+      header:util.getRequestHeader(),
+      method:'POST',
+      success:function(res){
+
+      },
+      fail:function(res){
+
+      },
+      complete:function(res){
+
+      }
+      
+    })
+
   },
 
   onChangeShowState: function () {
-       var that = this;
-       that.setData({
-            showView: (!that.data.showView)
-       })
+    var that = this;
+    that.setData({
+      showView: (!that.data.showView)
+    })
   },
 
 

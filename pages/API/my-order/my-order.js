@@ -14,11 +14,7 @@ Page(Object.assign({}, Toast, {
     orderType: [
       {
         "type": 1,
-        "name": '普通路线'
-      },
-      {
-        "type": 100,
-        "name": '定制路线'
+        "name": '线路'
       },
       {
         "type": 8,
@@ -30,17 +26,12 @@ Page(Object.assign({}, Toast, {
 
     // 普通线路
     commonOrder: [],
-    // 定制线路
-    customOrder: [],
     // 签证
     visaOrder: [],
 
     pageSize: 20,
     commonPageIndex: 1,
     commonPageCount: 1,
-
-    customPageIndex: 1,
-    customPageCount: 1,
 
     visaPageIndex: 1,
     visaPageCount: 1,
@@ -108,39 +99,6 @@ Page(Object.assign({}, Toast, {
   },
 
 
-  /**
-   * 获得定制线路订单
-   */
-  getCustomData: function () {
-    var that = this;
-    var url = that.data.constant.domain + "/distrbuter/member/order/list/100/ " + that.data.customPageIndex + "/" + that.data.pageSize;
-    wx.request({
-      url: url,
-      data: {},
-      header: util.getRequestHeader(),
-      success: function (res) {
-        if (res.data.orderList.length > 0) {
-          var index = that.data.customPageIndex++;
-          var pageCount = res.data.totalPage;
-          var moreData = that.data.customOrder;
-          Array.prototype.push.apply(moreData, res.data.orderList)
-          // 添加数据
-          that.setData({
-            customPageIndex: index,
-            customPageCount: pageCount,
-            customOrder: moreData
-          })
-        }
-      },
-      fail: function (res) {
-        console.log(res);
-        that.showZanToast(res.message);
-      },
-      complete: function (res) {
-        console.log(res);
-      }
-    })
-  },
 
   /**
    * 获得签证订单

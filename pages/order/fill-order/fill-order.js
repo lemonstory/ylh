@@ -16,9 +16,13 @@ Page(Object.assign({}, Toast, {
     'checkedPassengerList': [],
     'passengerIdStr': '',
 
-    // 选择的地址信息
+    // 收货地址显示信息
     'defaultReceiverAddress': '请添加您的收货地址',
-    'profileId': 0,
+    'profileId':0,
+    // 收货地址信息
+    'receiverAddress': {
+      
+    },
 
     //用户创建订单数据
     'formData': {

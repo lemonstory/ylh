@@ -100,7 +100,7 @@
   </block>
 
   <block wx:if="{{!isDistributer}}">
-    <button>我的订单</button>
+    <button bindtap='goMyOrder'>我的订单</button>
   </block>
 
 

@@ -292,6 +292,11 @@ Page(Object.assign({}, Toast, {
     if (that.addressIsWhole()){
       that.hideOrShowAddressPicker();
       // 处理地址赋值
+      var addressShow = that.data.de
+
+
+
+
     }else{
       that.showZanToast("请完善地址！");
     }

@@ -216,7 +216,7 @@ Page(Object.assign({}, Toast, {
       this.showZanToast('一个出行人都没有选哦');
     }
 
-    var url = '/pages/API/address-message/address-message';
+    var url = '/pages/order/fill-order/fill-order';
     var pages = getCurrentPages();
     var currPage = pages[pages.length - 1];   //当前页面
     var prevPage = pages[pages.length - 2];  //上一个页面
@@ -234,7 +234,7 @@ Page(Object.assign({}, Toast, {
     var idx = event.currentTarget.dataset.idx;
     var itemJsonStr = JSON.stringify(that.data.data.list[idx]);
     console.log(itemJsonStr);
-    var url = "../add-passenger/add-passenger?itemJsonStr=" + itemJsonStr;
+    var url = "/pages/order/add-passenger/add-passenger?itemJsonStr=" + itemJsonStr;
     wx.redirectTo({
       url: url,
     })

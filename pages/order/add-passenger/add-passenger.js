@@ -316,7 +316,7 @@ Page(Object.assign({}, Toast, {
         complete: function (res) {
           wx.hideLoading();
           wx.redirectTo({
-            url: '/pages/API/choice-passenger/choice-passenger',
+            url: '/pages/order/choice-passenger/choice-passenger',
           })
         }
       });

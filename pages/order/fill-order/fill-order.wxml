@@ -16,7 +16,7 @@
           <view class="choice-num">{{formData.tourers.subNum.adult}}成人 {{formData.tourers.subNum.child}}儿童 {{formData.tourers.subNum.old}}老人 </view>
           <view class="choice-num" wx:if="{{isAllowBabySelected == 1}}">包含1岁以下的婴儿</view>
           <view class="choice-num" wx:else>不包含1岁以下的婴儿</view>
-          <navigator url="../choice-passenger/choice-passenger?passengerIdStr={{passengerIdStr}}">
+          <navigator url="/pages/order/choice-passenger/choice-passenger?passengerIdStr={{passengerIdStr}}">
                <view class="choice-person">选择出行人
                     <image class='back' src='http://image.365zhiding.com/wxapp/20171114/1.png' mode='widthFix'></image>
                </view>
@@ -110,7 +110,7 @@
      <view class="get-add" style='margin-bottom:100rpx'>
           <view class="fapiao">收货地址</view>
 
-          <navigator url="../choice-address/choice-address?profileId={{profileId}}">
+          <navigator url="/pages/order/choice-address/choice-address?profileId={{profileId}}">
                <view class="choice-add ">{{formData.receiverAddress != '' ? formData.receiverAddress : defaultReceiverAddress}}
                     <image class='back' src='http://image.365zhiding.com/wxapp/20171114/1.png' mode='widthFix'></image>
                </view>

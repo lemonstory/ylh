@@ -297,7 +297,7 @@ Page(Object.assign({}, Toast, {
     var that = this;
     if (that.checkInput()) {
       wx:wx.navigateTo({
-        url: '../air-ticket/air-ticket',
+        url: '/pages/customized/air-ticket/air-ticket',
         success: function(res) {},
         fail: function(res) {
           that.showZanToast("页面跳转错误");

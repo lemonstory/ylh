@@ -112,7 +112,7 @@ Page(Object.assign({}, Toast, {
     console.log("🌲 🌲 🌲");
     console.log(event);
     console.log(event.currentTarget.dataset);
-    var path = "/pages/API/line-detail/line-detail?id=" + id;
+    var path = "/pages/line/line-detail/line-detail?id=" + id;
     wx.navigateTo({
       url: path
     })
@@ -140,7 +140,7 @@ Page(Object.assign({}, Toast, {
 
   //处理用户搜索事件
   bindSearch: function () {
-    var path = "/pages/API/search/search";
+    var path = "/pages/search/search";
     wx.navigateTo({
       url: path
     })

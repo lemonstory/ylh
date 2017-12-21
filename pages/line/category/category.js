@@ -179,7 +179,7 @@ Page(Object.assign({}, Toast, {
 
     var that = this;
     var areaId = event.currentTarget.dataset.area_id;
-    var path = "/pages/API/line-list/line-list?areaId=" + areaId;
+    var path = "/pages/line/line-list/line-list?areaId=" + areaId;
     console.log(path);
     wx.navigateTo({
       url: path
@@ -192,7 +192,7 @@ Page(Object.assign({}, Toast, {
   handleTapLineDetail: function (event) {
 
     var id = event.currentTarget.dataset.id;
-    var path = "/pages/API/line-detail/line-detail?id=" + id;
+    var path = "/pages/line/line-detail/line-detail?id=" + id;
     console.log(path);
     wx.navigateTo({
       url: path

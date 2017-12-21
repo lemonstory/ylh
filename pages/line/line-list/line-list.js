@@ -112,7 +112,7 @@ Page(Object.assign({}, Toast, {
     if (!that.data.isNoMore) {
       this.setData({
         'isLoading': true,
-      });
+});
 
       var nextPageIndex = that.data.pageIndex + 1;
 
@@ -228,7 +228,7 @@ Page(Object.assign({}, Toast, {
   //处理点击推荐线路事件
   handleTapLineDetail: function (event) {
     var id = event.currentTarget.dataset.id;
-    var path = "/pages/API/line-detail/line-detail?id=" + id;
+    var path = "/pages/line/line-detail/line-detail?id=" + id;
     wx.navigateTo({
       url: path
     })

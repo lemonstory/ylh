@@ -187,7 +187,7 @@ Page(Object.assign({}, Toast, {
   handleTapLeaderIntroduce: function (event) {
 
     var id = event.currentTarget.dataset.id;
-    var path = "/pages/API/leader-introduce/leader-introduce?id=" + id;
+    var path = "/pages/line/leader-introduce/leader-introduce?id=" + id;
     console.log("path = " + path);
     wx.navigateTo({
       url: path
@@ -386,7 +386,7 @@ Page(Object.assign({}, Toast, {
     if (!isOwnAccessToken) {
 
       wx.navigateTo({
-        url: '../empower/empower',
+        url: '/pages/user/wx-mobile/wx-mobile',
       })
 
     } else {

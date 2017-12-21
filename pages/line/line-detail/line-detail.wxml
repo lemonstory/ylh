@@ -50,7 +50,7 @@
           </view>
 
           <view class="goback" bindtap='handleTapActivityDetailCancel'>
-               <image src="../image/back.png"></image>
+               <image src="http://image.365zhiding.com/wxapp/20171221/back.png"></image>
           </view>
      </view>
 

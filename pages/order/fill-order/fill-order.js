@@ -6,7 +6,7 @@ Page(Object.assign({}, Toast, {
   data: {
     'constant': app.constant,
 
-//  开具发票是否为选中状态
+    //  开具发票是否为选中状态
     isSelected: 0,
     isUnSelect: 'http://image.365zhiding.com/wxapp/20171210/unselect.png',
     isSelect: 'http://image.365zhiding.com/wxapp/20171210/select.png',
@@ -70,7 +70,7 @@ Page(Object.assign({}, Toast, {
     'night': 0,                      //行程-几晚
 
 
-                    
+
   },
 
   onLoad: function (options) {
@@ -89,7 +89,7 @@ Page(Object.assign({}, Toast, {
         title: lineDetail.title,
         day: lineDetail.day,
         night: lineDetail.night,
-        
+
         'formData.pid': lineDetail.pid,
         'formData.travelDate': lineDetail.travelDate,
         //TODO
@@ -218,10 +218,10 @@ Page(Object.assign({}, Toast, {
 
   // 开具发票 - 选择 状态
   handleTapSelectType: function () {
-       var that = this;
-       that.setData({
-            isSelected: !this.data.isSelected,
-       })
+    var that = this;
+    that.setData({
+      isSelected: !this.data.isSelected,
+    })
   },
 
   /**
@@ -230,34 +230,34 @@ Page(Object.assign({}, Toast, {
   checkInput: function () {
 
     var that = this;
-    // if (that.data.formData.linkMan.length <= 0) {
+    if (that.data.formData.linkMan.length <= 0) {
 
-    //   that.showZanToast("请填写姓名");
-    //   return false;
-    // }
+      that.showZanToast("请填写姓名");
+      return false;
+    }
 
-    // if (!util.isMobile(that.data.formData.linkTel)) {
+    if (!util.isMobile(that.data.formData.linkTel)) {
 
-    //   that.showZanToast("请输入联系电话");
-    //   return false;
-    // }
+      that.showZanToast("请输入联系电话");
+      return false;
+    }
 
-    // if (that.data.formData.tourers.list.length < that.data.formData.tourers.subNum.child + that.data.formData.tourers.subNum.adult) {
+    if (that.data.formData.tourers.list.length < that.data.formData.tourers.subNum.child + that.data.formData.tourers.subNum.adult) {
 
-    //   that.showZanToast("请选择出行人");
-    //   return false;
-    // }
-    // if (that.data.formData.receiverAddress.length <= 0) {
+      that.showZanToast("请选择出行人");
+      return false;
+    }
+    if (that.data.formData.receiverAddress.length <= 0) {
 
-    //   that.showZanToast("请添加您的收货地址");
-    //   return false;
-    // }
+      that.showZanToast("请添加您的收货地址");
+      return false;
+    }
 
-    // if (that.data.formData.linkEmail.length > 0 && !util.isEmail(that.data.formData.linkEmail)) {
+    if (that.data.formData.linkEmail.length > 0 && !util.isEmail(that.data.formData.linkEmail)) {
 
-    //   that.showZanToast("请检查输入的电子邮箱地址");
-    //   return false;
-    // }
+      that.showZanToast("请检查输入的电子邮箱地址");
+      return false;
+    }
     return true;
   },
 

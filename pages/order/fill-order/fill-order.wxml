@@ -2,166 +2,175 @@
 <import src="/zanui-weapp/dist/toast/index.wxml" />
 <view class="container">
 
-     <!--出行时间开始  -->
-     <view class="go">
-          <view class="go-time">出行时间：{{formData.travelDate}}</view>
-          <view class="go-add">{{title}}</view>
-          <view class="go-plan">行程：{{day}}天{{night}}晚</view>
-     </view>
-     <!--出行时间结束  -->
+  <!--出行时间开始  -->
+  <view class="go">
+    <view class="go-time">出行时间：{{formData.travelDate}}</view>
+    <view class="go-add">{{title}}</view>
+    <view class="go-plan">行程：{{day}}天{{night}}晚</view>
+  </view>
+  <!--出行时间结束  -->
 
-     <!--选择出行人数开始  -->
-     <view class="choice">
-          <view class="person">选择出行人数</view>
-          <view class="choice-num">{{formData.tourers.subNum.adult}}成人 {{formData.tourers.subNum.child}}儿童 {{formData.tourers.subNum.old}}老人 </view>
-          <view class="choice-num" wx:if="{{isAllowBabySelected == 1}}">包含1岁以下的婴儿</view>
-          <view class="choice-num" wx:else>不包含1岁以下的婴儿</view>
-          <navigator url="/pages/order/choice-passenger/choice-passenger?passengerIdStr={{passengerIdStr}}">
-               <view class="choice-person">选择出行人
-                    <image class='back' src='http://image.365zhiding.com/wxapp/20171114/1.png' mode='widthFix'></image>
-               </view>
-          </navigator>
+  <!--选择出行人数开始  -->
+  <view class="choice">
+    <view class="person">选择出行人数</view>
+    <view class="choice-num">{{formData.tourers.subNum.adult}}成人 {{formData.tourers.subNum.child}}儿童 {{formData.tourers.subNum.old}}老人 </view>
+    <view class="choice-num" wx:if="{{isAllowBabySelected == 1}}">包含1岁以下的婴儿</view>
+    <view class="choice-num" wx:else>不包含1岁以下的婴儿</view>
+    <navigator url="/pages/order/choice-passenger/choice-passenger?passengerIdStr={{passengerIdStr}}">
+      <view class="choice-person">选择出行人
+        <image class='back' src='http://image.365zhiding.com/wxapp/20171114/1.png' mode='widthFix'></image>
+      </view>
+    </navigator>
 
-          <block wx:for="{{checkedPassengerList}}" wx:key="checkedPassengerList" wx:for-index="idx" wx:for-item="listItem">
-               <view class="message">
-                    <view class="person-message" wx:if="{{listItem.ageGroup == 2}}">儿童 :</view>
-                    <view class="person-message" wx:if="{{listItem.ageGroup == 3}}">成人 :</view>
-                    <view class="message-detail">
-                         <view class="mess-name">姓名：{{listItem.name}}</view>
-                         <view class="mess-name" wx:if="{{listItem.cardType == 1}}">身份证：{{listItem.cardNumber}} </view>
-                         <view class="mess-name" wx:if="{{listItem.cardType == 2}}">军官证：{{listItem.cardNumber}} </view>
-                         <view class="mess-name" wx:if="{{listItem.cardType == 3}}">护照：{{listItem.cardNumber}} </view>
-                         <view class="mess-name" wx:if="{{listItem.cardType == 4}}">港澳通行证：{{listItem.cardNumber}} </view>
-                         <view class="mess-name" wx:if="{{listItem.cardType == 5}}">台湾通行证：{{listItem.cardNumber}} </view>
-                         <view class="mess-name" wx:if="{{listItem.cardType == 99}}">其他：{{listItem.cardNumber}} </view>
-                         <view class="mess-name call">联系电话：{{listItem.mobile}}</view>
-                    </view>
-               </view>
-          </block>
-     </view>
-     <!-- 选择出行人数结束  -->
-     <!--联系人信息开始  -->
-     <view class="lianxi-box">
-          <view class="lianxi-message">联系人信息</view>
-          <view class="input-name">姓名：
-               <input class="input" placeholder="必填" placeholder-style="font-size:26rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);" style='padding-left:82rpx; box-sizing: border-box;' bindinput='bindInputValueChange' id="formData.linkMan" value='{{formData.linkMan}}'>></input>
+    <block wx:for="{{checkedPassengerList}}" wx:key="checkedPassengerList" wx:for-index="idx" wx:for-item="listItem">
+      <view class="message">
+        <view class="person-message" wx:if="{{listItem.ageGroup == 2}}">儿童 :</view>
+        <view class="person-message" wx:if="{{listItem.ageGroup == 3}}">成人 :</view>
+        <view class="message-detail">
+          <view class="mess-name">姓名：{{listItem.name}}</view>
+          <view class="mess-name" wx:if="{{listItem.cardType == 1}}">身份证：{{listItem.cardNumber}} </view>
+          <view class="mess-name" wx:if="{{listItem.cardType == 2}}">军官证：{{listItem.cardNumber}} </view>
+          <view class="mess-name" wx:if="{{listItem.cardType == 3}}">护照：{{listItem.cardNumber}} </view>
+          <view class="mess-name" wx:if="{{listItem.cardType == 4}}">港澳通行证：{{listItem.cardNumber}} </view>
+          <view class="mess-name" wx:if="{{listItem.cardType == 5}}">台湾通行证：{{listItem.cardNumber}} </view>
+          <view class="mess-name" wx:if="{{listItem.cardType == 99}}">其他：{{listItem.cardNumber}} </view>
+          <view class="mess-name call">联系电话：{{listItem.mobile}}</view>
+        </view>
+      </view>
+    </block>
+  </view>
+  <!-- 选择出行人数结束  -->
+  <!--联系人信息开始  -->
+  <view class="lianxi-box">
+    <view class="lianxi-message">联系人信息</view>
+    <view class="input-name">姓名：
+      <input class="input" placeholder="必填" placeholder-style="font-size:26rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);" style='padding-left:82rpx; box-sizing: border-box;' bindinput='bindInputValueChange' id="formData.linkMan" value='{{formData.linkMan}}'>></input>
 
-          </view>
-          <view class="input-name">手机号：
-               <input class="input" placeholder="请输入11位手机号码" placeholder-style="font-size:26rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);" style='padding-left:56rpx; box-sizing: border-box;' bindinput='bindInputValueChange' id="formData.linkTel" value='{{formData.linkTel}}'></input>
-          </view>
+    </view>
+    <view class="input-name">手机号：
+      <input class="input" placeholder="请输入11位手机号码" placeholder-style="font-size:26rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);" style='padding-left:56rpx; box-sizing: border-box;' bindinput='bindInputValueChange' id="formData.linkTel" value='{{formData.linkTel}}'></input>
+    </view>
 
-          <view class="input-name">邮箱：
-               <input class="input" placeholder="请输入电子邮箱地址" placeholder-style="font-size:26rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);" style='padding-left:82rpx; box-sizing: border-box;' bindinput='bindInputValueChange' id="formData.linkEmail" value='{{formData.linkEmail}}'></input>
-          </view>
-     </view>
+    <view class="input-name">邮箱：
+      <input class="input" placeholder="请输入电子邮箱地址" placeholder-style="font-size:26rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);" style='padding-left:82rpx; box-sizing: border-box;' bindinput='bindInputValueChange' id="formData.linkEmail" value='{{formData.linkEmail}}'></input>
+    </view>
+  </view>
 
-     <!--联系人信息结束  -->
+  <!--联系人信息结束  -->
 
 
-     <!--全程单房差开始  -->
-     <view class="all-box">
-          <view class="yufu">
-               <view class="yufu-text">预付单房差</view>
-               <!-- 单房差是固定的，加号只是个标识，没有其他意义 -->
-               <view class="yufu-money">+ ¥{{formData.difference/100}}</view>
-          </view>
-     </view>
-     <!--全程单房差结束  -->
+  <!--全程单房差开始  -->
+  <view class="all-box">
+    <view class="yufu">
+      <view class="yufu-text">预付单房差</view>
+      <!-- 单房差是固定的，加号只是个标识，没有其他意义 -->
+      <view class="yufu-money">+ ¥{{formData.difference/100}}</view>
+    </view>
+  </view>
+  <!--全程单房差结束  -->
 
-     <!--开具发票开始  -->
+  <!--开具发票开始  -->
 
-     <view class="fapiao-box">
-          <view class="fapiao">
-               <view class="fapiao-text">开具发票</view>
-               <view class="fapiao-pay">（快递费¥{{formData.postage/100}}）</view>
-               <image class="ischeck" src="{{isSelected?isSelect:isUnSelect}}" bindtap='handleTapSelectType'></image>
-               <!-- <radio class="fapiao-radio" color='#FF6600' style='width:30rpx;height:30rpx;'></radio>  -->
-          </view>
-          <!--发票信息的显示与隐藏 -->
-          <view class="fapiao-hidden {{isSelected?'fapiao-active':''}}">
-               <view class="fapiao-type">
+  <view class="fapiao-box">
+    <view class="fapiao">
+      <view class="fapiao-text">开具发票</view>
+      <view class="fapiao-pay">（快递费¥{{formData.postage/100}}）</view>
+      <image class="ischeck" src="{{isSelected?isSelect:isUnSelect}}" bindtap='handleTapSelectType'></image>
+      <!-- <radio class="fapiao-radio" color='#FF6600' style='width:30rpx;height:30rpx;'></radio>  -->
+    </view>
+    <!--发票信息的显示与隐藏 -->
+    <view class="fapiao-hidden {{isSelected?'fapiao-active':''}}">
+      <view class="fapiao-type">
 
-                    <view class="type-name">类型：</view>
+        <view class="type-name">类型：</view>
 
-                    <radio-group id="formData.orderBill.type" class="radio-group" bindchange="bindInputValueChange">
-                         <label class="radio" wx:for="{{constant.orderBillType}}" wx:key="items">
-                              <radio value="{{item.id}}" />{{item.title}}
-                         </label>
-                    </radio-group>
-               </view>
+        <radio-group id="formData.orderBill.type" class="radio-group" bindchange="bindInputValueChange">
+          <label class="radio" wx:for="{{constant.orderBillType}}" wx:key="items">
+            <radio value="{{item.id}}" />{{item.title}}
+          </label>
+        </radio-group>
+      </view>
 
-               <view class="input-name">抬头：
-                    <input class="input" placeholder="请输入抬头" placeholder-style="font-size:26rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);" style='padding-left:82rpx; box-sizing: border-box;' bindinput='bindInputValueChange' id="formData.orderBill.title"
-                         value='{{formData.orderBill.title}}'></input>
-               </view>
-               <view class="input-name">税号：
-                    <input class="input" placeholder="请填写纳税人识别号" placeholder-style="font-size:26rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);" style='padding-left:82rpx; box-sizing: border-box;' bindinput='bindInputValueChange' id="formData.orderBill.taxNum"
-                         value='{{formData.orderBill.taxNum}}'></input>
-               </view>
+      <view class="input-name">抬头：
+        <input class="input" placeholder="请输入抬头" placeholder-style="font-size:26rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);" style='padding-left:82rpx; box-sizing: border-box;' bindinput='bindInputValueChange' id="formData.orderBill.title"
+          value='{{formData.orderBill.title}}'></input>
+      </view>
+      <view class="input-name">税号：
+        <input class="input" placeholder="请填写纳税人识别号" placeholder-style="font-size:26rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);" style='padding-left:82rpx; box-sizing: border-box;' bindinput='bindInputValueChange' id="formData.orderBill.taxNum"
+          value='{{formData.orderBill.taxNum}}'></input>
+      </view>
 
-               <view class="shuoming">说明：所开发票为增值税普通发票，金额为实际支付的商品费用，内容为代办签证费。</view>      
-             <view class="comfire">确定</view>
-          </view>
-     </view>
-     <!--开具发票结束  -->
+      <view class="shuoming">说明：所开发票为增值税普通发票，金额为实际支付的商品费用，内容为代办签证费。</view>
+      <view class="comfire">确定</view>
+    </view>
+  </view>
+  <!--开具发票结束  -->
 
-     <!--收获地址开始  -->
-     <view class="get-add" style='margin-bottom:100rpx'>
-          <view class="fapiao">收货地址</view>
+  <!--收获地址开始  -->
+  <view class="get-add" style='margin-bottom:100rpx'>
+    <view class="fapiao">收货地址</view>
 
-          <navigator url="/pages/order/choice-address/choice-address?profileId={{profileId}}">
-               <view class="choice-add ">{{formData.receiverAddress != '' ? formData.receiverAddress : defaultReceiverAddress}}
-                    <image class='back' src='http://image.365zhiding.com/wxapp/20171114/1.png' mode='widthFix'></image>
-               </view>
-          </navigator>
+    <navigator url="/pages/order/choice-address/choice-address?profileId={{profileId}}">
+      <view class="choice-add ">{{formData.receiverAddress != '' ? formData.receiverAddress : defaultReceiverAddress}}
+        <image class='back' src='http://image.365zhiding.com/wxapp/20171114/1.png' mode='widthFix'></image>
+      </view>
+    </navigator>
 
-     </view>
+  </view>
 
-     <!--收获地址结束  -->
+  <!--收获地址结束  -->
 
-     <!--底部开始  -->
-     <view class="bottom">
-          <view class="bottom-left">
-               <view class='total'>总计：
-                    <view class="total-money">￥{{formData.amount / 100}}</view>
-               </view>
-               <view class="mingxi" bindtap='actionSheetTap'>明细
-                    <image src="http://image.365zhiding.com/wxapp/20171121/shang.png" class="{{isShowOptionsView?'rotate':''}}" style='width:24rpx;height:14rpx'></image>
-               </view>
-               <!--底部提示框  -->
-               <action-sheet hidden="{{actionSheetHidden}}" bindchange="actionSheetChange">
-                    <!-- <block wx:for="{{actionSheetItems}}">  -->
-                    <view class="item deli">
-                         <view class="text">价格明细</view>
-                    </view>
-                    <view class="item">
-                         <view class="text">成人费用</view>
-                         <view class="item-price">￥{{formData.adultprice/100}}*{{formData.tourers.subNum.adult}}</view>
-                    </view>
-                    <view class="item">
-                         <view class="text">儿童费用</view>
-                         <view class="item-price">￥{{formData.childprice/100}}*{{formData.tourers.subNum.child}}</view>
-                    </view>
-                    <view class="item">
-                         <view class="text">单房差</view>
-                         <view class="item-price">￥{{formData.adultprice/100}}</view>
-                    </view>
-                    <view class="item ">
-                         <view class="text">发票快递费</view>
-                         <view class="item-price">￥{{formData.postage/100}}</view>
-                    </view>
-               </action-sheet>
-               <!-- </block>  -->
-               <!-- <action-sheet-cancel class="cancel"></action-sheet-cancel>  -->
+  <!--底部开始  -->
+  <view class="bottom">
+    <view class="bottom-left">
+      <view class='total'>总计：
+        <view class="total-money">￥{{formData.amount / 100}}</view>
+      </view>
+      <view class="mingxi" bindtap='actionSheetTap'>明细
+        <image src="http://image.365zhiding.com/wxapp/20171121/shang.png" class="{{isShowOptionsView?'rotate':''}}" style='width:24rpx;height:14rpx'></image>
+      </view>
+      <!--底部提示框  -->
+      <action-sheet hidden="{{actionSheetHidden}}" bindchange="actionSheetChange">
+        <!-- <block wx:for="{{actionSheetItems}}">  -->
+        <view class="item deli">
+          <view class="text">价格明细</view>
+        </view>
+        
+        <view class="item" wx:if="{{formData.tourers.subNum.child > 0}}">
+          <view class="text">儿童费用</view>
+          <view class="item-price">￥{{formData.childprice/100}}*{{formData.tourers.subNum.child}}</view>
+        </view>
 
-               <!-- 底部提示框结束 -->
+        <view class="item" wx:if="{{formData.tourers.subNum.adult > 0}}">
+          <view class="text">成人费用</view>
+          <view class="item-price">￥{{formData.adultprice/100}}*{{formData.tourers.subNum.adult}}</view>
+        </view>
 
-          </view>
-          <view class="bottom-right" bindtap='handleTapNextStep'>下一步</view>
-     </view>
+        <view class="item" wx:if="{{formData.tourers.subNum.old > 0}}">
+          <view class="text">儿童费用</view>
+          <view class="item-price">￥{{formData.oldprice/100}}*{{formData.tourers.subNum.old}}</view>
+        </view>
+        
+        <view class="item" wx:if="{{formData.isAddedDifference}}">
+          <view class="text">单房差</view>
+          <view class="item-price">￥{{formData.difference/100}}</view>
+        </view>
+        
+        <view class="item ">
+          <view class="text">发票快递费</view>
+          <view class="item-price">￥{{formData.postage/100}}</view>
+        </view>
+      </action-sheet>
+      <!-- </block>  -->
+      <!-- <action-sheet-cancel class="cancel"></action-sheet-cancel>  -->
 
-     <!-- 直接使用 zan-toast 模板，并且直接传入 zanToast -->
-     <template is="zan-toast" data="{{ zanToast }}"></template>
+      <!-- 底部提示框结束 -->
+
+    </view>
+    <view class="bottom-right" bindtap='handleTapNextStep'>下一步</view>
+  </view>
+
+  <!-- 直接使用 zan-toast 模板，并且直接传入 zanToast -->
+  <template is="zan-toast" data="{{ zanToast }}"></template>
 
 </view>

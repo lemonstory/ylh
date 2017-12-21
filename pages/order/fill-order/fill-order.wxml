@@ -101,7 +101,6 @@
       </view>
 
       <view class="shuoming">说明：所开发票为增值税普通发票，金额为实际支付的商品费用，内容为代办签证费。</view>
-      <view class="comfire">确定</view>
     </view>
   </view>
   <!--开具发票结束  -->

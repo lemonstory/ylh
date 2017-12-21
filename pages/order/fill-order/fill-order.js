@@ -41,14 +41,14 @@ Page(Object.assign({}, Toast, {
           'old': 0,                   //老人数量
         },
         "list": [                     //出行人列表(array,required)
-          {
-            'id': '',                 //游客id
-            'name': '',               //出行人姓名
-            'cardType': 0,            //证件类型 1身份证，2军官证，3护照，4港澳通行证，5台湾通行证，99其它
-            'cardNumber': '',         //证件号码
-            'gender': 0,              //性别 0未知，1男，2女
-            'ageGroup': 0,            //年龄分组，2儿童，3成人
-          },
+          // {
+          //   'id': '',                 //游客id
+          //   'name': '',               //出行人姓名
+          //   'cardType': 0,            //证件类型 1身份证，2军官证，3护照，4港澳通行证，5台湾通行证，99其它
+          //   'cardNumber': '',         //证件号码
+          //   'gender': 0,              //性别 0未知，1男，2女
+          //   'ageGroup': 0,            //年龄分组，2儿童，3成人
+          // },
         ],
       },
       'amount': 0,                    //订单总额(单位分)(number,required)
@@ -225,11 +225,27 @@ Page(Object.assign({}, Toast, {
   },
 
   /**
- * 检查用户输入
- */
+  * 检查用户输入
+  */
   checkInput: function () {
 
     var that = this;
+    var childSubNum = that.data.formData.tourers.subNum.child;
+    var adultSubNum = that.data.formData.tourers.subNum.adult;
+    var oldSubNum = that.data.formData.tourers.subNum.old;
+
+
+    console.log("🚀 🚀 🚀");
+    console.log(that.data.formData)
+    console.log(that.data.formData.tourers);
+
+    if (that.data.formData.tourers.list.length != childSubNum + adultSubNum + oldSubNum) {
+
+      that.showZanToast("请选择出行人");
+      return false;
+    }
+
+
     if (that.data.formData.linkMan.length <= 0) {
 
       that.showZanToast("请填写姓名");
@@ -242,11 +258,6 @@ Page(Object.assign({}, Toast, {
       return false;
     }
 
-    if (that.data.formData.tourers.list.length < that.data.formData.tourers.subNum.child + that.data.formData.tourers.subNum.adult) {
-
-      that.showZanToast("请选择出行人");
-      return false;
-    }
     if (that.data.formData.receiverAddress.length <= 0) {
 
       that.showZanToast("请添加您的收货地址");

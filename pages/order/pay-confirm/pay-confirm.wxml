@@ -20,13 +20,14 @@
   <!--选择出行人数开始  -->
   <view class="choice">
     <view class="person">出行人数
-      <view class="choice-num">{{prevPageData.formData.tourers.subNum.adult + prevPageData.formData.tourers.subNum.child}}人</view>
+      <view class="choice-num">{{prevPageData.formData.tourers.subNum.adult + prevPageData.formData.tourers.subNum.child + prevPageData.formData.tourers.subNum.old}}人</view>
     </view>
 
     <block wx:for="{{prevPageData.formData.tourers.list}}" wx:key="prevPageData.formData.tourers.list" wx:for-index="idx" wx:for-item="listItem">
       <view class="message">
         <view class="person-message" wx:if="{{listItem.ageGroup == 2}}">儿童 :</view>
         <view class="person-message" wx:if="{{listItem.ageGroup == 3}}">成人 :</view>
+        <view class="person-message" wx:if="{{listItem.ageGroup == 4}}">老人 :</view>
         <view class="message-detail">
           <view class="mess-name">姓名：{{listItem.name}}</view>
           <view class="mess-name" wx:if="{{listItem.cardType == 1}}">身份证：{{listItem.cardNumber}} </view>
@@ -64,7 +65,7 @@
   <view class="all-box">
     <view class="yufu">
       <view class="yufu-text">预付单房差</view>
-      <view class="yufu-money">+ ¥{{prevPageData.difference/100}}</view>
+      <view class="yufu-money">+ ¥{{prevPageData.formData.difference/100}}</view>
     </view>
   </view>
   <!--全程单房差结束  -->
@@ -111,7 +112,6 @@
       </view>
 
 
-
       <!--底部提示框  -->
       <action-sheet hidden="{{actionSheetHidden}}" bindchange="actionSheetChange">
         <!-- <block wx:for="{{actionSheetItems}}">  -->
@@ -119,18 +119,23 @@
           <view class="text">价格明细</view>
         </view>
         <view class="item">
-          <view class="text">成人费用</view>
-          <view class="item-price">￥{{prevPageData.adultprice/100}}*{{prevPageData.formData.tourers.subNum.adult}}</view>
+          <view class="text">儿童费用</view>
+          <view class="item-price">￥{{prevPageData.formData.childprice/100}}*{{prevPageData.formData.tourers.subNum.child}}</view>
         </view>
         <view class="item">
-          <view class="text">儿童费用</view>
-          <view class="item-price">￥{{prevPageData.childprice/100}}*{{prevPageData.formData.tourers.subNum.child}}</view>
+          <view class="text">成人费用</view>
+          <view class="item-price">￥{{prevPageData.formData.adultprice/100}}*{{prevPageData.formData.tourers.subNum.adult}}</view>
         </view>
+        <view class="item">
+          <view class="text">老人费用</view>
+          <view class="item-price">￥{{prevPageData.formData.oldprice/100}}*{{prevPageData.formData.tourers.subNum.old}}</view>
+        </view>
+
         <view class="item">
           <view class="text">单房差</view>
-          <view class="item-price">￥{{prevPageData.adultprice/100}}</view>
+          <view class="item-price">￥{{prevPageData.formData.difference/100}}</view>
         </view>
-        <view class="item ">
+        <view class="item">
           <view class="text">发票快递费</view>
           <view class="item-price">￥{{prevPageData.postage/100}}</view>
         </view>

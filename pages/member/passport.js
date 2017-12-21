@@ -1,4 +1,4 @@
-// pages/API/personal-order/personal-order.js
+// pages/member/passport.js
 Page({
 
   /**
@@ -62,10 +62,5 @@ Page({
    */
   onShareAppMessage: function () {
   
-  },
-     bindStartOrder:function(){
-          wx.navigateTo({
-               url: '/pages/customized/index/index',
-              })
-     }
+  }
 })

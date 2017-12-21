@@ -1,3 +1,4 @@
 {
-  "navigationBarTitleText": "选择出行人"
+  "navigationBarTitleText": "选择出行人",
+  "enablePullDownRefresh": false
 }

@@ -2,8 +2,8 @@
 <!--私人定制开始  -->
      <view class="personal">
           <view class="tuijian">
-               <view class="react "></view>私人定制
-               <view class="react1 "></view>
+               <view class="react"></view>私人定制
+               <view class="react1"></view>
           </view>
           <view class="ask">如果你有明确的出行需求，可直接和定制师沟通</view>
           <view class="per-icon">
@@ -28,13 +28,11 @@
                <view>定制师规划</view>
                <view>定制师规划</view>
           </view>
-          <navigator url="/pages/customized/index/index">
-               <view class="more2">开始定制
+               <view class="more2" bindtap='bindStartOrder'>开始定制
                     <view class="jiantou">
                          <image src="../../image/jiantou.png"></image>
                     </view>
                </view>
-          </navigator>
      </view>
 
 <!-- <view class="container">

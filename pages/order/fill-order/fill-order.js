@@ -6,7 +6,7 @@ Page(Object.assign({}, Toast, {
   data: {
     'constant': app.constant,
 
-//  开具发票是否为选中状态
+    //  开具发票是否为选中状态
     isSelected: 0,
     isUnSelect: 'http://image.365zhiding.com/wxapp/20171210/unselect.png',
     isSelect: 'http://image.365zhiding.com/wxapp/20171210/select.png',
@@ -32,31 +32,39 @@ Page(Object.assign({}, Toast, {
       'linkTel': '',                  //订单联系电话(string,required)
       'linkEmail': '',                //联系人邮件(string,required)
       'isIncludeBaby': 0,             //是否包含婴儿(number,required)
-      'isIncludeOld': 0,              //是否包含老人(number,required)
+      'childprice': 0,                  //儿童费用
+      'adultprice': 0,                  //成人费用
+      'oldprice': 0,                    //老人价
+      'postage': 0,                     //快递费用 
+      'difference': 0,                  //单房差  
+
       'tourers': {                    //出行人信息(array,required)
         "subNum": {
           'child': 0,                 //小孩数量
           'adult': 0,                 //成人数量
+          'old': 0,                   //老人数量
         },
         "list": [                     //出行人列表(array,required)
-          {
-            'name': '',               //出行人姓名
-            'cardType': 0,            //证件类型 1身份证，2军官证，3护照，4港澳通行证，5台湾通行证，99其它
-            'cardNumber': '',         //证件号码
-            'title': 0,               //职业身份 1学龄前儿童，2在校学生，3在职人员，4自由职业者，5退休人员
-            'gender': 0,              //性别 0未知，1男，2女
-            'ageGroup': 0,            //年龄分组，2儿童，3成人
-          },
+          // {
+          //   'id': '',                 //游客id
+          //   'name': '',               //出行人姓名
+          //   'cardType': 0,            //证件类型 1身份证，2军官证，3护照，4港澳通行证，5台湾通行证，99其它
+          //   'cardNumber': '',         //证件号码
+          //   'gender': 0,              //性别 0未知，1男，2女
+          //   'ageGroup': 0,            //年龄分组，2儿童，3成人
+          // },
         ],
       },
       'amount': 0,                    //订单总额(单位分)(number,required)
-      'orderBill': {                  //发票信息（array,required）
+      'orderBill': {                  //发票信息 如果没有，则为空（array,required）
         'title': '',                  //发票抬头
         'type': 0,                    //发票类型,1个人,2企业
         'taxNum': ''                  //税号
       },
       'receiverAddress': '',          //收货地址(string,required)
-      'agentId': app.constant.agentId,//代理商ID(number,required)
+      'receiverName': '',             //收货人名称(string,required)
+      'receiverTel': '',              //收货人电话
+      'distributerId': '',            //代理商ID(number,required)
       'tradeId': app.constant.tradeId,//系统来源(number,required) 10 悦旅汇，20小程序
     },
 
@@ -64,65 +72,17 @@ Page(Object.assign({}, Toast, {
     'title': '',                     //标题
     'day': 0,                        //行程-几天
     'night': 0,                      //行程-几晚
-    'difference': 0,                 //单房差
-    "adultprice": 0,                  //成人费用
-    "childprice": 0,                  //儿童费用
-    "postage": 0                      //快递费用                       
+
+
+
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  //接收从上一个的传值
-  //数据示例
-  // options.lineDetail = {
-  // //产品id
-  // 'pid': 1,
-  // //出行时间
-  // 'travelDate': '2017-11-05',
-  // //线路名称
-  // 'title': '4日双飞，赶海踏浪，扬帆出海，极地海洋世界，玩海零距离',
-  // //线路持续天数
-  // 'day': 4,
-  // //线路持续夜数
-  // 'night': 3,
-
-  // //预付单房差
-  // //选择日期 -> suitList->difference
-  // 'difference': 75000,
-
-  // //订单总额(单位分)
-  // 'amount': 650000,
-
-  // //TODO:缺少费用明细里面的数据
-
-  // //出行人信息(array,required)
-  // 'tourers': {
-  //   "subNum": {
-  //     //小孩数量
-  //     'child': 1,
-  //     //成人数量
-  //     'adult': 1,
-  //     //老人数量
-  //     'old': 1,
-  //   },
-  // },
-  // //是否【已选择】包含婴儿(number,required)
-  // 'isAllowBabySelected': 1,
-  // "adultprice": 200,                  //成人费用
-  // "adultprice": 200,                  //成人费用
-  // "childprice": 100,                  //儿童费用
-  // "oldprice": 100,                    //老人费用
-  // "postage": 20                       //快递费用  
-  // "isAddedDifference": false        //是否增加单房差 
-  // }
   onLoad: function (options) {
 
     var that = this;
     if (typeof (options.lineDetail) != 'undefined') {
 
       console.log("😀 😀 😀");
-      console.log()
       console.log(options.lineDetail);
 
       var lineDetail = JSON.parse(options.lineDetail);
@@ -133,22 +93,29 @@ Page(Object.assign({}, Toast, {
         title: lineDetail.title,
         day: lineDetail.day,
         night: lineDetail.night,
-        difference: lineDetail.difference,
-        isAllowBabySelected: lineDetail.isAllowBabySelected,
-        adultprice: lineDetail.adultprice,
-        childprice: lineDetail.childprice,
-        postage: lineDetail.postage,
+
+        'formData.pid': lineDetail.pid,
         'formData.travelDate': lineDetail.travelDate,
+        //TODO
+        'formData.isIncludeBaby': lineDetail.isAllowBabySelected,
+        'formData.childprice': lineDetail.childprice,
+        'formData.adultprice': lineDetail.adultprice,
+        'formData.oldprice': lineDetail.oldprice,
+        'formData.postage': lineDetail.postage,
+        'formData.difference': lineDetail.difference,
+        'formData.isAddedDifference': lineDetail.isAddedDifference,
+
+
         'formData.amount': lineDetail.amount,
         'formData.tourers.subNum.child': lineDetail.tourers.subNum.child,
         'formData.tourers.subNum.adult': lineDetail.tourers.subNum.adult,
         'formData.tourers.subNum.old': lineDetail.tourers.subNum.old,
-        'formData.tourers.isIncludeBaby': lineDetail.isIncludeBaby,
-        'formData.tourers.isIncludeOld': lineDetail.isIncludeOld,
+
+        'formDatadistributerId': util.getDistributerId(),
       })
     }
 
-    // console.log(that.data.formData);
+    console.log(that.data.formData);
   },
 
   /**
@@ -255,46 +222,57 @@ Page(Object.assign({}, Toast, {
 
   // 开具发票 - 选择 状态
   handleTapSelectType: function () {
-       var that = this;
-       that.setData({
-            isSelected: !this.data.isSelected,
-       })
+    var that = this;
+    that.setData({
+      isSelected: !this.data.isSelected,
+    })
   },
 
   /**
- * 检查用户输入
- */
+  * 检查用户输入
+  */
   checkInput: function () {
 
     var that = this;
-    // if (that.data.formData.linkMan.length <= 0) {
+    var childSubNum = that.data.formData.tourers.subNum.child;
+    var adultSubNum = that.data.formData.tourers.subNum.adult;
+    var oldSubNum = that.data.formData.tourers.subNum.old;
 
-    //   that.showZanToast("请填写姓名");
-    //   return false;
-    // }
 
-    // if (!util.isMobile(that.data.formData.linkTel)) {
+    console.log("🚀 🚀 🚀");
+    console.log(that.data.formData)
+    console.log(that.data.formData.tourers);
 
-    //   that.showZanToast("请输入联系电话");
-    //   return false;
-    // }
+    if (that.data.formData.tourers.list.length != childSubNum + adultSubNum + oldSubNum) {
 
-    // if (that.data.formData.tourers.list.length < that.data.formData.tourers.subNum.child + that.data.formData.tourers.subNum.adult) {
+      that.showZanToast("请选择出行人");
+      return false;
+    }
 
-    //   that.showZanToast("请选择出行人");
-    //   return false;
-    // }
-    // if (that.data.formData.receiverAddress.length <= 0) {
 
-    //   that.showZanToast("请添加您的收货地址");
-    //   return false;
-    // }
+    if (that.data.formData.linkMan.length <= 0) {
 
-    // if (that.data.formData.linkEmail.length > 0 && !util.isEmail(that.data.formData.linkEmail)) {
+      that.showZanToast("请填写姓名");
+      return false;
+    }
 
-    //   that.showZanToast("请检查输入的电子邮箱地址");
-    //   return false;
-    // }
+    if (!util.isMobile(that.data.formData.linkTel)) {
+
+      that.showZanToast("请输入联系电话");
+      return false;
+    }
+
+    if (that.data.formData.receiverAddress.length <= 0) {
+
+      that.showZanToast("请添加您的收货地址");
+      return false;
+    }
+
+    if (that.data.formData.linkEmail.length > 0 && !util.isEmail(that.data.formData.linkEmail)) {
+
+      that.showZanToast("请检查输入的电子邮箱地址");
+      return false;
+    }
     return true;
   },
 

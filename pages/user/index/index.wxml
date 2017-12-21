@@ -1,107 +1,137 @@
 <!--pages/API/my/my.wxml-->
-<view class="container">
+<block wx:if="{{isDistributer}}">
+     <view class="container">
+          <view class="my-img">
+               <image class=" logo" src="http://image.365zhiding.com/wxapp/20171121/logo.png"></image>
 
-  <block wx:if="{{isDistributer}}">
-  <view class="my-img">
-    <image class=" logo" src="http://image.365zhiding.com/wxapp/20171121/logo.png"></image>
-
-    <view class="text1">环球悦旅会商户版</view>
-    <view class="text2">高级代理</view>
-  </view>
-
-  <view class="box1">
-    <navigator url="/pages/distributer/commission/commission">
-      <view class="list">
-        <view class="list-left">
-          <view class="icon">
-            <image src='http://image.365zhiding.com/wxapp/20171121/111 (2).png'></image>
+               <view class="text1">环球悦旅会商户版</view>
+               <view class="text2">高级代理</view>
           </view>
-          <view class="list-text">我的佣金</view>
-        </view>
-        <view class="list-right">
-          <image src='http://image.365zhiding.com/wxapp/20171114/1.png' style="width:14rpx;height:24rpx"></image>
-        </view>
-      </view>
-    </navigator>
+
+          <view class="box1">
+               <navigator url="/pages/distributer/commission/commission">
+                    <view class="list">
+                         <view class="list-left">
+                              <view class="icon">
+                                   <image src='http://image.365zhiding.com/wxapp/20171121/111 (2).png'></image>
+                              </view>
+                              <view class="list-text">我的佣金</view>
+                         </view>
+                         <view class="list-right">
+                              <image src='http://image.365zhiding.com/wxapp/20171114/1.png' style="width:14rpx;height:24rpx"></image>
+                         </view>
+                    </view>
+               </navigator>
 
 
-    <view class="list" bindtap='toast'>
-      <view class="list-left">
-        <view class="icon">
-          <image src='http://image.365zhiding.com/wxapp/20171121/222.png'></image>
-        </view>
-        <view class="list-text">下级管理</view>
-      </view>
-      <view class="list-right">
-        <image src='http://image.365zhiding.com/wxapp/20171114/1.png' style="width:14rpx;height:24rpx"></image>
-      </view>
-      <modal title="提示" hidden="{{modalHidden}}" confirm-text="确定" cancel-text="取消" bindconfirm="modalBindaconfirm" bindcancel="modalBindcancel">您现在还没有下级代理商快去发展吧~</modal>
-    </view>
+               <view class="list" bindtap='toast'>
+                    <view class="list-left">
+                         <view class="icon">
+                              <image src='http://image.365zhiding.com/wxapp/20171121/222.png'></image>
+                         </view>
+                         <view class="list-text">下级管理</view>
+                    </view>
+                    <view class="list-right">
+                         <image src='http://image.365zhiding.com/wxapp/20171114/1.png' style="width:14rpx;height:24rpx"></image>
+                    </view>
+                    <modal title="提示" hidden="{{modalHidden}}" confirm-text="确定" cancel-text="取消" bindconfirm="modalBindaconfirm" bindcancel="modalBindcancel">您现在还没有下级代理商快去发展吧~</modal>
+               </view>
 
 
-    <navigator url="/pages/distributer/order-query/order-query">
-      <view class="list" style='border-bottom:none'>
-        <view class="list-left">
-          <view class="icon">
-            <image src='http://image.365zhiding.com/wxapp/20171121/333.png'></image>
+               <navigator url="/pages/distributer/order-query/order-query">
+                    <view class="list" style='border-bottom:none'>
+                         <view class="list-left">
+                              <view class="icon">
+                                   <image src='http://image.365zhiding.com/wxapp/20171121/333.png'></image>
+                              </view>
+                              <view class="list-text">
+                                   订单查询
+                              </view>
+                         </view>
+                         <view class="list-right">
+                              <image src='http://image.365zhiding.com/wxapp/20171114/1.png' style="width:14rpx;height:24rpx"></image>
+                         </view>
+                    </view>
+               </navigator>
           </view>
-          <view class="list-text">
-            订单查询
+
+          <view class="box2">
+               <view class="list" bindtap='onChangeShowState'>
+                    <view class="list-left">
+                         <view class="icon">
+                              <image src='http://image.365zhiding.com/wxapp/20171121/444.png'></image>
+                         </view>
+                         <view class="list-text">客服咨询</view>
+                    </view>
+                    <view class="list-right">
+                         <image src='http://image.365zhiding.com/wxapp/20171114/1.png' style="width:14rpx;height:24rpx"></image>
+                    </view>
+               </view>
+               <!--弹出信息的展示开始  -->
+               <view class="hidden-box hide{{showView?'show':''}}"></view>
+               <view class="hidden hide{{showView?'show':''}}">
+                    <view class="hidden-text1">呼叫客服</view>
+                    <view class="hidden-text2">400-189-0876</view>
+                    <view class="hidden-text3">周一至周六 09:30-18:30</view>
+                    <view class="line"></view>
+                    <view class="line2"></view>
+                    <view class="cancel" bindtap='cancel'>取消</view>
+                    <view class="sure" bindtap='callPhone'>呼叫</view>
+               </view>
+               <!--弹出信息的展示结束-->
+
+               <navigator url="/pages/distributer/store-setting/store-setting">
+                    <view class="list" style='border-bottom:none'>
+                         <view class="list-left">
+                              <view class="icon">
+                                   <image src='http://image.365zhiding.com/wxapp/20171121/555.png'></image>
+                              </view>
+                              <view class="list-text">店铺设置</view>
+                         </view>
+                         <view class="list-right">
+                              <image src='http://image.365zhiding.com/wxapp/20171114/1.png' style="width:14rpx;height:24rpx"></image>
+                         </view>
+                    </view>
+               </navigator>
           </view>
-        </view>
-        <view class="list-right">
-          <image src='http://image.365zhiding.com/wxapp/20171114/1.png' style="width:14rpx;height:24rpx"></image>
-        </view>
-      </view>
-    </navigator>
-  </view>
 
-  <view class="box2">
-    <view class="list" bindtap='onChangeShowState'>
-      <view class="list-left">
-        <view class="icon">
-          <image src='http://image.365zhiding.com/wxapp/20171121/444.png'></image>
-        </view>
-        <view class="list-text">客服咨询</view>
-      </view>
-      <view class="list-right">
-        <image src='http://image.365zhiding.com/wxapp/20171114/1.png' style="width:14rpx;height:24rpx"></image>
-      </view>
-    </view>
-    <!--弹出信息的展示开始  -->
-    <view class="hidden-box hide{{showView?'show':''}}"></view>
-    <view class="hidden hide{{showView?'show':''}}">
-      <view class="hidden-text1">呼叫客服</view>
-      <view class="hidden-text2">400-189-0876</view>
-      <view class="hidden-text3">周一至周六 09:30-18:30</view>
-      <view class="line"></view>
-      <view class="line2"></view>
-      <view class="cancel" bindtap='cancel'>取消</view>
-      <view class="sure" bindtap='callPhone'>呼叫</view>
-    </view>
-    <!--弹出信息的展示结束-->
+          <view class="bottom">退出登录</view>
 
-    <navigator url="/pages/distributer/store-setting/store-setting">
-      <view class="list" style='border-bottom:none'>
-        <view class="list-left">
-          <view class="icon">
-            <image src='http://image.365zhiding.com/wxapp/20171121/555.png'></image>
+     </view>
+
+</block>
+
+
+
+<block wx:if="{{!isDistributer}}">
+
+     <view class="container">
+          <view class="my-img">
+               <image class=" logo" src="http://image.365zhiding.com/wxapp/20171121/logo.png"></image>
+
+
+               <view class="text2" style='margin-top:-30rpx;'>用户信息</view>
           </view>
-          <view class="list-text">店铺设置</view>
-        </view>
-        <view class="list-right">
-          <image src='http://image.365zhiding.com/wxapp/20171114/1.png' style="width:14rpx;height:24rpx"></image>
-        </view>
-      </view>
-    </navigator>
-  </view>
 
-  <view class="bottom">退出登录</view>
-  </block>
+          <view class="box1">
 
-  <block wx:if="{{!isDistributer}}">
-    <button bindtap='goMyOrder'>我的订单</button>
-  </block>
+               <view class="list">
+                    <view class="list-left">
+                         <view class="icon">
+                              <image src='http://image.365zhiding.com/wxapp/20171121/111 (2).png'></image>
+                         </view>
+                         <view class="list-text">我的订单</view>
+                    </view>
+                    <view class="list-right">
+                         <image src='http://image.365zhiding.com/wxapp/20171114/1.png' style="width:14rpx;height:24rpx"></image>
+                    </view>
+               </view>
+          </view>
+
+          <view class="bottom">退出登录</view>
+     </view>
 
 
-</view>
+
+
+</block>

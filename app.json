@@ -1,5 +1,7 @@
 {
   "pages": [
+
+        "pages/user/order/order",
     
     "pages/API/line/line",
     "pages/API/empower/empower",
@@ -93,7 +95,9 @@
     "pages/search/search/search",
 
     "pages/user/index/index",
-    "pages/user/order/order",
+
+
+
     "pages/user/order-detail/order-detail",
     "pages/user/send-code/send-code",
     "pages/user/visitor/visitor",

@@ -51,12 +51,20 @@
     "pages/API/visa-require/visa-require",
     "pages/API/switchcity/switchcity",
     "pages/API/address-message/address-message",
+    
+    
+    
+    
+    
+    
     "pages/customized/index/index",
     "pages/customized/air-ticket/air-ticket",
     "pages/customized/car-require/car-require",
     "pages/customized/food-require/food-require",
     "pages/customized/hotel-require/hotel-require",
     "pages/customized/public-active/public-active",
+    
+    
     "pages/distributer/commission/commission",
     "pages/distributer/commission-detail/commission-detail",
     "pages/distributer/login/login",
@@ -67,11 +75,19 @@
     "pages/distributer/store-setting/store-setting",
     "pages/distributer/subordinate/subordinate",
     "pages/distributer/unsettlement/unsettlement",
+    
+    
+    
     "pages/index/index",
+    
+    
     "pages/line/category/category",
     "pages/line/leader-introduce/leader-introduce",
     "pages/line/line-detail/line-detail",
     "pages/line/line-list/line-list",
+    
+    
+    
     "pages/order/add-address/add-address",
     "pages/order/add-passenger/add-passenger",
     "pages/order/choice-address/choice-address",
@@ -81,11 +97,20 @@
     "pages/order/fill-order/fill-order",
     "pages/order/pay-confirm/pay-confirm",
     "pages/order/pay-sucess/pay-sucess",
+    
+    
+    
     "pages/search/search/search",
+    
+    
+    
     "pages/user/index/index",
     "pages/user/send-code/send-code",
     "pages/user/visitor/visitor",
     "pages/user/wx-mobile/wx-mobile",
+    
+    
+    
     "pages/web-view/web-view",
     "pages/member/passport"
   ],
@@ -93,7 +118,7 @@
     "navigationBarBackgroundColor": "#ffffff",
     "navigationBarTextStyle": "black",
     "backgroundTextStyle": "dark",
-    "enablePullDownRefresh": true,
+    "enablePullDownRefresh": false,
     "disableScroll": false
   },
   "tabBar": {

@@ -9,7 +9,7 @@
           <block wx:for="{{item.theme}}" wx:for-item="theme" wx:key="theme">
                <!-- <block wx:if="{{theme.images.length==2}}"> -->
                <view class="img-box">
-                    <view wx:for="{{theme.images}}" wx:for-item="item">
+                    <view wx:for="{{theme.images}}" wx:for-item="item" wx:key="item">
                          <image class="jing-img {{item.length==1?'one-image':'two-image'}}" src="{{item}}" mode="aspectFill"></image>
                     </view>
                </view>

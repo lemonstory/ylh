@@ -608,6 +608,17 @@
      left: 105rpx;
 }
 
+.shadow-box1 {
+     width: 540rpx;
+     height: auto;
+     background: rgba(255, 255, 255, 1);
+     border-radius: 10rpx;
+     position: fixed;
+     top: 250rpx;
+     z-index: 999;
+     left: 105rpx;
+}
+
 .text-content {
      display: flex;
      height: 85rpx;

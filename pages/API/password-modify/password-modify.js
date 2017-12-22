@@ -5,19 +5,14 @@ const Toast = require('../../../zanui-weapp/dist/toast/index');
 
 Page(Object.assign({}, Toast, {
   data: {
-
-    'constant': app.constant,
-
+   'constant': app.constant,
     oldPasswdInputType: "password",
-    oldPasswdIconUrl: "../image/pass.png",
+    oldPasswdIconUrl: "http://image.365zhiding.com/wxapp/20171221/pass.png",
     isShowOldPasswd: false,
     newPasswdInputType: "password",
-    newPasswdIconUrl: "../image/pass.png",
+    newPasswdIconUrl: "http://image.365zhiding.com/wxapp/20171221/pass.png",
     isShowNewPasswd: false,
-
-
     againPassword:'',
-
 
 // 接口 post数据
     formData: {    
@@ -25,8 +20,7 @@ Page(Object.assign({}, Toast, {
       'password': '',
       'oldPassword': '666666',
     }
-
-  },
+},
   onReady: function () {
   },
 
@@ -180,13 +174,13 @@ handlePassworderIsFit:function(e){
       console.log(1111)
       this.setData({
         oldPasswdInputType: "text",
-        oldPasswdIconUrl: "../image/passcan.png",
+        oldPasswdIconUrl: "http://image.365zhiding.com/wxapp/20171221/passcan.png",
       })
     } else {
       console.log(2222);
       this.setData({
         oldPasswdInputType: "password",
-        oldPasswdIconUrl: "../image/pass.png"
+        oldPasswdIconUrl: "http://image.365zhiding.com/wxapp/20171221/pass.png"
       })
     }
   },
@@ -200,13 +194,13 @@ handlePassworderIsFit:function(e){
       console.log(1111)
       this.setData({
         newPasswdInputType: "text",
-        newPasswdIconUrl: "../image/passcan.png",
+        newPasswdIconUrl: "http://image.365zhiding.com/wxapp/20171221/passcan.png",
       })
     } else {
       console.log(2222);
       this.setData({
         newPasswdInputType: "password",
-        newPasswdIconUrl: "../image/pass.png"
+        newPasswdIconUrl: "http://image.365zhiding.com/wxapp/20171221/pass.png"
       })
     }
   },

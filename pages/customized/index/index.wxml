@@ -108,7 +108,7 @@
         <view class="star">*</view>出发城市</view>
       <input class="input" placeholder="请输入出发城市" placeholder-style="font-size:28rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);" bindinput='bindInputValueChange' id="fromCity" value='{{formData.fromCity}}'></input>
       <view class="close hide{{formData.fromCity != ''?'show':''}}" bindtap='handleTapClearInput' data-id="fromCity">
-        <image style='width:36rpx;height:36rpx; m argin-left:70rpx;' src='http://image.365zhiding.com/wxapp/20171221/close.png'></image>
+        <image style='width:36rpx;height:36rpx; margin-left:70rpx;' src='http://image.365zhiding.com/wxapp/20171221/close.png'></image>
       </view>
     </view>
 

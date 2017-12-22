@@ -51,7 +51,7 @@
       <input class="input" placeholder="请输入11位手机号码" placeholder-style="font-size:26rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);" style='padding-left:56rpx; box-sizing: border-box;' bindinput='bindInputValueChange' id="formData.linkTel" value='{{formData.linkTel}}'></input>
     </view>
 
-    <view class="input-name">邮箱：
+    <view class="input-name style='border-bottom:none'">邮箱：
       <input class="input" placeholder="请输入电子邮箱地址" placeholder-style="font-size:26rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);" style='padding-left:82rpx; box-sizing: border-box;' bindinput='bindInputValueChange' id="formData.linkEmail" value='{{formData.linkEmail}}'></input>
     </view>
   </view>

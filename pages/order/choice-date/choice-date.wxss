@@ -251,8 +251,8 @@ color:#EE6F2E;
 }
 
 .ischeck {
-     width: 18rpx;
-     height: 18rpx;
+     width: 24rpx;
+     height: 24rpx;
      border-radius: 50%;
 }
 

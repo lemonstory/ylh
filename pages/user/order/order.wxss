@@ -141,7 +141,7 @@ color:rgba(102,102,102,1);
 .hidden-box{
   width: 750rpx;
   height:100vh;
-  position:absolute;
+  position:fixed;
   background: #000;
   opacity: 0.4;
   z-index: 99;
@@ -154,7 +154,7 @@ height:380rpx;
 background:rgba(255,255,255,1);
 opacity:0.9;
 border-radius: 26rpx;
-position: absolute;
+position: fixed;
 top:30%;
 z-index: 999;
 left:15%;  
@@ -249,10 +249,28 @@ right:103rpx;
      left:89rpx;
      border-radius: 50%;
 }
+.check-select1{
+     width:18rpx;
+     height:18rpx;
+     border:5rpx solid #FF6600;
+     position:absolute;
+     top:109rpx;
+     left:89rpx;
+     border-radius: 50%;
+}
 .check2{
      width:18rpx;
      height:18rpx;
      border:5rpx solid #eee;
+     position:absolute;
+     top:152.1rpx;
+     left:89rpx;
+     border-radius: 50%;
+}
+.check-select2{
+     width:18rpx;
+     height:18rpx;
+     border:5rpx solid#FF6600;
      position:absolute;
      top:152.1rpx;
      left:89rpx;
@@ -267,10 +285,28 @@ right:103rpx;
      left:89rpx;
      border-radius: 50%;
 }
+.check-select3{
+     width:18rpx;
+     height:18rpx;
+     border:5rpx solid #FF6600;
+     position:absolute;
+     top:196.1rpx;
+     left:89rpx;
+     border-radius: 50%;
+}
 .check4{
      width:18rpx;
      height:18rpx;
      border:5rpx solid #eee;
+     position:absolute;
+     top:238.1rpx;
+     left:89rpx;
+     border-radius: 50%;
+}
+.check-select4{
+     width:18rpx;
+     height:18rpx;
+     border:5rpx solid #FF6600;
      position:absolute;
      top:238.1rpx;
      left:89rpx;

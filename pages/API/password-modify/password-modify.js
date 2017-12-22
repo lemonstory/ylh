@@ -1,9 +1,13 @@
 // pages/API/password-modify/password-modify.js
 var util = require('../../../utils/util.js');
+const app = getApp();
 const Toast = require('../../../zanui-weapp/dist/toast/index');
 
 Page(Object.assign({}, Toast, {
   data: {
+
+    'constant': app.constant,
+
     oldPasswdInputType: "password",
     oldPasswdIconUrl: "../image/pass.png",
     isShowOldPasswd: false,
@@ -19,7 +23,7 @@ Page(Object.assign({}, Toast, {
     formData: {    
       'name': 'D10004',
       'password': '',
-      'oldword': '666666',
+      'oldPassword': '666666',
     }
 
   },
@@ -82,13 +86,15 @@ Page(Object.assign({}, Toast, {
    */
   changePassword: function () {
     var that = this;
-    var url = "https://qa-distributor.yuelvhui.com/distributerAccount/updatePassword";
+    // var url = "https://qa-distributor.yuelvhui.com/distributerShop/findShopByPrimaryKey?distributerId=1"
+    var url = that.data.constant.distributer + "/distributerAccount/updatePassword";
 
-      if (!util.isEmptyStr(that.data.formData.password) && !util.isEmptyStr(that.data.formData.oldword) && !util.isEmptyStr(that.data.againPassword) ){
+    if (!util.isEmptyStr(that.data.formData.password) && !util.isEmptyStr(that.data.formData.oldPassword) && !util.isEmptyStr(that.data.againPassword) ){
         if (that.data.againPassword == that.data.formData.password){     // 若密码确认一致
           wx.request({
             url: url,
             data: that.data.formData,
+            header: util.postRequestHeader(),
             method: 'POST',
             success: function (res) {
               that.showZanToast(res.message);

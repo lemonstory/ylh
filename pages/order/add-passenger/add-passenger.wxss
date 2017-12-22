@@ -21,10 +21,10 @@ radio .wx-radio-input {
      position: relative;
 }
 
-radio .wx-radio-input.wx-radio-input-checked ::before {
+radio .wx-radio-input.wx-radio-input-checked::before {
      font: normal normal normal 14px/1 "weui";
      content: "\EA08";
-     font-size: 22rpx;
+     font-size: 20rpx;
      position: absolute;
      top: 50%;
      left: 50%;
@@ -142,6 +142,7 @@ radio .wx-radio-input.wx-radio-input-checked ::before {
      color: rgba(255, 255, 255, 1);
      text-align: center;
      line-height: 88rpx;
+     border-radius: 10rpx;
 }
 
 .radio {

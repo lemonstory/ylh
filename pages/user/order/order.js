@@ -11,8 +11,22 @@ Page(Object.assign({}, Toast, {
     scrollLeft: 0, //tab标题的滚动条位置
 
     selectCancleReson: 0,
-    // 取消的原因
-    cancleResons: ['双方协商一致退款', '拍错/不想去了/无法出行', '行程不成团/商家无法安排', '其他'],
+
+    cancleReson:[
+      {
+        'reson':"双方协商一致退款"
+      },
+      {
+        'reson': "拍错/不想去了/无法出行"
+      },
+      {
+        'reson': "行程不成团/商家无法安排"
+      },
+      {
+        'reson': "其它"
+      }
+    ],
+
     // 取消的post信息
     canclePostData: {
       'ordersn': '',
@@ -65,7 +79,6 @@ Page(Object.assign({}, Toast, {
     });
     // 获得订单数据
     that.getCommonData();
-    that.getCustomData();
     that.getVisaData();
   },
 
@@ -175,6 +188,26 @@ Page(Object.assign({}, Toast, {
     }
   },
 
+  /**
+   *   选择取消原因
+   */
+  handleSelectReson:function(e){
+    var that = this;
+    var index = e.currentTarget.dataset.index;
+    var selectReson = that.data.cancleReson[index].reson;
+    console.log(selectReson);
+    var postData = that.data.canclePostData;
+    postData.ordersn = that.data.selectOrder;
+    postData.reason = selectReson;
+    console.log(postData);
+    that.setData({
+      selectCancleReson:index,
+      canclePostData: postData
+    })
+    console.log(that.data.canclePostData);
+
+  },
+
 /**
  * 取消隐藏
  */
@@ -197,23 +230,39 @@ Page(Object.assign({}, Toast, {
       header:util.getRequestHeader(),
       method:'POST',
       success:function(res){
-
+        // 请求成功后  
+     
+        that.showZanToast("已提交取消申请！");
       },
       fail:function(res){
-
+        that.showZanToast("请求出错了!");
       },
       complete:function(res){
-
+        that.dialogCancel();
+        console.log(res)
       }
-      
     })
-
   },
 
-  onChangeShowState: function () {
+  /**
+   * 查看订单详情
+   */
+  toOrderDetail:function(e){
     var that = this;
+    var selectOrderSn = e.currentTarget.dataset.ordersn;
+    var url = "/pages/order/detail/detail?orderId="+selectOrderSn;
+    console.log(url);
+    wx.redirectTo({
+      url: url,
+    })
+  },
+
+  onChangeShowState: function (e) {
+    var that = this;
+    var selectOrderSn = e.currentTarget.dataset.ordersn;
     that.setData({
-      showView: (!that.data.showView)
+      showView: (!that.data.showView),
+      selectOrder: selectOrderSn
     })
   },
 

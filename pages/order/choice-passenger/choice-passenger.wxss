@@ -1,4 +1,15 @@
 /* pages/API/choice-person/choice-person.wxss */
+ .remove{  
+    width: 60px;  
+    height: 100%;  
+    background-color: red;  
+    position: absolute;  
+    top: 0;  
+    right: -60px;  
+    display: flex;  
+    justify-content: center;  
+    align-items: center;  
+}  
 checkbox .wx-checkbox-input {
 margin-right:5px;
 -webkit-appearance:none;

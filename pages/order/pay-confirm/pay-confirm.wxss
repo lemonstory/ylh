@@ -308,10 +308,13 @@ margin-left:58rpx;
   height:98rpx;
   display: flex;
   align-content: center;
+  position: fixed;
+  bottom:0;
  }
 .bottom-left{
   width:50%;
   height:100%;
+  background: #fff;
   display:flex;
   justify-content: space-around;
   font-size:24rpx;

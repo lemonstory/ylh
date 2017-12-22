@@ -233,6 +233,9 @@ Page(Object.assign({}, Toast, {
   /**
   * 检查用户输入
   */
+
+
+
   checkInput: function () {
 
     var that = this;
@@ -298,5 +301,6 @@ Page(Object.assign({}, Toast, {
         complete: function (res) { },
       })
     }
-  }
+  },
+  
 }));

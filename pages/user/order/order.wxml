@@ -26,7 +26,7 @@
           <view class="bottom-left">订单金额：¥{{item.amount}}</view>
           <view class="all-right">
             <view class="bottom-right" data-ordersn="{{item.ordersn}} " wx:if="{{item.isAllowCancel ==1}}" bindtap='onChangeShowState'>取消订单</view>
-            <view class="bottom-right" style='color:#FF6600;border:1rpx solid #FF6600; margin-left:20rpx' data-statusId="{{item.statusId}}" data-ordersn="{{item.ordersn}} ">{{item.statusId == 101 ? "去支付":"查看线路"}}</view>
+            <view class="bottom-right" style='color:#FF6600;border:1rpx solid #FF6600; margin-left:20rpx' data-statusId="{{item.statusId}}" data-ordersn="{{item.ordersn}} " bindtap='toOrderDetail'>{{item.statusId == 101 ? "去支付":"订单详情"}}</view>
           </view>
         </view>
       </view>
@@ -70,14 +70,14 @@
     <view class=" hidden-box hide{{showView? 'show': ''}} "></view>
     <view class="hidden hide{{showView? 'show': ''}} ">
       <view class="hidden-text1 ">取消原因</view>
-      <view class="check1 "></view>
-      <view class="hidden-text2 ">{{cancleReson[0]}}</view>
-      <view class="check2 "></view>
-      <view class="hidden-text3 ">{{cancleReson[1]}}</view>
-      <view class="check3 "></view>
-      <view class="hidden-text4 ">{{cancleReson[2]}}</view>
-      <view class="check4 "></view>
-      <view class="hidden-text5 ">{{cancleReson[3]}}</view>
+      <view class="{{selectCancleReson== 0?'check-select1':'check1'}}"></view>
+      <view class="hidden-text2 " bindtap='handleSelectReson' data-index='0'>{{cancleReson[0].reson}}</view>
+      <view class="{{selectCancleReson==1?'check-select2':'check2' }}"></view>
+      <view class="hidden-text3 "bindtap='handleSelectReson' data-index='1'>{{cancleReson[1].reson}}</view>
+      <view class="{{selectCancleReson==2?'check-select3':'check3' }}"></view>
+      <view class="hidden-text4 " bindtap='handleSelectReson' data-index='2'>{{cancleReson[2].reson}}</view>
+      <view class="{{selectCancleReson==3?'check-select4':'check4'}} "></view>
+      <view class="hidden-text5 " bindtap='handleSelectReson' data-index='3'>{{cancleReson[3].reson}}</view>
       <view class="line "></view>
       <view class="line2 "></view>
       <view class="cancel " bindtap='dialogCancel'>我点错了</view>

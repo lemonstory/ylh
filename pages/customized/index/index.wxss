@@ -13,6 +13,28 @@
      height: 100vh;
 }
 
+radio .wx-radio-input {
+margin-right:5px;
+-webkit-appearance:none;
+outline:0;
+border:1px solid #D1D1D1;
+width:30rpx;
+height:30rpx;
+position:relative;
+}
+.radio{
+     text-align: center;
+}
+ radio .wx-radio-input.wx-radio-input-checked::before{
+font:normal normal normal 14px/1 "weui";
+content:"\EA08";
+font-size:26rpx;
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%, -48%) scale(0.73);
+-webkit-transform:translate(-50%, -48%) scale(0.73);
+} 
 .main {
      width: 100%;
      height: auto;
@@ -69,7 +91,8 @@
      font-size: 26rpx;
      font-family: PingFang-SC-Regular;
      color: rgba(51, 51, 51, 1);
-     margin-left: 26rpx;
+     width:60rpx;
+     text-align: center;
 }
 
 .box1 {

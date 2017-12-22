@@ -2,7 +2,7 @@
 const app = getApp();
 const Toast = require('../../../zanui-weapp/dist/toast/index');
 var util = require('../../../utils/util.js')
-
+var areaUtil = require('../../../utils/china-area.js')
 Page(Object.assign({}, Toast, {
 
   /**
@@ -120,7 +120,7 @@ Page(Object.assign({}, Toast, {
     var idx = e.currentTarget.dataset.idx;
     var itemJsonStr = JSON.stringify(that.data.data.list[idx]);
     console.log(itemJsonStr);
-    var url = "../add-address/add-address?itemJsonStr=" + itemJsonStr;
+    var url = "/pages/order/add-address/add-address?itemJsonStr=" + itemJsonStr;
     wx.redirectTo({
       url: url
     })

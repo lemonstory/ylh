@@ -16,22 +16,25 @@ Page(Object.assign({}, Toast, {
 
     formData: {
 
-      "type": 1, //护照归属类型，1会员本人的护照，2会员的常旅客护照(number,required)
-      "linkManId": 1,//常旅客id(number,required)
-      "picUrl": 'http://xxxx',//护照照片地址(string,reuqired)
-      "chineseName": "司马懿",//中文名(string,required)
-      "chineseSurname": "司马",//中文姓氏(string,required)
-      "englishName": "Mike",//英文名(string,required)
-      "englishSurname": "smis",//英文姓氏(string,required)
-      "gender": 1,//性别(1男,2女)(string,required)
-      "birthday": '1991-11-04',//生日(string,required)
-      "countryId": 1,//国籍(number,required)
-      "cardType": 1,//证件类型(number,reuqired)1身份证，2军官证，3护照，4港澳通行证，5台湾通行证，99其它
-      "cardNumber": "5107**********8517",//证件号码(打*)(string,required),
-      "issueAreaId": 1,//签发地id(number,required),
-      "issueEndTime": "2017-10-12",//签证有效期(string,required)
-      "mobile": '18971133569',//手机号码(string,required)
-      "address": '北京槐房',//现居住地(string,required)
+      "type": 0,              //护照归属类型，1会员本人的护照，2会员的常旅客护照(number,required)
+      "linkManId": 0,         //常旅客id(number,required)
+
+      //TODO:picUrl本期先不增加 2017-12-22
+      "picUrl": '',           //护照照片地址(string,reuqired)
+      "chineseName": '',      //中文名(string,required)
+      "chineseSurname": '',   //中文姓氏(string,required)
+      "englishName": '',      //英文名(string,required)
+      "englishSurname": '',   //英文姓氏(string,required)
+      "gender": '',           //性别(1男,2女)(string,required)
+      "birthday": '',         //生日(string,required)
+      "countryId": 1,         //国籍(number,required)
+      "cardType": 1,          //证件类型(number,reuqired)1身份证，2军官证，3护照，4港澳通行证，5台湾通行证，99其它
+      "cardNumber": '',       //证件号码(打*)(string,required),
+      "issueAreaId": 1,       //签发地id(number,required),
+      "issueEndTime": '',     //签证有效期(string,required)
+      "telphoneCode": '+86',  //国际电话区号
+      "mobile": '',           //手机号码(string,required)
+      "address": '',          //现居住地(string,required)
     },
 
     cardName:'',
@@ -184,6 +187,16 @@ Page(Object.assign({}, Toast, {
       currentTapId: id,
       isShowBottomPopup: !this.data.isShowBottomPopup
     });
+  },
+
+
+  choiceInternationalCode:function(event) {
+
+    var that = this;
+    wx.navigateTo({
+      url: '/pages/common/international-code/international-code',
+    })
+
   }
 
 }));

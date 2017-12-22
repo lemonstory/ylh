@@ -29,8 +29,12 @@
 
     <view class="use-mess">
       <view style="width:252rpx">出生日期：</view>
-      <view class="input" style="font-size:26rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);">请选择</view>
-      <image src='http://image.365zhiding.com/wxapp/20171114/1.png' style='width:14rpx;height:24rpx; margin-left:345rpx'></image>
+      <picker mode="date" value="{{formData.birthday}}" bindchange="bindInputValueChange" id='formData.birthday'>
+        <view class="picker">
+          <view class="input" style="font-size:26rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);">{{formData.birthday.length > 0 ? formData.birthday : '请选择'}}</view>
+          <image src='http://image.365zhiding.com/wxapp/20171114/1.png' style='width:14rpx;height:24rpx; margin-left:345rpx'></image>
+        </view>
+      </picker>
     </view>
 
     <view class="use-mess">
@@ -58,8 +62,12 @@
 
     <view class="use-mess">
       <view style="width:252rpx">护照有效期：</view>
-      <view class="input" style="font-size:26rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);">请选择</view>
-      <image src='http://image.365zhiding.com/wxapp/20171114/1.png' style='width:14rpx;height:24rpx; margin-left:345rpx'></image>
+      <picker mode="date" value="{{formData.issueEndTime}}" bindchange="bindInputValueChange" id='formData.issueEndTime'>
+        <view class="picker">
+          <view class="input" style="font-size:26rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);">{{formData.issueEndTime.length > 0 ? formData.issueEndTime : '请选择'}}</view>
+          <image src='http://image.365zhiding.com/wxapp/20171114/1.png' style='width:14rpx;height:24rpx; margin-left:345rpx'></image>
+        </view>
+      </picker>
     </view>
 
     <view class="shuoming">
@@ -67,7 +75,7 @@
 
     <view class="use-mess">
       <view style="width:252rpx">手机号码：</view>
-      <view style='font-size:28rpx;font-family:PingFang-SC-Regular;color:rgba(51,51,51,1);'>+86</view>
+      <view style='font-size:28rpx;font-family:PingFang-SC-Regular;color:rgba(51,51,51,1);' bindtap='choiceInternationalCode'>{{formData.telphoneCode}}</view>
       <image src='http://image.365zhiding.com/wxapp/20171114/1.png ' style='width:14rpx;height:24rpx; margin-left:30rpx; '></image>
       <view style='margin-left:30rpx; '>|</view>
       <input class="input" id='formData.mobile' value='{{formData.mobile}}' bindinput='bindInputValueChange' placeholder="手机号码" placeholder-style="font-size:26rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1); margin-left:30rpx"></input>
@@ -114,6 +122,17 @@
           </block>
         </block>
         <!-- 性别 结束 -->
+
+
+        <!-- 签发地 开始 -->
+        <block wx:if="{{currentTapId == 'issueAreaId'}}">
+          <block wx:for="{{constant.gender}}" wx:key="{{constant.gender}}" wx:for-index="idx" wx:for-item="listItem">
+            <button class="zan-btn" data-id="{{listItem.id}}" data-title="{{listItem.title}}" data-target_id_key="formData.gender" data-target_title_key="genderName" catchtap="handleSeletedPopupOption">
+              {{listItem.title}}
+            </button>
+          </block>
+        </block>
+        <!-- 签发地 结束 -->
 
       </view>
     </view>

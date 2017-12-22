@@ -125,7 +125,7 @@
       <view class='total'>总计：
         <view class="total-money">￥{{formData.amount / 100}}</view>
       </view>
-      <view class="mingxi" bindtap='actionSheetTap'>明细
+      <view class="mingxi" bindtap='actionSheetChange'>明细
         <image src="http://image.365zhiding.com/wxapp/20171121/shang.png" class="{{isShowOptionsView?'rotate':''}}" style='width:24rpx;height:14rpx'></image>
       </view>
       <!--底部提示框  -->

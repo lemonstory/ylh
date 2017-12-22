@@ -216,13 +216,6 @@ Page(Object.assign({}, Toast, {
     // console.log(that.data);
   },
 
-
-  actionSheetTap: function (e) {
-    this.setData({
-      actionSheetHidden: !this.data.actionSheetHidden
-    })
-  },
-
   actionSheetChange: function (e) {
     this.setData({
       actionSheetHidden: !this.data.actionSheetHidden

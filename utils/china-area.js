@@ -17548,5 +17548,5 @@ var childAreas = [
 // }
 
 module.exports = {
-  test: test
+  // test: test
 }

@@ -2,6 +2,7 @@
 <view class="container">
 
   <!--提示框开始  -->
+  <view style="margin-bottom:100rpx;">
   <view class="tishi">
     <view class="star">*</view> 提示：一旦确认支付则不支持退款
   </view>
@@ -98,7 +99,7 @@
 
   <!--收获地址结束  -->
 
-
+</view>
 
   <!--底部开始  -->
   <view class="bottom">

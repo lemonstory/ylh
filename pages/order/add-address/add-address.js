@@ -294,9 +294,6 @@ addressInfo: {
       // 处理地址赋值
       var addressShow = that.data.de
 
-
-
-
     }else{
       that.showZanToast("请完善地址！");
     }
@@ -425,12 +422,27 @@ addressInfo: {
   },
 
   /**
+   * handleGenderSelect
+   */
+  handleGenderSelect:function(e){
+    var that = this;
+    var sex = e.currentTarget.dataset.sex;
+    var address = that.data.addressInfo;
+    address.gender = sex;
+    console.log(sex);
+    that.setData({
+      addressInfo:address
+    })
+  },
+
+  /**
    * 处理保存按钮
    */
 
   handleSubmit: function () {
     var that = this;
     that.createAddress();
+    // TODO
     // wx.navigateBack();
   },
 

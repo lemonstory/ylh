@@ -194,6 +194,7 @@ Page(Object.assign({}, Toast, {
   handleSelectReson:function(e){
     var that = this;
     var index = e.currentTarget.dataset.index;
+    console.log(index)
     var selectReson = that.data.cancleReson[index].reson;
     console.log(selectReson);
     var postData = that.data.canclePostData;

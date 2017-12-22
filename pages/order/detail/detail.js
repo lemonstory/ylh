@@ -178,15 +178,16 @@ bindDudscancel: function () {
 },
 
 
-
+// 未做完
 bindAirMessage:function(e){
      var that = this;
+     var index = e.currentTarget.dataset.index;
+     if (index ==0){
+          that.setData({
+               selectAir: !that.data.selectAir,
+          });
+     }
 
-
-     // 
-     that.setData({
-          selectAir: !that.data.selectAir,
-     });
 },
 bindAircancel: function () {
      var that = this;

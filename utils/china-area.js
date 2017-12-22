@@ -17547,6 +17547,38 @@ var childAreas = [
 //   console.log(childAreas[0]);
 // }
 
+function getChildAreas(){
+  return childAreas;
+}
+
+function getAreaName(areaId){
+  var areaName;
+  for (var i = 0; i < childAreas.length; i++){
+    if (childAreas[i].id =areaId){
+      areaName = childAreas[i].name;
+      return areaName;
+    }
+  }
+}
+
+
+
+function getItemAreas(parentId){
+  var itemAreas = [];
+  for (var i = 0; i < childAreas.length; i++){
+    if (childAreas[i].pid == parentId){
+      var itemArea = childAreas[i];
+      itemAreas.push(itemArea);
+    }
+  }
+  return itemAreas;
+  console.log(itemAreas);
+}
+
 module.exports = {
   // test: test
+  getChildAreas: getChildAreas,
+  getAreaName: getAreaName,
+  getItemAreas: getItemAreas
+
 }

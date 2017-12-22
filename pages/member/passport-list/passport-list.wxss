@@ -1,0 +1,99 @@
+/* pages/API/ziliao-proce/ziliao-proce.wxss */
+
+.container {
+  height: 100vh;
+  display: flex;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background: #f7f7f7;
+}
+
+.ziliao-box {
+  width: 100%;
+  height: 198rpx;
+  background: #fff;
+  position: static;
+  margin-top: 5rpx;
+}
+
+.ziliao-proce {
+  width: 138rpx;
+  height: 138rpx;
+  border-radius: 50%;
+  border: 10rpx solid #eee;
+  position: absolute;
+  top: 30rpx;
+  left: 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ziliao-name {
+  height: 27rpx;
+  font-size: 28rpx;
+  font-family: PingFang-SC-Regular;
+  color: rgba(51, 51, 51, 1);
+  width: auto;
+  position: absolute;
+  left: 188rpx;
+  top: 65rpx;
+}
+
+.ziliao-zhiwei {
+  height: 23rpx;
+  font-size: 24rpx;
+  font-family: PingFang-SC-Regular;
+  color: rgba(102, 102, 102, 1);
+  position: absolute;
+  left: 188rpx;
+  top: 111rpx;
+}
+
+.ziliao-shang {
+  height: 26rpx;
+  font-size: 28rpx;
+  font-family: PingFang-SC-Regular;
+  color: rgba(153, 153, 153, 1);
+  width: auto;
+  position: absolute;
+  top: 86rpx;
+  left: 576rpx;
+}
+
+.back {
+  width: 14rpx;
+  height: 24rpx;
+  position: absolute;
+  top: 97rpx;
+  right: 30rpx;
+}
+
+.ziliao-proce1 {
+  width: 138rpx;
+  height: 138rpx;
+  border-radius: 50%;
+  border: 10rpx solid F78210;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36rpx;
+  font-family: PingFang-SC-Regular;
+  color: rgba(153, 153, 153, 1);
+}
+
+.chakan {
+  position: fixed;
+  bottom: 30rpx;
+  left: 30rpx;
+  width: 690rpx;
+  height: 88rpx;
+  background: rgba(247, 130, 16, 1);
+  border-radius: 10rpx;
+  font-size: 32rpx;
+  font-family: PingFang-SC-Regular;
+  color: rgba(255, 255, 255, 1);
+  line-height: 88rpx;
+  text-align: center;
+}

@@ -1,0 +1,129 @@
+<!--pages/API/travel-mess/travel-mess.wxml-->
+<import src="/zanui-weapp/dist/toast/index.wxml" />
+<view class="container">
+  <view class="main">
+    <!-- <view class="saomiao" bindtap='bindPassPort'>扫描护照填写</view> -->
+    <view class="tishi">
+      <view class="star">*</view>请务必确保填写的证件信息与实际出行时一致，如使用错误或无效证件号码等信息进行预定所导致的一切后果（包括但不限于无法出行的金额损失、退改费、服务费等）均由用户自行承担。</view>
+    <view class="use-mess">
+      <view style='width:252rpx;'>中文 姓:</view>
+      <input class="input" id='formData.chineseSurname' value='{{formData.chineseSurname}}' bindinput='bindInputValueChange' placeholder="如： 张" placeholder-style="font-size:26rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);"></input>
+    </view>
+    <view class="use-mess">
+      <view style="width:252rpx">中文 名:</view>
+      <input class="input" id='formData.chineseName' value='{{formData.chineseName}}' bindinput='bindInputValueChange' placeholder="如： 无忌" placeholder-style="font-size:26rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);"></input>
+    </view>
+    <view class="use-mess">
+      <view style="width:252rpx">英文/拼音 姓：</view>
+      <input class="input" id='formData.englishSurname' value='{{formData.englishSurname}}' bindinput='bindInputValueChange' placeholder="如： zhang" placeholder-style="font-size:26rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);"></input>
+    </view>
+    <view class="use-mess">
+      <view style="width:252rpx">英文/拼音 名：</view>
+      <input class="input" id='formData.englishName' value='{{formData.englishName}}' bindinput='bindInputValueChange' placeholder="如： wuji" placeholder-style="font-size:26rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);"></input>
+    </view>
+    <view class="use-mess" id="gender" bindtap='toggleBottomPopup'>
+      <view style="width:252rpx">性别：</view>
+      <view class="input" style="font-size:26rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);">{{genderName.length > 0 ? genderName : '请选择'}}</view>
+      <image src='http://image.365zhiding.com/wxapp/20171114/1.png' style='width:14rpx;height:24rpx; margin-left:345rpx'></image>
+    </view>
+
+    <view class="use-mess">
+      <view style="width:252rpx">出生日期：</view>
+      <view class="input" style="font-size:26rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);">请选择</view>
+      <image src='http://image.365zhiding.com/wxapp/20171114/1.png' style='width:14rpx;height:24rpx; margin-left:345rpx'></image>
+    </view>
+
+    <view class="use-mess">
+      <view style="width:252rpx">国籍：</view>
+      <input class="input" id='formData.countryId' value='{{formData.countryId}}' bindinput='bindInputValueChange' placeholder="如：中国" placeholder-style="font-size:26rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);"></input>
+    </view>
+
+    <view class="use-mess" id="cardType" bindtap='toggleBottomPopup'>
+      <view style="width:252rpx">证件类型：</view>
+      <view class="input" style="font-size:26rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);">{{cardName.length > 0 ? cardName : '请选择'}}</view>
+      <image src='http://image.365zhiding.com/wxapp/20171114/1.png' style='width:14rpx;height:24rpx; margin-left:345rpx'></image>
+    </view>
+
+
+    <view class="use-mess">
+      <view style="width:252rpx">护照号：</view>
+      <input class="input" id='formData.cardNumber' value='{{formData.cardNumber}}' bindinput='bindInputValueChange' placeholder="如：EM46546" placeholder-style="font-size:26rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);"></input>
+    </view>
+
+    <view class="use-mess">
+      <view style="width:252rpx">护照签发地：</view>
+      <view class="input" style="font-size:26rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);">请选择</view>
+      <image src='http://image.365zhiding.com/wxapp/20171114/1.png' style='width:14rpx;height:24rpx; margin-left:345rpx'></image>
+    </view>
+
+    <view class="use-mess">
+      <view style="width:252rpx">护照有效期：</view>
+      <view class="input" style="font-size:26rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);">请选择</view>
+      <image src='http://image.365zhiding.com/wxapp/20171114/1.png' style='width:14rpx;height:24rpx; margin-left:345rpx'></image>
+    </view>
+
+    <view class="shuoming">
+      <view class="star">*</view> 请务必确保护照有效期比行程最后1天晚6个月以上。</view>
+
+    <view class="use-mess">
+      <view style="width:252rpx">手机号码：</view>
+      <view style='font-size:28rpx;font-family:PingFang-SC-Regular;color:rgba(51,51,51,1);'>+86</view>
+      <image src='http://image.365zhiding.com/wxapp/20171114/1.png ' style='width:14rpx;height:24rpx; margin-left:30rpx; '></image>
+      <view style='margin-left:30rpx; '>|</view>
+      <input class="input" id='formData.mobile' value='{{formData.mobile}}' bindinput='bindInputValueChange' placeholder="手机号码" placeholder-style="font-size:26rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1); margin-left:30rpx"></input>
+    </view>
+
+    <view class="use-mess">
+      <view style="width:252rpx">现居住地：</view>
+      <input class="input" id='formData.address' value='{{formData.address}}' bindinput='bindInputValueChange' style="width:400rpx;" placeholder="请输入您的现居住地" placeholder-style="font-size:26rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);"></input>
+    </view>
+    <view class="save" bindtap='handleTapSaveBtn'>保存</view>
+  </view>
+
+  <!--Popup 开始-->
+  <view class="popup-example--bottom zan-popup zan-popup--bottom {{ isShowBottomPopup ? 'zan-popup--show' : ''}}">
+    <view class="zan-popup__mask" catchtap="toggleBottomPopup"></view>
+    <view class="zan-popup__container">
+
+      <view class="zan-btns">
+        <view class="zan-top">
+          <button class="zan-btn zan-cancel" catchtap="toggleBottomPopup">
+            取消
+          </button>
+          <button class="zan-btn zan-sure" catchtap="toggleBottomPopup">
+            完成
+          </button>
+        </view>
+
+        <!-- 证件类型 - 开始 -->
+        <block wx:if="{{currentTapId == 'cardType'}}">
+          <block wx:for="{{constant.passengerCardType}}" wx:key="{{passengerCardTypeList}}" wx:for-index="idx" wx:for-item="listItem" wx:key="passengerCardTypeList">
+            <button class="zan-btn" data-id="{{listItem.id}}" data-title="{{listItem.title}}" data-target_id_key="formData.cardType" data-target_title_key="cardName" catchtap="handleSeletedPopupOption">
+              {{listItem.title}}
+            </button>
+          </block>
+        </block>
+        <!-- 证件类型 - 结束 -->
+
+        <!-- 性别 开始 -->
+        <block wx:if="{{currentTapId == 'gender'}}">
+          <block wx:for="{{constant.gender}}" wx:key="{{constant.gender}}" wx:for-index="idx" wx:for-item="listItem">
+            <button class="zan-btn" data-id="{{listItem.id}}" data-title="{{listItem.title}}" data-target_id_key="formData.gender" data-target_title_key="genderName" catchtap="handleSeletedPopupOption">
+              {{listItem.title}}
+            </button>
+          </block>
+        </block>
+        <!-- 性别 结束 -->
+
+      </view>
+    </view>
+  </view>
+  <!--Popup 结束-->
+
+
+
+
+  <!-- 直接使用 zan-toast 模板，并且直接传入 zanToast -->
+  <template is="zan-toast" data="{{ zanToast }}"></template>
+
+</view>

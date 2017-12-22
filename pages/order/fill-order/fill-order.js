@@ -56,9 +56,9 @@ Page(Object.assign({}, Toast, {
       },
       'amount': 0,                    //订单总额(单位分)(number,required)
       'orderBill': {                  //发票信息 如果没有，则为空（array,required）
-        'title': '',                  //发票抬头
-        'type': 0,                    //发票类型,1个人,2企业
-        'taxNum': ''                  //税号
+        // 'title': '',                  //发票抬头
+        // 'type': 0,                    //发票类型,1个人,2企业
+        // 'taxNum': ''                  //税号
       },
       'receiverAddress': '',          //收货地址(string,required)
       'receiverName': '',             //收货人名称(string,required)

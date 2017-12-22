@@ -2,25 +2,26 @@
 const app = getApp();
 const Toast = require('../../../zanui-weapp/dist/toast/index');
 var util = require('../../../utils/util.js')
+var areaUtil = require('../../../utils/china-area.js')
 Page(Object.assign({}, Toast, {
 
   /**
    * 页面的初始数据
    */
   data: {
-'constant': app.constant,
-isSelected: 0,
-isUnSelect: 'http://image.365zhiding.com/wxapp/20171210/unselect.png',
-isSelect: 'http://image.365zhiding.com/wxapp/20171210/select.png',
-addressInfo: {
+    'constant': app.constant,
+    isSelected: 0,
+    isUnSelect: 'http://image.365zhiding.com/wxapp/20171210/unselect.png',
+    isSelect: 'http://image.365zhiding.com/wxapp/20171210/select.png',
+    addressInfo: {
       "id": 0,                    //地址ID
       "name": '',             //姓名
       "gender": 1,           //性别
       "mobile": '',             //手机号
       "email": '',               //邮箱
-      "province": 1,           //省
-      "city": 1,                   //市
-      "district": 1,               //区
+      "province": 0,           //省
+      "city": 0,                   //市
+      "district": 0,               //区
       "street": '',                //街道(地址描述)
     },
 
@@ -89,6 +90,18 @@ addressInfo: {
     if (that.data.addressInfo.id != 0) {
       wx.setNavigationBarTitle({
         title: '修改地址',
+      })
+      var address;
+      if (that.data.addressInfo.province != 0 && that.data.addressInfo.city != 0 && that.data.addressInfo.district != 0) {
+        address = areaUtil.getAreaName(that.data.addressInfo.province) + "-" + areaUtil.getAreaName(that.data.addressInfo.city) + "-" + areaUtil.getAreaName(that.data.addressInfo.district);
+      } else if (that.data.addressInfo.province != 0 && that.data.addressInfo.city != 0 && that.data.addressInfo.district == 0) {
+        address = areaUtil.getAreaName(that.data.addressInfo.province) + "-" + areaUtil.getAreaName
+          (that.data.addressInfo.city);
+      } else if (that.data.addressInfo.province != 0 && that.data.addressInfo.city == 0 && that.data.addressInfo.district == 0){
+        address = areaUtil.getAreaName(that.data.addressInfo.province);
+      } 
+      that.setData({
+        addressDetail: address,
       })
     }
 
@@ -243,7 +256,7 @@ addressInfo: {
    * 地址选择框的隐藏和显示
    */
 
-  hideOrShowAddressPicker:function(){
+  hideOrShowAddressPicker: function () {
     var that = this;
     var isShow = that.data.isAddressPickShow;
     console.log(isShow)
@@ -260,16 +273,16 @@ addressInfo: {
   /**
    * 判断当前地址是否选择完整
    */
-  addressIsWhole:function(){
+  addressIsWhole: function () {
     var that = this;
     var isWhole = true;
-    if (that.data.city.length >0){
-      if (that.data.selectCityId == 0 || that.data.value2Defult == "市" ){
+    if (that.data.city.length > 0) {
+      if (that.data.selectCityId == 0 || that.data.value2Defult == "市") {
         isWhole = false;
       }
     }
-    if (that.data.district.length > 0){
-      if (that.data.selectDistrictId == 0 || that.data.value3Defult == "区" ){
+    if (that.data.district.length > 0) {
+      if (that.data.selectDistrictId == 0 || that.data.value3Defult == "区") {
         isWhole = false;
       }
     }
@@ -289,12 +302,27 @@ addressInfo: {
  */
   handelAddressCommit: function (e) {
     var that = this;
-    if (that.addressIsWhole()){
+    if (that.addressIsWhole()) {
       that.hideOrShowAddressPicker();
       // 处理地址赋值
-      var addressShow = that.data.de
-
-    }else{
+      var addressShow;
+      if (that.data.selectCityId != 0 && that.data.selectDistrictId != 0) {
+        addressShow = that.data.value1Defult + "-" + that.data.value2Defult + "-" + that.data.value3Defult;
+      } else if (that.data.selectCityId != 0 && that.data.selectDistrictId == 0) {
+        addressShow = that.data.value1Defult + "-" + that.data.value2Defult;
+      } else if (that.data.selectCityId == 0 && that.data.selectDistrictId == 0) {
+        addressShow = that.data.value1Defult;
+      }
+      var address = that.data.addressInfo;
+      address.province = that.data.selectProvinceId;
+      address.city = that.data.selectCityId;
+      address.district = that.data.selectDistrictId;
+      that.setData({
+        addressInfo: address,
+        addressDetail: addressShow
+      })
+      console.log(that.data.addressInfo);
+    } else {
       that.showZanToast("请完善地址！");
     }
   },
@@ -405,33 +433,41 @@ addressInfo: {
       header: util.postRequestHeader(),
       method: 'POST',
       success: function (res) {
-        that.setData(res);
+        var address = that.data.addressInfo;
+        address.id = res.data.id;
+        that.setData({
+          addressInfo: address
+        });
       },
       fail: function (res) {
-        console.log(res);
         that.showZanToast(res.message);
       },
 
       complete: function (res) {
         wx.hideLoading();
+        console.log(res);
+        // 处理返回的数据携带
+        var url = '/pages/order/choice-address/choice-address';
+        var pages = getCurrentPages();
+        var prevPage = pages[pages.length - 2];  //上一个页面
         wx.redirectTo({
-          url: '/pages/ordrer/choice-address/choice-address',
+          url: url,
         })
       }
     })
   },
 
   /**
-   * handleGenderSelect
+   * 处理性别选择
    */
-  handleGenderSelect:function(e){
+  handleGenderSelect: function (e) {
     var that = this;
     var sex = e.currentTarget.dataset.sex;
     var address = that.data.addressInfo;
     address.gender = sex;
     console.log(sex);
     that.setData({
-      addressInfo:address
+      addressInfo: address
     })
   },
 
@@ -442,8 +478,6 @@ addressInfo: {
   handleSubmit: function () {
     var that = this;
     that.createAddress();
-    // TODO
-    // wx.navigateBack();
   },
 
 

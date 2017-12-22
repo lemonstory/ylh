@@ -34,7 +34,7 @@
 				{
 					"id": 1,
 					"name": "悦旅会-分享-卡片",
-					"pathName": "pages/order/fill-order/fill-order",
+					"pathName": "pages/distributer/commission/commission",
 					"query": "distributerId=119",
 					"scene": "1036",
 					"referrerInfo": {}

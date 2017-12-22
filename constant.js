@@ -2,6 +2,7 @@ var constant = {
 
   //业务域名
   "domain": "https://qa-api.yuelvhui.com",
+  "distributer":"https://qa-distributor.yuelvhui.com",
   
   //收银台域名
   "payDomain": "https://payment.yuelvhui.com",

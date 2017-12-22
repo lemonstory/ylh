@@ -5,26 +5,28 @@
 <view class="money">
   <view class='money_sec'>
     <view>全部佣金</view>
-    <view class='price'>¥12564.00元</view>
+    <view class='price'>¥{{totalAmount/100}}元</view>
   </view>
   <view class='money_sec'>
-    <view>上月佣金（10月）</view>
-    <view>¥500.00元</view>
+    <view>上月佣金（{{postData.settlementMonth}}月）</view>
+    <view>¥{{lastMonthAmount/100}}元</view>
   </view>
   <view class='money_sec'>
     <view>本年已结算佣金</view>
-    <view class='price'>¥12064.00元</view>
+    <view class='price'>¥{{settlementAmount/100}}元</view>
   </view>
-   <navigator url="../my-money-no/my-money-no">
+
+   <navigator url="/pages/distributer/unsettlement/unsettlement">
   <view class='money_sec'>
  
     <view>未结算佣金</view> 
+         <view class='price'>¥{{unSettlementAmount/100}}元</view> 
      <image src='http://image.365zhiding.com/wxapp/20171114/1.png' style="width:14rpx;height:24rpx"> </image>
     
 
   </view>
   </navigator>
-  <navigator url="../clear-log/clear-log">
+  <navigator url="/pages/distributer/settlement-log/settlement-log">
   <view class='money_sec'>
     <view>结算日志</view>
      <image src='http://image.365zhiding.com/wxapp/20171114/1.png ' style="width:14rpx;height:24rpx"></image>

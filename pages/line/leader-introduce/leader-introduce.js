@@ -1,5 +1,6 @@
 // pages/API/leader-introduce/leader-introduce.js
 const app = getApp();
+var util = require('../../../utils/util.js')
 Page({
 data: {
   'constant': app.constant,

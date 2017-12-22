@@ -4,11 +4,8 @@ const Toast = require('../../../zanui-weapp/dist/toast/index');
 var util = require('../../../utils/util.js')
 
 Page(Object.assign({}, Toast, {
-
-
-  data: {
-
-    constant: app.constant,
+data: {
+     constant: app.constant,
 
     //轮播图
     inputContent: {},
@@ -288,6 +285,42 @@ Page(Object.assign({}, Toast, {
       }
     })
   },
+
+// 点击处理banner图
+  handleBanner: function (event) {
+       var that = this;
+       var src = event.currentTarget.dataset.src;
+       that.navigateToUrl(src);
+  },
+
+  /**
+ * 跳转url
+ */
+  navigateToUrl: function (url) {
+
+       var path
+       if (!util.isEmptyStr(url)) {
+
+            if (util.isHttpUrl(url)) {
+                 path = "/pages/web-view/web-view?src=" + url;
+            } else {
+                 path = url;
+            }
+
+            wx.navigateTo({
+                 url: path
+            })
+
+       } else {
+
+            console.warn("url为空")
+            //测试
+            that.showZanToast("url为空");
+       }
+
+  },
+
+
 
 
 

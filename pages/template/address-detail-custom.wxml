@@ -1,20 +1,9 @@
 <template name="address-detail-custom">
-     <view class="plan ">
-          <view>3日行程</view>
-          <view>温馨提示</view>
-          <view>费用说明</view>
-          <view>用户评价</view>
-     </view>
-     <view class="plandetail ">
-          <view class="react "></view>
-          <view class="dataplan">3日行程</view>
-          <view class="react1 "></view>
-          <image class="planimg" wx:for="{{template.public}}" wx:key="idx" src='{{item}}' mode='aspectFill'></image>
-          <block wx:for="{{template.custom}}" wx:for-index="idx" wx:for-item="item" wx:key="idx">
-               <view class="day">{{item.key}}</view>
-               <!--此处是富文本编辑,图片和文本在content中 -->
-               <image class="day1img" mode='widthFix'></image>
-               <view class="day1text">{{item.content}}</view>
-          </block>
-     </view>
+
+     <block wx:for="{{template.custom}}" wx:for-index="idx" wx:for-item="item" wx:key="idx">
+          <view class="day">{{item.key}}</view>
+          <!--此处是富文本编辑,图片和文本在content中 -->
+          <image class="day1img" mode='widthFix'></image>
+          <view class="day1text">{{item.content}}</view>
+     </block>
 </template>

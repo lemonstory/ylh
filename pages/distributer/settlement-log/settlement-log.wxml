@@ -1,59 +1,57 @@
 <!--pages/API/clear-log/clear-log.wxml-->
 <view class="container">
 
-     <!-- 结算日志展开开始 -->
-     <!-- 全局页面 -->
-     <view class="clear_log">
-          <!-- 其中一个结算日志以及选项 -->
-          <view>
+  <!-- 结算日志展开开始 -->
+  <!-- 全局页面 -->
+  <view class="clear_log">
+    <!-- 其中一个结算日志以及选项 -->
+    <view wx:for = "{{dList}}">
 
-               <view class='money_sec' bindtap='onChangeShowState'>
-                    <view>2017年10月</view>
-                    <image src='http://image.365zhiding.com/wxapp/20171121/xia.png' style="width:24rpx;height:14rpx"> </image>
-               </view>
-               <!-- 选项卡部分开始 -->
-               <view class="option hide{{showView?'show':''}}" wx:if = "{{openIndex == idx}}">
-                    <view class='clear_open'>
-                         <view class='open'>
-                              <view>结算日期</view>
-                              <view class='data'>2017-10-05</view>
-                         </view>
-
-                         <view class='open'>
-                              <view>结算周期</view>
-                              <view class='data'>30天</view>
-                         </view>
-                         <view class='open'>
-                              <view>结算金额</view>
-                              <view class='data data_dif'>¥500</view>
-                         </view>
-
-                         <view class='open'>
-                              <view>扣税金额</view>
-                              <view class='data'>¥100</view>
-                         </view>
-                    </view>
-                    <navigator url="/pages/commission-detail/commission-detail?year={{item.settlementYear}}">
-                         <view class='money_sec detail'>
-                              <view>分成订单详情</view>
-                              <image src='http://image.365zhiding.com/wxapp/20171114/1.png' style="width:14rpx;height:24rpx"> </image>
-                         </view>
-                    </navigator>
-               </view>
-               <!-- 选项卡部分结束 -->
-
-               <!-- <view class='money_sec'>
-                    <view>2017年9月</view>
-                    <image src='http://image.365zhiding.com/wxapp/20171114/1.png' style="width:14rpx;height:24rpx"> </image>
-               </view> -->
+      <view class='money_sec' bindtap='onChangeShowState' data-id="{{item.settlementId}}">
+        <view>{{item.settlementYear}}年{{item.settlementMonth}}月</view>
+        <image src='http://image.365zhiding.com/wxapp/20171121/xia.png' style="width:24rpx;height:14rpx"> </image>
+      </view>
+      <!-- 选项卡部分开始 -->
+      <view wx:if = "{{openId == item.settlementId}}">
+        <view class='clear_open'>
+          <view class='open'>
+            <view>结算日期</view>
+            <view class='data'>{{showDate}}</view>
           </view>
 
-     </view>
+          <view class='open'>
+            <view>结算周期</view>
+            <view class='data'>30天</view>
+          </view>
+          <view class='open'>
+            <view>分佣金额</view>
+            <view class='data data_dif'>¥{{item.settlementAmount}}</view>
+          </view>
+          <view class='open'>
+            <view>结算金额</view>
+            <view class='data data_dif'>¥{{item.transferAmount}}</view>
+          </view>
 
-     <!-- 结算日志展开结束 -->
+          <view class='open'>
+            <view>扣税金额</view>
+            <view class='data'>¥{{item.taxAmount}}</view>
+          </view>
+        </view>
+        <navigator url="/pages/commission-detail/commission-detail?year={{item.settlementYear}}">
+          <view class='money_sec detail'>
+            <view>分成订单详情</view>
+            <image src='http://image.365zhiding.com/wxapp/20171114/1.png' style="width:14rpx;height:24rpx"> </image>
+          </view>
+        </navigator>
+      </view>
+      <!-- 选项卡部分结束 -->
+    </view>
+  </view>
+
+  <!-- 结算日志展开结束 -->
 
 
-     <!-- 结算日志结束 -->
+  <!-- 结算日志结束 -->
 
 
 </view>

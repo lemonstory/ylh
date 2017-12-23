@@ -2,10 +2,8 @@
 <block wx:if="{{isDistributer}}">
      <view class="container">
           <view class="my-img">
-               <image class=" logo" src="http://image.365zhiding.com/wxapp/20171121/logo.png"></image>
-
-               <view class="text1">环球悦旅会商户版</view>
-               <view class="text2">高级代理</view>
+               <image class=" logo" src="{{distributerAccessData.dShop.logoUrl}}"></image>
+               <view class="text2" style='margin-top:-30rpx;'>{{distributerAccessData.dShop.shopName}}</view>
           </view>
 
           <view class="box1">
@@ -103,6 +101,7 @@
           <view class="my-img">
                <image class=" logo" src="http://image.365zhiding.com/wxapp/20171121/logo.png"></image>
                <view class="text2" style='margin-top:-30rpx;'>用户信息</view>
+               
           </view>
           <view class="box1">
                <view class="list" bindtap='bindUserOrder'>

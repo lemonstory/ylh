@@ -7,7 +7,7 @@ var util = require('../../../utils/util.js')
 Page(Object.assign({}, Toast, {
 
   data: {
-    'constant': app.constant,
+    constant: app.constant,
     buttonDisabled: false,
     modalHidden: true,
     show: false,
@@ -15,6 +15,8 @@ Page(Object.assign({}, Toast, {
     isDistributer: false,
     isOwnDistributerId: false,
     isOwnAccessToken: false,
+
+    distributerAccessData:{},
   },
 
 
@@ -24,6 +26,22 @@ Page(Object.assign({}, Toast, {
   onLoad: function (options) {
 
     var that = this;
+    that.setData({
+      isDistributer: util.isDistributer()
+    })
+
+    if (!that.data.isDistributer) {
+      that.setData({
+        isOwnDistributerId: util.isOwnDistributerId(),
+        isOwnAccessToken: util.isOwnAccessToken()
+      })
+    }else {
+      that.setData({
+        distributerAccessData: util.getDistributerAccessData()
+      })
+    }
+
+    console.log(that.data);
   },
 
   /**
@@ -39,16 +57,9 @@ Page(Object.assign({}, Toast, {
   onShow: function () {
 
     var that = this;
-    that.setData({
-      isDistributer: util.isDistributer()
-    })
 
     //用户为非代理商
     if (!that.data.isDistributer) {
-      that.setData({
-        isOwnDistributerId: util.isOwnDistributerId(),
-        isOwnAccessToken: util.isOwnAccessToken()
-      })
 
       //用户没有代理商id
       if (!that.data.isOwnDistributerId) {
@@ -183,5 +194,4 @@ Page(Object.assign({}, Toast, {
     })
 
   }
-
 }))

@@ -22,19 +22,24 @@ Page({
 
   },
   
-  orderDetail: function () {
+  /**
+   * 查看订单详情
+   */
+  bindTapOrderDetail: function () {
     wx.redirectTo({
-      url: '/pages/order/order-detail/order-detail',
+      url: '/pages/order/detail/detail',
       success: function (res) { },
       fail: function (res) { },
       complete: function (res) { },
     })
   },
 
-  //TODO:这里待确定
-  travelMessage: function () {
+  /**
+   * 上传旅客资料
+   */
+  bindTapFillPossport: function () {
     wx.redirectTo({
-      url: '../travel-mess/travel-mess',
+      url: '/pages/member/fill-possport',
       success: function (res) { },
       fail: function (res) { },
       complete: function (res) { },

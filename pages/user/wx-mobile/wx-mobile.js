@@ -71,6 +71,7 @@ Page(Object.assign({}, Toast, {
    */
   onShareAppMessage: function () {
 
+    return util.defaultShareData();
   },
 
   /**

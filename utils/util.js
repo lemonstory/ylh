@@ -437,7 +437,7 @@ function isHttpUrl(url) {
 
 
 /**
- * 默认分享
+ * 默认分享数据
  */
 function defaultShareData() {
 
@@ -483,6 +483,8 @@ module.exports = {
   setDistributerId: setDistributerId,
   getDistributerId: getDistributerId,
   getWxOpenId: getWxOpenId,
+
+  defaultShareData: defaultShareData,
 }
 
 

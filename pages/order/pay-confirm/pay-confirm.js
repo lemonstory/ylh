@@ -26,7 +26,7 @@ Page(Object.assign({}, Toast, {
         "productId": "",
         "body": "",
         "spbillCreateIp": "",
-        "expireTime": 123456789,
+        "expireTime": '',
         "notifyUrl": "",
         "userId": "",
         "sign": ""
@@ -136,8 +136,7 @@ Page(Object.assign({}, Toast, {
     //用户创建线路订单接口
     var url = that.data.constant.domain + '/distrbuter/member/order/';
     var formDataTemp = that.data.prevPageData.formData;
-    // formDataTemp.tourers = JSON.stringify(that.data.prevPageData.formData.tourers);
-    // formDataTemp.orderBill = JSON.stringify(that.data.prevPageData.formData.orderBill);
+    
     wx.request({
       url: url,
       data: formDataTemp,
@@ -149,10 +148,13 @@ Page(Object.assign({}, Toast, {
         console.log("🍺 🍺 🍺 [成功] 用户创建线路订单接口")
         console.log(res);
         that.setData({
-          'prepayPostData.prepayBody': res.data.prepayBody,
+          'prepayPostData.prepayBody': res.data.payParameter,
         })
 
         //调用收银台接口
+        console.log("调用收银台接口");
+        console.log(that.data)
+
         var url = that.data.constant.payDomain + '/prepay';
         wx.request({
           url: url,
@@ -166,7 +168,7 @@ Page(Object.assign({}, Toast, {
             console.log(res);
 
             //调用微信支付
-            if (util.isEmptyObject(res.data.getwayBody)) {
+            if (!util.isEmptyObject(res.data.getwayBody)) {
               wx.requestPayment({
                 'timeStamp': res.data.getwayBody.timeStamp,
                 'nonceStr': res.data.getwayBody.nonceStr,
@@ -174,42 +176,44 @@ Page(Object.assign({}, Toast, {
                 'signType': res.data.getwayBody.signType,
                 'paySign': res.data.getwayBody.paySign,
                 'success': function (res) {
+
                   console.log("🍺 🍺 🍺 [成功] 调用微信支付")
+                  wx.hideLoading();
+                  var url = '/pages/order/pay-sucess/pay-sucess';
+                  wx.navigateTo({
+                    url: url,
+                  })
                 },
+
                 'fail': function (res) {
+
+                  console.error(res);
                   var res = JSON.stringify(res);
                   that.showZanToast(res);
                 }
               })
-            }else{
+
+            } else {
               that.showZanToast("getwayBody 为空");
               console.error("收银台接口返回数据错误：getwayBody 为空");
             }
           },
 
           fail: function (res) {
+
+            console.error(res);
             //测试
             var res = JSON.stringify(res);
             that.showZanToast(res);
           },
 
-          complete: function (res) {
-            // wx.hideLoading();
-            // var url = '/pages/order/pay-sucess/pay-sucess';
-            // wx.navigateTo({
-            //   url: url,
-            //   success: function (res) { },
-            //   fail: function (res) {
-            //     console.error(res);
-            //     that.showZanToast("页面跳转错误");
-            //   },
-            //   complete: function (res) { },
-            // })
-          }
+          complete: function (res) {}
         })
       },
 
       fail: function (res) {
+
+        console.error(res);
         //测试
         var res = JSON.stringify(res);
         that.showZanToast(res);

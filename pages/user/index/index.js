@@ -109,16 +109,7 @@ Page(Object.assign({}, Toast, {
   onShareAppMessage: function () {
 
     //TODO:测试使用
-    return {
-      title: 'AA自定义转发标题',
-      path: '/pages/API/my/my?distributerId=123',
-      success: function (res) {
-        // 转发成功
-      },
-      fail: function (res) {
-        // 转发失败
-      }
-    }
+    return util.defaultShareData();
   },
 
   toast: function () {

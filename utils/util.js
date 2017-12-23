@@ -227,7 +227,11 @@ function isEmptyStr(str) {
   return false;
 };
 
-function getAuthorizationValue() {
+
+/**
+ * 用户Auth头
+ */
+function getUserAuthorizationValue() {
 
   var authorizationValue = 'Bearer '
   var userAccessData = getUserAccessData();
@@ -237,21 +241,51 @@ function getAuthorizationValue() {
   return authorizationValue;
 }
 
-function getRequestHeader() {
+/**
+ * 代理商Auth头
+ */
+function getDistributerAuthorizationValue() {
 
+  var authorizationValue = 'Distributer '
+  var distributerAccessData = getDistributerAccessData();
+  if (!isEmptyStr(userAccessData.distributerToken)) {
+    authorizationValue = authorizationValue + userAccessData.access_token
+  }
+  return authorizationValue;
+}
+
+function getRequestHeader(isDistributer = false) {
+
+  var authValue = ''
+  
+  if (isDistributer) {
+    authValue = getDistributerAuthorizationValue();
+  } else {
+    authValue = getUserAuthorizationValue();
+  }
+  
   var header = {
-    'Authorization': getAuthorizationValue(),
+    'Authorization': authValue,
     'Content-Type': 'application/json', // 默认值
   }
   return header;
 }
 
-function postRequestHeader() {
+function postRequestHeader(isDistributer = false) {
 
+  var authValue = ''
+  
+  if (isDistributer) {
+    authValue = getDistributerAuthorizationValue();
+  } else {
+    authValue = getUserAuthorizationValue();
+  }
+  
   var header = {
-    'Authorization': getAuthorizationValue(),
+    'Authorization': authValue,
     'Content-Type': 'application/x-www-form-urlencoded'
   }
+  
   return header;
 }
 
@@ -323,12 +357,12 @@ function getWxOpenId() {
   try {
 
     var userAccessData = getUserAccessData();
-    
+
     //接口里面的返回的openid i是小写
     openId = userAccessData.openid;
-  
+
   } catch (e) {
-  
+
     console.error(e);
   }
 
@@ -380,7 +414,7 @@ function isDistributerLogin() {
 
   var distributerAccessData = getDistributerAccessData();
   if (!isEmptyStr(distributerAccessData.distributerToken)) {
-    
+
     return true;
   }
   return false;
@@ -413,9 +447,10 @@ module.exports = {
   getCanlenderData: getCanlenderData,
 
   getUserAccessData: getUserAccessData,
-  getAuthorizationValue: getAuthorizationValue,
+  getUserAuthorizationValue: getUserAuthorizationValue,
 
   getDistributerAccessData: getDistributerAccessData,
+  getDistributerAuthorizationValue: getDistributerAuthorizationValue,
 
   getRequestHeader: getRequestHeader,
   postRequestHeader: postRequestHeader,

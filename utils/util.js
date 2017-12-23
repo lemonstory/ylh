@@ -248,8 +248,8 @@ function getDistributerAuthorizationValue() {
 
   var authorizationValue = 'Distributer '
   var distributerAccessData = getDistributerAccessData();
-  if (!isEmptyStr(userAccessData.distributerToken)) {
-    authorizationValue = authorizationValue + userAccessData.access_token
+  if (!isEmptyStr(distributerAccessData.distributerToken)) {
+    authorizationValue = authorizationValue + distributerAccessData.distributerToken
   }
   return authorizationValue;
 }

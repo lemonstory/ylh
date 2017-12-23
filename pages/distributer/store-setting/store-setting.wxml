@@ -33,7 +33,7 @@
       </view>
     </navigator>
 
-    <navigator url="/pages/distributer/qrcode/qrcode">
+    <navigator url="/pages/distributer/qrcode/qrcode?shopName={{prevPageData.distributerAccessData.dShop.shopName}}&qrcodeUrl={{prevPageData.distributerAccessData.dShop.qrcodeUrl}}&logoUrl={{prevPageData.distributerAccessData.dShop.logoUrl}}">
       <view class="logo">我的二维码
         <view class="logo-right">
           <image class="logo-img" src="{{prevPageData.distributerAccessData.dShop.qrcodeUrl}}"></image>

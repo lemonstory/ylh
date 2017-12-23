@@ -1,6 +1,9 @@
+<import src="/zanui-weapp/dist/toast/index.wxml" />
 <view class="main">
-<canvas canvas-id="myCanvas" bindtap="handlePreviewImage" />
-<view class="text" wx:if="{{isCanvasToFileOk}}">长按二维码保存到相册</view>
-<view class="text" wx:if="{{isCanvasToFileOk}}">保存分享 码上有钱</view>
+  <canvas canvas-id="myCanvas" bindtap="handlePreviewImage" />
+  <view class="text" wx:if="{{isCanvasToFileOk}}">长按二维码保存到相册</view>
+  <view class="text" wx:if="{{isCanvasToFileOk}}">保存分享 码上有钱</view>
+  <!-- 直接使用 zan-toast 模板，并且直接传入 zanToast -->
+  <template is="zan-toast" data="{{ zanToast }}"></template>
 </view>
 <!-- <button type="primary" size="default"  bindtap="handleSaveImageToPhotosAlbum"> 保存图片 </button> -->

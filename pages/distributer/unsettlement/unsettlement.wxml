@@ -29,25 +29,25 @@
     <view class="hidden-box hide{{isShowOptionsView?'show':''}}"></view>
     <view class="hidden hide{{isShowOptionsView?'show':''}}">
       <view class="hidden-li {{id==currentOrderOptionIndex?'choosedbtn':'choosenobtn'}}" wx:for="{{orderOptions}}" wx:for-item="item" wx:for-index="id" data-id="{{id}}" bindtap="chooseItem">
-        {{item}}
+        {{item.name}}
       </view>
     </view>
 <!-- 选项卡部分结束 -->
 
 <!--一个签证详情开始 -->
-       <view class='od_cate'>
-          <view>
-              <view class='od_head'>泰国旅游签-北京领区（仅受理护照签发地...）</view>
+       <view class='od_cate' wx:for = "{{dtoList}}">
+           <view > 
+              <view class='od_head'>{{item.order.productName}}</view>
               <view class='od_cate_money'>
-                <view>我的佣金：<view class='oc_money'> ¥50 </view></view>
-                <view>下级代理佣金：<view class='oc_money'> ¥20 </view></view>
+                <view>我的佣金：<view class='oc_money'> ¥{{item.commissionAmount/100}} </view></view>
+                <view wx:if = "{{item.subAmount/100!= 0}}">下级代理佣金：<view class='oc_money'> ¥{{item.subAmount/100}} </view></view>
               </view> 
           </view>
-          <view class="line"></view>
-          <view class='od_qianzheng'>签证</view>
-       </view>
-       <!-- 一个签证详情结束 -->
+           <view class="line"></view> 
+          <view class='od_qianzheng'>{{item.order.orderType == 1?'线路':'签证'}}</view>
+        </view> 
       </view>
+             <!-- 一个签证详情结束 -->
 
     <!-- 按钮-发送邮箱离开始 -->
     <view class='button'>

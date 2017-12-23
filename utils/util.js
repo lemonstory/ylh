@@ -436,6 +436,23 @@ function isHttpUrl(url) {
 }
 
 
+/**
+ * 默认分享
+ */
+function defaultShareData() {
+
+  return {
+    title: '环球悦旅会',
+    path: '/page/line/index/index?distributerId=' + getDistributerId(),
+    success: function (res) {
+      // 转发成功
+    },
+    fail: function (res) {
+      // 转发失败
+      console.error(res);
+    }
+  }
+}
 
 module.exports = {
 
@@ -466,8 +483,6 @@ module.exports = {
   setDistributerId: setDistributerId,
   getDistributerId: getDistributerId,
   getWxOpenId: getWxOpenId,
-
-
 }
 
 

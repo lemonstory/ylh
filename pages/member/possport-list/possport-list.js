@@ -137,7 +137,7 @@ Page(Object.assign({}, Toast, {
       'orderDetail.tourers.list': orderDetailTourersListTemp
     })
 
-    console.log(that.data.orderDetail.tourers)
+    console.log(that.data.orderDetail.tourers.list)
   },
 
 

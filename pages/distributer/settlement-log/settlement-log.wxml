@@ -12,7 +12,7 @@
                     <image src='http://image.365zhiding.com/wxapp/20171121/xia.png' style="width:24rpx;height:14rpx"> </image>
                </view>
                <!-- 选项卡部分开始 -->
-               <view class="option hide{{showView?'show':''}}">
+               <view class="option hide{{showView?'show':''}}" wx:if = "{{openIndex == idx}}">
                     <view class='clear_open'>
                          <view class='open'>
                               <view>结算日期</view>
@@ -33,7 +33,7 @@
                               <view class='data'>¥100</view>
                          </view>
                     </view>
-                    <navigator url="../divide-order-detail/divide-order-detail">
+                    <navigator url="/pages/commission-detail/commission-detail?year={{item.settlementYear}}">
                          <view class='money_sec detail'>
                               <view>分成订单详情</view>
                               <image src='http://image.365zhiding.com/wxapp/20171114/1.png' style="width:14rpx;height:24rpx"> </image>
@@ -42,10 +42,10 @@
                </view>
                <!-- 选项卡部分结束 -->
 
-               <view class='money_sec'>
+               <!-- <view class='money_sec'>
                     <view>2017年9月</view>
                     <image src='http://image.365zhiding.com/wxapp/20171114/1.png' style="width:14rpx;height:24rpx"> </image>
-               </view>
+               </view> -->
           </view>
 
      </view>

@@ -1,4 +1,6 @@
+<view class="main">
 <canvas canvas-id="myCanvas" bindtap="handlePreviewImage" />
-<view wx:if="{{isCanvasToFileOk}}">长按二维码保存到相册</view>
-<view wx:if="{{isCanvasToFileOk}}">保存分享 码上有钱</view>
+<view class="text" wx:if="{{isCanvasToFileOk}}">长按二维码保存到相册</view>
+<view class="text" wx:if="{{isCanvasToFileOk}}">保存分享 码上有钱</view>
+</view>
 <!-- <button type="primary" size="default"  bindtap="handleSaveImageToPhotosAlbum"> 保存图片 </button> -->

@@ -105,7 +105,7 @@
                <view class="text2" style='margin-top:-30rpx;'>用户信息</view>
           </view>
           <view class="box1">
-               <view class="list">
+               <view class="list" bindtap='bindUserOrder'>
                     <view class="list-left">
                          <view class="icon">
                               <image src='http://image.365zhiding.com/wxapp/20171121/111 (2).png'></image>

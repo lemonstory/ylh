@@ -170,6 +170,18 @@ Page(Object.assign({}, Toast, {
       // Do something when catch error
       console.error(e);
     }
+  },
+
+  /**
+   * 我的订单
+   */
+  bindUserOrder:function(e) {
+
+    console.log("aaaa");
+    wx.navigateTo({
+      url: '/pages/user/order/order',
+    })
+
   }
 
 }))

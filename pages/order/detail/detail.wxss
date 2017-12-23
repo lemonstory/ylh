@@ -607,7 +607,6 @@
      z-index: 999;
      left: 105rpx;
 }
-
 .shadow-box1 {
      width: 540rpx;
      height: auto;
@@ -618,7 +617,6 @@
      z-index: 999;
      left: 105rpx;
 }
-
 .text-content {
      display: flex;
      height: 85rpx;

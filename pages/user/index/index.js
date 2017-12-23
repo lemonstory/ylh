@@ -162,6 +162,23 @@ Page(Object.assign({}, Toast, {
     wx.navigateTo({
       url: '/pages/user/order/order'
     })
+  },
+
+  /**
+   * 代理商-退出登录
+   */
+  bindDistributerLogout:function(e) {
+
+    var that = this;
+    try {
+      wx.removeStorageSync(that.data.constant.distributerAccessDataKey)
+      wx.redirectTo({
+        url: '/pages/distributer/login/login',
+      })
+    } catch (e) {
+      // Do something when catch error
+      console.error(e);
+    }
   }
 
 }))

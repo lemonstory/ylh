@@ -174,6 +174,38 @@ function getUserAccessData() {
 }
 
 
+/**
+ * 同步获取
+ * 
+ */
+function getDistributerAccessData() {
+
+  var distributerAccessValue = '';
+  if (isEmptyObject(constant.constant.distributerAccessData)) {
+
+    console.log("全局 distributerToken 为空");
+    try {
+      var distributerAccessData = wx.getStorageSync(constant.constant.distributerAccessDataKey);
+      if (typeof (distributerAccessData) != "undefined") {
+
+        distributerAccessValue = distributerAccessData;
+        constant.constant.distributerAccessData = distributerAccessData;
+
+      }
+    } catch (e) {
+      // Do something when catch error
+
+      console.warn(e);
+    }
+  } else {
+    console.log("全局 distributerToken 不为空");
+    distributerAccessValue = constant.constant.distributerAccessData;
+  }
+
+  return distributerAccessValue;
+}
+
+
 
 function isEmptyObject(e) {
   var t;
@@ -345,6 +377,12 @@ function getDistributerId() {
  * 代理商是否登录
  */
 function isDistributerLogin() {
+
+  var distributerAccessData = getDistributerAccessData();
+  if (!isEmptyStr(distributerAccessData.distributerToken)) {
+    
+    return true;
+  }
   return false;
 }
 
@@ -376,6 +414,8 @@ module.exports = {
 
   getUserAccessData: getUserAccessData,
   getAuthorizationValue: getAuthorizationValue,
+
+  getDistributerAccessData: getDistributerAccessData,
 
   getRequestHeader: getRequestHeader,
   postRequestHeader: postRequestHeader,

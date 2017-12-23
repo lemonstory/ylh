@@ -112,7 +112,7 @@ Page(Object.assign({}, Toast, {
       })
     }
 
-    console.log("xxxxx");
+    // console.log("xxxxx");
     console.log(that.data.formData);
   },
 

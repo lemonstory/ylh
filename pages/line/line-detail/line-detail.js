@@ -26,6 +26,7 @@ Page(Object.assign({}, Toast, {
     //已选择的出发日期
     selectedTravelDate: '',
     selectedTravelDateIndex: '',
+    currentSelectedMonthIndex:'',
 
     //评论分页
     id: '',
@@ -374,6 +375,7 @@ Page(Object.assign({}, Toast, {
     that.setData({
       selectedTravelDate: that.data.startDatePriceListFormat[0].date,
       selectedTravelDateIndex: 0,
+      currentSelectedMonthIndex:0,
     })
   },
 
@@ -398,7 +400,8 @@ Page(Object.assign({}, Toast, {
 
       this.setData({
         selectedTravelDateIndex: dataIdx,
-        selectedTravelDate: e.currentTarget.dataset.date
+        selectedTravelDate: e.currentTarget.dataset.date,
+        currentSelectedMonthIndex: currentSelectedMonthIndex
       })
     }
 
@@ -413,7 +416,7 @@ Page(Object.assign({}, Toast, {
   handleTapStartOrder: function (e) {
 
     var that = this;
-    var url = `/pages/order/choice-date/choice-date?currentSelectedTravelDate=${that.data.selectedTravelDate}&currentSelectedMonthIndex=${that.data.startDatePriceListFormat[0].monthIndex}`
+    var url = `/pages/order/choice-date/choice-date?currentSelectedTravelDate=${that.data.selectedTravelDate}&currentSelectedMonthIndex=${that.data.currentSelectedMonthIndex}`
     console.log("url = " + url);
 
     var isOwnAccessToken = util.isOwnAccessToken()

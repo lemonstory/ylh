@@ -87,9 +87,12 @@
         <view class="money">￥{{item.min}}</view>
       </view>
     </scroll-view>
-    <view class="back11">
+
+    <block wx:if="startDatePriceListFormat.length > 0">
+    <view class="back11" bindtap='handleTapStartOrder'>
       <image src='http://image.365zhiding.com/wxapp/20171114/1.png'></image>
     </view>
+    </block>
   </view>
   <!--出发日期结束-->
 

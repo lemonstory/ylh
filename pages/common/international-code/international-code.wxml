@@ -11,7 +11,7 @@
     <view class="selection" wx:for="{{cityList}}" wx:key="{{item.initial}}">
         <view class="item_letter">{{item.initial}}</view>
         <view class="item_city" wx:for="{{item.cityInfo}}" wx:for-item="ct" wx:key="{{ct.code}}" data-city="{{ct.areaName}}" bindtap="bindCity" data-telphone_code="{{ct.telphoneCode}}">
-              {{ct.areaName}}  {{ct.telphoneCode}}
+              <view>{{ct.areaName}}</view>  <view style='font-size:28rpx;font-family:PingFang-SC-Regular;color:rgba(102,102,102,1);'>{{ct.telphoneCode}}</view>
         </view>
     </view>
 </scroll-view>

@@ -16,7 +16,6 @@ Page(Object.assign({}, Toast, {
   },
 
   onLoad: function (options) {
-
     var that = this;
     that.getData(that.data.lineCount);
   },
@@ -72,7 +71,6 @@ Page(Object.assign({}, Toast, {
 
   //获取接口
   getData: function (lineCount) {
-
     var that = this;
     var url = that.data.constant.domain + '/distrbuter/line/category/list/' + lineCount;
     console.log("url = " + url);
@@ -82,14 +80,12 @@ Page(Object.assign({}, Toast, {
       header: util.getRequestHeader(),
 
       success: function (res) {
-
-        if (res.statusCode == 200) {       
+          if (res.statusCode == 200) {       
           console.log(res.data);
           that.setData(res.data);
           that.setDataCallBack();
         
         } else {
-
           var message = JSON.stringify(res.data)
           that.showZanToast(message);
         }
@@ -165,8 +161,7 @@ Page(Object.assign({}, Toast, {
    * 分类-点击
    */
   handleTapCategoryItem: function (event) {
-
-    var that = this
+   var that = this;
     var id = event.currentTarget.dataset.category_id;
     var index = event.currentTarget.dataset.category_index;
     that.setCurrentMappingAreaListData(index);

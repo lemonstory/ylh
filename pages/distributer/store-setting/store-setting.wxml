@@ -1,7 +1,7 @@
 <!--pages/API/store-setting/store-setting.wxml-->
 <view class="container">
   <view class="main">
-    <navigator url="/pages/distributer/logo/logo">
+    <navigator url="/pages/distributer/logo/logo?logoUrl={{prevPageData.distributerAccessData.dShop.logoUrl}}&distributerId={{prevPageData.distributerAccessData.dShop.distributerId}}">
       <view class="logo">LOGO设置
         <view class="logo-right">
           <image class="logo-img" src="{{prevPageData.distributerAccessData.dShop.logoUrl}}"></image>
@@ -18,10 +18,10 @@
         </view>
       </view>
     </navigator>
-
+    
     <view class="logo">店铺账号
       <view class="logo-right">
-        <view>123456789</view>
+        <view>{{prevPageData.distributerAccessData.shopAccount}}</view>
       </view>
     </view>
 

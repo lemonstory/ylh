@@ -13,6 +13,7 @@ Page(Object.assign({}, Toast, {
 
     constant: app.constant,
     currentTapId: '',
+    possportItem: {},
 
     formData: {
 
@@ -34,9 +35,9 @@ Page(Object.assign({}, Toast, {
       "cardNumber": '',       //证件号码(打*)(string,required),
       "issueAreaId": '',       //签发地id(number,required),
       "issueEndTime": '',     //签证有效期(string,required)
-      
+
       "telphoneCode": '+86',  //国际电话区号
-      
+
       "mobile": '',           //手机号码(string,required)
       "address": '',          //现居住地(string,required)
     },
@@ -63,13 +64,43 @@ Page(Object.assign({}, Toast, {
       console.error("linkManId不能为空")
     }
 
+    //修改资料
+    if (!util.isEmptyStr(options.possportItem)) {
+
+      console.log("😀 😀 😀")
+      console.log(options.possportItem);
+      var possportItem = JSON.parse(options.possportItem);
+      console.log(possportItem);
+
+      that.setData({
+
+        'formData.linkManId': possportItem.linkManId,
+        'formData.chineseName': possportItem.chineseName,
+        'formData.chineseSurname': possportItem.chineseSurname,
+        'formData.englishName': possportItem.englishName,
+        'formData.englishSurname': possportItem.englishSurname,
+        'formData.gender': possportItem.gender,
+        'formData.birthday': possportItem.birthday,
+        'formData.countryId': possportItem.countryId,
+        'formData.cardType': possportItem.cardType,
+        'formData.cardNumber': possportItem.cardNumber,
+        'formData.issueAreaId': possportItem.issueAreaId,
+        'formData.issueEndTime': possportItem.issueEndTime,
+        'formData.telphoneCode': possportItem.telphoneCode,
+        'formData.mobile': possportItem.mobile,
+        'formData.address': possportItem.address,
+
+        cardName: util.getTitleWithId(app.constant.passengerCardType, possportItem.cardType),
+        genderName: util.getTitleWithId(app.constant.gender, possportItem.gender),
+        issueAreaName: chinaAreaUtil.getAreaName(possportItem.issueAreaId),
+      })
+    }
+
     that.setData({
       //获取所以的省
       areasArr: chinaAreaUtil.getItemAreas(37)
     })
-
-    console.log("获取所以的省");
-    console.log(that.data.areasArr);
+  
   },
 
   /**
@@ -135,7 +166,7 @@ Page(Object.assign({}, Toast, {
   /**
    * 自动保存输入值
    */
-  autoSaveInputValue: function(event) {
+  autoSaveInputValue: function (event) {
 
   },
 

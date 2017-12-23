@@ -87,9 +87,10 @@
     "pages/user/visitor/visitor",
     "pages/user/wx-mobile/wx-mobile",
     "pages/web-view/web-view",
-    "pages/member/fill-passport/fill-passport",
-    "pages/member/passport-list/passport-list",
-    "pages/common/international-code/international-code"
+    "pages/member/fill-possport/fill-possport",
+    "pages/member/possport-list/possport-list",
+    "pages/common/international-code/international-code",
+    "pages/distributer/qrcode/qrcode"
   ],
   "window": {
     "navigationBarBackgroundColor": "#ffffff",

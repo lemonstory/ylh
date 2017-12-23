@@ -94,14 +94,9 @@
                     </view>
                </navigator>
           </view>
-
-          <view class="bottom">退出登录</view>
-
+          <view class="bottom" bindtap='bindDistributerLogout'>退出登录</view>
      </view>
-
 </block>
-
-
 
 <block wx:if="{{!isDistributer}}">
      <view class="container">

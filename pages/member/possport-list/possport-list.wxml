@@ -2,28 +2,29 @@
 <view class="container">
 
 
-  <block wx:for="{{orderDetail.tourers.list}}" wx:key="orderDetail.tourers.list" wx:item="item">
-    <view class="ziliao-box">
-      <view class="ziliao-proce">{{item.isUploadPossport ? '100%' : '0%' }}</view>
-      <view class="ziliao-name">{{item.tourerName}}</view>
+     <block wx:for="{{orderDetail.tourers.list}}" wx:key="orderDetail.tourers.list" wx:item="item">
 
-      <view class="ziliao-zhiwei" wx:if="{{item.title == 1}}">学龄前儿童</view>
-      <view class="ziliao-zhiwei" wx:if="{{item.title == 2}}">在校学生</view>
-      <view class="ziliao-zhiwei" wx:if="{{item.title == 3}}">在职人员</view>
-      <view class="ziliao-zhiwei" wx:if="{{item.title == 4}}">自由职业者</view>
-      <view class="ziliao-zhiwei" wx:if="{{item.title == 5}}">退休人员</view>
+          <view class="ziliao-box">
 
+               <view class="ziliao-proce {{item.isUploadPossport ? 'ziliao-proce1':''}}">{{item.isUploadPossport ? '100%' : '0%' }}</view>
+               <view class="name-box">
+                    <view class="ziliao-name">{{item.tourerName}}</view>
+                    <view class="ziliao-zhiwei" wx:if="{{item.title == 1}}">学龄前儿童</view>
+                    <view class="ziliao-zhiwei" wx:if="{{item.title == 2}}">在校学生</view>
+                    <view class="ziliao-zhiwei" wx:if="{{item.title == 3}}">在职人员</view>
+                    <view class="ziliao-zhiwei" wx:if="{{item.title == 4}}">自由职业者</view>
+                    <view class="ziliao-zhiwei" wx:if="{{item.title == 5}}">退休人员</view>
+               </view>
+   <view class="ziliao-shang" bindtap='handleTapUploadPossport' data-link_man_id="{{item.id}}">上传资料</view>
 
-      <view class="ziliao-shang" bindtap='handleTapUploadPossport' data-link_man_id="{{item.id}}">上传资料</view>
+<image class="back" src='http://image.365zhiding.com/wxapp/20171114/1.png'></image>
+          </view>
+     </block>
 
-      <image class="back" src='http://image.365zhiding.com/wxapp/20171114/1.png'></image>
-    </view>
-  </block>
+     <navigator url="/pages/order/detail/detail?orderId={{orderSn}}">
+          <view class="chakan">查看订单详情</view>
+     </navigator>
 
-  <navigator url="/pages/order/detail/detail?orderId={{orderSn}}">
-    <view class="chakan">查看订单详情</view>
-  </navigator>
-
-  <!-- 直接使用 zan-toast 模板，并且直接传入 zanToast -->
-  <template is="zan-toast" data="{{ zanToast }}"></template>
+     <!-- 直接使用 zan-toast 模板，并且直接传入 zanToast -->
+     <template is="zan-toast" data="{{zanToast}}"></template>
 </view>

@@ -43,14 +43,14 @@ Page(Object.assign({}, Toast, {
 
         fail: function () {
 
-          console.log("🚀 🚀 🚀 -- fail");
+          console.log("🚀 🚀 🚀 -- 微信登录态过期,重新登录");
           //登录态过期
           //重新登录
           wx.login({
 
             success: function (res) {
 
-              var url = constant.constant.domain + "/weixin/get_session";
+              var url = that.data.constant.domain + "/weixin/get_session";
               console.log("url = " + url);
               if (res.code) {
                 //发起网络请求
@@ -66,10 +66,17 @@ Page(Object.assign({}, Toast, {
                     guid = res.data.guid;
                     // 本地存储用户信息
                     wx.setStorage({
-                      key: constant.constant.userAccessDataKey,
+                      key: that.data.constant.userAccessDataKey,
                       data: res.data,
+                      success: function (res) {
+                        //重置userAccessData值
+                        console.log("[重置] 本地存储 userAccessData ")
+                        app.constant.userAccessData = {};
+                        util.getUserAccessData();
+
+                      },
                       fail: function (res) {
-                        console.warn(res);
+                        console.error(res);
                       }
                     });
 
@@ -82,7 +89,7 @@ Page(Object.assign({}, Toast, {
                   },
 
                   fail: function (res) {
-                    console.warn(res);
+                    console.error(res);
                   },
                   complete: function (res) { }
                 })
@@ -92,7 +99,7 @@ Page(Object.assign({}, Toast, {
             },
 
             fail: function (res) {
-              console.warn(res);
+              console.error(res);
             },
 
             complete: function (res) { }
@@ -214,7 +221,7 @@ Page(Object.assign({}, Toast, {
     console.log("guid = " + guid);
 
 
-    if (guid.length > 0) {
+    if (!util.isEmptyStr(guid)) {
       var url = that.data.constant.domain + '/weixin/sendcode';
       console.log("url = " + url);
 
@@ -241,7 +248,7 @@ Page(Object.assign({}, Toast, {
           },
 
           fail: function (res) {
-            console.warn(res);
+            console.error(res);
           },
 
           complete: function (res) { },
@@ -289,15 +296,35 @@ Page(Object.assign({}, Toast, {
           },
 
           success: function (res) {
-            //覆盖本地用户数据
+
             if (res.statusCode == 200) {
+
+              //覆盖本地存储的用户数据
               wx.setStorage({
                 key: that.data.constant.userAccessDataKey,
                 data: res.data,
+                success: function (res) {
+
+                  console.log("[重置] 本地存储 userAccessData ")
+                  app.constant.userAccessData = {};
+                  util.getUserAccessData();
+
+                  wx.showToast({
+                    title: '成功',
+                    icon: 'success',
+                    duration: 2000
+                  })
+
+                  //当用未注册时点击-我的 tab
+                  console.log("当用未注册时点击-我的 tab")
+                  wx.switchTab({
+                    url: '/pages/user/index/index'
+                  })
+                },
                 fail: function (res) {
-                  console.warn(res);
+                  console.error(res)
                 }
-              });
+              })
 
               //跳转对对应页面
               wx.navigateBack();
@@ -315,7 +342,7 @@ Page(Object.assign({}, Toast, {
           },
 
           fail: function (res) {
-            console.warn(res);
+            console.error(res);
             that.showZanToast(JSON.stringify(res.data));
           },
 
@@ -338,4 +365,5 @@ Page(Object.assign({}, Toast, {
       [event.currentTarget.id]: event.detail.value
     })
   },
+  
 }));

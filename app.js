@@ -58,7 +58,7 @@ App({
 
           fail: function () {
 
-            console.log("🚀 🚀 🚀 -- fail");
+            console.log("🚀 🚀 🚀 -- 微信登录态过期,重新登录");
             //登录态过期
             //重新登录
             wx.login({
@@ -90,6 +90,12 @@ App({
                       wx.setStorage({
                         key: constant.constant.userAccessDataKey,
                         data: res.data,
+                        success: function (res) {
+
+                          //重置userAccessData值
+                          console.log("[重置] 本地存储 userAccessData ")
+                          constant.constant.userAccessData = {};
+                        },
                         fail: function (res) {
                           console.warn(res);
                         }
@@ -146,8 +152,8 @@ App({
               },
 
               fail: function (res) {
-                console.warn(res);
-
+                
+                console.error(res);
                 //代理商信息存储
                 util.setDistributerId(distributerId);
               },
@@ -198,7 +204,6 @@ App({
       complete: res => {
 
       }
-
     })
   },
 
@@ -237,7 +242,7 @@ App({
       },
 
       fail: function (res) {
-        console.warn(res);
+        console.error(res);
       },
 
       complete: function (res) { }

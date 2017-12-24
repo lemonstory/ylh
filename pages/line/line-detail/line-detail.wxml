@@ -88,7 +88,7 @@
       </view>
     </scroll-view>
 
-    <block wx:if="startDatePriceListFormat.length > 0">
+    <block wx:if="startDatePriceListFormat.length > 10">
     <view class="back11" bindtap='handleTapStartOrder'>
       <image src='http://image.365zhiding.com/wxapp/20171114/1.png'></image>
     </view>

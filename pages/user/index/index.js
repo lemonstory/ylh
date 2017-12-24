@@ -11,12 +11,6 @@ Page(Object.assign({}, Toast, {
     buttonDisabled: false,
     modalHidden: true,
     show: false,
-
-    isDistributer: false,
-    isOwnDistributerId: false,
-    isOwnAccessToken: false,
-
-    distributerAccessData:{},
   },
 
 
@@ -26,22 +20,7 @@ Page(Object.assign({}, Toast, {
   onLoad: function (options) {
 
     var that = this;
-    that.setData({
-      isDistributer: util.isDistributer()
-    })
 
-    if (!that.data.isDistributer) {
-      that.setData({
-        isOwnDistributerId: util.isOwnDistributerId(),
-        isOwnAccessToken: util.isOwnAccessToken()
-      })
-    }else {
-      that.setData({
-        distributerAccessData: util.getDistributerAccessData()
-      })
-    }
-
-    console.log(that.data);
   },
 
   /**
@@ -59,10 +38,10 @@ Page(Object.assign({}, Toast, {
     var that = this;
 
     //用户为非代理商
-    if (!that.data.isDistributer) {
+    if (!util.isDistributer()) {
 
       //用户没有代理商id
-      if (!that.data.isOwnDistributerId) {
+      if (!util.isOwnDistributerId()) {
         wx: wx.redirectTo({
           url: '/pages/user/visitor/visitor',
           success: function (res) { },
@@ -73,7 +52,7 @@ Page(Object.assign({}, Toast, {
 
         //用户有代理商Id但未注册
         console.log(that.data);
-        if (!that.data.isOwnAccessToken) {
+        if (!util.isOwnAccessToken()) {
           wx: wx.redirectTo({
             url: '/pages/user/wx-mobile/wx-mobile',
             success: function (res) { },

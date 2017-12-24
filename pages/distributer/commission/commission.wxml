@@ -16,7 +16,7 @@
     <view class='price'>¥{{settlementAmount/100}}元</view>
   </view>
 
-   <navigator url="/pages/distributer/unsettlement/unsettlement">
+   <navigator url="/pages/distributer/unsettlement/unsettlement?unSettlementAmount={{unSettlementAmount}}">
   <view class='money_sec'>
  
     <view>未结算佣金</view> 

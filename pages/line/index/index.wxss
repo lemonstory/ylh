@@ -39,10 +39,11 @@
 
 .search-icon {
      position: absolute;
-     top: 14rpx;
+     top: 18rpx;
      left: 20rpx;
      height: 32rpx;
      width: 32rpx;
+     display: flex;
 }
 
 .back {

@@ -6,7 +6,6 @@ var util = require('../../../utils/util.js')
 Page(Object.assign({}, Toast, {
 
   data: {
-
     constant: app.constant,
     inputContent: {},
     indicatorDots: true,

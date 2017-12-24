@@ -16,7 +16,9 @@ Page({
       "transferStatusId": 2
     },
     // 当前展开的月份index
-    openIndex:-1,
+    openId:0,
+    // 展开后显示的结算日期
+    showDate:'',
 
   },
 
@@ -24,19 +26,29 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // 生命周期函数--监听页面加载
-    showView: (options.showView == "true" ? true : false)
+    var that = this;
+    // 代理商id
+
+    that.getCommissionLog();
   }, 
   
-  
-  
-  
-  
-  onChangeShowState: function () {
+<<<<<<< HEAD
+  /**
+   *  点击展示更多处理
+   */
+  onChangeShowState: function (e) {
+=======
+onChangeShowState: function () {
+>>>>>>> 5fd8037ae71be7839792990ee88adf8905735e68
     var that = this;
+    var id = e.currentTarget.dataset.id;
+    if(that.data.openId == id){
+      id = 0;
+    }
     that.setData({
-      showView: (!that.data.showView)
+      openId:id
     })
+    that.formatShowDate();
   },
 
   /**
@@ -94,6 +106,49 @@ Page({
    */
   getCommissionLog: function () {
     var that = this;
-    var url = that.data.constant.distributer + "/settlementLog/querySettlementLogByJoin";
-  }
+    var url = that.data.constant.distributerDomain + "/settlementLog/querySettlementLogByJoin";
+    wx.request({
+      url: url,
+      data:that.data.postData,
+      header: util.postRequestHeader(),
+      method:'POST',
+      success:function(res){
+        console.log("请求数据成功！");
+        that.setData(res.data);
+
+      },
+      fail:function(res){
+        console.log("请求数据失败！");
+      },
+      complete:function(res){
+        console.log(res);
+      }
+    })
+  },
+
+  /**
+   * 计算结算日期
+   */
+  formatShowDate:function(){
+    var that = this;
+    var longTime = 0 ;
+    for (var i = 0; i < that.data.dList.length; i++){
+      if (that.data.openId == that.data.dList[i].settlementId){
+        longTime = that.data.dList[i].transferEndTime;
+      }
+    }
+    console.log(longTime);
+    if(longTime != 0){
+      var date = new Date(longTime);
+      var year = date.getFullYear();
+      var month = date.getMonth() + 1;
+      var day = date.getDate();
+      var showTime = year+"-"+month+"-"+day;
+      console.log(showTime);
+      that.setData({
+        showDate: showTime
+      })
+    }
+  },
+
 })

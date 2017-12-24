@@ -25,6 +25,9 @@ Page({
         "name": "签证"
       }],
 
+      // 未结算佣金
+    unSettlementAmount:0,
+
     orderFilterTitle: "订单类型",
 
     currentOrderOptionIndex: 0,
@@ -44,6 +47,14 @@ Page({
   onLoad: function (options) {
       var that = this;
       // 获得代理商的id
+
+      var unPay = options.unSettlementAmount;
+      if (typeof (unPay) != "undefined") {
+        that.setData({
+          unSettlementAmount: unPay,
+        })
+      }
+
       that.getNoPaymentCommission();
   },
 
@@ -137,13 +148,12 @@ Page({
   onShareAppMessage: function () {
 
   },
-
-  /**
+/**
    * 获得代理商的所有未结算的佣金
    */
   getNoPaymentCommission: function () {
     var that = this;
-    var url = that.data.constant.distributer +"/commissionDetails/queryCommissionDetailsByJoin";
+    var url = that.data.constant.distributerDomain +"/commissionDetails/queryCommissionDetailsByJoin";
     wx.request({
       url: url,
       data:that.data.postData,

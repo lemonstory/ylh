@@ -11,7 +11,7 @@ Page(Object.assign({}, Toast, {
      */
   data: {
     
-    prePageData:{}
+    distributerAccessData:{},
   },
 
   /**
@@ -19,15 +19,6 @@ Page(Object.assign({}, Toast, {
    */
   onLoad: function (options) {
 
-    var that = this;
-    var pages = getCurrentPages();
-    var currPage = pages[pages.length - 1];   //当前页面
-    var prevPage = pages[pages.length - 2];  //上一个页面
-
-    var prevPageDataTemp = prevPage.data;
-    that.setData({
-      prevPageData: prevPageDataTemp,
-    })
   },
 
   /**
@@ -35,12 +26,21 @@ Page(Object.assign({}, Toast, {
    */
   onReady: function () {
 
+
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+
+    var that = this;
+    var distributerAccessData = util.getDistributerAccessData();
+
+    that.setData({
+      distributerAccessData: distributerAccessData
+    })
 
   },
 

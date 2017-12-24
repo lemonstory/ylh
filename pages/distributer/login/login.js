@@ -170,10 +170,6 @@ Page(Object.assign({}, Toast, {
       },
     })
 
-
-    //TODO:
-    //覆盖存储中的代理商Id
-
   }
 
 

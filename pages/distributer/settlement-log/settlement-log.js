@@ -102,7 +102,7 @@ Page({
    */
   getCommissionLog: function () {
     var that = this;
-    var url = that.data.constant.distributer + "/settlementLog/querySettlementLogByJoin";
+    var url = that.data.constant.distributerDomain + "/settlementLog/querySettlementLogByJoin";
     wx.request({
       url: url,
       data:that.data.postData,
@@ -135,7 +135,7 @@ Page({
     }
     console.log(longTime);
     if(longTime != 0){
-      var date = that.getDate(longTime);
+      var date = new Date(longTime);
       var year = date.getFullYear();
       var month = date.getMonth() + 1;
       var day = date.getDate();

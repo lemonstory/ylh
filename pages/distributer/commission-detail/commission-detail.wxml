@@ -1,89 +1,73 @@
 <!--pages/API/divide-order-detail/divide-order-detail.wxml-->
 <!-- 全局开始 -->
 <view class='global'>
-  
-    <!-- 订单类型开始 -->
-    <view class='order_detail'>
-       <view class='od_cates' >
-          <view></view>
-          <view bindtap='onChangeShowState'>{{orderFilterTitle}}
-             <image src='../image/three.png' style="width:22rpx;height:19rpx" class="{{isShowOptionsView?'rotate':''}}"> </image>
-          </view>
-       </view>
+
+  <!-- 订单类型开始 -->
+  <view class='order_detail'>
+    <view class='od_cates'>
+      <view></view>
+      <view bindtap='onChangeShowState'>{{orderFilterTitle}}
+        <image src='../image/three.png' style="width:22rpx;height:19rpx" class="{{isShowOptionsView?'rotate':''}}"> </image>
+      </view>
+    </view>
 
 
-      <!-- 选项卡部分开始 -->
+    <!-- 选项卡部分开始 -->
     <view class="hidden-box hide{{isShowOptionsView?'show':''}}"></view>
     <view class="hidden hide{{isShowOptionsView?'show':''}}">
       <view class="hidden-li {{id==currentOrderOptionIndex?'choosedbtn':'choosenobtn'}}" wx:for="{{orderOptions}}" wx:for-item="item" wx:for-index="id" data-id="{{id}}" bindtap="chooseItem">
-        {{item}}
+        {{item.name}}
       </view>
     </view>
 
     <!-- 选项卡部分结束 -->
 
-       <!-- 一个订单详情开始 -->
-       <view class='od_cate'>
-          <view>
-              <view class='od_head'>泰国旅游签-北京领区（仅受理护照签发地...）</view>
-              <view class='od_cate_money'>
-                <view>我的佣金：<view class='oc_money'> ¥50 </view></view>
-                <view>下级代理佣金：<view class='oc_money'> ¥20 </view></view>
-              </view> 
+    <!-- 一个订单详情开始 -->
+    <!-- <view class='od_cate' wx:for="{{dtoList}}">
+      <view>
+        <view class='od_head'>{{item.order.productName}}</view>
+        <view class='od_cate_money'>
+          <view>我的佣金：
+            <view class='oc_money'> ¥{{item.commissionAmount/100}} </view>
           </view>
-          <view class='od_qianzheng'>签证</view>
-       </view>
-       <!-- 一个订单详情结束 -->
-       <!-- 一个签证详情开始 -->
-       <view class='od_cate'>
-          <view>
-              <view class='od_head'>泰国旅游签-北京领区（仅受理护照签发地...）</view>
-              <view class='od_cate_money'>
-                <view>我的佣金：<view class='oc_money'> ¥50 </view></view>
-                <view>下级代理佣金：<view class='oc_money'> ¥20 </view></view>
-              </view> 
+          <view>下级代理佣金：
+            <view class='oc_money'> ¥{{item.subAmount/100}} </view>
           </view>
-          <view class='od_qianzheng'>签证</view>
-       </view>
-       <!-- 一个签证详情结束 -->
+        </view>
+        <view class='od_qianzheng'>{{item.order.orderType == 1?'线路':'签证'}}</view>
+      </view>
+    </view> -->
 
-       <!-- 一个签证详情开始 -->
-       <view class='od_cate'>
-          <view>
-              <view class='od_head'>泰国旅游签-北京领区（仅受理护照签发地...）</view>
+
+     <view class='od_cate' wx:for = "{{dtoList}}">
+           <view > 
+              <view class='od_head'>{{item.order.productName}}</view>
               <view class='od_cate_money'>
-                <view>我的佣金：<view class='oc_money'> ¥50 </view></view>
-                <view>下级代理佣金：<view class='oc_money'> ¥20 </view></view>
+                <view>我的佣金：<view class='oc_money'> ¥{{item.commissionAmount/100}} </view></view>
+                <view wx:if = "{{item.subAmount/100!= 0}}">下级代理佣金：<view class='oc_money'> ¥{{item.subAmount/100}} </view></view>
               </view> 
           </view>
-          <view class='od_qianzheng'>线路</view>
-       </view>
-       <!-- 一个签证详情结束 -->
+           <view class="line"></view> 
+          <view class='od_qianzheng'>{{item.order.orderType == 1?'线路':'签证'}}</view>
+        </view> 
+      </view> 
+    <!-- 一个订单详情结束 -->
 
-       
-       
-       <!-- 一个签证详情开始 -->
-       <view class='od_cate'>
-          <view>
-              <view class='od_head'>泰国旅游签-北京领区（仅受理护照签发地...）</view>
-              <view class='od_cate_money'>
-                <view>我的佣金：<view class='oc_money'> ¥50 </view></view>
-                <view>下级代理佣金：<view class='oc_money'> ¥20 </view></view>
-              </view> 
-          </view>
-          <view class='od_qianzheng'>线路</view>
-       </view>
-       <!-- 一个签证详情结束 -->
-       </view>
-<!-- 订单类型结束 -->
 
-<!-- 按钮-发送邮箱离开始 -->
+
+
+
+
+
+    <!-- 按钮-发送邮箱离开始 -->
     <view class='button'>
-        <navigator url="../divide-order-detail1/divide-order-detail1"><view>发送到邮箱</view></navigator>
+      <navigator url="../divide-order-detail1/divide-order-detail1">
+        <view>发送到邮箱</view>
+      </navigator>
     </view>
 
     <!-- 按钮-发送邮箱离结束 -->
-</view>
+  </view>
 <!-- 全局结束 -->
 
 
@@ -94,10 +78,6 @@
 
 
 
-   
+
 
 <!-- 弹出框结束 -->
-
-
-
-

@@ -251,7 +251,7 @@ Page(Object.assign({}, Toast, {
   toOrderDetail:function(e){
     var that = this;
     var selectOrderSn = e.currentTarget.dataset.ordersn;
-    var url = "/pages/order/detail/detail?orderId="+selectOrderSn;
+    var url = "/pages/order/detail/detail?orderSn="+selectOrderSn;
     console.log(url);
     wx.redirectTo({
       url: url,

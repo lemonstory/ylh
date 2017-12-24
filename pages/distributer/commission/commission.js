@@ -112,7 +112,7 @@ Page({
    */
   getCommissionInfo: function () {
     var that = this;
-    var url = that.data.constant.distributer + "/commissionDetails/calculateAmount"
+    var url = that.data.constant.distributerDomain + "/commissionDetails/calculateAmount"
     wx.request({
       url: url,
       data: that.data.postData,

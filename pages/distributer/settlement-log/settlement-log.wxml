@@ -25,19 +25,19 @@
           </view>
           <view class='open'>
             <view>分佣金额</view>
-            <view class='data data_dif'>¥{{item.settlementAmount}}</view>
+            <view class='data data_dif'>¥{{item.settlementAmount/100}}</view>
           </view>
           <view class='open'>
             <view>结算金额</view>
-            <view class='data data_dif'>¥{{item.transferAmount}}</view>
+            <view class='data data_dif'>¥{{item.transferAmount/100}}</view>
           </view>
 
           <view class='open'>
             <view>扣税金额</view>
-            <view class='data'>¥{{item.taxAmount}}</view>
+            <view class='data'>¥{{item.taxAmount/100}}</view>
           </view>
         </view>
-        <navigator url="/pages/commission-detail/commission-detail?year={{item.settlementYear}}">
+        <navigator url="/pages/distributer/commission-detail/commission-detail?year={{item.settlementYear}}&month={{item.settlementMonth}}">
           <view class='money_sec detail'>
             <view>分成订单详情</view>
             <image src='http://image.365zhiding.com/wxapp/20171114/1.png' style="width:14rpx;height:24rpx"> </image>

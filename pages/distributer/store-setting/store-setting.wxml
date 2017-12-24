@@ -1,27 +1,27 @@
 <!--pages/API/store-setting/store-setting.wxml-->
 <view class="container">
   <view class="main">
-    <navigator url="../logo/logo">
+    <navigator url="/pages/distributer/logo/logo?logoUrl={{prevPageData.distributerAccessData.dShop.logoUrl}}&distributerId={{prevPageData.distributerAccessData.dShop.distributerId}}">
       <view class="logo">LOGO设置
         <view class="logo-right">
-          <image class="logo-img" src="http://image.365zhiding.com/wxapp/20171121/logo.png"></image>
+          <image class="logo-img" src="{{prevPageData.distributerAccessData.dShop.logoUrl}}" mode="aspectFillt"></image>
           <image class="back" src="http://image.365zhiding.com/wxapp/20171114/1.png"></image>
         </view>
       </view>
     </navigator>
 
-<navigator url="../store-name/store-name">
+    <navigator url="../store-name/store-name">
       <view class="logo">店铺名称
         <view class="logo-right">
-          <view>环球悦旅会</view>
+          <view>{{prevPageData.distributerAccessData.dShop.shopName}}</view>
           <image class="back" src="http://image.365zhiding.com/wxapp/20171114/1.png"></image>
         </view>
       </view>
     </navigator>
-
+    
     <view class="logo">店铺账号
       <view class="logo-right">
-        <view>123456789</view>
+        <view>{{prevPageData.distributerAccessData.shopAccount}}</view>
       </view>
     </view>
 
@@ -33,10 +33,10 @@
       </view>
     </navigator>
 
-    <navigator url="../erweima/erweima">
+    <navigator url="/pages/distributer/qrcode/qrcode?shopName={{prevPageData.distributerAccessData.dShop.shopName}}&qrcodeUrl={{prevPageData.distributerAccessData.dShop.qrcodeUrl}}&logoUrl={{prevPageData.distributerAccessData.dShop.logoUrl}}">
       <view class="logo">我的二维码
         <view class="logo-right">
-          <image class="logo-img" src="http://image.365zhiding.com/wxapp/20171121/logo.png"></image>
+          <image class="logo-img" src="{{prevPageData.distributerAccessData.dShop.qrcodeUrl}}" mode="aspectFillt"></image>
           <image class="back" src="http://image.365zhiding.com/wxapp/20171114/1.png"></image>
         </view>
       </view>

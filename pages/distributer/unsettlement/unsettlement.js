@@ -148,8 +148,7 @@ Page({
   onShareAppMessage: function () {
 
   },
-
-  /**
+/**
    * 获得代理商的所有未结算的佣金
    */
   getNoPaymentCommission: function () {

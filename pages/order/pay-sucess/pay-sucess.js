@@ -1,10 +1,17 @@
 // pages/API/pay-sucess/pay-sucess.js
-Page({
+const app = getApp();
+const Toast = require('../../../zanui-weapp/dist/toast/index');
+var util = require('../../../utils/util.js')
+
+Page(Object.assign({}, Toast, {
 
   /**
    * 页面的初始数据
    */
   data: {
+
+    constant: app.constant,
+    orderSn: ''
 
   },
 
@@ -13,6 +20,16 @@ Page({
    */
   onLoad: function (options) {
 
+    var that = this;
+    if (!util.isEmptyStr(options.orderSn)) {
+
+      that.setData({
+        orderSn: options.orderSn
+      })
+
+    } else {
+      console.error("options.orderSn 不能为空");
+    }
   },
 
   /**
@@ -21,26 +38,6 @@ Page({
   onReady: function () {
 
   },
-  
-  orderDetail: function () {
-    wx.redirectTo({
-      url: '/pages/order/order-detail/order-detail',
-      success: function (res) { },
-      fail: function (res) { },
-      complete: function (res) { },
-    })
-  },
-
-  //TODO:这里待确定
-  travelMessage: function () {
-    wx.redirectTo({
-      url: '../travel-mess/travel-mess',
-      success: function (res) { },
-      fail: function (res) { },
-      complete: function (res) { },
-    })
-  },
-
 
 
   /**
@@ -83,5 +80,31 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }
-})
+  },
+
+  /**
+   * 查看订单详情
+   */
+  bindTapOrderDetail: function () {
+
+    wx.redirectTo({
+      url: '/pages/order/detail/detail?orderSn=' + that.data.orderSn,
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
+  },
+
+  /**
+   * 上传旅客资料
+   */
+  bindTapFillPossport: function () {
+    wx.redirectTo({
+      url: '/pages/member/possport-list/possport-list?orderSn=' + that.data.orderSn,
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
+  },
+
+}));

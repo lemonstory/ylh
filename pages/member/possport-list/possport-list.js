@@ -10,8 +10,7 @@ Page(Object.assign({}, Toast, {
     constant: app.constant,
     orderDetail: {},
 
-    //测试
-    orderSn: '1100000',
+    orderSn: '',
   },
 
   /**
@@ -19,9 +18,8 @@ Page(Object.assign({}, Toast, {
    */
   onLoad: function (options) {
 
-
     var that = this;
-    if (!util.isEmptyObject(options.orderSn)) {
+    if (!util.isEmptyStr(options.orderSn)) {
 
       that.setData({
         orderSn: options.orderSn
@@ -32,7 +30,6 @@ Page(Object.assign({}, Toast, {
 
     }
     that.getOrderDetail();
-
   },
 
   /**

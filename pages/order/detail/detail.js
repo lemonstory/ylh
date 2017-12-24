@@ -17,7 +17,7 @@ Page({
        // 选中的航班
        selectPlaneTicket:{},
 
-       orderId:0,
+       orderSn:0,
        orderDetail:{}
   },
   
@@ -26,14 +26,14 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
-    var orderSn = options.orderId;
+    var orderSn = options.orderSn;
     console.log(orderSn);
     if (typeof (orderSn) != "undefined") {
       that.setData({
-        orderId: orderSn
+        orderSn: orderSn
       })
     }
-    if (that.data.orderId >0){
+    if (that.data.orderSn >0){
       that.getOrderDetail();
     }
 
@@ -124,7 +124,7 @@ Page({
    */
   getOrderDetail:function(){
     var that = this;
-    var url = that.data.constant.domain + "/distrbuter/member/order/detail/" + that.data.orderId;
+    var url = that.data.constant.domain + "/distrbuter/member/order/detail/" + that.data.orderSn;
     wx.request({
       url: url,
       data:{},

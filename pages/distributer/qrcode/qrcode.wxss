@@ -1,15 +1,13 @@
 .main{
      width: 100%;
      height:100vh;
-     background: #fff;
-     border-top:2rpx solid #eee;
+     background: #f7f7f7;
+     padding-top: 100rpx;
+     box-sizing: border-box;
 }
-
 canvas {
      width: 100%;
      height: 60vh;
-     margin-top: 100rpx;
-     background: #fff;
      margin-bottom: 60rpx;
 }
 

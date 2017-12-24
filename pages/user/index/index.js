@@ -7,14 +7,10 @@ var util = require('../../../utils/util.js')
 Page(Object.assign({}, Toast, {
 
   data: {
-    'constant': app.constant,
+    constant: app.constant,
     buttonDisabled: false,
     modalHidden: true,
     show: false,
-
-    isDistributer: false,
-    isOwnDistributerId: false,
-    isOwnAccessToken: false,
   },
 
 
@@ -24,6 +20,7 @@ Page(Object.assign({}, Toast, {
   onLoad: function (options) {
 
     var that = this;
+
   },
 
   /**
@@ -39,19 +36,12 @@ Page(Object.assign({}, Toast, {
   onShow: function () {
 
     var that = this;
-    that.setData({
-      isDistributer: util.isDistributer()
-    })
 
     //用户为非代理商
-    if (!that.data.isDistributer) {
-      that.setData({
-        isOwnDistributerId: util.isOwnDistributerId(),
-        isOwnAccessToken: util.isOwnAccessToken()
-      })
+    if (!util.isDistributer()) {
 
       //用户没有代理商id
-      if (!that.data.isOwnDistributerId) {
+      if (!util.isOwnDistributerId()) {
         wx: wx.redirectTo({
           url: '/pages/user/visitor/visitor',
           success: function (res) { },
@@ -62,7 +52,7 @@ Page(Object.assign({}, Toast, {
 
         //用户有代理商Id但未注册
         console.log(that.data);
-        if (!that.data.isOwnAccessToken) {
+        if (!util.isOwnAccessToken()) {
           wx: wx.redirectTo({
             url: '/pages/user/wx-mobile/wx-mobile',
             success: function (res) { },
@@ -109,16 +99,7 @@ Page(Object.assign({}, Toast, {
   onShareAppMessage: function () {
 
     //TODO:测试使用
-    return {
-      title: 'AA自定义转发标题',
-      path: '/pages/API/my/my?distributerId=123',
-      success: function (res) {
-        // 转发成功
-      },
-      fail: function (res) {
-        // 转发失败
-      }
-    }
+    return util.defaultShareData();
   },
 
   toast: function () {
@@ -179,6 +160,17 @@ Page(Object.assign({}, Toast, {
       // Do something when catch error
       console.error(e);
     }
-  }
+  },
 
+  /**
+   * 我的订单
+   */
+  bindUserOrder:function(e) {
+
+    console.log("aaaa");
+    wx.navigateTo({
+      url: '/pages/user/order/order',
+    })
+
+  }
 }))

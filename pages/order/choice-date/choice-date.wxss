@@ -1,8 +1,11 @@
 /* pages/API/start-order/start-order.wxss */
 
 .page {
-     width: 100%;
      height: auto;
+     padding: 0;
+     width: 100%;
+     margin:0;
+     box-sizing: border-box;
      overflow: hidden;
 }
 
@@ -251,8 +254,8 @@ color:#EE6F2E;
 }
 
 .ischeck {
-     width: 24rpx;
-     height: 24rpx;
+     width: 32rpx;
+     height: 32rpx;
      border-radius: 50%;
 }
 

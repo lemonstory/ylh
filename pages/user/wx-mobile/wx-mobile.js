@@ -20,8 +20,85 @@ Page(Object.assign({}, Toast, {
    */
   onLoad: function (options) {
 
+    var that = this;
     util.getUserAccessData();
+    var userAccessData = util.getUserAccessData();
+    var guid = userAccessData.guid;
+    if (util.isEmptyStr(guid)) {
 
+      //再次获取guid
+      var distributerId = util.getDistributerId();
+      wx.checkSession({
+        success: function () {
+          //session 未过期，并且在本生命周期一直有效
+        },
+
+        fail: function () {
+
+          console.log("🚀 🚀 🚀 -- 微信登录态过期,重新登录");
+          //登录态过期
+          //重新登录
+          wx.login({
+
+            success: function (res) {
+
+              var url = that.data.constant.domain + "/weixin/get_session";
+              console.log("url = " + url);
+              if (res.code) {
+                //发起网络请求
+                wx.request({
+                  header: util.getRequestHeader(),
+                  url: url,
+                  data: {
+                    code: res.code,
+                    distributerId: distributerId
+                  },
+                  success: function (res) {
+
+                    guid = res.data.guid;
+                    // 本地存储用户信息
+                    wx.setStorage({
+                      key: that.data.constant.userAccessDataKey,
+                      data: res.data,
+                      success: function (res) {
+
+                        //重置userAccessData值
+                        console.log("[重置] 本地存储 userAccessData ")
+                        app.constant.userAccessData = {};
+                        util.getUserAccessData();
+                      },
+                      fail: function (res) {
+                        console.error(res);
+                      }
+                    });
+
+                    //代理商信息存储
+                    if (!util.isEmptyStr(res.data.distributerId)) {
+                      util.setDistributerId(res.data.distributerId);
+                    } else {
+                      console.warn("res.data.distributerId = " + res.data.distributerId);
+                    }
+                  },
+
+                  fail: function (res) {
+                    console.error(res);
+                  },
+                  complete: function (res) { }
+                })
+              } else {
+                console.log('获取用户登录态失败！' + res.errMsg)
+              }
+            },
+
+            fail: function (res) {
+              console.error(res);
+            },
+
+            complete: function (res) { }
+          });
+        }
+      })
+    }
   },
 
   /**
@@ -71,6 +148,7 @@ Page(Object.assign({}, Toast, {
    */
   onShareAppMessage: function () {
 
+    return util.defaultShareData();
   },
 
   /**
@@ -90,20 +168,20 @@ Page(Object.assign({}, Toast, {
       var url = that.data.constant.domain + "/weixin/phone";
       var userAccessData = util.getUserAccessData();
       var guid = userAccessData.guid;
-      if (typeof (guid) != "undefined" && guid.length > 0) {
+      var data = {
+        guid: guid,
+        encryptedData: e.detail.encryptedData,
+        iv: e.detail.iv,
+        errMsg: e.detail.errMsg
+      };
+      if (!util.isEmptyStr(guid)) {
         //发起网络请求
         wx.request({
-
           url: url,
           method: 'POST',
           header: util.postRequestHeader(),
 
-          data: {
-            guid: guid,
-            encryptedData: e.detail.encryptedData,
-            iv: e.detail.iv,
-            errMsg: e.detail.errMsg
-          },
+          data: data,
 
           success: function (res) {
 
@@ -112,24 +190,32 @@ Page(Object.assign({}, Toast, {
               wx.setStorage({
                 key: that.data.constant.userAccessDataKey,
                 data: res.data,
-              })
+                success: function (res) {
 
-              wx.showToast({
-                title: '成功',
-                icon: 'success',
-                duration: 2000
-              })
+                  console.log("[重置] 本地存储 userAccessData ")
+                  app.constant.userAccessData = {};
+                  util.getUserAccessData();
 
+                  wx.showToast({
+                    title: '成功',
+                    icon: 'success',
+                    duration: 2000
+                  })
 
-              //当用未注册时点击-我的 tab
-              console.log("当用未注册时点击-我的 tab")
-              wx.switchTab({
-                url: '/pages/user/index/index'
+                  //当用未注册时点击-我的 tab
+                  console.log("当用未注册时点击-我的 tab")
+                  wx.switchTab({
+                    url: '/pages/user/index/index'
+                  })
+                },
+                fail: function (res) {
+                  console.error(res)
+                }
               })
 
             } else {
-              
-              console.warn(res);
+
+              console.error(res);
               //跳转到绑定手机号页面
               wx.redirectTo({
                 url: '/pages/user/send-code/send-code',
@@ -138,14 +224,16 @@ Page(Object.assign({}, Toast, {
           },
 
           fail: function (res) {
-            console.warn(res);
+            console.error(res);
           },
 
           complete: function (res) { }
         });
+
       } else {
         that.showZanToast("guid为空");
       }
+      
     } else {
 
       //用户拒绝
@@ -153,7 +241,7 @@ Page(Object.assign({}, Toast, {
         url: '/pages/user/send-code/send-code',
         success: function (res) { },
         fail: function (res) {
-          console.warn(res)
+          console.error(res);
         },
         complete: function (res) { },
       })

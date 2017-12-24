@@ -18,7 +18,7 @@
           </view>
 
           <view class="air-type" bindtap="onChangePlaneTicketTypeViewShow">
-               <view class="type-left">{{currentPlaneTicketTypeTypeTitle != '' ? currentPlaneTicketTypeTypeTitle : '请选择' }}</view>
+               <view class="type-left">{{currentPlaneTicketTypeTypeTitle!= '' ? currentPlaneTicketTypeTypeTitle : '请选择'}}</view>
                <view class="type-right">
                     <image src="http://image.365zhiding.com/wxapp/20171121/xia.png" class="{{isShowPlaneTicketTypeView?'rotate':''}}"></image>
                </view>

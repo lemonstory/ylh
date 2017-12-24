@@ -4,8 +4,8 @@ const Toast = require('../../../zanui-weapp/dist/toast/index');
 var util = require('../../../utils/util.js')
 
 Page(Object.assign({}, Toast, {
-data: {
-     constant: app.constant,
+  data: {
+    constant: app.constant,
 
     //轮播图
     inputContent: {},
@@ -25,6 +25,8 @@ data: {
 
     //已选择的出发日期
     selectedTravelDate: '',
+    selectedTravelDateIndex: '',
+    currentSelectedMonthIndex: '',
 
     //评论分页
     id: '',
@@ -40,6 +42,7 @@ data: {
   },
 
   onLoad: function (options) {
+
     console.log(options);
     //接收页面参数
     var id = options.id;
@@ -286,42 +289,38 @@ data: {
     })
   },
 
-// 点击处理banner图
+  // 点击处理banner图
   handleBanner: function (event) {
-       var that = this;
-       var src = event.currentTarget.dataset.src;
-       that.navigateToUrl(src);
+    var that = this;
+    var src = event.currentTarget.dataset.src;
+    that.navigateToUrl(src);
   },
 
   /**
- * 跳转url
- */
+  * 跳转url
+  */
   navigateToUrl: function (url) {
 
-       var path
-       if (!util.isEmptyStr(url)) {
+    var path
+    if (!util.isEmptyStr(url)) {
 
-            if (util.isHttpUrl(url)) {
-                 path = "/pages/web-view/web-view?src=" + url;
-            } else {
-                 path = url;
-            }
+      if (util.isHttpUrl(url)) {
+        path = "/pages/web-view/web-view?src=" + url;
+      } else {
+        path = url;
+      }
 
-            wx.navigateTo({
-                 url: path
-            })
+      wx.navigateTo({
+        url: path
+      })
 
-       } else {
+    } else {
 
-            console.warn("url为空")
-            //测试
-            that.showZanToast("url为空");
-       }
-
+      console.error("url为空")
+      //测试
+      that.showZanToast("url为空");
+    }
   },
-
-
-
 
 
   /**
@@ -371,6 +370,13 @@ data: {
       startDatePriceListFormat: startDatePriceListFormatTemp,
       commendList: commendListTemp
     })
+
+    //默认选中的出行日期
+    that.setData({
+      selectedTravelDate: that.data.startDatePriceListFormat[0].date,
+      selectedTravelDateIndex: 0,
+      currentSelectedMonthIndex: 0,
+    })
   },
 
 
@@ -383,26 +389,35 @@ data: {
     var currentSelectedTravelDate = e.currentTarget.dataset.date;
     //选中的出行日期所在的月份索引值
     var currentSelectedMonthIndex = e.currentTarget.dataset.month_index;
-    var path = "/pages/order/choice-date/choice-date?currentSelectedTravelDate=" + currentSelectedTravelDate + "&currentSelectedMonthIndex=" + currentSelectedMonthIndex;
-    console.log(path);
+    var url = "/pages/order/choice-date/choice-date?currentSelectedTravelDate=" + currentSelectedTravelDate + "&currentSelectedMonthIndex=" + currentSelectedMonthIndex;
+    console.log(url);
 
     var that = this;
     var dataIdx = e.currentTarget.dataset.data_idx;
 
     //设置当前样式
-    if (this.data.currentItem != dataIdx) {
+    if (this.data.selectedTravelDateIndex != dataIdx) {
 
-      var showMode = e.currentTarget.dataset.dataIdx == 0;
       this.setData({
-        currentItem: dataIdx,
-        selectedTravelDate: e.currentTarget.dataset.date
+        selectedTravelDateIndex: dataIdx,
+        selectedTravelDate: e.currentTarget.dataset.date,
+        currentSelectedMonthIndex: currentSelectedMonthIndex
       })
     }
 
-    wx.navigateTo({
-      url: path
-    })
+    var isOwnAccessToken = util.isOwnAccessToken()
+    //跳转到绑定手机号
+    if (!isOwnAccessToken) {
 
+      wx.navigateTo({
+        url: '/pages/user/wx-mobile/wx-mobile',
+      })
+
+    } else {
+      wx.navigateTo({
+        url: url,
+      })
+    }
   },
 
   /**
@@ -411,7 +426,7 @@ data: {
   handleTapStartOrder: function (e) {
 
     var that = this;
-    var url = `/pages/order/choice-date/choice-date?currentSelectedTravelDate=${that.data.startDatePriceListFormat[0].date}&currentSelectedMonthIndex=${that.data.startDatePriceListFormat[0].monthIndex}`
+    var url = `/pages/order/choice-date/choice-date?currentSelectedTravelDate=${that.data.selectedTravelDate}&currentSelectedMonthIndex=${that.data.currentSelectedMonthIndex}`
     console.log("url = " + url);
 
     var isOwnAccessToken = util.isOwnAccessToken()

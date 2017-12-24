@@ -21,7 +21,6 @@
      position: relative;
      align-items: center;
 }
-
 .dingicon {
      width: 24rpx;
      height: 32rpx;
@@ -1000,8 +999,12 @@ swiper {
      font-family: PingFang-SC-Regular;
      color: rgba(102, 102, 102, 1);
      position: absolute;
-     bottom: 27rpx;
-     left: 103rpx;
+     width: 50%;
+     height:90rpx;
+     bottom:0;
+     left:0;
+     text-align: center;
+     line-height: 90rpx;
 }
 
 .sure {
@@ -1009,6 +1012,10 @@ swiper {
      font-family: PingFang-SC-Regular;
      color: #0076ff;
      position: absolute;
-     bottom: 27rpx;
-     right: 103rpx;
+     width: 50%;
+     height:90rpx;
+     bottom:0;
+     right:0;
+     text-align: center;
+     line-height: 90rpx;
 }

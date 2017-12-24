@@ -26,7 +26,7 @@ Page(Object.assign({}, Toast, {
     //已选择的出发日期
     selectedTravelDate: '',
     selectedTravelDateIndex: '',
-    currentSelectedMonthIndex:'',
+    currentSelectedMonthIndex: '',
 
     //评论分页
     id: '',
@@ -375,7 +375,7 @@ Page(Object.assign({}, Toast, {
     that.setData({
       selectedTravelDate: that.data.startDatePriceListFormat[0].date,
       selectedTravelDateIndex: 0,
-      currentSelectedMonthIndex:0,
+      currentSelectedMonthIndex: 0,
     })
   },
 
@@ -389,8 +389,8 @@ Page(Object.assign({}, Toast, {
     var currentSelectedTravelDate = e.currentTarget.dataset.date;
     //选中的出行日期所在的月份索引值
     var currentSelectedMonthIndex = e.currentTarget.dataset.month_index;
-    var path = "/pages/order/choice-date/choice-date?currentSelectedTravelDate=" + currentSelectedTravelDate + "&currentSelectedMonthIndex=" + currentSelectedMonthIndex;
-    console.log(path);
+    var url = "/pages/order/choice-date/choice-date?currentSelectedTravelDate=" + currentSelectedTravelDate + "&currentSelectedMonthIndex=" + currentSelectedMonthIndex;
+    console.log(url);
 
     var that = this;
     var dataIdx = e.currentTarget.dataset.data_idx;
@@ -405,9 +405,19 @@ Page(Object.assign({}, Toast, {
       })
     }
 
-    wx.navigateTo({
-      url: path
-    })
+    var isOwnAccessToken = util.isOwnAccessToken()
+    //跳转到绑定手机号
+    if (!isOwnAccessToken) {
+
+      wx.navigateTo({
+        url: '/pages/user/wx-mobile/wx-mobile',
+      })
+
+    } else {
+      wx.navigateTo({
+        url: url,
+      })
+    }
   },
 
   /**

@@ -43,7 +43,7 @@ Page(Object.assign({}, Toast, {
 
         fail: function () {
 
-          console.log("🚀 🚀 🚀 -- fail");
+          console.log("🚀 🚀 🚀 -- 微信登录态过期,重新登录");
           //登录态过期
           //重新登录
           wx.login({
@@ -82,7 +82,7 @@ Page(Object.assign({}, Toast, {
                   },
 
                   fail: function (res) {
-                    console.warn(res);
+                    console.error(res);
                   },
                   complete: function (res) { }
                 })
@@ -92,7 +92,7 @@ Page(Object.assign({}, Toast, {
             },
 
             fail: function (res) {
-              console.warn(res);
+              console.error(res);
             },
 
             complete: function (res) { }
@@ -214,7 +214,7 @@ Page(Object.assign({}, Toast, {
     console.log("guid = " + guid);
 
 
-    if (guid.length > 0) {
+    if (!util.isEmptyStr(guid)) {
       var url = that.data.constant.domain + '/weixin/sendcode';
       console.log("url = " + url);
 
@@ -241,7 +241,7 @@ Page(Object.assign({}, Toast, {
           },
 
           fail: function (res) {
-            console.warn(res);
+            console.error(res);
           },
 
           complete: function (res) { },
@@ -295,7 +295,7 @@ Page(Object.assign({}, Toast, {
                 key: that.data.constant.userAccessDataKey,
                 data: res.data,
                 fail: function (res) {
-                  console.warn(res);
+                  console.error(res);
                 }
               });
 
@@ -315,7 +315,7 @@ Page(Object.assign({}, Toast, {
           },
 
           fail: function (res) {
-            console.warn(res);
+            console.error(res);
             that.showZanToast(JSON.stringify(res.data));
           },
 

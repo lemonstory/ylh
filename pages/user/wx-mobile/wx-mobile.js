@@ -35,7 +35,7 @@ Page(Object.assign({}, Toast, {
 
         fail: function () {
 
-          console.log("🚀 🚀 🚀 -- fail");
+          console.log("🚀 🚀 🚀 -- 微信登录态过期,重新登录");
           //登录态过期
           //重新登录
           wx.login({
@@ -74,7 +74,7 @@ Page(Object.assign({}, Toast, {
                   },
 
                   fail: function (res) {
-                    console.warn(res);
+                    console.error(res);
                   },
                   complete: function (res) { }
                 })
@@ -84,7 +84,7 @@ Page(Object.assign({}, Toast, {
             },
 
             fail: function (res) {
-              console.warn(res);
+              console.error(res);
             },
 
             complete: function (res) { }
@@ -161,20 +161,20 @@ Page(Object.assign({}, Toast, {
       var url = that.data.constant.domain + "/weixin/phone";
       var userAccessData = util.getUserAccessData();
       var guid = userAccessData.guid;
-      if (typeof (guid) != "undefined" && guid.length > 0) {
+      var data = {
+        guid: guid,
+        encryptedData: e.detail.encryptedData,
+        iv: e.detail.iv,
+        errMsg: e.detail.errMsg
+      };
+      if (!util.isEmptyStr(guid)) {
         //发起网络请求
         wx.request({
-
           url: url,
           method: 'POST',
           header: util.postRequestHeader(),
 
-          data: {
-            guid: guid,
-            encryptedData: e.detail.encryptedData,
-            iv: e.detail.iv,
-            errMsg: e.detail.errMsg
-          },
+          data: data,
 
           success: function (res) {
 
@@ -200,7 +200,7 @@ Page(Object.assign({}, Toast, {
 
             } else {
 
-              console.warn(res);
+              console.error(res);
               //跳转到绑定手机号页面
               wx.redirectTo({
                 url: '/pages/user/send-code/send-code',
@@ -209,7 +209,7 @@ Page(Object.assign({}, Toast, {
           },
 
           fail: function (res) {
-            console.warn(res);
+            console.error(res);
           },
 
           complete: function (res) { }
@@ -224,7 +224,7 @@ Page(Object.assign({}, Toast, {
         url: '/pages/user/send-code/send-code',
         success: function (res) { },
         fail: function (res) {
-          console.warn(res)
+          console.error(res);
         },
         complete: function (res) { },
       })

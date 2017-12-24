@@ -446,6 +446,8 @@ transform:translate(-50%, -48%) scale(0.73);
      padding: 0 0rpx 0 60rpx;
      border-bottom: 1rpx solid #eee;
      position: relative;
+     background:#fff;
+     z-index: 999;
 }
 
 .deli {

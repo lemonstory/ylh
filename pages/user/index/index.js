@@ -119,14 +119,30 @@ Page(Object.assign({}, Toast, {
     })
   },
 
-  modalBindaconfirm: function () {
+  handleTapSubordinate: function () {
     wx.navigateTo({
       url: '/pages/distributer/subordinate/subordinate'
     })
   },
 
+  handleTapCommission:function(){
+       wx.navigateTo({
+            url:'/pages/distributer/commission/commission'
+       })
+  },
 
-  onChangeShowState: function () {
+  handleTapOrderQuery:function(){
+       wx.navigateTo({
+            url: '/pages/distributer/order-query/order-query'
+       })
+  },
+handleTapStoreSetting:function(){
+     wx.navigateTo({
+          url: '/pages/distributer/store-setting/store-setting'
+     })
+},
+
+onChangeShowState: function () {
     var that = this;
     that.setData({
       showView: (!that.data.showView)

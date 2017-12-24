@@ -12,11 +12,10 @@
                     <image src="http://image.365zhiding.com/wxapp/20171121/xia.png" class="{{index==currentSelectedIndex?'rotate':''}}"></image>
                </view>
           </view>
-
-          <!--显现卡-->
+       <!--显现卡-->
           <view class="hidden hide{{index == currentSelectedIndex ? 'show' : ''}}">
                <view class="hidden-left">
-                    <view class="hidden-text1">店铺名:
+                    <view class="hidden-text1">店铺名:{{item.shopName}}
                          <view style='color:#333; margin-left:10rpx;'></view>
                     </view>
                     <view class="hidden-text1">联系人:

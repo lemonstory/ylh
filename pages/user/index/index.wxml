@@ -7,22 +7,19 @@
           </view>
 
           <view class="box1">
-               <navigator url="/pages/distributer/commission/commission">
-                    <view class="list">
-                         <view class="list-left">
-                              <view class="icon">
-                                   <image src='http://image.365zhiding.com/wxapp/20171121/111 (2).png'></image>
-                              </view>
-                              <view class="list-text">我的佣金</view>
+
+               <view class="list" bindtap='handleTapCommission'>
+                    <view class="list-left">
+                         <view class="icon">
+                              <image src='http://image.365zhiding.com/wxapp/20171121/111 (2).png'></image>
                          </view>
-                         <view class="list-right">
-                              <image src='http://image.365zhiding.com/wxapp/20171114/1.png' style="width:14rpx;height:24rpx"></image>
-                         </view>
+                         <view class="list-text">我的佣金</view>
                     </view>
-               </navigator>
-
-
-               <view class="list" bindtap='toast'>
+                    <view class="list-right">
+                         <image src='http://image.365zhiding.com/wxapp/20171114/1.png' style="width:14rpx;height:24rpx"></image>
+                    </view>
+               </view>
+               <view class="list" bindtap='handleTapSubordinate'>
                     <view class="list-left">
                          <view class="icon">
                               <image src='http://image.365zhiding.com/wxapp/20171121/222.png'></image>
@@ -32,12 +29,11 @@
                     <view class="list-right">
                          <image src='http://image.365zhiding.com/wxapp/20171114/1.png' style="width:14rpx;height:24rpx"></image>
                     </view>
-                    <modal title="提示" hidden="{{modalHidden}}" confirm-text="确定" cancel-text="取消" bindconfirm="modalBindaconfirm" bindcancel="modalBindcancel">您现在还没有下级代理商快去发展吧~</modal>
+                    <!-- <modal title="提示" hidden="{{modalHidden}}" confirm-text="确定" cancel-text="取消" bindconfirm="modalBindaconfirm" bindcancel="modalBindcancel">您现在还没有下级代理商快去发展吧~</modal> -->
                </view>
 
 
-               <navigator url="/pages/distributer/order-query/order-query">
-                    <view class="list" style='border-bottom:none'>
+                    <view class="list" bindtap='handleTapOrderQuery' style='border-bottom:none'>
                          <view class="list-left">
                               <view class="icon">
                                    <image src='http://image.365zhiding.com/wxapp/20171121/333.png'></image>
@@ -50,7 +46,6 @@
                               <image src='http://image.365zhiding.com/wxapp/20171114/1.png' style="width:14rpx;height:24rpx"></image>
                          </view>
                     </view>
-               </navigator>
           </view>
 
           <view class="box2">
@@ -78,8 +73,7 @@
                </view>
                <!--弹出信息的展示结束-->
 
-               <navigator url="/pages/distributer/store-setting/store-setting">
-                    <view class="list" style='border-bottom:none'>
+                 <view class="list" style='border-bottom:none' bindtap='handleTapStoreSetting'>
                          <view class="list-left">
                               <view class="icon">
                                    <image src='http://image.365zhiding.com/wxapp/20171121/555.png'></image>
@@ -90,7 +84,7 @@
                               <image src='http://image.365zhiding.com/wxapp/20171114/1.png' style="width:14rpx;height:24rpx"></image>
                          </view>
                     </view>
-               </navigator>
+               
           </view>
           <view class="bottom" bindtap='bindDistributerLogout'>退出登录</view>
      </view>
@@ -101,7 +95,7 @@
           <view class="my-img">
                <image class=" logo" src="http://image.365zhiding.com/wxapp/20171121/logo.png"></image>
                <view class="text2" style='margin-top:-30rpx;'>用户信息</view>
-               
+
           </view>
           <view class="box1">
                <view class="list" bindtap='bindUserOrder'>
@@ -139,6 +133,6 @@
                     </view>
                </view>
           </view>
-          
+
      </view>
 </block>

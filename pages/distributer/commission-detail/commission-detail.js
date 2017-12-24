@@ -31,10 +31,11 @@ Page({
         "type": 1,
         "name": "线路"
       },
-      {
-        "type": 8,
-        "name": "签证"
-      }],
+      // {
+      //   "type": 8,
+      //   "name": "签证"
+      // }
+      ],
 
     orderFilterTitle: "订单类型",
     currentOrderOptionIndex: 0,
@@ -155,7 +156,7 @@ Page({
     wx.request({
       url: url,
       data: that.data.postData,
-      header: util.postRequestHeader(),
+      header: util.getRequestHeader(true),
       method: 'POST',
       success: function (res) {
         console.log("请求数据成功！");

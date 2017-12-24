@@ -95,24 +95,24 @@ Page(Object.assign({}, Toast, {
         method: 'POST',
         success: function (res) {
 
+
           if (res.data.code == "OK") {
 
-            // that.showZanToast("修改成功!")
             //重置本地存储的代理商信息
             wx.setStorage({
               key: that.data.constant.distributerAccessDataKey,
               data: res.data,
-              success: function (res) {
+              success: function (rese) {
 
                 //重置全局distributerId,distributerAccessData
                 app.constant.distributerAccessData = {};
-                util.setDistributerId(data.dShop.distributerId);
+                util.setDistributerId(res.data.dShop.distributerId);
 
               },
-              fail: function (res) {
+              fail: function (rese) {
 
                 console.error('[失败] 代理商信息保存');
-                console.error(res);
+                console.error(rese);
               },
             })
 

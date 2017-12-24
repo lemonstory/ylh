@@ -8,7 +8,7 @@ Page(Object.assign({}, Toast, {
   data: {
     constant: app.constant,
     logoUrl: '',
-    distributerId:''
+    distributerId: ''
   },
 
   /**
@@ -93,35 +93,63 @@ Page(Object.assign({}, Toast, {
           title: '正在上传...',
         })
         wx.uploadFile({
-          url: app.constant.distributerDomain+'/distributerShop/updateShopLogoByPrimaryKey',
+          url: app.constant.distributerDomain + '/distributerShop/updateShopLogoByPrimaryKey',
           filePath: tempFilePaths[0],
           name: 'file',
           formData: {
             'distributerId': that.data.distributerId
           },
-          success: function (res) {
 
-            console.log("🍺 🍺 🍺 图片上传成功")
-            console.log(res);
+          success: function (resl) {
+
+            resl.data = JSON.parse(resl.data);
+            if (resl.data.code == "OK") {
+
+              // 重置本地存储的代理商信息
+              wx.setStorage({
+                key: that.data.constant.distributerAccessDataKey,
+                data: resl.data,
+                success: function (rese) {
+
+                  //重置全局distributerId,distributerAccessData
+                  app.constant.distributerAccessData = {};
+                  util.setDistributerId(resl.data.dShop.distributerId);
+
+                },
+                fail: function (rese) {
+
+                  console.error('[失败] 代理商信息保存');
+                  console.error(rese);
+                },
+              })
+
+              that.setData({
+                logoUrl: tempFilePaths[0]
+              })
+
+              wx.showToast({
+                title: '成功',
+                icon: 'success',
+                duration: 1000,
+
+              })
+
+              setTimeout(function () {
+                wx.navigateBack({
+                  delta: 1
+                })
+              }, 1000);
+
+            }
 
 
-            wx.showToast({
-              title: '成功',
-              icon: 'success',
-              duration: 1000
-            })
+            //得到上传成功后的图片地址 do something
+            // var data = res.data
 
-            that.setData({
-              logoUrl: tempFilePaths[0]
-            })
-
-            //TODO:得到上传成功后的图片地址
-            var data = res.data
-            //do something
           }
         })
       }
     })
   }
-  
+
 }))

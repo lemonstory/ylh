@@ -100,3 +100,9 @@
   height: 88rpx;
   margin-bottom: 1rpx;
 }
+.picker-cancle{
+
+}
+.picker-commit{
+  
+}

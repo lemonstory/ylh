@@ -2,7 +2,6 @@
 var util = require('../../../utils/util.js');
 const app = getApp();
 const Toast = require('../../../zanui-weapp/dist/toast/index');
-
 Page(Object.assign({}, Toast, {
      data: {
           'constant': app.constant,

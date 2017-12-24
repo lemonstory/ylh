@@ -10,7 +10,7 @@
       </view>
     </navigator>
 
-    <navigator url="../store-name/store-name">
+    <navigator url="/pages/distributer/store-name/store-name">
       <view class="logo">店铺名称
         <view class="logo-right">
           <view>{{prevPageData.distributerAccessData.dShop.shopName}}</view>
@@ -25,7 +25,7 @@
       </view>
     </view>
 
-    <navigator url="../password-modify/password-modify">
+    <navigator url="/pages/distributer/password-modify/password-modify">
       <view class="logo">店铺密码
         <view class="logo-right">
           <image class="back" src="http://image.365zhiding.com/wxapp/20171114/1.png"></image>

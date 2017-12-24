@@ -7,7 +7,8 @@ Page(Object.assign({}, Toast, {
 
           // 接口 post数据
           formData: {
-               'shopName':'商铺名称'
+               "distributerId": 1,
+               'shopName': '商铺名称'
           }
      },
      onReady: function () {
@@ -16,7 +17,7 @@ Page(Object.assign({}, Toast, {
            * 生命周期函数--监听页面显示
            */
      onShow: function () {
-      
+
      },
 
      /**
@@ -59,43 +60,46 @@ Page(Object.assign({}, Toast, {
      getUserName: function () {
 
      },
-      /**
-     * 修改店铺名称
-     */
+     /**
+    * 修改店铺名称
+    */
      changeStoreName: function () {
           var that = this;
           var url = that.data.constant.distributerDomain + "/distributerShop/updateShopNameByPrimaryKey";
-
-          if (!util.isEmptyStr(that.data.formData.shopName)){
-          wx.request({
-               url: url,
-               data: that.data.formData,
-               header: util.postRequestHeader(true),
-               method: 'POST',
-               success: function (res) {
-                    that.showZanToast(res.message);
-               },
-               fail: function (res) {
-                    console.log("出错了！");
-                    that.showZanToast(res.message);
-               },
-               complete: function (res) {
-                    console.log(res);
-
-               }
-          })
-         
+          if (!util.isEmptyStr(that.data.formData.shopName)) {
+               wx.request({
+                    url: url,
+                    data: that.data.formData,
+                    header: util.postRequestHeader(true),
+                    method: 'POST',
+                    success: function (res) {
+                         if (res.data == "OK") {
+                              that.showZanToast("修改成功!")
+                         }
+                    },
+                    fail: function (res) {
+                         console.log("出错了！");
+                         that.showZanToast(res.message);
+                    },
+                    complete: function (res) {
+                         console.log(res);
+                    }
+               })
           }
           else {
-               that.showZanToast("请完善修改信息!");
+               that.showZanToast("请输入新的店铺名!");
           }
-
-        
-
-
      },
 
-
+     /**
+   * 清空输入框
+   */
+     handleTapClearInput: function () {
+          var that = this;
+          that.setData({
+               formData: '',
+          })
+     },
 
      /**
       * 监听输入框事件
@@ -103,25 +107,11 @@ Page(Object.assign({}, Toast, {
      bindInputValueChange: function (event) {
           var that = this;
           var formDataTemp = that.data.formData;
-          formDataTemp[event.currentTarget.dataset.id] = event.detail.value;
+          formDataTemp= event.detail.value;
           that.setData({
                formData: formDataTemp
           })
           console.log(that.data.formData);
-         
      },
-   
-//    
-     /**
-      * 清空输入框
-      */
-     handleTapClearInput: function () {
-          var that = this;
-          that.setData({
-               formData: '',
-          })
-
-     },
-
-
-}))
+  
+  }))

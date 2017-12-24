@@ -14,6 +14,8 @@ Page(Object.assign({}, Toast, {
     interval: 5000,
     duration: 1000,
 
+    optionsId: '',
+
     //电话弹窗
     isShowPhoneDialog: false,
 
@@ -43,11 +45,19 @@ Page(Object.assign({}, Toast, {
 
   onLoad: function (options) {
 
+    var that = this;
     console.log(options);
     //接收页面参数
     var id = options.id;
-    this.getLineDetailData(id);
+    if (!util.isEmptyStr(id)) {
 
+      that.setData({
+        optionsId: id
+      })
+      this.getLineDetailData(id);
+    } else {
+      console.error("id (线路Id) 不能为空 ")
+    }
   },
 
 
@@ -433,8 +443,12 @@ Page(Object.assign({}, Toast, {
     //跳转到绑定手机号
     if (!isOwnAccessToken) {
 
+      var returnUrl = '/pages/line/line-detail/line-detail?id=' + that.data.optionsId;
+      returnUrl = encodeURIComponent(returnUrl);
+      console.log(returnUrl);
+
       wx.navigateTo({
-        url: '/pages/user/wx-mobile/wx-mobile',
+        url: '/pages/user/wx-mobile/wx-mobile?returnUrl=' + returnUrl,
       })
 
     } else {

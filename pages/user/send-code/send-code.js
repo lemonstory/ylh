@@ -12,6 +12,7 @@ Page(Object.assign({}, Toast, {
   data: {
 
     constant: app.constant,
+    returnUrl: '',
 
     //手机号
     mobile: '',
@@ -29,6 +30,13 @@ Page(Object.assign({}, Toast, {
   onLoad: function (options) {
 
     var that = this;
+    if (!util.isEmptyStr(options.returnUrl)) {
+
+      that.setData({
+        returnUrl: options.returnUrl
+      })
+    }
+
     util.getUserAccessData();
     var userAccessData = util.getUserAccessData();
     var guid = userAccessData.guid;
@@ -315,11 +323,17 @@ Page(Object.assign({}, Toast, {
                     duration: 2000
                   })
 
-                  //当用未注册时点击-我的 tab
-                  console.log("当用未注册时点击-我的 tab")
-                  wx.switchTab({
-                    url: '/pages/user/index/index'
-                  })
+                  if (!util.isEmptyStr(that.data.returnUrl)) {
+                    var url = decodeURIComponent(that.data.returnUrl);
+                    wx.redirectTo({
+                      url: url,
+                    })
+
+                  } else {
+                    wx.switchTab({
+                      url: 'pages/user/index/index',
+                    })
+                  }
                 },
                 fail: function (res) {
                   console.error(res)

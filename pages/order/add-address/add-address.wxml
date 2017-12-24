@@ -5,10 +5,10 @@
           <view class="input-name">联系人：
                <input class="input" placeholder="收货人姓名" placeholder-style="font-size:26rpx; font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);" value="{{addressInfo.name}}" id='name' bindinput='handelTextChanged' style='margin-left:59rpx;width:250rpx;'></input>
 
-               <image class="ischeck" style="width:32rpx;height:32rpx;margin-top:27rpx;margin-right:10rpx;margin-left:40rpx" src="{{addressInfo.gender==1?isSelect:isUnSelect}}" bindtap='handleGenderSelect' data-sex='1'></image>
+               <image class="ischeck" style="width:32rpx;height:32rpx;margin-top:27rpx;margin-right:10rpx;margin-left:30rpx" src="{{addressInfo.gender==1?isSelect:isUnSelect}}" bindtap='handleGenderSelect' data-sex='1'></image>
                <view class="man">男士</view>
 
-               <image class="ischeck" style="width:32rpx;height:32rpx;margin-top:27rpx;margin-right:10rpx;margin-left:40rpx" src="{{addressInfo.gender==2?isSelect:isUnSelect}}" bindtap='handleGenderSelect' data-sex='2'></image>
+               <image class="ischeck" style="width:32rpx;height:32rpx;margin-top:27rpx;margin-right:10rpx;margin-left:30rpx" src="{{addressInfo.gender==2?isSelect:isUnSelect}}" bindtap='handleGenderSelect' data-sex='2'></image>
                <view class="man">女士</view>
           </view>
 
@@ -21,9 +21,9 @@
           </view>
 
 
-          <view class="input-name" bindtap="handelAddressTap">所在城市：style="margin-left:30rpx"
-               <input class="input" placeholder="请选择城市" placeholder-style="font-size:26rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);" value="{{addressDetail}}" disabled="{{true}}" id='addres'></input>
-               <image class="back" src="http://image.365zhiding.com/wxapp/20171114/1.png"></image>
+          <view class="input-name" bindtap="handelAddressTap">所在城市：
+               <input class="input" style="margin-left:30rpx;with:400rpx" placeholder="请选择城市" placeholder-style="font-size:26rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);" value="{{addressDetail}}" disabled="{{true}}" id='addres'></input>
+               <image class="back" style='margin-left:10rpx' src="http://image.365zhiding.com/wxapp/20171114/1.png"></image>
           </view>
 
 

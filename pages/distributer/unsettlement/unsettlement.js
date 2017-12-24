@@ -160,7 +160,7 @@ Page({
     wx.request({
       url: url,
       data:that.data.postData,
-      header: util.postRequestHeader(),
+      header: util.getRequestHeader(true),
       method:'POST',
       success:function(res){
         console.log("请求数据成功！");

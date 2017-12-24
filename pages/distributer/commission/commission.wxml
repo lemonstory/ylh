@@ -20,7 +20,7 @@
   <view class='money_sec'>
  
     <view>未结算佣金</view> 
-         <view class='price'>¥{{unSettlementAmount/100}}元</view> 
+         <view class='price'></view> 
      <image src='http://image.365zhiding.com/wxapp/20171114/1.png' style="width:14rpx;height:24rpx"> </image>
     
 

@@ -117,7 +117,7 @@ Page({
     wx.request({
       url: url,
       data: that.data.postData,
-      header: util.postRequestHeader(),
+      header: util.postRequestHeader(true),
       method:'POST',
       success:function(res){
         that.setData(res.data);

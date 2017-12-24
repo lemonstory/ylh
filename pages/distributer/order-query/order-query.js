@@ -112,7 +112,7 @@ Page({
     that.setData({
       'logPostData.distributerId': id,
       'orderPostData.distributerId':id
-    })
+    });
     that.creatTimeOptions();
     that.getAllLog();
     that.getAllOrder();
@@ -258,10 +258,11 @@ Page({
   getAllLog: function () {
     var that = this;
     var url = that.data.constant.distributerDomain + "/settlementLog/querySettlementLogByJoin";
+    console.log
     wx.request({
       url: url,
-      data: that.data.postData,
-      header: util.postRequestHeader(),
+      data: that.data.logPostData,
+      header: util.getRequestHeader(true),
       method: 'POST',
       success: function (res) {
         console.log("请求数据成功！");
@@ -285,8 +286,8 @@ Page({
     var url = that.data.constant.distributerDomain + "/commissionDetails/queryCommissionDetailsByJoin";
     wx.request({
       url: url,
-      data: that.data.postData,
-      header: util.postRequestHeader(),
+      data: that.data.orderPostData,
+      header: util.getRequestHeader(true),
       method: 'POST',
       success: function (res) {
         console.log("请求数据成功！");

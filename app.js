@@ -1,6 +1,6 @@
 //app.js
 var constant = require('constant.js');
-var utils = require('./utils/util.js');
+var util = require('./utils/util.js');
 var guid = '';
 
 App({
@@ -9,13 +9,13 @@ App({
 
     console.log("🚀 App->onLaunch options ↓");
     console.log(options);
-
+    
     var that = this;
     //代理商处理
     //场景 - 公众号自定义菜单
     //跳转代理商登录页
     //TODO: 检查代理商登录状态
-    if (options.scene == 1035 && !utils.isDistributerLogin()) {
+    if (options.scene == 1035 && !util.isDistributerLogin()) {
 
       wx: wx.redirectTo({
         url: '/pages/distributer/login/login',
@@ -32,23 +32,25 @@ App({
       //get取得代理商Id
       var getParamDistributerId = options.query.distributerId;
       //本地读取代理商Id
-      var localDistributerId = utils.getDistributerId();
+      var localDistributerId = util.getDistributerId();
 
       var distributerId = '';
 
 
-      if (!utils.isEmptyStr(localDistributerId)) {
+      if (!util.isEmptyStr(localDistributerId)) {
 
         distributerId = localDistributerId;
 
-      } else if (!utils.isEmptyStr(getParamDistributerId)) {
+      } else if (!util.isEmptyStr(getParamDistributerId)) {
 
         distributerId = getParamDistributerId;
       }
 
       console.log("🚚 🚚 🚚 [代理商ID] getParamDistributerId = " + getParamDistributerId + ", localDistributerId = " + localDistributerId);
       console.log(typeof (distributerId));
-      if (!utils.isEmptyStr(distributerId)) {
+      if (!util.isEmptyStr(distributerId)) {
+
+
         wx.checkSession({
           success: function () {
             //session 未过期，并且在本生命周期一直有效
@@ -56,7 +58,7 @@ App({
 
           fail: function () {
 
-            console.log("🚀 🚀 🚀 -- fail");
+            console.log("🚀 🚀 🚀 -- 微信登录态过期,重新登录");
             //登录态过期
             //重新登录
             wx.login({
@@ -83,61 +85,64 @@ App({
 
                     success: function (res) {
 
-                      if (res.statusCode == 200) {
-                        guid = res.data.guid;
-                        // 本地存储用户信息
-                        wx.setStorage({
-                          key: constant.constant.userAccessDataKey,
-                          data: res.data,
-                          fail: function (res) {
-                            console.warn(res);
-                          }
-                        });
+                      guid = res.data.guid;
+                      // 本地存储用户信息
+                      wx.setStorage({
+                        key: constant.constant.userAccessDataKey,
+                        data: res.data,
+                        success: function (res) {
 
-                        //代理商信息存储
-                        if (!utils.isEmptyStr(res.data.distributerId)) {
-                          utils.setDistributerId(res.data.distributerId);
-                        } else {
-                          console.warn("res.data.distributerId = " + res.data.distributerId);
+                          //重置userAccessData值
+                          console.log("[重置] 本地存储 userAccessData ")
+                          constant.constant.userAccessData = {};
+                        },
+                        fail: function (res) {
+                          console.warn(res);
                         }
+                      });
 
-                        // 获取用户信息
-                        wx.getSetting({
-                          success: res => {
-
-                            console.log(res.authSetting);
-                            if (res.authSetting['scope.userInfo']) {
-                              // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
-                              that.getWxUserInfo();
-                            } else {
-                              // 未授权
-                              console.log("💥 未授权");
-                              //TODO:这里在模拟器上不稳定
-                              wx.authorize({
-                                scope: 'scope.userInfo',
-                                success() {
-                                  //获取微信用户信息
-                                  that.getWxUserInfo();
-                                },
-                                fail() {
-                                  console.log("失败 调用")
-                                  console.warn(res);
-                                },
-                                complete() {
-                                  console.log("完成 调用")
-                                }
-                              })
-
-                            }
-                          }
-                        })
+                      //代理商信息存储
+                      if (!util.isEmptyStr(res.data.distributerId)) {
+                        util.setDistributerId(res.data.distributerId);
                       } else {
-                        console.error(JSON.stringify(res))
+
+                        console.error("res.data.distributerId = " + res.data.distributerId);
                       }
+
+                      // 获取用户信息
+                      wx.getSetting({
+                        success: res => {
+
+                          console.log(res.authSetting);
+                          if (res.authSetting['scope.userInfo']) {
+                            // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
+                            that.getWxUserInfo();
+                          } else {
+                            // 未授权
+                            console.log("💥 未授权");
+                            //TODO:这里在模拟器上不稳定
+                            wx.authorize({
+                              scope: 'scope.userInfo',
+                              success() {
+                                //获取微信用户信息
+                                that.getWxUserInfo();
+                              },
+                              fail() {
+                                console.log("失败 调用")
+                                console.warn(res);
+                              },
+                              complete() {
+                                console.log("完成 调用")
+                              }
+                            })
+
+                          }
+                        }
+                      })
                     },
 
                     fail: function (res) {
-                      console.warn(res);
+                      console.error(res);
                     },
                     complete: function (res) { }
                   })
@@ -147,17 +152,19 @@ App({
               },
 
               fail: function (res) {
-                console.warn(res);
+                
+                console.error(res);
+                //代理商信息存储
+                util.setDistributerId(distributerId);
               },
-
               complete: function (res) { }
-
             });
+
           },
 
           complete: function () { }
         });
-
+      
       } else {
 
         //跳转到订单查询
@@ -197,7 +204,6 @@ App({
       complete: res => {
 
       }
-
     })
   },
 
@@ -236,7 +242,7 @@ App({
       },
 
       fail: function (res) {
-        console.warn(res);
+        console.error(res);
       },
 
       complete: function (res) { }

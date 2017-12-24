@@ -12,9 +12,9 @@ Page(Object.assign({}, Toast, {
 
     selectCancleReson: 0,
 
-    cancleReson:[
+    cancleReson: [
       {
-        'reson':"双方协商一致退款"
+        'reson': "双方协商一致退款"
       },
       {
         'reson': "拍错/不想去了/无法出行"
@@ -33,7 +33,7 @@ Page(Object.assign({}, Toast, {
       'reason': ''
     },
     // 当前选中的订单
-    selectOrder:'',
+    selectOrder: '',
 
     // 订单类型
     orderType: [
@@ -51,12 +51,32 @@ Page(Object.assign({}, Toast, {
     // 签证
     visaOrder: [],
 
-    pageSize: 20,
+    pageSize: 100,
     commonPageIndex: 1,
     commonPageCount: 1,
 
     visaPageIndex: 1,
     visaPageCount: 1,
+
+    //收银台提交的数据
+    prepayPostData: {
+      "prepayBody": {
+        "mchId": 0,
+        "orderNo": "",
+        "orderFee": "",
+        "feeType": "",
+        "productId": "",
+        "body": "",
+        "spbillCreateIp": "",
+        "expireTime": '',
+        "notifyUrl": "",
+        "userId": "",
+        "sign": ""
+      },
+      "tradeType": app.constant.paymentTradeType,
+      "sysSource": app.constant.paymentSysSource,
+      "openId": ''
+    },
 
 
   },
@@ -191,7 +211,7 @@ Page(Object.assign({}, Toast, {
   /**
    *   选择取消原因
    */
-  handleSelectReson:function(e){
+  handleSelectReson: function (e) {
     var that = this;
     var index = e.currentTarget.dataset.index;
     console.log(index)
@@ -202,16 +222,16 @@ Page(Object.assign({}, Toast, {
     postData.reason = selectReson;
     console.log(postData);
     that.setData({
-      selectCancleReson:index,
+      selectCancleReson: index,
       canclePostData: postData
     })
     console.log(that.data.canclePostData);
 
   },
 
-/**
- * 取消隐藏
- */
+  /**
+   * 取消隐藏
+   */
   dialogCancel: function () {
     var that = this;
     that.setData({
@@ -219,26 +239,26 @@ Page(Object.assign({}, Toast, {
     })
   },
 
-/**
- * 取消确认
- */
+  /**
+   * 取消确认
+   */
   dialogSure: function () {
     var that = this;
     var url = that.data.constant.domain + "/distrbuter/member/order/cancel";
     wx.request({
       url: url,
       data: that.data.canclePostData,
-      header:util.getRequestHeader(),
-      method:'POST',
-      success:function(res){
+      header: util.getRequestHeader(),
+      method: 'POST',
+      success: function (res) {
         // 请求成功后  
-     
+
         that.showZanToast("已提交取消申请！");
       },
-      fail:function(res){
+      fail: function (res) {
         that.showZanToast("请求出错了!");
       },
-      complete:function(res){
+      complete: function (res) {
         that.dialogCancel();
         console.log(res)
       }
@@ -248,14 +268,20 @@ Page(Object.assign({}, Toast, {
   /**
    * 查看订单详情
    */
-  toOrderDetail:function(e){
+  toOrderDetail: function (e) {
     var that = this;
+    var statusId = e.currentTarget.dataset.statusid;
+    console.log(statusId);
     var selectOrderSn = e.currentTarget.dataset.ordersn;
-    var url = "/pages/order/detail/detail?orderSn="+selectOrderSn;
-    console.log(url);
-    wx.redirectTo({
-      url: url,
-    })
+    if (statusId == 101) {   //去支付
+      that.getPayInfo(selectOrderSn);
+    } else {    // 去详情页
+      var url = "/pages/order/detail/detail?orderSn=" + selectOrderSn;
+      console.log(url);
+      wx.redirectTo({
+        url: url,
+      })
+    }
   },
 
   onChangeShowState: function (e) {
@@ -264,6 +290,100 @@ Page(Object.assign({}, Toast, {
     that.setData({
       showView: (!that.data.showView),
       selectOrder: selectOrderSn
+    })
+  },
+
+  /**
+   * 获得收银台支付信息
+   */
+  getPayInfo: function (orderSn) {
+    var that = this;
+    // 获得openId
+    that.setData({
+      'prepayPostData.openId': util.getWxOpenId()
+    });
+    var url = that.data.constant.domain +"/distrbuter/member/order/getPaymentCode/" + orderSn;
+    wx.request({
+      url: url,
+      data: {},
+      header: util.getRequestHeader(),
+      success: function (res) {
+        console.log("请求成功！----");
+        that.setData({
+          'prepayPostData.prepayBody': res.data,
+        })
+        console.log(that.data.prepayPostData);
+        // 数据请求成功之后，去支付
+        that.orderPay(orderSn);
+      },
+      fail: function (res) {
+        console.log("请求失败!----");
+      },
+      complete: function (res) {
+        console.log(res);
+      }
+    })
+  },
+
+
+
+  /***
+   *  订单支付
+   */
+  orderPay: function (orderSn) {
+    var that = this;
+    var url = that.data.constant.payDomain + '/prepay';
+    wx.request({
+      url: url,
+      data: that.data.prepayPostData,
+      method: 'POST',
+      header: util.getRequestHeader(),
+      success: function (res) {
+        console.log("🍺 🍺 🍺 [成功] 调用收银台接口")
+        console.log(res);
+        //调用微信支付
+        if (!util.isEmptyObject(res.data.getwayBody)) {
+          wx.requestPayment({
+            'timeStamp': res.data.getwayBody.timeStamp,
+            'nonceStr': res.data.getwayBody.nonceStr,
+            'package': res.data.getwayBody.package,
+            'signType': res.data.getwayBody.signType,
+            'paySign': res.data.getwayBody.paySign,
+            'success': function (res) {
+
+              console.log("🍺 🍺 🍺 [成功] 调用微信支付")
+              // 支付成功，修改当前订单状态
+
+              wx.hideLoading();
+              var url = '/pages/order/pay-sucess/pay-sucess?orderSn='+orderSn;
+              wx.navigateTo({
+                url: url,
+              })
+            },
+
+            'fail': function (res) {
+              wx.hideLoading();
+              console.error(res);
+              var res = JSON.stringify(res);
+              that.showZanToast(res);
+            }
+          })
+
+        } else {
+          that.showZanToast("getwayBody 为空");
+          console.error("收银台接口返回数据错误：getwayBody 为空");
+        }
+      },
+
+      fail: function (res) {
+
+        console.error(res);
+        //测试
+        var res = JSON.stringify(res);
+        that.showZanToast(res);
+      },
+
+      complete: function (res) { }
     })
   },
 

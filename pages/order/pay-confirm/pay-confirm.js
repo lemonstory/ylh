@@ -179,7 +179,7 @@ Page(Object.assign({}, Toast, {
 
                   console.log("🍺 🍺 🍺 [成功] 调用微信支付")
                   wx.hideLoading();
-                  var url = '/pages/order/pay-sucess/pay-sucess';
+                  var url = '/pages/order/pay-sucess/pay-sucess?orderSn=' + that.data.prepayPostData.prepayBody.orderNo;
                   wx.navigateTo({
                     url: url,
                   })

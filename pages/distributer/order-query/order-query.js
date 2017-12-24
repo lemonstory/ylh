@@ -108,6 +108,11 @@ Page({
   onLoad: function (options) {
     var that = this;
     // 代理商id
+    var id = util.getDistributerId();
+    that.setData({
+      'logPostData.distributerId': id,
+      'orderPostData.distributerId':id
+    })
     that.creatTimeOptions();
     that.getAllLog();
     that.getAllOrder();

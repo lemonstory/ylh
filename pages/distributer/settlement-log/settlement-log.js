@@ -28,18 +28,17 @@ Page({
   onLoad: function (options) {
     var that = this;
     // 代理商id
-
+    var id = util.getDistributerId();
+    that.setData({
+      'postData.distributerId': id
+    });
     that.getCommissionLog();
   }, 
   
-<<<<<<< HEAD
   /**
    *  点击展示更多处理
    */
   onChangeShowState: function (e) {
-=======
-onChangeShowState: function () {
->>>>>>> 5fd8037ae71be7839792990ee88adf8905735e68
     var that = this;
     var id = e.currentTarget.dataset.id;
     if(that.data.openId == id){

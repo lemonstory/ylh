@@ -122,12 +122,16 @@ Page(Object.assign({}, Toast, {
 
           if (res.statusCode == 200) {
 
-            console.log("🍺 🍺 🍺 [成功] 代理商登录")
-            that.handleSaveDistributerInfo(res.data);
-            wx.switchTab({
-              url: '/pages/line/index/index'
-            })
+            if(res.data.code == "OK") {
 
+              console.log("🍺 🍺 🍺 [成功] 代理商登录")
+              that.handleSaveDistributerInfo(res.data);
+              wx.switchTab({
+                url: '/pages/line/index/index'
+              })
+            }else{
+              that.showZanToast("账号(或)密码输入错误");
+            }
           } else {
 
             console.error(res);
@@ -169,10 +173,6 @@ Page(Object.assign({}, Toast, {
         console.error(res);
       },
     })
-
-
-    //TODO:
-    //覆盖存储中的代理商Id
 
   }
 

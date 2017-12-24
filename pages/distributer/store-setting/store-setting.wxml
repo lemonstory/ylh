@@ -1,19 +1,19 @@
 <!--pages/API/store-setting/store-setting.wxml-->
 <view class="container">
   <view class="main">
-    <navigator url="/pages/distributer/logo/logo?logoUrl={{prevPageData.distributerAccessData.dShop.logoUrl}}&distributerId={{prevPageData.distributerAccessData.dShop.distributerId}}">
+    <navigator url="/pages/distributer/logo/logo?logoUrl={{distributerAccessData.dShop.logoUrl}}&distributerId={{distributerAccessData.dShop.distributerId}}">
       <view class="logo">LOGO设置
         <view class="logo-right">
-          <image class="logo-img" src="{{prevPageData.distributerAccessData.dShop.logoUrl}}" mode="aspectFillt"></image>
+          <image class="logo-img" src="{{distributerAccessData.dShop.logoUrl}}" mode="aspectFillt"></image>
           <image class="back" src="http://image.365zhiding.com/wxapp/20171114/1.png"></image>
         </view>
       </view>
     </navigator>
 
-    <navigator url="../store-name/store-name">
+    <navigator url="/pages/distributer/store-name/store-name">
       <view class="logo">店铺名称
         <view class="logo-right">
-          <view>{{prevPageData.distributerAccessData.dShop.shopName}}</view>
+          <view>{{distributerAccessData.dShop.shopName}}</view>
           <image class="back" src="http://image.365zhiding.com/wxapp/20171114/1.png"></image>
         </view>
       </view>
@@ -21,11 +21,11 @@
     
     <view class="logo">店铺账号
       <view class="logo-right">
-        <view>{{prevPageData.distributerAccessData.shopAccount}}</view>
+        <view>{{distributerAccessData.shopAccount}}</view>
       </view>
     </view>
 
-    <navigator url="../password-modify/password-modify">
+    <navigator url="/pages/distributer/password-modify/password-modify">
       <view class="logo">店铺密码
         <view class="logo-right">
           <image class="back" src="http://image.365zhiding.com/wxapp/20171114/1.png"></image>
@@ -33,10 +33,10 @@
       </view>
     </navigator>
 
-    <navigator url="/pages/distributer/qrcode/qrcode?shopName={{prevPageData.distributerAccessData.dShop.shopName}}&qrcodeUrl={{prevPageData.distributerAccessData.dShop.qrcodeUrl}}&logoUrl={{prevPageData.distributerAccessData.dShop.logoUrl}}">
+    <navigator url="/pages/distributer/qrcode/qrcode?shopName={{distributerAccessData.dShop.shopName}}&qrcodeUrl={{distributerAccessData.dShop.qrcodeUrl}}&logoUrl={{distributerAccessData.dShop.logoUrl}}">
       <view class="logo">我的二维码
         <view class="logo-right">
-          <image class="logo-img" src="{{prevPageData.distributerAccessData.dShop.qrcodeUrl}}" mode="aspectFillt"></image>
+          <image class="logo-img" src="{{distributerAccessData.dShop.qrcodeUrl}}" mode="aspectFillt"></image>
           <image class="back" src="http://image.365zhiding.com/wxapp/20171114/1.png"></image>
         </view>
       </view>

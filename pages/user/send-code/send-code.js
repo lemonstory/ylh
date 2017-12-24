@@ -331,7 +331,7 @@ Page(Object.assign({}, Toast, {
 
                   } else {
                     wx.switchTab({
-                      url: 'pages/user/index/index',
+                      url: '/pages/user/index/index',
                     })
                   }
                 },
@@ -341,7 +341,7 @@ Page(Object.assign({}, Toast, {
               })
 
               //跳转对对应页面
-              wx.navigateBack();
+              // wx.navigateBack();
 
             } else if (res.statusCode == 500 && res.data.code == 32009001) {
 

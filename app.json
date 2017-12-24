@@ -1,6 +1,5 @@
 {
   "pages": [
-    "pages/user/order/order",
     "pages/line/index/index",
     "pages/API/line/line",
     "pages/API/empower/empower",
@@ -65,6 +64,7 @@
     "pages/distributer/settlement-log/settlement-log",
     "pages/distributer/store-name/store-name",
     "pages/distributer/store-setting/store-setting",
+    "pages/distributer/password-modify/password-modify",
     "pages/distributer/subordinate/subordinate",
     "pages/distributer/unsettlement/unsettlement",
     "pages/index/index",
@@ -86,6 +86,7 @@
     "pages/user/send-code/send-code",
     "pages/user/visitor/visitor",
     "pages/user/wx-mobile/wx-mobile",
+    "pages/user/order/order",
     "pages/web-view/web-view",
     "pages/member/fill-possport/fill-possport",
     "pages/member/possport-list/possport-list",

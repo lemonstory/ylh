@@ -97,10 +97,38 @@ Page(Object.assign({}, Toast, {
 
           if (res.data.code == "OK") {
 
-            that.showZanToast("修改成功!")
-            wx.navigateBack({
-              delta:1
+            // that.showZanToast("修改成功!")
+            //重置本地存储的代理商信息
+            wx.setStorage({
+              key: that.data.constant.distributerAccessDataKey,
+              data: res.data,
+              success: function (res) {
+
+                //重置全局distributerId,distributerAccessData
+                app.constant.distributerAccessData = {};
+                util.setDistributerId(data.dShop.distributerId);
+
+              },
+              fail: function (res) {
+
+                console.error('[失败] 代理商信息保存');
+                console.error(res);
+              },
             })
+
+            wx.showToast({
+              title: '成功',
+              icon: 'success',
+              duration: 1000,
+            })
+
+            setTimeout(function () {
+              // 密码修改成功，执行下一步
+              wx.navigateBack({
+                delta: 1
+              })
+            }, 1000);
+
           }
         },
         fail: function (res) {
@@ -124,7 +152,7 @@ Page(Object.assign({}, Toast, {
   handleTapClearInput: function () {
     var that = this;
     that.setData({
-      formData: '',
+      'formData.shopName': '',
     })
   },
 

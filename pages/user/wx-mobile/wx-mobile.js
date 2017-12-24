@@ -13,6 +13,7 @@ Page(Object.assign({}, Toast, {
   */
   data: {
     constant: app.constant,
+    returnUrl: '',
   },
 
   /**
@@ -21,6 +22,13 @@ Page(Object.assign({}, Toast, {
   onLoad: function (options) {
 
     var that = this;
+    if (!util.isEmptyStr(options.returnUrl)) {
+
+      that.setData({
+        returnUrl: options.returnUrl
+      })
+    }
+
     util.getUserAccessData();
     var userAccessData = util.getUserAccessData();
     var guid = userAccessData.guid;
@@ -174,15 +182,14 @@ Page(Object.assign({}, Toast, {
         iv: e.detail.iv,
         errMsg: e.detail.errMsg
       };
+
       if (!util.isEmptyStr(guid)) {
         //发起网络请求
         wx.request({
           url: url,
           method: 'POST',
-          header: util.postRequestHeader(),
-
+          header: util.getRequestHeader(),
           data: data,
-
           success: function (res) {
 
             if (res.statusCode == 200) {
@@ -202,11 +209,18 @@ Page(Object.assign({}, Toast, {
                     duration: 2000
                   })
 
-                  //当用未注册时点击-我的 tab
-                  console.log("当用未注册时点击-我的 tab")
-                  wx.switchTab({
-                    url: '/pages/user/index/index'
-                  })
+                  if (!util.isEmptyStr(that.data.returnUrl)) {
+
+                    var url = decodeURIComponent(that.data.returnUrl);
+                    wx.redirectTo({
+                      url: url,
+                    })
+
+                  } else {
+                    wx.switchTab({
+                      url: 'pages/user/index/index',
+                    })
+                  }
                 },
                 fail: function (res) {
                   console.error(res)
@@ -217,8 +231,9 @@ Page(Object.assign({}, Toast, {
 
               console.error(res);
               //跳转到绑定手机号页面
+
               wx.redirectTo({
-                url: '/pages/user/send-code/send-code',
+                url: '/pages/user/send-code/send-code?returnUrl=' + that.data.returnUrl,
               })
             }
           },
@@ -233,7 +248,7 @@ Page(Object.assign({}, Toast, {
       } else {
         that.showZanToast("guid为空");
       }
-      
+
     } else {
 
       //用户拒绝

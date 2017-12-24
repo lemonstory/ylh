@@ -14,7 +14,7 @@
           </view>
 
           <!--显现卡-->
-          <view class="hidden hide{{index==currentSelectedIndex?'show':''}}">
+          <view class="hidden hide{{index == currentSelectedIndex ? 'show' : ''}}">
                <view class="hidden-left">
                     <view class="hidden-text1">店铺名:
                          <view style='color:#333; margin-left:10rpx;'></view>

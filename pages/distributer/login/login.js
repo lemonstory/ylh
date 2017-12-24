@@ -140,7 +140,7 @@ Page(Object.assign({}, Toast, {
           console.error(res)
         },
 
-        complete: function (res) {}
+        complete: function (res) { }
       })
     }
   },
@@ -148,7 +148,7 @@ Page(Object.assign({}, Toast, {
   /**
    * 代理商信息-保存
    */
-  handleSaveDistributerInfo:function(data) {
+  handleSaveDistributerInfo: function (data) {
 
     console.log(data);
 
@@ -156,8 +156,15 @@ Page(Object.assign({}, Toast, {
     wx.setStorage({
       key: that.data.constant.distributerAccessDataKey,
       data: data,
-      fail: function(res) {
-        
+      success: function (res) {
+
+        //重置全局distributerId,distributerAccessData
+        app.constant.distributerAccessData = {};
+        util.setDistributerId(data.dShop.distributerId);
+
+      },
+      fail: function (res) {
+
         console.error('[失败] 代理商信息保存');
         console.error(res);
       },
@@ -166,7 +173,7 @@ Page(Object.assign({}, Toast, {
 
     //TODO:
     //覆盖存储中的代理商Id
-    
+
   }
 
 

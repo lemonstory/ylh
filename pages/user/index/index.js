@@ -11,6 +11,10 @@ Page(Object.assign({}, Toast, {
     buttonDisabled: false,
     modalHidden: true,
     show: false,
+
+    //是否为代理商
+    isDistributer:false,
+    distributerAccessData:{},
   },
 
 
@@ -36,9 +40,16 @@ Page(Object.assign({}, Toast, {
   onShow: function () {
 
     var that = this;
+    var isDistributer = util.isDistributer();
+    var distributerAccessData = util.getDistributerAccessData();
+    
+    that.setData({
+      isDistributer: isDistributer,
+      distributerAccessData: distributerAccessData
+    })
 
     //用户为非代理商
-    if (!util.isDistributer()) {
+    if (!isDistributer) {
 
       //用户没有代理商id
       if (!util.isOwnDistributerId()) {

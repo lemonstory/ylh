@@ -1,11 +1,14 @@
 <!--pages/API/store-name/store-name.wxml-->
-<import src="/zanui-weapp/dist/toast/index.wxml"/>
+<import src="/zanui-weapp/dist/toast/index.wxml" />
 <view class="container">
-<view class="main">
-<input id="oldpass" placeholder='请输入店铺名称' placeholder-style='font-size:28rpx;data-id="storename" font-family:PingFang-SC-Regular;color:rgba(153,153,153,1); bindinput='bindInputValueChange' value='{{formData.shopName}}'>
-</input>
-<image class="img" src="http://image.365zhiding.com/wxapp/20171221/close.png" bindtap='handleTapClearInput'></image>
-<button class="confirm" bindtap='changeStoreName'>确定</button>
-<template is="zan-toast" data="{{zanToast}}"></template>
-</view>
+  <view class="main">
+    <input id="formData.shopName" placeholder='请输入店铺名称' placeholder-style='font-size:28rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1)' bindinput='bindInputValueChange' value='{{formData.shopName}}'>
+    </input>
+    <image class="img" src="http://image.365zhiding.com/wxapp/20171221/close.png" bindtap='handleTapClearInput '></image>
+    <button class="confirm" bindtap='changeStoreName'>确定</button>
+    <template is="zan-toast" data="{{zanToast}}"></template>
+  </view>
+
+  <!-- 直接使用 zan-toast 模板，并且直接传入 zanToast -->
+  <template is="zan-toast" data="{{ zanToast }}"></template>
 </view>

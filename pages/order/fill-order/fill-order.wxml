@@ -117,9 +117,8 @@
 
   </view>
 
-  <!--收获地址结束  -->
-
-  <!--底部开始  -->
+<!--收获地址结束  -->
+<!--底部开始  -->
   <view class="bottom">
     <view class="bottom-left">
       <view class='total'>总计：

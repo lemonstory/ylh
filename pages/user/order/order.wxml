@@ -2,10 +2,10 @@
 <import src="/zanui-weapp/dist/toast/index.wxml" />
 <view class="container">
   <view class="main">
-    <view class="tab-h" bindtap='checkCor'>
-      <view class="tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="swichNav">{{ orderType[0].name}}</view>
-      <view class="tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="swichNav">{{ orderType[1].name}}</view>
-    </view>
+    <!-- <view class="tab-h" bindtap='checkCor'>
+      <view class="tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="swichNav">{{ orderType[0].name}}</view> -->
+      <!-- <view class="tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="swichNav">{{ orderType[1].name}}</view> -->
+    <!-- </view> -->
 
     <!-- 常规路线开始 -->
     <block wx:if="{{currentTab==0}}">
@@ -39,7 +39,7 @@
 
     <!--签证开始  -->
 
-    <block wx:else="{{currentTab==2}}">
+    <!-- <block wx:else="{{currentTab==2}}">
       <view class="route" wx:for="{{list}}">
         <view class="route-top">
           <view>订单号：{{item.order}}</view>
@@ -60,7 +60,7 @@
         </view>
         </view>
       </view>
-    </block> 
+    </block>  -->
 
     <!--签证结束  -->
 

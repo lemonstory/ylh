@@ -2,7 +2,7 @@
 <block wx:if="{{isDistributer}}">
      <view class="container">
           <view class="my-img">
-               <image class=" logo" src="{{distributerAccessData.dShop.logoUrl}}"></image>
+               <image class="logo" src="{{distributerAccessData.dShop.logoUrl}}"></image>
                <view class="text2" style='margin-top:-30rpx;'>{{distributerAccessData.dShop.shopName}}</view>
           </view>
 

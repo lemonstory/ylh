@@ -217,9 +217,9 @@ transform:translate(-50%, -48%) scale(0.73);
 }
 
 .ischeck{
-     width: 24rpx;
-     height:24rpx;
-     margin-left: 310rpx;
+     width: 32rpx;
+     height:32rpx;
+     margin-left: 306rpx;
 }
 
 .ischeck image{

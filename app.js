@@ -1,6 +1,6 @@
 //app.js
 var constant = require('constant.js');
-var util = require('./utils/util.js');
+var utils = require('./utils/util.js');
 var guid = '';
 
 App({
@@ -15,7 +15,7 @@ App({
     //场景 - 公众号自定义菜单
     //跳转代理商登录页
     //TODO: 检查代理商登录状态
-    if (options.scene == 1035 && !util.isDistributerLogin()) {
+    if (options.scene == 1035 && !utils.isDistributerLogin()) {
 
       wx: wx.redirectTo({
         url: '/pages/distributer/login/login',
@@ -32,23 +32,23 @@ App({
       //get取得代理商Id
       var getParamDistributerId = options.query.distributerId;
       //本地读取代理商Id
-      var localDistributerId = util.getDistributerId();
+      var localDistributerId = utils.getDistributerId();
 
       var distributerId = '';
 
 
-      if (!util.isEmptyStr(localDistributerId)) {
+      if (!utils.isEmptyStr(localDistributerId)) {
 
         distributerId = localDistributerId;
 
-      } else if (!util.isEmptyStr(getParamDistributerId)) {
+      } else if (!utils.isEmptyStr(getParamDistributerId)) {
 
         distributerId = getParamDistributerId;
       }
 
       console.log("🚚 🚚 🚚 [代理商ID] getParamDistributerId = " + getParamDistributerId + ", localDistributerId = " + localDistributerId);
       console.log(typeof (distributerId));
-      if (!util.isEmptyStr(distributerId)) {
+      if (!utils.isEmptyStr(distributerId)) {
 
 
         wx.checkSession({
@@ -58,7 +58,7 @@ App({
 
           fail: function () {
 
-            console.log("🚀 🚀 🚀 -- 微信登录态过期,重新登录");
+            console.log("🚀 🚀 🚀 -- fail");
             //登录态过期
             //重新登录
             wx.login({
@@ -90,23 +90,16 @@ App({
                       wx.setStorage({
                         key: constant.constant.userAccessDataKey,
                         data: res.data,
-                        success: function (res) {
-
-                          //重置userAccessData值
-                          console.log("[重置] 本地存储 userAccessData ")
-                          constant.constant.userAccessData = {};
-                        },
                         fail: function (res) {
                           console.warn(res);
                         }
                       });
 
                       //代理商信息存储
-                      if (!util.isEmptyStr(res.data.distributerId)) {
-                        util.setDistributerId(res.data.distributerId);
+                      if (!utils.isEmptyStr(res.data.distributerId)) {
+                        utils.setDistributerId(res.data.distributerId);
                       } else {
-
-                        console.error("res.data.distributerId = " + res.data.distributerId);
+                        console.warn("res.data.distributerId = " + res.data.distributerId);
                       }
 
                       // 获取用户信息
@@ -142,7 +135,7 @@ App({
                     },
 
                     fail: function (res) {
-                      console.error(res);
+                      console.warn(res);
                     },
                     complete: function (res) { }
                   })
@@ -152,12 +145,11 @@ App({
               },
 
               fail: function (res) {
-                
-                console.error(res);
-                //代理商信息存储
-                util.setDistributerId(distributerId);
+                console.warn(res);
               },
+
               complete: function (res) { }
+
             });
 
           },
@@ -204,6 +196,7 @@ App({
       complete: res => {
 
       }
+
     })
   },
 
@@ -242,7 +235,7 @@ App({
       },
 
       fail: function (res) {
-        console.error(res);
+        console.warn(res);
       },
 
       complete: function (res) { }

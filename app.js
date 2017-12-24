@@ -90,6 +90,12 @@ App({
                       wx.setStorage({
                         key: constant.constant.userAccessDataKey,
                         data: res.data,
+                        success: function (res) {
+
+                          //重置userAccessData值
+                          console.log("[重置] 本地存储 userAccessData ")
+                          constant.constant.userAccessData = {};
+                        },
                         fail: function (res) {
                           console.warn(res);
                         }

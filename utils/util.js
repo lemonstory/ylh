@@ -25,6 +25,13 @@ function isMobile(value) {
   return true;
 }
 
+function hideMobile(value) {
+
+  var mobile = value;
+  mobile = mobile.replace(/(\d{3})\d{4}(\d{4})/, '$1****$2');
+  return mobile;
+}
+
 function isEmail(value) {
 
   var pattern = /^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$/;
@@ -257,13 +264,13 @@ function getDistributerAuthorizationValue() {
 function getRequestHeader(isDistributer = false) {
 
   var authValue = ''
-  
+
   if (isDistributer) {
     authValue = getDistributerAuthorizationValue();
   } else {
     authValue = getUserAuthorizationValue();
   }
-  
+
   var header = {
     'Authorization': authValue,
     'Content-Type': 'application/json', // 默认值
@@ -274,18 +281,18 @@ function getRequestHeader(isDistributer = false) {
 function postRequestHeader(isDistributer = false) {
 
   var authValue = ''
-  
+
   if (isDistributer) {
     authValue = getDistributerAuthorizationValue();
   } else {
     authValue = getUserAuthorizationValue();
   }
-  
+
   var header = {
     'Authorization': authValue,
     'Content-Type': 'application/x-www-form-urlencoded'
   }
-  
+
   return header;
 }
 
@@ -345,7 +352,6 @@ function isOwnAccessToken() {
   }
 
   return ret;
-
 }
 
 /**
@@ -459,6 +465,7 @@ module.exports = {
   formatTime: formatTime,
   isMobile: isMobile,
   isEmail: isEmail,
+  hideMobile: hideMobile,
   getTitleWithId: getTitleWithId,
   sortBy: sortBy,
   getCanlenderData: getCanlenderData,

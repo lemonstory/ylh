@@ -42,7 +42,7 @@ Page(Object.assign({}, Toast, {
 
             success: function (res) {
 
-              var url = constant.constant.domain + "/weixin/get_session";
+              var url = that.data.constant.domain + "/weixin/get_session";
               console.log("url = " + url);
               if (res.code) {
                 //发起网络请求
@@ -58,10 +58,17 @@ Page(Object.assign({}, Toast, {
                     guid = res.data.guid;
                     // 本地存储用户信息
                     wx.setStorage({
-                      key: constant.constant.userAccessDataKey,
+                      key: that.data.constant.userAccessDataKey,
                       data: res.data,
+                      success: function (res) {
+
+                        //重置userAccessData值
+                        console.log("[重置] 本地存储 userAccessData ")
+                        app.constant.userAccessData = {};
+                        util.getUserAccessData();
+                      },
                       fail: function (res) {
-                        console.warn(res);
+                        console.error(res);
                       }
                     });
 
@@ -183,19 +190,27 @@ Page(Object.assign({}, Toast, {
               wx.setStorage({
                 key: that.data.constant.userAccessDataKey,
                 data: res.data,
-              })
+                success: function (res) {
 
-              wx.showToast({
-                title: '成功',
-                icon: 'success',
-                duration: 2000
-              })
+                  console.log("[重置] 本地存储 userAccessData ")
+                  app.constant.userAccessData = {};
+                  util.getUserAccessData();
 
+                  wx.showToast({
+                    title: '成功',
+                    icon: 'success',
+                    duration: 2000
+                  })
 
-              //当用未注册时点击-我的 tab
-              console.log("当用未注册时点击-我的 tab")
-              wx.switchTab({
-                url: '/pages/user/index/index'
+                  //当用未注册时点击-我的 tab
+                  console.log("当用未注册时点击-我的 tab")
+                  wx.switchTab({
+                    url: '/pages/user/index/index'
+                  })
+                },
+                fail: function (res) {
+                  console.error(res)
+                }
               })
 
             } else {
@@ -214,9 +229,11 @@ Page(Object.assign({}, Toast, {
 
           complete: function (res) { }
         });
+
       } else {
         that.showZanToast("guid为空");
       }
+      
     } else {
 
       //用户拒绝

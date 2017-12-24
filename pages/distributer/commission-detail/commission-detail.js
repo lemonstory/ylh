@@ -31,10 +31,11 @@ Page({
         "type": 1,
         "name": "线路"
       },
-      {
-        "type": 8,
-        "name": "签证"
-      }],
+      // {
+      //   "type": 8,
+      //   "name": "签证"
+      // }
+      ],
 
     orderFilterTitle: "订单类型",
     currentOrderOptionIndex: 0,

@@ -5,11 +5,8 @@
     <view class="search">
       <!-- id="myInput" -->
       <input id="keyword" focus='{{keywordInputFocus}}' placeholder='搜索国家或地区' placeholder-style='font-size:24rpx; color:#666;' style='padding-left:72rpx; box-sizing: border-box;' value="{{keyword}}" bindinput="bindInputValueChange" confirm-type="done" bindconfirm='getSearchWithKeyWord'>
-      </input>
-       <view class="search-icon">
-        <image src="http://image.365zhiding.com/wxapp/20171112/sou.png"></image>
-      </view>
-       
+</input>
+      <image class="search-icon" src="http://image.365zhiding.com/wxapp/20171112/sou.png"></image> 
        <!-- <view class="close hide{{delButton?'show':''}}"  bindtap='handleClearInput'>
       <image src="../image/close.png"></image>
     </view> -->

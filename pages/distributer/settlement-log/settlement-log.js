@@ -28,11 +28,7 @@ Page({
     showView: (options.showView == "true" ? true : false)
   }, 
   
-  
-  
-  
-  
-  onChangeShowState: function () {
+onChangeShowState: function () {
     var that = this;
     that.setData({
       showView: (!that.data.showView)

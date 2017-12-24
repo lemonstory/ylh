@@ -8,7 +8,7 @@ Page({
           // 请求post数据
           postData: {
                "distributerPid": 1,
-              }
+          }
      },
      /**
       * 生命周期函数--监听页面加载
@@ -89,15 +89,14 @@ Page({
           })
      },
 
-// 代理商信息--状态--显示/隐藏
+     // 代理商信息--状态--显示/隐藏
      handleTapShowMessage: function (e) {
-         var that = this;
+          var that = this;
           var index = e.currentTarget.dataset.index;
           console.log('##############');
           console.log(index);
           that.setData({
                currentSelectedIndex: index,
           })
-
-},
+     },
 })

@@ -4,7 +4,7 @@
     <navigator url="/pages/distributer/logo/logo?logoUrl={{prevPageData.distributerAccessData.dShop.logoUrl}}&distributerId={{prevPageData.distributerAccessData.dShop.distributerId}}">
       <view class="logo">LOGO设置
         <view class="logo-right">
-          <image class="logo-img" src="{{prevPageData.distributerAccessData.dShop.logoUrl}}"></image>
+          <image class="logo-img" src="{{prevPageData.distributerAccessData.dShop.logoUrl}}" mode="aspectFillt"></image>
           <image class="back" src="http://image.365zhiding.com/wxapp/20171114/1.png"></image>
         </view>
       </view>
@@ -36,7 +36,7 @@
     <navigator url="/pages/distributer/qrcode/qrcode?shopName={{prevPageData.distributerAccessData.dShop.shopName}}&qrcodeUrl={{prevPageData.distributerAccessData.dShop.qrcodeUrl}}&logoUrl={{prevPageData.distributerAccessData.dShop.logoUrl}}">
       <view class="logo">我的二维码
         <view class="logo-right">
-          <image class="logo-img" src="{{prevPageData.distributerAccessData.dShop.qrcodeUrl}}"></image>
+          <image class="logo-img" src="{{prevPageData.distributerAccessData.dShop.qrcodeUrl}}" mode="aspectFillt"></image>
           <image class="back" src="http://image.365zhiding.com/wxapp/20171114/1.png"></image>
         </view>
       </view>

@@ -13,7 +13,6 @@
 .logo-img {
   width: 750rpx;
   height: 700rpx;
-  background: orangered;
   position: absolute;
   top: 160rpx;
 }

@@ -9,7 +9,7 @@ App({
 
     console.log("🚀 App->onLaunch options ↓");
     console.log(options);
-    
+
     var that = this;
     //代理商处理
     //场景 - 公众号自定义菜单
@@ -49,8 +49,6 @@ App({
       console.log("🚚 🚚 🚚 [代理商ID] getParamDistributerId = " + getParamDistributerId + ", localDistributerId = " + localDistributerId);
       console.log(typeof (distributerId));
       if (!utils.isEmptyStr(distributerId)) {
-
-
         wx.checkSession({
           success: function () {
             //session 未过期，并且在本生命周期一直有效
@@ -85,53 +83,57 @@ App({
 
                     success: function (res) {
 
-                      guid = res.data.guid;
-                      // 本地存储用户信息
-                      wx.setStorage({
-                        key: constant.constant.userAccessDataKey,
-                        data: res.data,
-                        fail: function (res) {
-                          console.warn(res);
-                        }
-                      });
-
-                      //代理商信息存储
-                      if (!utils.isEmptyStr(res.data.distributerId)) {
-                        utils.setDistributerId(res.data.distributerId);
-                      } else {
-                        console.warn("res.data.distributerId = " + res.data.distributerId);
-                      }
-
-                      // 获取用户信息
-                      wx.getSetting({
-                        success: res => {
-
-                          console.log(res.authSetting);
-                          if (res.authSetting['scope.userInfo']) {
-                            // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
-                            that.getWxUserInfo();
-                          } else {
-                            // 未授权
-                            console.log("💥 未授权");
-                            //TODO:这里在模拟器上不稳定
-                            wx.authorize({
-                              scope: 'scope.userInfo',
-                              success() {
-                                //获取微信用户信息
-                                that.getWxUserInfo();
-                              },
-                              fail() {
-                                console.log("失败 调用")
-                                console.warn(res);
-                              },
-                              complete() {
-                                console.log("完成 调用")
-                              }
-                            })
-
+                      if (res.statusCode == 200) {
+                        guid = res.data.guid;
+                        // 本地存储用户信息
+                        wx.setStorage({
+                          key: constant.constant.userAccessDataKey,
+                          data: res.data,
+                          fail: function (res) {
+                            console.warn(res);
                           }
+                        });
+
+                        //代理商信息存储
+                        if (!utils.isEmptyStr(res.data.distributerId)) {
+                          utils.setDistributerId(res.data.distributerId);
+                        } else {
+                          console.warn("res.data.distributerId = " + res.data.distributerId);
                         }
-                      })
+
+                        // 获取用户信息
+                        wx.getSetting({
+                          success: res => {
+
+                            console.log(res.authSetting);
+                            if (res.authSetting['scope.userInfo']) {
+                              // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
+                              that.getWxUserInfo();
+                            } else {
+                              // 未授权
+                              console.log("💥 未授权");
+                              //TODO:这里在模拟器上不稳定
+                              wx.authorize({
+                                scope: 'scope.userInfo',
+                                success() {
+                                  //获取微信用户信息
+                                  that.getWxUserInfo();
+                                },
+                                fail() {
+                                  console.log("失败 调用")
+                                  console.warn(res);
+                                },
+                                complete() {
+                                  console.log("完成 调用")
+                                }
+                              })
+
+                            }
+                          }
+                        })
+                      } else {
+                        console.error(JSON.stringify(res))
+                      }
                     },
 
                     fail: function (res) {
@@ -151,12 +153,11 @@ App({
               complete: function (res) { }
 
             });
-
           },
 
           complete: function () { }
         });
-      
+
       } else {
 
         //跳转到订单查询

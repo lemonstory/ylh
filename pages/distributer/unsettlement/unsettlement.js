@@ -47,7 +47,10 @@ Page({
   onLoad: function (options) {
       var that = this;
       // 获得代理商的id
-
+      var id = util.getDistributerId();
+      that.setData({
+        'postData.distributerId':id
+      });
       var unPay = options.unSettlementAmount;
       if (typeof (unPay) != "undefined") {
         that.setData({

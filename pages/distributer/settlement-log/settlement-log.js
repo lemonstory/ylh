@@ -28,7 +28,10 @@ Page({
   onLoad: function (options) {
     var that = this;
     // 代理商id
-
+    var id = util.getDistributerId();
+    that.setData({
+      'postData.distributerId': id
+    });
     that.getCommissionLog();
   }, 
   

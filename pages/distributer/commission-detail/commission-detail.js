@@ -46,7 +46,10 @@ Page({
   onLoad: function (options) {
     var that = this;
   // 获得代理商id
-
+    var id = util.getDistributerId();
+    that.setData({
+      'postData.distributerId': id
+    })
     // 获得目标年，月
     var itemYear = options.year;
     var itemMonth = options.month;

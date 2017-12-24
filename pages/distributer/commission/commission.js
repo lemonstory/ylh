@@ -17,8 +17,6 @@ Page({
     // 获得佣金信息的传参
     postData: {
       "distributerId": 1,
-      "settlementYear": 2017,
-      "settlementMonth": 11
     }
 
   },
@@ -29,7 +27,10 @@ Page({
   onLoad: function (options) {
     var that = this;
     //  TODO 获取代理商id
-
+    var id = util.getDistributerId();
+    that.setData({
+      'postData.distributerId':id
+    })
     that.getCommissionInfo();
   },
 

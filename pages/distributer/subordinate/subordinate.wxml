@@ -1,47 +1,41 @@
 <!--pages/API/next-management/next-management.wxml-->
 <view class="container">
-     <view class="box">
-
-
-
-          <view class="box-ul" bindtap="onChangeShowState">
+     <view class="box" wx:for="{{listDto}}" wx:key="listDto" wx:for-index="index" data-index="{{index}}" bindtap="handleTapShowMessage">
+          <view class="box-ul">
                <view class="ul-left">
                     <view class="logo">
                          <image src="http://image.365zhiding.com/wxapp/20171121/logo.png"></image>
                     </view>
-                    <view class="ul-text">代理商名称</view>
+                    <view class="ul-text">{{item.distributerName}}</view>
                </view>
                <view class="ul-right">
-                    <image src="http://image.365zhiding.com/wxapp/20171121/xia.png" class="{{showView?'rotate':''}}"></image>
+                    <image src="http://image.365zhiding.com/wxapp/20171121/xia.png" class="{{index==currentSelectedIndex?'rotate':''}}"></image>
                </view>
           </view>
 
-
-
-          <!--显现卡  -->
-          <view class="hidden hide{{showView?'show':''}}">
+          <!--显现卡-->
+          <view class="hidden hide{{index==currentSelectedIndex?'show':''}}">
                <view class="hidden-left">
                     <view class="hidden-text1">店铺名:
-                         <view style='color:#333;margin-left:10rpx;'>环球悦旅会商户版</view>
+                         <view style='color:#333; margin-left:10rpx;'></view>
                     </view>
                     <view class="hidden-text1">联系人:
-                         <view style='color:#333; margin-left:10rpx;'>谭玉</view>
+                         <view style='color:#333; margin-left:10rpx;'>{{item.contactName}}</view>
                     </view>
                     <view class="hidden-text1">电 话:
-                         <view style='color:#333;margin-left:10rpx;'>158348751445</view>
+                         <view style='color:#333;margin-left:10rpx;'>{{item.contactPhone}}</view>
                     </view>
                </view>
                <view class="hidden-right">
                     <view class="right-text">代理成分:
-                         <view style='color:#333'>10%</view>
+                         <view style='color:#333'>{{item.distributerDivideProportion}}</view>
                     </view>
                </view>
           </view>
 
           <!--显现卡结束  -->
-
-
-
-
      </view>
+
+
+
 </view>

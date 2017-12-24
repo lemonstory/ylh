@@ -1,9 +1,10 @@
 /* pages/API/start-order/start-order.wxss */
 
 .page {
-     width: 100%;
+     width: 750rpx;
      height: auto;
      overflow: hidden;
+     overflow-x: false;
 }
 
 .calendar-panel {

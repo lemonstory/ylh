@@ -253,7 +253,7 @@ Page(Object.assign({}, Toast, {
 
       //用户拒绝
       wx: wx.redirectTo({
-        url: '/pages/user/send-code/send-code',
+        url: '/pages/user/send-code/send-code?returnUrl=' + that.data.returnUrl,
         success: function (res) { },
         fail: function (res) {
           console.error(res);

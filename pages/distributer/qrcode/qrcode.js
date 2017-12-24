@@ -183,7 +183,7 @@ Page(Object.assign({}, Toast, {
 
     //正方形容器,阴影
     //TODO:圆角矩形背景
-    ctx.setFillStyle("#f7f7f7")
+    ctx.setFillStyle("#ffffff")
     // ctx.setShadow(30, 10, 50, '#B5B5B5');
     // ctx.fillRect(30, 10, 300, 400)
     ctx.setStrokeStyle('blue')

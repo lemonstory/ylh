@@ -21,7 +21,6 @@ Page(Object.assign({}, Toast, {
     vcodeHintStr: "获取验证码",
     isGetVcodeEnable: true,
     seed: 60,
-
   },
 
   /**
@@ -29,10 +28,78 @@ Page(Object.assign({}, Toast, {
    */
   onLoad: function (options) {
 
-    // this.getVcode("18600024911");
-    // this.checkVcode("18600024911", "1234");
+    var that = this;
     util.getUserAccessData();
+    var userAccessData = util.getUserAccessData();
+    var guid = userAccessData.guid;
+    if (util.isEmptyStr(guid)) {
 
+      //再次获取guid
+      var distributerId = utils.getDistributerId();
+      wx.checkSession({
+        success: function () {
+          //session 未过期，并且在本生命周期一直有效
+        },
+
+        fail: function () {
+
+          console.log("🚀 🚀 🚀 -- fail");
+          //登录态过期
+          //重新登录
+          wx.login({
+
+            success: function (res) {
+
+              var url = constant.constant.domain + "/weixin/get_session";
+              console.log("url = " + url);
+              if (res.code) {
+                //发起网络请求
+                wx.request({
+                  header: util.getRequestHeader(),
+                  url: url,
+                  data: {
+                    code: res.code,
+                    distributerId: distributerId
+                  },
+                  success: function (res) {
+
+                    guid = res.data.guid;
+                    // 本地存储用户信息
+                    wx.setStorage({
+                      key: constant.constant.userAccessDataKey,
+                      data: res.data,
+                      fail: function (res) {
+                        console.warn(res);
+                      }
+                    });
+
+                    //代理商信息存储
+                    if (!util.isEmptyStr(res.data.distributerId)) {
+                      util.setDistributerId(res.data.distributerId);
+                    } else {
+                      console.warn("res.data.distributerId = " + res.data.distributerId);
+                    }
+                  },
+
+                  fail: function (res) {
+                    console.warn(res);
+                  },
+                  complete: function (res) { }
+                })
+              } else {
+                console.log('获取用户登录态失败！' + res.errMsg)
+              }
+            },
+
+            fail: function (res) {
+              console.warn(res);
+            },
+
+            complete: function (res) { }
+          });
+        }
+      })
+    }
   },
 
   /**
@@ -168,7 +235,7 @@ Page(Object.assign({}, Toast, {
           },
 
           success: function (res) {
-            if(res.statusCode != 200) {
+            if (res.statusCode != 200) {
               console.warn(res);
             }
           },
@@ -197,18 +264,18 @@ Page(Object.assign({}, Toast, {
     var that = this;
     var userAccessData = util.getUserAccessData();
     var guid = userAccessData.guid;
-    
+
     if (guid.length > 0) {
 
       if (!util.isMobile(mobile)) {
 
         that.showZanToast("请检查输入的手机号");
-      
+
       } else if (util.isEmptyStr(msgCode)) {
 
         that.showZanToast("请输入验证码");
-      
-      }else{
+
+      } else {
 
         var url = that.data.constant.domain + '/weixin/phonecode';
         wx.request({
@@ -239,11 +306,11 @@ Page(Object.assign({}, Toast, {
 
               that.showZanToast(res.data.message);
               console.warn(res.data);
-            
+
             } else {
 
               console.warn(res.data);
-              that.showZanToast(res.data.message); 
+              that.showZanToast(res.data.message);
             }
           },
 
@@ -271,6 +338,4 @@ Page(Object.assign({}, Toast, {
       [event.currentTarget.id]: event.detail.value
     })
   },
-
-
 }));

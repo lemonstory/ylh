@@ -1,6 +1,6 @@
 //app.js
 var constant = require('constant.js');
-var utils = require('./utils/util.js');
+var util = require('./utils/util.js');
 var guid = '';
 
 App({
@@ -15,7 +15,7 @@ App({
     //场景 - 公众号自定义菜单
     //跳转代理商登录页
     //TODO: 检查代理商登录状态
-    if (options.scene == 1035 && !utils.isDistributerLogin()) {
+    if (options.scene == 1035 && !util.isDistributerLogin()) {
 
       wx: wx.redirectTo({
         url: '/pages/distributer/login/login',
@@ -32,23 +32,23 @@ App({
       //get取得代理商Id
       var getParamDistributerId = options.query.distributerId;
       //本地读取代理商Id
-      var localDistributerId = utils.getDistributerId();
+      var localDistributerId = util.getDistributerId();
 
       var distributerId = '';
 
 
-      if (!utils.isEmptyStr(localDistributerId)) {
+      if (!util.isEmptyStr(localDistributerId)) {
 
         distributerId = localDistributerId;
 
-      } else if (!utils.isEmptyStr(getParamDistributerId)) {
+      } else if (!util.isEmptyStr(getParamDistributerId)) {
 
         distributerId = getParamDistributerId;
       }
 
       console.log("🚚 🚚 🚚 [代理商ID] getParamDistributerId = " + getParamDistributerId + ", localDistributerId = " + localDistributerId);
       console.log(typeof (distributerId));
-      if (!utils.isEmptyStr(distributerId)) {
+      if (!util.isEmptyStr(distributerId)) {
 
 
         wx.checkSession({
@@ -96,10 +96,11 @@ App({
                       });
 
                       //代理商信息存储
-                      if (!utils.isEmptyStr(res.data.distributerId)) {
-                        utils.setDistributerId(res.data.distributerId);
+                      if (!util.isEmptyStr(res.data.distributerId)) {
+                        util.setDistributerId(res.data.distributerId);
                       } else {
-                        console.warn("res.data.distributerId = " + res.data.distributerId);
+
+                        console.error("res.data.distributerId = " + res.data.distributerId);
                       }
 
                       // 获取用户信息
@@ -135,7 +136,7 @@ App({
                     },
 
                     fail: function (res) {
-                      console.warn(res);
+                      console.error(res);
                     },
                     complete: function (res) { }
                   })
@@ -146,10 +147,11 @@ App({
 
               fail: function (res) {
                 console.warn(res);
+
+                //代理商信息存储
+                util.setDistributerId(distributerId);
               },
-
               complete: function (res) { }
-
             });
 
           },

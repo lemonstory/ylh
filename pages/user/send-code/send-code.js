@@ -331,7 +331,7 @@ Page(Object.assign({}, Toast, {
 
                   } else {
                     wx.switchTab({
-                      url: 'pages/user/index/index',
+                      url: '/pages/user/index/index',
                     })
                   }
                 },

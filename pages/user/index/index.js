@@ -14,6 +14,7 @@ Page(Object.assign({}, Toast, {
 
     //是否为代理商
     isDistributer:false,
+    distributerAccessData:{},
   },
 
 
@@ -40,9 +41,11 @@ Page(Object.assign({}, Toast, {
 
     var that = this;
     var isDistributer = util.isDistributer();
+    var distributerAccessData = util.getDistributerAccessData();
     
     that.setData({
-      isDistributer: isDistributer
+      isDistributer: isDistributer,
+      distributerAccessData: distributerAccessData
     })
 
     //用户为非代理商

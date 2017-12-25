@@ -46,6 +46,9 @@
     </view>
   </view>
 
+  <view style='margin-left:665rpx;font-size:24rpx;font-family:PingFang-SC-Regular;color:rgba(0,118,255,1);'>跳过</view>
+
+
   <view class="bottom">
     <view class="bottom-left" bindtap='handleTapPreStep'>上一步</view>
     <view class="bottom-right" bindtap='handleTapNextStep'>下一步</view>

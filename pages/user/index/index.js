@@ -212,7 +212,7 @@ Page(Object.assign({}, Toast, {
 
   handleTapCommission: function () {
     wx.navigateTo({
-      url: '/pages/distributer/commission/commission'
+         url:'/pages/distributer/commission/commission'
     })
   },
 

@@ -14,8 +14,8 @@
 }
 .money{
   width: 100%;
-  background:#FFFFFF ;
-  border-top: 1rpx solid #EEEEEE  ;
+  background:#FFFFFF;
+  border-top: 1rpx solid #EEEEEE;
   box-sizing: border-box;
   
 }
@@ -33,5 +33,5 @@
   border-bottom: 1rpx solid #EEEEEE  ;
 }
 .price{
-  color: #666666 ;
+  color: #666666;
 }

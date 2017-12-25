@@ -128,7 +128,7 @@ Page(Object.assign({}, Toast, {
     })
   },
 
-  onChangeCarsTypeViewShow: function () {
+onChangeCarsTypeViewShow: function () {
     var that = this;
     that.setData({
       isShowCarsTypeView: !this.data.isShowCarsTypeView,
@@ -160,7 +160,6 @@ Page(Object.assign({}, Toast, {
 
   //计数器-加法运算开始
   handleTapIncrease: function (event) {
-
     console.log("✈️ ️ ️️ ✈️ ️ ️️ ✈️ ️ ️️");
     var that = this;
     var id = event.currentTarget.id;
@@ -168,7 +167,7 @@ Page(Object.assign({}, Toast, {
     var pages = getCurrentPages();
     var currPage = pages[pages.length - 1];   //当前页面
     var prevPage = pages[pages.length - 2];  //上一个页面
-
+    
     var prevPageFormDataTemp = prevPage.data.formData;
 
     prevPageFormDataTemp.cars.sites = prevPageFormDataTemp.cars.sites + 1;

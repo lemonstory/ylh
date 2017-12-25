@@ -2,7 +2,7 @@
 .container{
   width: 750rpx;
   height:1334rpx;
-  background-image: url("http://image.365zhiding.com/wxapp/20171121/bg.png");
+  background-image: url("http://image.365zhiding.com/wxapp/20171225/bg.png");
   background-size: 100% 100%;
  }
 

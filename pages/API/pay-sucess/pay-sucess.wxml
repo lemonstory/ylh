@@ -1,9 +1,0 @@
-<!--pages/API/pay-sucess/pay-sucess.wxml-->
-<view class="container">
-<view class="main">
-<image class="ok" src="http://image.365zhiding.com/wxapp/20171121/dui3.png"></image>
-<view class="ok-text">订单支付成功</view>
-<view class="order-deail" bindtap='orderDetail'>查看订单详情</view>
-<view class="shangchuan"  bindtap='travelMessage'>上传旅客资料</view>
-</view>
-</view>

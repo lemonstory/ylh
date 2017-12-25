@@ -63,13 +63,25 @@
       <image src="http://image.365zhiding.com/wxapp/20171121/add.png" style='width:31rpx;height:31rpx;' bindtap="handleTapIncrease" id="adult"></image>
     </view>
 
-    <view class="box">
+  <view class="box">
       <view class="box-left">
         <view class="star">*</view>儿童数 </view>
       <image src="http://image.365zhiding.com/wxapp/20171121/jian.png" style='width:31rpx;height:31rpx;margin-left:400rpx;' bindtap="handleTapReduce" id="child"></image>
       <view class='num'>{{formData.tourers.subNum.child}}</view>
       <image src="http://image.365zhiding.com/wxapp/20171121/add.png" style='width:31rpx;height:31rpx;' bindtap="handleTapIncrease" id="child"></image>
     </view>
+
+
+       <view class="box">
+      <view class="box-left">
+        <view class="star">*</view>老人数</view>
+      <image src="http://image.365zhiding.com/wxapp/20171121/jian.png" style='width:31rpx;height:31rpx;margin-left:400rpx;' bindtap="handleTapReduce" id="adult" id="adult"></image>
+      <view class='num'>{{formData.tourers.subNum.adult}}</view>
+      <image src="http://image.365zhiding.com/wxapp/20171121/add.png" style='width:31rpx;height:31rpx;' bindtap="handleTapIncrease" id="adult"></image>
+    </view>
+
+
+
 
     <view class="box">
       <view class="box-left">

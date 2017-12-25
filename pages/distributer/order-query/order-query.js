@@ -7,14 +7,13 @@ var chinaArea = require('../../../utils/china-area.js')
 Page({
 
   data: {
-
-    'constant': app.constant,
-
+   'constant': app.constant,
     orderFilterTitle: "全部订单",
     timeFilterTitle: "按时间筛选",
     productFilterTitle: "按产品筛选",
 
-    // 佣金日志post参数
+
+   // 佣金日志post参数
     logPostData: {
       "distributerId": 1,
     },
@@ -178,8 +177,8 @@ Page({
       that.setData({
         selectPayOption: selectPayStatus,
         orderFilterTitle: title,
-        showFilterView: false
-      });
+        showFilterView: false,
+     });
 
     } else if (that.data.filterIndex == 2) {
       var title = that.data.timeOption[id].name;
@@ -224,7 +223,7 @@ Page({
     var word = e.detail.value;
     console.log(word);
     that.setData({
-      keyword: word
+     keyword: word
     })
     that.handleFitOrder();
 
@@ -239,6 +238,10 @@ Page({
     var op;
     if (fiterId == 1) {
       op = that.data.payOptions;
+      that.setData({
+           
+      })
+   
     } else if (fiterId == 2) {
       op = that.data.timeOption;
     } else if (fiterId == 3) {
@@ -249,7 +252,7 @@ Page({
       filterIndex: fiterId,
       showFilterView: true,
       selectOptions: op
-    })
+      })
   },
 
   /**

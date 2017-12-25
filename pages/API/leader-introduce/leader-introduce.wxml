@@ -1,4 +1,0 @@
-<!--pages/API/leader-introduce/leader-introduce.wxml-->
-<view class="leader-name">{{name}}</view>
-<image class="leader-img" src="{{image}}" mode="aspectFit"></image>
-<view class="leader-text">{{intro}}</view>

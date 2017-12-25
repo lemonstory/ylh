@@ -38,11 +38,22 @@ button{
      width:690rpx; 
   
 }
-.weixin{
+
+.bottom {
      position: absolute;
-     top:0;
-     left:0;
-     height:88rpx;
-     width:690rpx;
-     z-index: 999;
+     top: 0rpx;
+     left: 0rpx;
+     height: 88rpx;
+     width: 690rpx;
+     background:#09BB07;
+     font-size: 32rpx;
+     font-family:PingFang-SC-Regular;
+     color: rgba(255, 255, 255, 1);
+     line-height: 88rpx;
+     text-align: center;
+     border-radius: 10rpx;
+     display:flex;
+     align-items: center; 
+     justify-content: center;
+     
 }

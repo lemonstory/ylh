@@ -7,7 +7,7 @@
     <view class='od_cates'>
       <view></view>
       <view bindtap='onChangeShowState'>{{orderFilterTitle}}
-        <image src='../image/three.png' style="width:22rpx;height:19rpx" class="{{isShowOptionsView?'rotate':''}}"> </image>
+        <image src='http://image.365zhiding.com/wxapp/20171221/three.png' style="width:22rpx;height:19rpx" class="{{isShowOptionsView?'rotate':''}}"> </image>
       </view>
     </view>
 

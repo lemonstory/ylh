@@ -11,7 +11,7 @@
     <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
       <block wx:for="{{banner}}" wx:key="banner" wx:for-index="idx">
         <swiper-item data-src="{{item.url}}" bindtap="handleBanner" data-index="{{idx}}" data-id="{{item.id}}">
-          <image src="{{item.image}}" class="tuijuan-img" width="750rpx" height="350rpx" />
+          <image src="{{item}}" class="tuijuan-img" width="750rpx" height="350rpx" />
           <view class="banner-text1">{{subTitle}}</view>
           <view class="banner-text2">{{item.text2}}</view>
         </swiper-item>
@@ -19,7 +19,7 @@
     </swiper>
 
     <view class="tuijuan-text">
-      <view class="text1">【{{attr}}】{{title}}</view>
+      <view class="text1">{{title}}</view>
       <view class="tuijuan-bottom">
         <view class="text2">¥{{minPrice}}
           <view class="personal">/人起</view>

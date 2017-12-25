@@ -180,7 +180,6 @@ left: 270rpx;
      left:0;
      text-align: center;
      line-height: 90rpx;
-    
 }
 
 .sure {

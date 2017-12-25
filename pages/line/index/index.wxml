@@ -20,7 +20,7 @@
      </view>
 
 
-<!--广告位的判断，如果为空不显示  -->
+     <!--广告位的判断，如果为空不显示  -->
      <block wx:if="{{ad ==''}}">
      </block>
      <block wx:else>
@@ -30,15 +30,17 @@
      </block>
 
 
-<!-- 热门目的地开始 -->
+     <!-- 热门目的地开始 -->
      <view class="hot">
           <view class="hot-font">
                <view>{{areaList.title}}</view>
-               <view style='font-size:24rpx;color:#666;' bindtap='bindMoreaddress'>
-                    更多目的地
-                    <image style="width:14rpx;height:24rpx; margin-left:20rpx;" src="http://image.365zhiding.com/wxapp/20171114/1.png"></image>
 
-               </view>
+               <!-- <block wx:if="{{areaList.isOpen!=0}}"> -->
+                    <view style='font-size:24rpx;color:#666;' bindtap='bindMoreaddress'>
+                         更多目的地
+                         <image style="width:14rpx;height:24rpx; margin-left:20rpx;" src="http://image.365zhiding.com/wxapp/20171114/1.png"></image>
+                    </view>
+               <!-- </block> -->
           </view>
      </view>
 

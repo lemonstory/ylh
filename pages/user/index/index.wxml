@@ -33,19 +33,19 @@
                </view>
 
 
-                    <view class="list" bindtap='handleTapOrderQuery' style='border-bottom:none'>
-                         <view class="list-left">
-                              <view class="icon">
-                                   <image src='http://image.365zhiding.com/wxapp/20171121/333.png'></image>
-                              </view>
-                              <view class="list-text">
-                                   订单查询
-                              </view>
+               <view class="list" bindtap='handleTapOrderQuery' style='border-bottom:none'>
+                    <view class="list-left">
+                         <view class="icon">
+                              <image src='http://image.365zhiding.com/wxapp/20171121/333.png'></image>
                          </view>
-                         <view class="list-right">
-                              <image src='http://image.365zhiding.com/wxapp/20171114/1.png' style="width:14rpx;height:24rpx"></image>
+                         <view class="list-text">
+                              订单查询
                          </view>
                     </view>
+                    <view class="list-right">
+                         <image src='http://image.365zhiding.com/wxapp/20171114/1.png' style="width:14rpx;height:24rpx"></image>
+                    </view>
+               </view>
           </view>
 
           <view class="box2">
@@ -73,18 +73,18 @@
                </view>
                <!--弹出信息的展示结束-->
 
-                 <view class="list" style='border-bottom:none' bindtap='handleTapStoreSetting'>
-                         <view class="list-left">
-                              <view class="icon">
-                                   <image src='http://image.365zhiding.com/wxapp/20171121/555.png'></image>
-                              </view>
-                              <view class="list-text">店铺设置</view>
+               <view class="list" style='border-bottom:none' bindtap='handleTapStoreSetting'>
+                    <view class="list-left">
+                         <view class="icon">
+                              <image src='http://image.365zhiding.com/wxapp/20171121/555.png'></image>
                          </view>
-                         <view class="list-right">
-                              <image src='http://image.365zhiding.com/wxapp/20171114/1.png' style="width:14rpx;height:24rpx"></image>
-                         </view>
+                         <view class="list-text">店铺设置</view>
                     </view>
-               
+                    <view class="list-right">
+                         <image src='http://image.365zhiding.com/wxapp/20171114/1.png' style="width:14rpx;height:24rpx"></image>
+                    </view>
+               </view>
+
           </view>
           <view class="bottom" bindtap='bindDistributerLogout'>退出登录</view>
      </view>

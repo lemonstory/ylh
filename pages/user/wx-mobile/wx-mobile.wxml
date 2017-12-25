@@ -6,8 +6,8 @@
 
 
       <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber"> 
-     <image class="weixin" src="http://image.365zhiding.com/wxapp/20171220/weixin.png"></image>
-      </button> 
+     <view class="bottom"> <image src="http://image.365zhiding.com/wxapp/20171225/weixin.png" style='width:52rpx;disply:flex;height:42rpx;margin-right:10rpx;'></image>微信授权登录</view>
+</button> 
 
 
 

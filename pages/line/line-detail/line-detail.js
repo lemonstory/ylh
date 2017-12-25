@@ -44,8 +44,7 @@ Page(Object.assign({}, Toast, {
   },
 
   onLoad: function (options) {
-
-    var that = this;
+   var that = this;
     console.log(options);
     //接收页面参数
     var id = options.id;
@@ -59,9 +58,7 @@ Page(Object.assign({}, Toast, {
       console.error("id (线路Id) 不能为空 ")
     }
   },
-
-
-  /**
+/**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
@@ -87,7 +84,7 @@ Page(Object.assign({}, Toast, {
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+       
   },
 
   /**
@@ -173,8 +170,7 @@ Page(Object.assign({}, Toast, {
    * 优惠-点击
    */
   handleTapActivity: function () {
-
-    var that = this;
+   var that = this;
     that.setData({
       isShowActivityDetail: !that.data.isShowActivityDetail
     });
@@ -195,7 +191,6 @@ Page(Object.assign({}, Toast, {
    * 领队-点击
    */
   handleTapLeaderIntroduce: function (event) {
-
     var id = event.currentTarget.dataset.id;
     var path = "/pages/line/leader-introduce/leader-introduce?id=" + id;
     console.log("path = " + path);

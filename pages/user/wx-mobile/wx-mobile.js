@@ -229,12 +229,17 @@ Page(Object.assign({}, Toast, {
 
             } else {
 
-              console.error(res);
-              //跳转到绑定手机号页面
 
-              wx.redirectTo({
-                url: '/pages/user/send-code/send-code?returnUrl=' + that.data.returnUrl,
-              })
+
+              console.error("url = " + url);
+              console.error(res);
+              that.showZanToast(res.data);
+
+              //跳转到绑定手机号页面
+              // wx.redirectTo({
+              //   url: '/pages/user/send-code/send-code?returnUrl=' + that.data.returnUrl,
+              // })
+              
             }
           },
 

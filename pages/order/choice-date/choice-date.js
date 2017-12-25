@@ -438,9 +438,9 @@ Page(Object.assign({}, Toast, {
       })
     }
     var amount = adultAmount + childAmount + oldAmount + difference;
-    if (amount > 0) {
-      amount = amount + postage;
-    }
+    // if (amount > 0) {
+    //   amount = amount + postage;
+    // }
 
 
     that.setData({

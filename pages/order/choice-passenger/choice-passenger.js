@@ -228,9 +228,11 @@ Page(Object.assign({}, Toast, {
     var childSum = 0;
     var oldSum = 0;
 
+    console.log(checkedPassengerList)
+
     for (var i = 0; i < checkedPassengerList.length; i++) {
 
-      switch (checkedPassengerList[i].ageType) {
+      switch (checkedPassengerList[i].ageGroup) {
 
         case 2:
           childSum = childSum + 1;

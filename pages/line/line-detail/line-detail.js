@@ -15,8 +15,7 @@ Page(Object.assign({}, Toast, {
     duration: 1000,
 
     optionsId: '',
-
-    //电话弹窗
+//电话弹窗
     isShowPhoneDialog: false,
 
     //优惠弹窗
@@ -378,6 +377,7 @@ Page(Object.assign({}, Toast, {
 
     //默认选中的出行日期
     that.setData({
+         
       selectedTravelDate: that.data.startDatePriceListFormat[0].date,
       selectedTravelDateIndex: 0,
       currentSelectedMonthIndex: 0,

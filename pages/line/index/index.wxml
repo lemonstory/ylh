@@ -33,12 +33,12 @@
           <view class="hot-font">
                <view>{{areaList.title}}</view>
 
-               <!-- <block wx:if="{{areaList.isOpen!=0}}"> -->
+                <!-- <block wx:if="{{areaList.isOpen!=0}}">  -->
                     <view style='font-size:24rpx;color:#666;' bindtap='bindMoreaddress'>
                          更多目的地
                          <image style="width:14rpx;height:24rpx; margin-left:20rpx;" src="http://image.365zhiding.com/wxapp/20171114/1.png"></image>
                     </view>
-               <!-- </block> -->
+                <!-- </block>  -->
           </view>
      </view>
 

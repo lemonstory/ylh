@@ -7,18 +7,17 @@
           <view class="air-type">
                <view class="type-left">巴士座位数</view>
                <view class="car-right">
-                    <view style='height:90rpx;width:90rpx; background:red;display:flex;flex;align-items:center;justify-content:center;' bindtap="handleTapReduce" id="sites">
+                    <view style='height:90rpx;width:90rpx; display:flex;flex;align-items:center;justify-content:center;' bindtap="handleTapReduce" id="sites">
                          <image src="http://image.365zhiding.com/wxapp/20171121/jian.png" style='width:31rpx;height:31rpx;'></image>
                     </view>
-                    <view class='num' style='width:40rpx'>{{currentCarsSites}}</view>
-                    <view style='height:90rpx;width:90rpx; background:red;display:flex;flex;align-items:center;justify-content:center;' bindtap="handleTapIncrease" id="sites">
+                    <view class='num' style='width:40rpx;text-align:center'>{{currentCarsSites}}</view>
+                    <view style='height:90rpx;width:90rpx; display:flex;flex;align-items:center;justify-content:center;' bindtap="handleTapIncrease" id="sites">
                          <image src="http://image.365zhiding.com/wxapp/20171121/add.png" style='width:31rpx;height:31rpx;'></image>
                     </view>
                </view>
           </view>
 
-
-          <view class="air-type" bindtap="onChangeCarsTypeViewShow">
+<view class="air-type" bindtap="onChangeCarsTypeViewShow">
                <view class="type-left">{{currentCarsTypeTitle != '' ? currentCarsTypeTitle : '请选择' }}</view>
                <view class="type-right">
                     <image src="http://image.365zhiding.com/wxapp/20171121/xia.png" class="{{isShowCarsTypeView?'rotate':''}}"></image>

@@ -1,61 +1,22 @@
 {
   "pages": [
-    "pages/line/index/index",
-    "pages/API/line/line",
-    "pages/API/empower/empower",
-    "pages/API/tell/tell",
     "pages/API/personal-my-order/personal-my-order",
-    "pages/API/personal-order/personal-order",
     "pages/API/visa-find/visa-find",
-    "pages/API/add-passenger/add-passenger",
-    "pages/API/pay-sucess/pay-sucess",
-    "pages/API/choice-passenger/choice-passenger",
-    "pages/API/order-detail/order-detail",
-    "pages/API/my-order-detail/my-order-detail",
-    "pages/API/travel-mess/travel-mess",
-    "pages/API/air-ticket/air-ticket",
-    "pages/API/add-address/add-address",
-    "pages/API/my-order/my-order",
-    "pages/API/more-address/more-address",
-    "pages/API/order-require/order-require",
-    "pages/API/my/my",
     "pages/API/passport/passport",
-    "pages/API/visa/visa",
-    "pages/API/passport_direction/passport_direction",
-    "pages/API/line-list/line-list",
-    "pages/API/line-detail/line-detail",
-    "pages/API/leader-introduce/leader-introduce",
-    "pages/API/start-order/start-order",
-    "pages/API/choice-address/choice-address",
-    "pages/API/pay-confirm/pay-confirm",
-    "pages/API/ziliao-proce/ziliao-proce",
-    "pages/API/search/search",
-    "pages/API/hotel-require/hotel-require",
-    "pages/API/car-require/car-require",
-    "pages/API/food-require/food-require",
-    "pages/API/login/login",
-    "pages/API/next-management/next-management",
-    "pages/API/order-sou/order-sou",
-    "pages/API/store-setting/store-setting",
-    "pages/API/my-money/my-money",
-    "pages/API/my-money-no/my-money-no",
-    "pages/API/clear-log/clear-log",
-    "pages/API/divide-order-detail/divide-order-detail",
+    "pages/API/passport_direction/passport_direction", 
     "pages/API/divide-order-detail1/divide-order-detail1",
-    "pages/API/logo/logo",
-    "pages/API/erweima/erweima",
-    "pages/API/password-modify/password-modify",
-    "pages/API/store-name/store-name",
-    "pages/API/public-active/public-active",
-    "pages/API/visa-require/visa-require",
-    "pages/API/switchcity/switchcity",
-    "pages/API/address-message/address-message",
+    
+    
+    
     "pages/customized/index/index",
     "pages/customized/air-ticket/air-ticket",
     "pages/customized/car-require/car-require",
     "pages/customized/food-require/food-require",
     "pages/customized/hotel-require/hotel-require",
     "pages/customized/public-active/public-active",
+    
+    
+    
     "pages/distributer/commission/commission",
     "pages/distributer/commission-detail/commission-detail",
     "pages/distributer/login/login",
@@ -67,11 +28,20 @@
     "pages/distributer/password-modify/password-modify",
     "pages/distributer/subordinate/subordinate",
     "pages/distributer/unsettlement/unsettlement",
+
+
+
+
+
     "pages/index/index",
+    "pages/line/index/index",
     "pages/line/category/category",
     "pages/line/leader-introduce/leader-introduce",
     "pages/line/line-detail/line-detail",
     "pages/line/line-list/line-list",
+
+
+
     "pages/order/add-address/add-address",
     "pages/order/add-passenger/add-passenger",
     "pages/order/choice-address/choice-address",
@@ -81,15 +51,25 @@
     "pages/order/fill-order/fill-order",
     "pages/order/pay-confirm/pay-confirm",
     "pages/order/pay-sucess/pay-sucess",
+
+
+
     "pages/search/search/search",
     "pages/user/index/index",
     "pages/user/send-code/send-code",
     "pages/user/visitor/visitor",
     "pages/user/wx-mobile/wx-mobile",
     "pages/user/order/order",
+
+
+
     "pages/web-view/web-view",
+
+
     "pages/member/fill-possport/fill-possport",
     "pages/member/possport-list/possport-list",
+
+    
     "pages/common/international-code/international-code",
     "pages/distributer/qrcode/qrcode"
   ],

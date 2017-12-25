@@ -78,34 +78,34 @@
   <!--订单信息结束  -->
   <!--机票信息开始  -->
   <view class="jipiao-box">
-    <view class="jipiao-text" >机票信息</view>
+    <view class="jipiao-text">机票信息</view>
 
 
 
-<view wx:for = "{{orderDetail.planeTicket}}" wx:key="idx" bindtap='bindAirMessage' wx:for-index="index" data-index='{{index}}'>
-    <view class="flat-box">
-      <view class="flat-left">
-        <view class="flat-date">2017-11-23</view>
-        <view class="flat-time">21:05</view>
-        <view class="flat-address">{{item.fromAirport}}</view>
-      </view>
-
-      <view class="flat-center">
-        <view class="flat-heng">{{item.flightName}}{{item.flightNum}}</view>
-        <view class="flat-img">
-          <image src="http://image.365zhiding.com/wxapp/20171121/flat.png"></image>
+    <view wx:for="{{orderDetail.planeTicket}}" wx:key="idx" bindtap='bindAirMessage' wx:for-index="index" data-index='{{index}}'>
+      <view class="flat-box">
+        <view class="flat-left">
+          <view class="flat-date">2017-11-23</view>
+          <view class="flat-time">21:05</view>
+          <view class="flat-address">{{item.fromAirport}}</view>
         </view>
-        <view class="flat-xingli" catchtap='bindDudschange' >738 行李额</view>
-      </view>
 
-      <view class="flat-right">
-        <view class="flat-date">{{constant.planeTicketShippingSpace[item.ShippingSpace-1].title
-}}</view>
-        <view class="flat-time">21:05</view>
-        <view class="flat-address">{{item.toAirport}}</view>
+        <view class="flat-center">
+          <view class="flat-heng">{{item.flightName}}{{item.flightNum}}</view>
+          <view class="flat-img">
+            <image src="http://image.365zhiding.com/wxapp/20171121/flat.png"></image>
+          </view>
+          <view class="flat-xingli" catchtap='bindDudschange'>738 行李额</view>
+        </view>
+
+        <view class="flat-right">
+          <view class="flat-date">{{constant.planeTicketShippingSpace[item.ShippingSpace-1].title }}
+          </view>
+          <view class="flat-time">21:05</view>
+          <view class="flat-address">{{item.toAirport}}</view>
+        </view>
       </view>
     </view>
-</view>
 
 
   </view>
@@ -203,7 +203,7 @@
 
   <!--收获地址开始  -->
   <view class="get-add">
-    <view class="fapiao">收获地址</view>
+    <view class="fapiao">发票地址</view>
     <view class="choice-add ">{{orderDetail.receiverAddress}}</view>
   </view>
 </view>
@@ -218,23 +218,23 @@
       <view style='color:rgba(102,102,102,1);'>订单总额</view>
       <view style='color:rgba(255,102,0,1)'>￥{{orderDetail.amount/100}}</view>
     </view>
-    <view class="text-content">
+    <view class="text-content" wx:if="{{orderDetail.amountDetail.adultprice.number > 0}}">
       <view style='color:rgba(102,102,102,1);'>成人费用</view>
       <view style='color:rgba(255,102,0,1)'>￥{{orderDetail.amountDetail.adultprice.subAmount*orderDetail.amountDetail.adultprice.number/100}}</view>
     </view>
-    <view class="text-content">
+    <view class="text-content" wx:if="{{orderDetail.amountDetail.childprice.number > 0}}">
       <view style='color:rgba(102,102,102,1);'>儿童费用</view>
       <view style='color:rgba(255,102,0,1)'>￥{{orderDetail.amountDetail.childprice.subAmount*orderDetail.amountDetail.childprice.number/100}}</view>
     </view>
-    <view class="text-content">
+    <view class="text-content" wx:if="{{orderDetail.amountDetail.oldprice.number > 0}}">
       <view style='color:rgba(102,102,102,1);'>老人费用</view>
       <view style='color:rgba(255,102,0,1)'>￥{{orderDetail.amountDetail.oldprice.subAmount*orderDetail.amountDetail.oldprice.number/100}}</view>
     </view>
-        <view class="text-content">
+    <view class="text-content" wx:if="{{orderDetail.amountDetail.roombalance > 0}}">
       <view style='color:rgba(102,102,102,1);'>单房差费用</view>
       <view style='color:rgba(255,102,0,1)'>￥{{orderDetail.amountDetail.roombalance/100}}</view>
     </view>
-            <view class="text-content">
+    <view class="text-content" wx:if="{{orderDetail.amountDetail.postage> 0}}">
       <view style='color:rgba(102,102,102,1);'>发票快递费</view>
       <view style='color:rgba(255,102,0,1)'>￥{{orderDetail.amountDetail.postage/100}}</view>
     </view>
@@ -252,7 +252,7 @@
   <view class="shadow-box">
     <view class="text-title" style='width:100%;height:90rpx;text-align:center;line-height:90rpx;border-bottom:1rpx solid #eee;'>行李额说明</view>
     <view class="text-content">
-       <view style='color:rgba(102,102,102,1);'>行李额</view> 
+      <view style='color:rgba(102,102,102,1);'>行李额</view>
       <view style='color:rgba(102,102,102,1);'>{{selectPlaneTicket.luggageMark}}</view>
     </view>
   </view>
@@ -268,7 +268,7 @@
   <view class="shadow-box">
     <view class="text-title" style='width:100%;height:90rpx;text-align:center;line-height:90rpx;border-bottom:1rpx solid #eee;'>机票信息</view>
     <view class="text-content" style='border-bottom:none'>
-       <view>详情／退改细则</view> 
+      <view>详情／退改细则</view>
     </view>
     <view class="text-content" style='border-bottom:none'>
       <view>{{selectPlaneTicket.flightName}} {{selectPlaneTicket.flightNum}} {{selectPlaneTicket.fromCity}} - {{selectPlaneTicket.toCity}}</view>

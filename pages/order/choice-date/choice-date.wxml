@@ -119,26 +119,26 @@
         <view class="item deli">
           <view class="text">价格明细</view>
         </view>
-        <view class="item">
+        <view class="item" wx:if="{{userSelectedLineDetail.tourers.subNum.adult > 0}}">
           <view class="text">成人费用</view>
           <view class="item-price">￥{{currentSuitList[currentSuitSelectedIndex].adultprice/100}}*{{userSelectedLineDetail.tourers.subNum.adult}}</view>
         </view>
-        <view class="item">
+        <view class="item" wx:if="{{userSelectedLineDetail.tourers.subNum.child > 0}}">
           <view class="text">儿童费用</view>
           <view class="item-price">￥{{currentSuitList[currentSuitSelectedIndex].childprice/100}}*{{userSelectedLineDetail.tourers.subNum.child}}</view>
         </view>
-        <view class="item">
+        <view class="item" wx:if="{{userSelectedLineDetail.tourers.subNum.old > 0}}">
           <view class="text">老人费用</view>
-          <view class="item-price">￥{{currentSuitList[currentSuitSelectedIndex].oldprice/100}}*{{userSelectedLineDetail.tourers.subNum.child}}</view>
+          <view class="item-price">￥{{currentSuitList[currentSuitSelectedIndex].oldprice/100}}*{{userSelectedLineDetail.tourers.subNum.old}}</view>
         </view>
-        <view class="item">
+        <view class="item" wx:if="{{userSelectedLineDetail.isAddedDifference > 0}}">
           <view class="text">单房差</view>
           <view class="item-price">￥{{userSelectedLineDetail.isAddedDifference ? currentSuitList[currentSuitSelectedIndex].difference/100 : 0}}</view>
         </view>
-        <view class="item ">
+        <!-- <view class="item ">
           <view class="text">发票快递费</view>
           <view class="item-price">￥{{userSelectedLineDetail.postage/100}}</view>
-        </view>
+        </view> -->
       </action-sheet>
       <!-- 底部提示框结束 -->
     </view>

@@ -263,11 +263,17 @@ Page(Object.assign({}, Toast, {
       return false;
     }
 
-    if (!util.isMobile(that.data.formData.linkTel)) {
+    if (util.isEmptyStr(that.data.formData.linkTel)) {
 
       that.showZanToast("请输入联系电话");
       return false;
+    
+    }else if (!util.isMobile(that.data.formData.linkTel)) {
+
+      that.showZanToast("联系人手机号不正确");
+      return false;
     }
+
 
     // if (that.data.formData.receiverAddress.length <= 0) {
 

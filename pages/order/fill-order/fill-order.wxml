@@ -134,27 +134,27 @@
                          <view class="text">价格明细</view>
                     </view>
 
-                    <view class="item">
+                    <view class="item" wx:if="{{formData.tourers.subNum.child > 0}}">
                          <view class="text">儿童费用</view>
                          <view class="item-price">￥{{formData.childprice/100}}*{{formData.tourers.subNum.child}}</view>
                     </view>
 
-                    <view class="item">
+                    <view class="item" wx:if="{{formData.tourers.subNum.adult > 0}}">
                          <view class="text">成人费用</view>
                          <view class="item-price">￥{{formData.adultprice/100}}*{{formData.tourers.subNum.adult}}</view>
                     </view>
 
-                    <view class="item">
+                    <view class="item" wx:if="{{formData.tourers.subNum.old > 0}}">
                          <view class="text">儿童费用</view>
                          <view class="item-price">￥{{formData.oldprice/100}}*{{formData.tourers.subNum.old}}</view>
                     </view>
 
-                    <view class="item">
+                    <view class="item" wx:if="{{formData.isAddedDifference}}">
                          <view class="text">单房差</view>
                          <view class="item-price">￥{{formData.difference/100}}</view>
                     </view>
 
-                    <view class="item">
+                    <view class="item" wx:if="{{isSelected}}">
                          <view class="text">发票快递费</view>
                          <view class="item-price">￥{{formData.postage/100}}</view>
                     </view>

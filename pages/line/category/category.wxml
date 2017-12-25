@@ -25,7 +25,7 @@
                <view class="lii">全部目的地</view>
                <view class="addname">
                     <view class="li" wx:for="{{mapping[currentMappingIndex].listAll}}" wx:key="item" bindtap="handleTapAreaItem" data-area_id="{{item.areaId}}">
-                         <view>{{item.areaName}}</view>
+                         <view>{{areaList[item].name}}</view>
                     </view>
                </view>
           </block>

@@ -78,6 +78,16 @@
  text-align: center;
  line-height: 98rpx;
 }
+.goback {
+     width: 100%;
+     height: 98rpx;
+     padding-right: 30rpx;
+     display: flex;
+     box-sizing: border-box;
+     justify-content: flex-end;
+     padding-top: 30rpx;
+  
+}
 
 /*显现卡的显示  */
 .hidden{

@@ -1,8 +1,9 @@
 <!--pages/API/air-ticket/air-ticket.wxml-->
 <import src="/zanui-weapp/dist/toast/index.wxml" />
 <view class="container ">
+<view style='margin-bottom:100rpx;'>
      <view class="main">
-          <view class="air-ask">机票要求</view>
+   <view class="air-ask">机票要求</view>
 
           <view class="air-type" bindtap="onChangePlaneTicketShippingSpacesViewShow">
                <view class="type-left">{{currentPlaneTicketShippingSpaceTitle != '' ? currentPlaneTicketShippingSpaceTitle : '请选择' }}</view>
@@ -33,13 +34,17 @@
 
 
           <view class="air-ask zhiding">指定航空公司：</view>
-          <view class="settion" style='margin-bottom:120rpx'>
+          <view class="settion">
                <textarea placeholder="请输入您指定的航空公司" placeholder-style="font-size:28rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);" style='width:690rpx;height:260rpx;margin-left:30rpx;margin-right:30rpx;border:1rpx solid #eee; padding-left:30rpx;padding-top:30rpx;box-sizing: border-box; border-radius: 10rpx;margin-bottom:30rpx;'
 />
           </view>
      </view>
 
-<view style='margin-left:665rpx;font-size:24rpx;font-family:PingFang-SC-Regular;color:rgba(0,118,255,1);' bindtap='handleTapNextStep'>跳过</view>
+<view class="goback" style='font-size:24rpx;font-family:PingFang-SC-Regular;color:rgba(0,118,255,1);' bindtap='handleTapNextStep'>跳过</view>
+</view>
+
+
+
 
 
      <view class="bottom">

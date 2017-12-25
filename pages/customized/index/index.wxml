@@ -58,6 +58,7 @@
     <view class="box">
       <view class="box-left">
         <view class="star">*</view>成人数</view>
+        
       <image src="http://image.365zhiding.com/wxapp/20171121/jian.png" style='width:31rpx;height:31rpx;margin-left:400rpx;' bindtap="handleTapReduce" id="adult"></image>
       <view class='num'>{{formData.tourers.subNum.adult}}</view>
       <image src="http://image.365zhiding.com/wxapp/20171121/add.png" style='width:31rpx;height:31rpx;' bindtap="handleTapIncrease" id="adult"></image>

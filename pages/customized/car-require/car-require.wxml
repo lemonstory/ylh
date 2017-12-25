@@ -7,9 +7,13 @@
           <view class="air-type">
                <view class="type-left">巴士座位数</view>
                <view class="car-right">
-                    <image src="http://image.365zhiding.com/wxapp/20171121/jian.png" style='width:31rpx;height:31rpx;margin-left:200rpx;' bindtap="handleTapReduce" id="sites"></image>
-                    <view class='num' style='margin-left:20rpx'>{{currentCarsSites}}</view>
-                    <image src="http://image.365zhiding.com/wxapp/20171121/add.png" style='width:31rpx;height:31rpx;margin-left:30rpx;' bindtap="handleTapIncrease" id="sites"></image>
+                    <view style='height:90rpx;width:90rpx; background:red;display:flex;flex;align-items:center;justify-content:center;' bindtap="handleTapReduce" id="sites">
+                         <image src="http://image.365zhiding.com/wxapp/20171121/jian.png" style='width:31rpx;height:31rpx;'></image>
+                    </view>
+                    <view class='num' style='width:40rpx'>{{currentCarsSites}}</view>
+                    <view style='height:90rpx;width:90rpx; background:red;display:flex;flex;align-items:center;justify-content:center;' bindtap="handleTapIncrease" id="sites">
+                         <image src="http://image.365zhiding.com/wxapp/20171121/add.png" style='width:31rpx;height:31rpx;'></image>
+                    </view>
                </view>
           </view>
 
@@ -26,7 +30,7 @@
                </view>
           </view>
 
-          
+
           <view class="air-ask zhiding">指定车型：</view>
           <view class="settion">
                <textarea placeholder="请输入您指定的车型" bindinput="handleAppointInput" value="{{currentAppointValue}}" placeholder-style="font-size:28rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);" style='width:690rpx;height:260rpx;margin-left:30rpx;margin-right:30rpx;border:1rpx solid #eee; padding-left:30rpx;padding-top:30rpx;box-sizing: border-box; border-radius: 10rpx;margin-bottom:30rpx;'
@@ -34,7 +38,7 @@
           </view>
      </view>
 
-     <view style='margin-left:665rpx;font-size:24rpx;font-family:PingFang-SC-Regular;color:rgba(0,118,255,1);' bindtap='handleTapNextStep'>跳过</view>
+     <view class="goback" style='font-size:24rpx;font-family:PingFang-SC-Regular;color:rgba(0,118,255,1);' bindtap='handleTapNextStep'>跳过</view>
 
 
      <view class="bottom">

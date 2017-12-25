@@ -4,42 +4,45 @@
   <view class="main">
     <!-- <view class="tab-h" bindtap='checkCor'>
       <view class="tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="swichNav">{{ orderType[0].name}}</view> -->
-      <!-- <view class="tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="swichNav">{{ orderType[1].name}}</view> -->
+    <!-- <view class="tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="swichNav">{{ orderType[1].name}}</view> -->
     <!-- </view> -->
 
-    <!-- 常规路线开始 -->
-    <block wx:if="{{currentTab==0}}">
-      <view class="route" wx:for="{{commonOrder}}" wx:key="commonOrder">
-        <view class="route-top">
-          <view>订单号：{{item.ordersn}}</view>
-          <view>{{item.statusStr}}</view>
-        </view>
-        <view class="route-center">
-          <image class="route-img" src="http://image.365zhiding.com/wxapp/20171221/00.png"></image>
-          <view class="center-text">
-            <view class="text1">{{item.pName}}</view>
-            <view class="text2">出行时间：{{item.travelDate}}</view>
-            <view class="text3">出行人数：{{item.travelNumber}}人</view>
+
+    <block wx:if="{{commonOrder.length > 0 ||  visaOrder.length > 0}}">
+
+      <!-- 常规路线开始 -->
+      <block wx:if="{{currentTab==0}}">
+        <view class="route" wx:for="{{commonOrder}}" wx:key="commonOrder">
+          <view class="route-top">
+            <view>订单号：{{item.ordersn}}</view>
+            <view>{{item.statusStr}}</view>
+          </view>
+          <view class="route-center">
+            <image class="route-img" src="http://image.365zhiding.com/wxapp/20171221/00.png"></image>
+            <view class="center-text">
+              <view class="text1">{{item.pName}}</view>
+              <view class="text2">出行时间：{{item.travelDate}}</view>
+              <view class="text3">出行人数：{{item.travelNumber}}人</view>
+            </view>
+          </view>
+          <view class="route-bottom">
+            <view class="bottom-left">订单金额：¥{{item.amount}}</view>
+            <view class="all-right">
+              <view class="bottom-right" data-ordersn="{{item.ordersn}} " wx:if="{{item.isAllowCancel ==1}}" bindtap='onChangeShowState'>取消订单</view>
+              <view class="bottom-right" style='color:#FF6600;border:1rpx solid #FF6600; margin-left:20rpx' data-statusid="{{item.statusId}}" data-ordersn="{{item.ordersn}} " bindtap='toOrderDetail'>{{item.statusId == 101 ? "去支付":"订单详情"}}</view>
+            </view>
           </view>
         </view>
-        <view class="route-bottom">
-          <view class="bottom-left">订单金额：¥{{item.amount}}</view>
-          <view class="all-right">
-            <view class="bottom-right" data-ordersn="{{item.ordersn}} " wx:if="{{item.isAllowCancel ==1}}" bindtap='onChangeShowState'>取消订单</view>
-            <view class="bottom-right" style='color:#FF6600;border:1rpx solid #FF6600; margin-left:20rpx' data-statusid="{{item.statusId}}" data-ordersn="{{item.ordersn}} " bindtap='toOrderDetail'>{{item.statusId == 101 ? "去支付":"订单详情"}}</view>
-          </view>
-        </view>
-      </view>
-    </block>
+      </block>
 
-    <!--常规线路结束  -->
+      <!--常规线路结束  -->
 
 
 
 
-    <!--签证开始  -->
+      <!--签证开始  -->
 
-    <!-- <block wx:else="{{currentTab==2}}">
+      <!-- <block wx:else="{{currentTab==2}}">
       <view class="route" wx:for="{{list}}">
         <view class="route-top">
           <view>订单号：{{item.order}}</view>
@@ -62,9 +65,14 @@
       </view>
     </block>  -->
 
-    <!--签证结束  -->
-
-
+      <!--签证结束  -->
+      
+    </block>
+    <block wx:else>
+      <image class="image-order" src="http://image.365zhiding.com/wxapp/20171220/order.png"></image>
+      <view class="message">哎呦，您现在还没有订单～</view>
+      <view class="bottom">我要定制旅游</view>
+    </block>
 
     <!--取消订单弹出信息的展示开始  -->
     <view class=" hidden-box hide{{showView? 'show': ''}} "></view>
@@ -73,7 +81,7 @@
       <view class="{{selectCancleReson== 0?'check-select1':'check1'}}"></view>
       <view class="hidden-text2 " bindtap='handleSelectReson' data-index='0'>{{cancleReson[0].reson}}</view>
       <view class="{{selectCancleReson==1?'check-select2':'check2' }}"></view>
-      <view class="hidden-text3 "bindtap='handleSelectReson' data-index='1'>{{cancleReson[1].reson}}</view>
+      <view class="hidden-text3 " bindtap='handleSelectReson' data-index='1'>{{cancleReson[1].reson}}</view>
       <view class="{{selectCancleReson==2?'check-select3':'check3' }}"></view>
       <view class="hidden-text4 " bindtap='handleSelectReson' data-index='2'>{{cancleReson[2].reson}}</view>
       <view class="{{selectCancleReson==3?'check-select4':'check4'}} "></view>

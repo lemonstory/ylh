@@ -1,13 +1,14 @@
 {
   "pages": [
-    "pages/API/personal-my-order/personal-my-order",
-    "pages/API/visa-find/visa-find",
-    "pages/API/passport/passport",
-    "pages/API/passport_direction/passport_direction", 
-    "pages/API/divide-order-detail1/divide-order-detail1",
-    
-    
-    
+ 
+    "pages/line/index/index",
+    "pages/line/category/category",
+    "pages/line/leader-introduce/leader-introduce",
+    "pages/line/line-detail/line-detail",
+    "pages/line/line-list/line-list",
+
+    "pages/index/index",
+
     "pages/customized/index/index",
     "pages/customized/air-ticket/air-ticket",
     "pages/customized/car-require/car-require",
@@ -28,18 +29,6 @@
     "pages/distributer/password-modify/password-modify",
     "pages/distributer/subordinate/subordinate",
     "pages/distributer/unsettlement/unsettlement",
-
-
-
-
-
-    "pages/index/index",
-    "pages/line/index/index",
-    "pages/line/category/category",
-    "pages/line/leader-introduce/leader-introduce",
-    "pages/line/line-detail/line-detail",
-    "pages/line/line-list/line-list",
-
 
 
     "pages/order/add-address/add-address",
@@ -71,7 +60,13 @@
 
     
     "pages/common/international-code/international-code",
-    "pages/distributer/qrcode/qrcode"
+    "pages/distributer/qrcode/qrcode",
+
+    "pages/API/personal-my-order/personal-my-order",
+    "pages/API/visa-find/visa-find",
+    "pages/API/passport/passport",
+    "pages/API/passport_direction/passport_direction",
+    "pages/API/divide-order-detail1/divide-order-detail1"
   ],
   "window": {
     "navigationBarBackgroundColor": "#ffffff",

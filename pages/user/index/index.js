@@ -3,7 +3,6 @@ const app = getApp();
 const Toast = require('../../../zanui-weapp/dist/toast/index');
 var util = require('../../../utils/util.js')
 
-
 Page(Object.assign({}, Toast, {
 
   data: {
@@ -29,7 +28,7 @@ Page(Object.assign({}, Toast, {
     var userAccessData = util.getUserAccessData();
     if (util.isEmptyObject(userAccessData)) {
 
-      console.warn("userAccessData为空,调用get_session");
+      console.warn("[我的]userAccessData为空,调用get_session");
       wx.checkSession({
         success: function () {
           //session 未过期，并且在本生命周期一直有效
@@ -68,19 +67,21 @@ Page(Object.assign({}, Toast, {
                         //重置userAccessData值
                         console.log("[重置] 本地存储 userAccessData ")
                         that.data.constant.userAccessData = {};
+
+                        //代理商信息存储
+                        if (!util.isEmptyStr(res.data.distributerId)) {
+                          util.setDistributerId(res.data.distributerId);
+                        } else {
+
+                          console.error("res.data.distributerId = " + res.data.distributerId);
+                        }
+
+                        that.wxLoginCallBack();
                       },
                       fail: function (res) {
-                        console.warn(res);
+                        console.error(res);
                       }
                     });
-
-                    //代理商信息存储
-                    if (!util.isEmptyStr(res.data.distributerId)) {
-                      util.setDistributerId(res.data.distributerId);
-                    } else {
-
-                      console.error("res.data.distributerId = " + res.data.distributerId);
-                    }
                   },
 
                   fail: function (res) {
@@ -109,40 +110,10 @@ Page(Object.assign({}, Toast, {
 
     } else {
 
-      var isDistributer = util.isDistributer();
-      var distributerAccessData = util.getDistributerAccessData();
-      that.setData({
-        isDistributer: isDistributer,
-        distributerAccessData: distributerAccessData
-      })
-
-      //用户为非代理商
-      if (!isDistributer) {
-
-        //用户没有代理商id
-        if (!util.isOwnDistributerId()) {
-          wx: wx.redirectTo({
-            url: '/pages/user/visitor/visitor',
-            success: function (res) { },
-            fail: function (res) { },
-            complete: function (res) { },
-          })
-        } else {
-
-          //用户有代理商Id但未注册
-          console.log(that.data);
-          if (!util.isOwnAccessToken()) {
-            wx: wx.redirectTo({
-              url: '/pages/user/wx-mobile/wx-mobile',
-              success: function (res) { },
-              fail: function (res) { },
-              complete: function (res) { },
-            })
-          }
-        }
-      }
-      console.log(that.data);
+      that.wxLoginCallBack();
     }
+    console.log(that.data);
+
   },
 
   /**
@@ -198,6 +169,44 @@ Page(Object.assign({}, Toast, {
     return util.defaultShareData();
   },
 
+  //登录成功-回调
+  wxLoginCallBack: function () {
+
+    var that = this;
+    var isDistributer = util.isDistributer();
+    var distributerAccessData = util.getDistributerAccessData();
+    that.setData({
+      isDistributer: isDistributer,
+      distributerAccessData: distributerAccessData
+    })
+
+    //用户为非代理商
+    if (!isDistributer) {
+
+      //用户没有代理商id
+      if (!util.isOwnDistributerId()) {
+        wx: wx.redirectTo({
+          url: '/pages/user/visitor/visitor',
+          success: function (res) { },
+          fail: function (res) { },
+          complete: function (res) { },
+        })
+      } else {
+
+        //用户有代理商Id但未注册
+        console.log(that.data);
+        if (!util.isOwnAccessToken()) {
+          wx: wx.redirectTo({
+            url: '/pages/user/wx-mobile/wx-mobile',
+            success: function (res) { },
+            fail: function (res) { },
+            complete: function (res) { },
+          })
+        }
+      }
+    }
+  },
+
   toast: function () {
     this.setData({
       modalHidden: !this.data.modalHidden
@@ -212,7 +221,7 @@ Page(Object.assign({}, Toast, {
 
   handleTapCommission: function () {
     wx.navigateTo({
-         url:'/pages/distributer/commission/commission'
+      url: '/pages/distributer/commission/commission'
     })
   },
 
@@ -283,6 +292,5 @@ Page(Object.assign({}, Toast, {
     wx.navigateTo({
       url: '/pages/user/order/order',
     })
-
   }
 }))

@@ -201,8 +201,7 @@ function getDistributerAccessData() {
       }
     } catch (e) {
       // Do something when catch error
-
-      console.warn(e);
+      console.error(e);
     }
   } else {
     console.log("全局 distributerToken 不为空");
@@ -305,7 +304,8 @@ function isDistributer() {
   try {
     var distributerIdValue = wx.getStorageSync(constant.constant.distributerIdKey)
     var distributerAccessDataValue = wx.getStorageSync(constant.constant.distributerAccessDataKey)
-    if (distributerIdValue && distributerAccessDataValue) {
+
+    if (!isEmptyStr(distributerIdValue) && !isEmptyObject(distributerAccessDataValue)) {
       ret = true;
     }
   } catch (e) {

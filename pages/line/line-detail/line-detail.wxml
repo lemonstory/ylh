@@ -20,7 +20,7 @@
     </swiper>
 
     <view class="tuijuan-text">
-      <view class="text1">{{title}}</view>
+      <view class="text1">【{{attr}}】{{title}}</view>
       <view class="tuijuan-bottom">
         <view class="text2">¥{{minPrice / 100}}
           <view class="personal">/人起</view>
@@ -90,9 +90,9 @@
     </scroll-view>
 
     <block wx:if="{{startDatePriceListFormat.length > 10}}">
-    <view class="back11" bindtap='handleTapStartOrder'>
-      <image src='http://image.365zhiding.com/wxapp/20171114/1.png'></image>
-    </view>
+      <view class="back11" bindtap='handleTapStartOrder'>
+        <image src='http://image.365zhiding.com/wxapp/20171114/1.png'></image>
+      </view>
     </block>
   </view>
   <!--出发日期结束-->
@@ -129,14 +129,16 @@
   </block>
 
   <view class="plan ">
-    <view>{{day}}日行程</view>
+    <view wx:if="{{template.name =='simple'}}">详细行程</view>
+    <view wx:else>{{day}}日行程</view>
     <view>温馨提示</view>
     <view>费用说明</view>
     <view>用户评价</view>
   </view>
   <view class="plandetail ">
     <view class="react "></view>
-    <view class="dataplan">{{day}}日行程</view>
+    <view class="dataplan" wx:if="{{template.name =='simple'}}">详细行程</view>
+    <view class="dataplan" wx:else>{{day}}日行程</view>
     <view class="react1 "></view>
     <image class="planimg" wx:for="{{template.public}}" wx:key="idx" src='{{item}}' mode='aspectFill'></image>
 
@@ -153,7 +155,7 @@
     <block wx:elif="{{template.name =='simple'}}">
       <template is="address-detail-simple" data="{{template:template}}" />
     </block>
-    <block wx:else="{{template.name == 'custom'}}">
+    <block wx:elif="{{template.name == 'custom'}}">
       <template is="address-detail-custom" data="{{template:template}}" />
     </block>
   </view>

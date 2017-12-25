@@ -1,7 +1,7 @@
 <template name="address-detail-simple">
      <!--行程详情安排  -->
-     <view class="day1">DAY 1</view>
-     <image class="line" src="http://image.365zhiding.com/wxapp/20171121/line.png"></image>
+     <!-- <view class="day1">DAY 1</view> -->
+     <!-- <image class="line" src="http://image.365zhiding.com/wxapp/20171121/line.png"></image> -->
      <block wx:for="{{template.simple}}" wx:for-index="idx" wx:for-item="item" wx:key="template.simple">
           <view class="jiaotong">{{item.key}}</view>
           <view class="shijian" wx:for="{{item.items}}" wx:for-index="idx" wx:for-item="item" wx:key="item.items">{{item.key}}{{item.value}}</view>

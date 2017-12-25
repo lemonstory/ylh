@@ -10,7 +10,7 @@
       <block wx:for="{{canlenderMonthDataList}}" wx:key="canlenderMonthDataList" wx:for-index="canlenderMonthDataListIndex">
 
         <view class="month" data-price_list_index="{{item.priceListIndex}}" data-month_index="{{canlenderMonthDataListIndex}}" bindtap='handleTapMonthHeader'>{{item.month}}月
-          <view class="price">￥{{item.min}}起</view>
+          <view class="price">￥{{item.min / 100}}起</view>
 
           <view wx:if="{{canlenderMonthDataListIndex == currentSelectedMonthIndex}}">
             <image src="http://image.365zhiding.com/wxapp/20171220/choice.png" style='width:50rpx;height:18rpx;position:absolute;left:75rpx;bottom:-3rpx'></image>
@@ -46,7 +46,7 @@
                   bindtap='handleTapCanlenderDay'>
                   {{day.date}}
                   <block wx:if="{{day.suitList.length > 0}}">
-                    <view class="money active {{day.date == currentSelectedDay ? 'money-current' : ''}}">￥{{day.suitList[0].adultprice}}</view>
+                    <view class="money active {{day.date == currentSelectedDay ? 'money-current' : ''}}">￥{{day.suitList[0].adultprice / 100}}</view>
                   </block>
                 </view>
               </view>

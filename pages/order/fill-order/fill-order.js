@@ -269,17 +269,17 @@ Page(Object.assign({}, Toast, {
       return false;
     }
 
-    if (that.data.formData.receiverAddress.length <= 0) {
+    // if (that.data.formData.receiverAddress.length <= 0) {
 
-      that.showZanToast("请添加您的收货地址");
-      return false;
-    }
+    //   that.showZanToast("请添加您的收货地址");
+    //   return false;
+    // }
 
-    if (that.data.formData.linkEmail.length > 0 && !util.isEmail(that.data.formData.linkEmail)) {
+    // if (that.data.formData.linkEmail.length > 0 && !util.isEmail(that.data.formData.linkEmail)) {
 
-      that.showZanToast("请检查输入的电子邮箱地址");
-      return false;
-    }
+    //   that.showZanToast("请检查输入的电子邮箱地址");
+    //   return false;
+    // }
     return true;
   },
 

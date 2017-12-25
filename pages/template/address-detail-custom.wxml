@@ -4,8 +4,8 @@
           <!--此处是富文本编辑,图片和文本在content中 -->
          
           <!-- <view class="day1text">{{item.content}}</view> -->
-          <view class='day1text' style='margin-top:0;padding:0'>
-          <rich-text class="day1text" nodes="{{item.content}}"></rich-text>
+          <view class='day1text' style='margin-top:0;padding:0;margin-bottom:0'>
+          <rich-text nodes="{{item.content}}"></rich-text>
           </view>
      </block>
 </template>

@@ -426,7 +426,7 @@ Page(Object.assign({}, Toast, {
     var difference = 0;
 
     //总人数 % 2 == 1时，总价里面增加单房差，反之不增加
-    if ((subNumTemp.child + subNumTemp.adult + subNumTemp.old) % 2 == 1) {
+    if ((subNumTemp.adult + subNumTemp.old) % 2 == 1) {
 
       difference = that.data.currentSuitList[that.data.currentSuitSelectedIndex].difference;
       that.setData({

@@ -4,6 +4,7 @@
           <view class="day">{{item.key}}</view>
           <!--此处是富文本编辑,图片和文本在content中 -->
           <image class="day1img" mode='widthFix'></image>
-          <view class="day1text">{{item.content}}</view>
+          <!-- <view class="day1text">{{item.content}}</view> -->
+          <rich-text class="day1text" nodes="{{item.content}}"></rich-text>
      </block>
 </template>

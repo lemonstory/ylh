@@ -230,6 +230,18 @@ Page(Object.assign({}, Toast, {
     that.setData({
       isSelected: !this.data.isSelected,
     })
+
+    //发票选中 金额增加发票费用
+    if (that.data.isSelected) {
+
+      that.setData({
+        'formData.amount': that.data.formData.amount + that.data.formData.postage
+      })
+    }else{
+      that.setData({
+        'formData.amount': that.data.formData.amount - that.data.formData.postage
+      })
+    } 
   },
 
   /**

@@ -140,7 +140,7 @@ Page(Object.assign({}, Toast, {
 
     var pages = getCurrentPages();
     var currPage = pages[pages.length - 1];   //当前页面
-    var prevPage = pages[pages.length - 2];  //上一个页面
+    var prevPage = pages[pages.length - 3];  //上一个页面
 
     var prevPageFormDataTemp = prevPage.data.formData;
     prevPageFormDataTemp.hotel.type = id;
@@ -166,7 +166,7 @@ Page(Object.assign({}, Toast, {
 
     var pages = getCurrentPages();
     var currPage = pages[pages.length - 1];   //当前页面
-    var prevPage = pages[pages.length - 2];  //上一个页面
+    var prevPage = pages[pages.length - 3];  //上一个页面
 
     var prevPageFormDataTemp = prevPage.data.formData;
     prevPageFormDataTemp.hotel.stars = id;
@@ -191,7 +191,7 @@ Page(Object.assign({}, Toast, {
 
     var pages = getCurrentPages();
     var currPage = pages[pages.length - 1];   //当前页面
-    var prevPage = pages[pages.length - 2];  //上一个页面
+    var prevPage = pages[pages.length - 3];  //上一个页面
 
     var prevPageFormDataTemp = prevPage.data.formData;
     prevPageFormDataTemp.hotel.roomStandard = id;
@@ -230,7 +230,7 @@ Page(Object.assign({}, Toast, {
 
     var pages = getCurrentPages();
     var currPage = pages[pages.length - 1];   //当前页面
-    var prevPage = pages[pages.length - 2];  //上一个页面
+    var prevPage = pages[pages.length - 3];  //上一个页面
 
     var prevPageFormDataTemp = prevPage.data.formData;
     prevPageFormDataTemp.hotel.appoint = value;

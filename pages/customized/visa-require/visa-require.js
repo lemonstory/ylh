@@ -129,7 +129,7 @@ Page(Object.assign({}, Toast, {
 
     var pages = getCurrentPages();
     var currPage = pages[pages.length - 1];   //当前页面
-    var prevPage = pages[pages.length - 2];  //上一个页面
+    var prevPage = pages[pages.length - 3];  //上一个页面
 
     var prevPageFormDataTemp = prevPage.data.formData;
     prevPageFormDataTemp.visa.reason = id;
@@ -156,7 +156,7 @@ Page(Object.assign({}, Toast, {
 
     var pages = getCurrentPages();
     var currPage = pages[pages.length - 1];   //当前页面
-    var prevPage = pages[pages.length - 2];  //上一个页面
+    var prevPage = pages[pages.length - 3];  //上一个页面
 
     var prevPageFormDataTemp = prevPage.data.formData;
     prevPageFormDataTemp.visa.type = id;
@@ -196,7 +196,7 @@ Page(Object.assign({}, Toast, {
 
     var pages = getCurrentPages();
     var currPage = pages[pages.length - 1];   //当前页面
-    var prevPage = pages[pages.length - 2];  //上一个页面
+    var prevPage = pages[pages.length - 3];  //上一个页面
     var prevPageFormDataTemp = prevPage.data.formData;
     //用户创建定制需求接口
     var url = that.data.constant.domain + '/distrbuter/member/order/addCustomized';

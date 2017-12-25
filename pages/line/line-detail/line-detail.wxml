@@ -4,6 +4,7 @@
 <import src="../../template/address-detail-normal" />
 <import src="/zanui-weapp/dist/toast/index.wxml" />
 <import src="/zanui-weapp/dist/loadmore/index.wxml" />
+
 <view class="container">
   <!-- 顶部开始 -->
 
@@ -21,7 +22,7 @@
     <view class="tuijuan-text">
       <view class="text1">{{title}}</view>
       <view class="tuijuan-bottom">
-        <view class="text2">¥{{minPrice}}
+        <view class="text2">¥{{minPrice / 100}}
           <view class="personal">/人起</view>
           <view class="tehui" wx:for="{{tags}}" wx:key="tags" wx:for-index="idx" style="background:{{item.color}}">{{item.name}}</view>
         </view>
@@ -84,11 +85,11 @@
     <scroll-view class="dataform" scroll-x="true">
       <view class="dataul {{selectedTravelDateIndex==data_idx?'active_tag':''}}" wx:for="{{startDatePriceListFormat}}" wx:key="idx" bindtap="handleTapChooseDate" wx:for-index="data_idx" data-data_idx="{{data_idx}}" data-date="{{item.date}}" data-month_index="{{item.monthIndex}}">
         <view class="riqi {{selectedTravelDateIndex==data_idx?'active':''}}">{{item.dateStr}}</view>
-        <view class="money">￥{{item.min}}</view>
+        <view class="money">￥{{item.min / 100}}</view>
       </view>
     </scroll-view>
 
-    <block wx:if="startDatePriceListFormat.length > 10">
+    <block wx:if="{{startDatePriceListFormat.length > 10}}">
     <view class="back11" bindtap='handleTapStartOrder'>
       <image src='http://image.365zhiding.com/wxapp/20171114/1.png'></image>
     </view>
@@ -123,12 +124,9 @@
       <view class="react"></view>
       <view class="leadertitle">行程亮点</view>
       <view class="react1"></view>
-      <view class="xing-text">
-        {{merits}}</view>
+      <rich-text class="xing-text" nodes="{{merits}}"></rich-text>
     </view>
   </block>
-
-
 
   <view class="plan ">
     <view>{{day}}日行程</view>
@@ -178,10 +176,7 @@
     <view class="react"></view>
     <view class="leadertitle">费用说明</view>
     <view class="react1"></view>
-    <view class="paytext">
-      {{expense}}
-      <!-- <view class="ptext1">{{expense}}</view> -->
-    </view>
+    <rich-text class="paytext" nodes="{{expense}}"></rich-text>
   </view>
 
   <!--费用说明结束  -->

@@ -10,7 +10,6 @@ var constant = {
   "payDomain": "https://payment.yuelvhui.com",
 
 
-
   //代理商ID(number,required)
   //TODO: 获取代理商信息后需要设置这个值
   'agentId': 1,

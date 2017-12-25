@@ -37,9 +37,15 @@ Page(Object.assign({}, Toast, {
     //将上一页的数据在显示在当前页面
     var pages = getCurrentPages();
     var currPage = pages[pages.length - 1];   //当前页面
-    var prevPage = pages[pages.length - 2];  //上一个页面
+    var prevPage = pages[pages.length - 3];  //上上一个页面
 
     var prevPageFormDataTemp = prevPage.data.formData;
+
+    console.log("打印上一页数据")
+    console.log(pages)
+    console.log(prevPage.data)
+    console.log(prevPage.data.formData)
+
 
     var defaultHotelTypeId = prevPageFormDataTemp.hotel.type;
     var defaultHotelTypeTitle = util.getTitleWithId(app.constant.hotelType, defaultHotelTypeId)

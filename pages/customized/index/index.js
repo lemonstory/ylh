@@ -18,6 +18,7 @@ Page(Object.assign({}, Toast, {
         "subNum": {
           'child': 0,                   //小孩数量
           'adult': 0,                   //成人数量
+          'old': 0,                     //老人数量
         },
       },
       'day': '',                        //出行天数(number,required),
@@ -164,6 +165,15 @@ Page(Object.assign({}, Toast, {
           })
         }
         break;
+
+      case 'old':
+        if (formDataTemp.tourers.subNum.old >= 1) {
+          formDataTemp.tourers.subNum.old = formDataTemp.tourers.subNum.old - 1;
+          that.setData({
+            formData: formDataTemp
+          })
+        }
+        break;
     }
     // console.log(that.data.formData);
   },
@@ -186,6 +196,13 @@ Page(Object.assign({}, Toast, {
 
       case 'child':
         formDataTemp.tourers.subNum.child = formDataTemp.tourers.subNum.child + 1;
+        that.setData({
+          formData: formDataTemp
+        })
+        break;
+
+      case 'old':
+        formDataTemp.tourers.subNum.old = formDataTemp.tourers.subNum.old + 1;
         that.setData({
           formData: formDataTemp
         })
@@ -275,17 +292,6 @@ Page(Object.assign({}, Toast, {
       return false;
     }
 
-    if (that.data.formData.toCity.length <= 0) {
-
-      that.showZanToast("请填写抵达城市");
-      return false;
-    }
-
-    if (that.data.formData.characteristic.length <= 0) {
-
-      that.showZanToast("请输入您想玩的景点");
-      return false;
-    }
     return true;
   },
 

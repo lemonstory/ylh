@@ -29,7 +29,7 @@ Page(Object.assign({}, Toast, {
     //将上一页的数据在显示在当前页面
     var pages = getCurrentPages();
     var currPage = pages[pages.length - 1];   //当前页面
-    var prevPage = pages[pages.length - 2];  //上一个页面
+    var prevPage = pages[pages.length - 3];  //上上一个页面
 
     var prevPageFormDataTemp = prevPage.data.formData;
 
@@ -208,17 +208,24 @@ Page(Object.assign({}, Toast, {
 
       success: function (res) {
         
-        wx.showToast({
-          title: '成功',
-          icon: 'success',
-          duration: 2000
-        })
-
+        
         //orderId 订单id(number,required)
         //ordersn 订单号 (string,required)
         //tourGroup 团号(string,required)
         console.log("🍺 🍺 🍺")
         console.log(res);
+
+        wx.showToast({
+          title: '成功',
+          icon: 'success',
+          duration: 1000,
+        })
+
+        setTimeout(function () {
+          wx.redirectTo({
+            url: '/pages/user/visitor/visitor',
+          })
+        }, 1000);
       },
 
       fail: function (res) {
@@ -227,21 +234,7 @@ Page(Object.assign({}, Toast, {
         that.showZanToast(res);
       },
 
-      complete: function (res) {
-
-        wx.hideLoading();
-        // var url = '/pages/index/index';
-        // wx.switchTab({
-        //   url: url,
-        //   success: function (res) { },
-        //   fail: function (res) {
-        //     console.log(res);
-        //     that.showZanToast("页面跳转错误");
-        //   },
-        //   complete: function (res) { },
-        // })
-        wx.navigateBack({})
-      }
+      complete: function (res) {}
     });
   }
 }));

@@ -39,7 +39,7 @@
           </view>
      </view>
 
-<view style='margin-left:665rpx;font-size:24rpx;font-family:PingFang-SC-Regular;color:rgba(0,118,255,1);'>跳过</view>
+<view style='margin-left:665rpx;font-size:24rpx;font-family:PingFang-SC-Regular;color:rgba(0,118,255,1);' bindtap='handleTapNextStep'>跳过</view>
 
 
      <view class="bottom">

@@ -58,12 +58,12 @@
     <view class="box">
       <view class="box-left">
         <view class="star">*</view>成人数</view>
-      <image src="http://image.365zhiding.com/wxapp/20171121/jian.png" style='width:31rpx;height:31rpx;margin-left:400rpx;' bindtap="handleTapReduce" id="adult" id="adult"></image>
+      <image src="http://image.365zhiding.com/wxapp/20171121/jian.png" style='width:31rpx;height:31rpx;margin-left:400rpx;' bindtap="handleTapReduce" id="adult"></image>
       <view class='num'>{{formData.tourers.subNum.adult}}</view>
       <image src="http://image.365zhiding.com/wxapp/20171121/add.png" style='width:31rpx;height:31rpx;' bindtap="handleTapIncrease" id="adult"></image>
     </view>
 
-  <view class="box">
+    <view class="box">
       <view class="box-left">
         <view class="star">*</view>儿童数 </view>
       <image src="http://image.365zhiding.com/wxapp/20171121/jian.png" style='width:31rpx;height:31rpx;margin-left:400rpx;' bindtap="handleTapReduce" id="child"></image>
@@ -72,15 +72,13 @@
     </view>
 
 
-       <view class="box">
+    <view class="box">
       <view class="box-left">
         <view class="star">*</view>老人数</view>
-      <image src="http://image.365zhiding.com/wxapp/20171121/jian.png" style='width:31rpx;height:31rpx;margin-left:400rpx;' bindtap="handleTapReduce" id="adult" id="adult"></image>
-      <view class='num'>{{formData.tourers.subNum.adult}}</view>
-      <image src="http://image.365zhiding.com/wxapp/20171121/add.png" style='width:31rpx;height:31rpx;' bindtap="handleTapIncrease" id="adult"></image>
+      <image src="http://image.365zhiding.com/wxapp/20171121/jian.png" style='width:31rpx;height:31rpx;margin-left:400rpx;' bindtap="handleTapReduce" id="old"></image>
+      <view class='num'>{{formData.tourers.subNum.old}}</view>
+      <image src="http://image.365zhiding.com/wxapp/20171121/add.png" style='width:31rpx;height:31rpx;' bindtap="handleTapIncrease" id="old"></image>
     </view>
-
-
 
 
     <view class="box">
@@ -127,7 +125,7 @@
 
     <view class="box">
       <view class="box-left">
-        <view class="star">*</view>抵达城市</view>
+        <view class="star"></view>抵达城市</view>
       <input class="input" placeholder="请输入抵达城市" placeholder-style="font-size:28rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);" bindinput='bindInputValueChange' id="toCity" value='{{formData.toCity}}'></input>
       <view class="close hide{{formData.toCity != ''?'show':''}}" bindtap='handleTapClearInput' data-id="toCity">
         <image style='width:36rpx;height:36rpx; margin-left:70rpx;' src='http://image.365zhiding.com/wxapp/20171221/close.png'></image>
@@ -135,7 +133,7 @@
     </view>
     <view class="box box1">
       <view class="box-left">
-        <view class="star">*</view>特色景点:</view>
+        <view class="star"></view>特色景点:</view>
     </view>
 
     <view class="settion" style='margin-bottom:120rpx;'>

@@ -4,8 +4,8 @@ var constant = {
   "domain": "https://qa-api.yuelvhui.com",
 
   //代理商域名
-  "distributerDomain":"https://qa-distributor.yuelvhui.com",
-  
+  "distributerDomain": "https://qa-distributor.yuelvhui.com",
+
   //收银台域名
   "payDomain": "https://payment.yuelvhui.com",
 
@@ -17,21 +17,21 @@ var constant = {
   //系统来源,10悦旅汇，20小程序
   'tradeId': 20,
   //每页显示条数
-  'pageSize':20,
-  
+  'pageSize': 20,
+
   //收银台支付
   "paymentTradeType": "WX_JSAPP",
   "paymentSysSource": "distributor",
 
   //数据存储key
-  'userAccessDataKey':'userAccessData',
+  'userAccessDataKey': 'userAccessData',
   'distributerIdKey': 'distributerId',
-  'distributerAccessDataKey':'distributerAccessData',
+  'distributerAccessDataKey': 'distributerAccessData',
 
   //用户访问数据
-  'userAccessData':{},
-  'distributerId':'',
-  'distributerAccessData':{},
+  'userAccessData': {},
+  'distributerId': '',
+  'distributerAccessData': {},
 
 
 
@@ -91,6 +91,9 @@ var constant = {
   }, {
     id: '3',
     title: '成人'
+  }, {
+    id: '4',
+    title: '老人'
   }],
 
   //机型要求

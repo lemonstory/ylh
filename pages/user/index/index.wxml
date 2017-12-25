@@ -7,7 +7,7 @@
           </view>
 
           <view class="box1">
-          <view class="list" bindtap='handleTapCommission'>
+               <view class="list" bindtap='handleTapCommission'>
                     <view class="list-left">
                          <view class="icon">
                               <image src='http://image.365zhiding.com/wxapp/20171121/111 (2).png'></image>
@@ -30,8 +30,6 @@
                     </view>
                     <!-- <modal title="提示" hidden="{{modalHidden}}" confirm-text="确定" cancel-text="取消" bindconfirm="modalBindaconfirm" bindcancel="modalBindcancel">您现在还没有下级代理商快去发展吧~</modal> -->
                </view>
-
-
                <view class="list" bindtap='handleTapOrderQuery' style='border-bottom:none'>
                     <view class="list-left">
                          <view class="icon">
@@ -60,6 +58,7 @@
                     </view>
                </view>
                <!--弹出信息的展示开始  -->
+
                <view class="hidden-box hide{{showView?'show':''}}"></view>
                <view class="hidden hide{{showView?'show':''}}">
                     <view class="hidden-text1">呼叫客服</view>
@@ -117,20 +116,21 @@
                     <view class="list-right">
                          <image src='http://image.365zhiding.com/wxapp/20171114/1.png' style="width:14rpx;height:24rpx"></image>
                     </view>
+               </view>
 
-                    <!--弹出信息的展示开始  -->
-                    <view class="hidden-box hide{{showView?'show':''}}"></view>
-                    <view class="hidden hide{{showView?'show':''}}">
-                         <view class="hidden-text1">呼叫客服</view>
-                         <view class="hidden-text2">400-189-0876</view>
-                         <view class="hidden-text3">周一至周六 09:30-18:30</view>
-                         <view class="line"></view>
-                         <view class="line2"></view>
-                         <view class="cancel" bindtap='cancel'>取消</view>
-                         <view class="sure" bindtap='callPhone'>呼叫</view>
-                    </view>
+               <!--弹出信息的展示开始  -->
+               <view class="hidden-box hide{{showView?'show':''}}"></view>
+               <view class="hidden hide{{showView?'show':''}}">
+                    <view class="hidden-text1">呼叫客服</view>
+                    <view class="hidden-text2">400-189-0876</view>
+                    <view class="hidden-text3">周一至周六 09:30-18:30</view>
+                    <view class="line"></view>
+                    <view class="line2"></view>
+                    <view class="cancel" bindtap='cancel'>取消</view>
+                    <view class="sure" bindtap='callPhone'>呼叫</view>
                </view>
           </view>
+
 
      </view>
 </block>

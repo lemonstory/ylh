@@ -146,7 +146,7 @@
           <view wx:else>{{day}}日行程</view>
           <view>温馨提示</view>
           <view>费用说明</view>
-          <view>用户评价</view>
+          <!-- <view>用户评价</view> -->
      </view>
      <view class="plandetail ">
           <view class="react "></view>

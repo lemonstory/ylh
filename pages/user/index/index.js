@@ -10,8 +10,9 @@ Page(Object.assign({}, Toast, {
     buttonDisabled: false,
     modalHidden: true,
     show: false,
-
-    //是否为代理商
+    showView:false,
+  
+//是否为代理商
     isDistributer: false,
     distributerAccessData: {},
   },
@@ -19,9 +20,8 @@ Page(Object.assign({}, Toast, {
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-
-    var that = this;
+  onLoad: function (options) { 
+     var that = this;
 
     //当用户切换至{我的}是app.js里面的get_session还没有返回
     //如果userAccessData为空,则调用get_session
@@ -245,25 +245,24 @@ Page(Object.assign({}, Toast, {
   onChangeShowState: function () {
     var that = this;
     that.setData({
-      showView: (!that.data.showView)
-    })
+      showView: true,
+})
   },
 
-  cancel: function () {
+cancel: function () {
     var that = this;
     that.setData({
-      showView: false
-    })
+      showView: false,
+})
   },
-
-  callPhone: function () {
+callPhone: function () {
     wx.makePhoneCall({
       phoneNumber: '400-189-0876',
     })
     var that = this;
     that.setData({
-      showView: false
-    })
+      showView:false,
+})
   },
 
   goMyOrder: function (e) {

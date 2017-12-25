@@ -15,7 +15,7 @@ App({
     //场景 - 公众号自定义菜单
     //跳转代理商登录页
     //TODO: 检查代理商登录状态
-    if (options.scene == 1035 && !util.isDistributerLogin()) {
+    if ((options.scene == 1035 || options.query.isDistributer == 1) && !util.isDistributerLogin()) {
 
       wx: wx.redirectTo({
         url: '/pages/distributer/login/login',

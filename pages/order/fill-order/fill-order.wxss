@@ -208,12 +208,14 @@ transform:translate(-50%, -48%) scale(0.73);
      color: rgba(51, 51, 51, 1);
      line-height: 84rpx;
      display: flex;
+     z-index: 22;
 }
 
 .input-name input {
      height: 84rpx;
      line-height: 84rpx;
      width: 500rpx;
+     z-index:22;
 }
 
 .ischeck{
@@ -450,6 +452,7 @@ transform:translate(-50%, -48%) scale(0.73);
      position: relative;
      background:#fff;
      z-index: 999;
+     background: #fff;
 }
 
 .deli {

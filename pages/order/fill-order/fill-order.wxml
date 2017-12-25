@@ -44,11 +44,11 @@
      <view class="lianxi-box">
           <view class="lianxi-message">联系人信息</view>
           <view class="input-name">姓名：
-               <input class="input" placeholder="必填" placeholder-style="font-size:26rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);" style='padding-left:82rpx; box-sizing: border-box;' bindinput='bindInputValueChange' id="formData.linkMan" value='{{formData.linkMan}}'>></input>
+               <input class="input" placeholder="必填" placeholder-style="font-size:26rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);z-index:1;" style='padding-left:82rpx; box-sizing: border-box;' bindinput='bindInputValueChange' id="formData.linkMan" value='{{formData.linkMan}}'>></input>
 
           </view>
           <view class="input-name">手机号：
-               <input class="input" placeholder="请输入11位手机号码" placeholder-style="font-size:26rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);" style='padding-left:56rpx; box-sizing: border-box;' bindinput='bindInputValueChange' id="formData.linkTel" value='{{formData.linkTel}}'></input>
+               <input class="input" placeholder="请输入11位手机号码" placeholder-style="font-size:26rpx;z-index:1;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);" style='padding-left:56rpx; box-sizing: border-box;' bindinput='bindInputValueChange' id="formData.linkTel" value='{{formData.linkTel}}'></input>
           </view>
 
           <view class="input-name style='border-bottom:none'">邮箱：
@@ -117,9 +117,8 @@
 
      </view>
 </view>
-
-     <!--收获地址结束  -->
-     <!--底部开始  -->
+     <!--收获地址结束-->
+     <!--底部开始 -->
      <view class="bottom">
           <view class="bottom-left">
                <view class='total'>总计：
@@ -172,6 +171,6 @@
      </view>
 
      <!-- 直接使用 zan-toast 模板，并且直接传入 zanToast -->
-     <template is="zan-toast" data="{{ zanToast }}"></template>
+     <template is="zan-toast" data="{{zanToast}}"></template>
 
 </view>

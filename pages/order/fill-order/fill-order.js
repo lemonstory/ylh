@@ -310,6 +310,20 @@ Page(Object.assign({}, Toast, {
     var that = this;
     if (that.checkInput()) {
 
+      //如果没有单房差
+      if (!that.data.formData.isAddedDifference) {
+        that.setData({
+          'formData.difference':0
+        });
+      }
+
+      //如果没有发票
+      if (!that.data.isSelected) {
+        that.setData({
+          'formData.postage': 0
+        });
+      }
+
       var url = '/pages/order/pay-confirm/pay-confirm';
       console.log("url = " + url);
       wx.navigateTo({

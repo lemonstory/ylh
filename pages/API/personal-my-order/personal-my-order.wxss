@@ -13,6 +13,8 @@
      border-top: 1rpx solid #eee;
      height: 100vh;
      position: relative;
+     width:100%;
+     overflow: hidden;
 }
 
 .image-order {

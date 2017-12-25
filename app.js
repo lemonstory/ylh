@@ -65,9 +65,6 @@ App({
 
               success: function (res) {
 
-                console.log("🏃 🏃 🏃");
-                console.log(res);
-                console.log(constant);
                 var url = constant.constant.domain + "/weixin/get_session";
                 console.log("url = " + url);
                 if (res.code) {
@@ -85,60 +82,64 @@ App({
 
                     success: function (res) {
 
-                      guid = res.data.guid;
-                      // 本地存储用户信息
-                      wx.setStorage({
-                        key: constant.constant.userAccessDataKey,
-                        data: res.data,
-                        success: function (res) {
+                      if(res.statusCode == 200) {
 
-                          //重置userAccessData值
-                          console.log("[重置] 本地存储 userAccessData ")
-                          constant.constant.userAccessData = {};
-                        },
-                        fail: function (res) {
-                          console.warn(res);
-                        }
-                      });
+                        guid = res.data.guid;
+                        // 本地存储用户信息
+                        wx.setStorage({
+                          key: constant.constant.userAccessDataKey,
+                          data: res.data,
+                          success: function (res) {
 
-                      //代理商信息存储
-                      if (!util.isEmptyStr(res.data.distributerId)) {
-                        util.setDistributerId(res.data.distributerId);
-                      } else {
-
-                        console.error("res.data.distributerId = " + res.data.distributerId);
-                      }
-
-                      // 获取用户信息
-                      wx.getSetting({
-                        success: res => {
-
-                          console.log(res.authSetting);
-                          if (res.authSetting['scope.userInfo']) {
-                            // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
-                            that.getWxUserInfo();
-                          } else {
-                            // 未授权
-                            console.log("💥 未授权");
-                            //TODO:这里在模拟器上不稳定
-                            wx.authorize({
-                              scope: 'scope.userInfo',
-                              success() {
-                                //获取微信用户信息
-                                that.getWxUserInfo();
-                              },
-                              fail() {
-                                console.log("失败 调用")
-                                console.warn(res);
-                              },
-                              complete() {
-                                console.log("完成 调用")
-                              }
-                            })
-
+                            //重置userAccessData值
+                            console.log("[重置] 本地存储 userAccessData ")
+                            constant.constant.userAccessData = {};
+                          },
+                          fail: function (res) {
+                            console.warn(res);
                           }
+                        });
+
+                        //代理商信息存储
+                        if (!util.isEmptyStr(res.data.distributerId)) {
+                          util.setDistributerId(res.data.distributerId);
+                        } else {
+
+                          console.error("res.data.distributerId = " + res.data.distributerId);
                         }
-                      })
+
+                        // 获取用户信息
+                        wx.getSetting({
+                          success: res => {
+
+                            console.log(res.authSetting);
+                            if (res.authSetting['scope.userInfo']) {
+                              // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
+                              that.getWxUserInfo();
+                            } else {
+                              // 未授权
+                              console.log("💥 未授权");
+                              //TODO:这里在模拟器上不稳定
+                              wx.authorize({
+                                scope: 'scope.userInfo',
+                                success() {
+                                  //获取微信用户信息
+                                  that.getWxUserInfo();
+                                },
+                                fail() {
+                                  console.log("失败 调用")
+                                  console.warn(res);
+                                },
+                                complete() {
+                                  console.log("完成 调用")
+                                }
+                              })
+                            }
+                          }
+                        })
+                      }else {
+                        console.error(res);
+                      }
                     },
 
                     fail: function (res) {

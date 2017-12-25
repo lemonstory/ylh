@@ -57,31 +57,35 @@ Page(Object.assign({}, Toast, {
 
                   success: function (res) {
 
-                    guid = res.data.guid;
-                    // 本地存储用户信息
-                    wx.setStorage({
-                      key: that.data.constant.userAccessDataKey,
-                      data: res.data,
-                      success: function (res) {
+                    if (res.statusCode == 200) {
+                      guid = res.data.guid;
+                      // 本地存储用户信息
+                      wx.setStorage({
+                        key: that.data.constant.userAccessDataKey,
+                        data: res.data,
+                        success: function (res) {
 
-                        //重置userAccessData值
-                        console.log("[重置] 本地存储 userAccessData ")
-                        that.data.constant.userAccessData = {};
+                          //重置userAccessData值
+                          console.log("[重置] 本地存储 userAccessData ")
+                          that.data.constant.userAccessData = {};
 
-                        //代理商信息存储
-                        if (!util.isEmptyStr(res.data.distributerId)) {
-                          util.setDistributerId(res.data.distributerId);
-                        } else {
+                          //代理商信息存储
+                          if (!util.isEmptyStr(res.data.distributerId)) {
+                            util.setDistributerId(res.data.distributerId);
+                          } else {
 
-                          console.error("res.data.distributerId = " + res.data.distributerId);
+                            console.error("res.data.distributerId = " + res.data.distributerId);
+                          }
+
+                          that.wxLoginCallBack();
+                        },
+                        fail: function (res) {
+                          console.error(res);
                         }
-
-                        that.wxLoginCallBack();
-                      },
-                      fail: function (res) {
-                        console.error(res);
-                      }
-                    });
+                      });
+                    } else {
+                      console.error(res)
+                    }
                   },
 
                   fail: function (res) {
@@ -175,9 +179,11 @@ Page(Object.assign({}, Toast, {
     var that = this;
     var isDistributer = util.isDistributer();
     var distributerAccessData = util.getDistributerAccessData();
+    var userAccessData = util.getUserAccessData();
     that.setData({
       isDistributer: isDistributer,
-      distributerAccessData: distributerAccessData
+      distributerAccessData: distributerAccessData,
+      userAccessData: userAccessData
     })
 
     //用户为非代理商

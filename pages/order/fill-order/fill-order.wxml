@@ -60,7 +60,7 @@
 
 
      <!--全程单房差开始  -->
-     <view class="all-box">
+     <view class="all-box" wx:if="{{(formData.tourers.subNum.adult + formData.tourers.subNum.child + formData.tourers.subNum.old) % 2 == 1}}">
           <view class="yufu">
                <view class="yufu-text">预付单房差</view>
                <!-- 单房差是固定的，加号只是个标识，没有其他意义 -->

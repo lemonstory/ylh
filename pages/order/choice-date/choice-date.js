@@ -433,16 +433,14 @@ Page(Object.assign({}, Toast, {
         'userSelectedLineDetail.isAddedDifference': true,
       })
     } else {
+
+      difference = 0;
       that.setData({
         'userSelectedLineDetail.isAddedDifference': false,
       })
     }
+
     var amount = adultAmount + childAmount + oldAmount + difference;
-    // if (amount > 0) {
-    //   amount = amount + postage;
-    // }
-
-
     that.setData({
       'userSelectedLineDetail.amount': amount,
     })

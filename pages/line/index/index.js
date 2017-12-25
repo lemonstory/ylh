@@ -21,8 +21,8 @@ Page(Object.assign({}, Toast, {
     'isLoading': false,
   },
 
-onLoad: function (options) {
-//用户为非代理商 且 用户没有代理商id
+  onLoad: function (options) {
+    //用户为非代理商 且 用户没有代理商id
     // if (!util.isDistributer() && !util.isOwnDistributerId()) {
 
     //   wx: wx.redirectTo({
@@ -33,7 +33,7 @@ onLoad: function (options) {
     //   })
     // } else {
 
-      this.getData();
+    this.getData();
     // }
   },
 
@@ -70,18 +70,19 @@ onLoad: function (options) {
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-     this.getData();
 
-},
+    var that = this;
+    this.getData();
+  },
 
   /**
     * 停止下拉刷新动画
     */
   stopPullDownRefresh: function () {
-       wx.stopPullDownRefresh({
-            complete: function (res) {
-            }
-       });
+    wx.stopPullDownRefresh({
+      complete: function (res) {
+      }
+    });
   },
 
 
@@ -111,38 +112,39 @@ onLoad: function (options) {
 
   },
 
-//获取接口
+  //获取接口
   getData: function () {
+
     var that = this;
     wx.request({
       url: that.data.constant.domain + '/distrbuter/line/index',
       data: {},
       header: util.getRequestHeader(),
       success: function (res) {
-        console.log(res.data);
         that.setData(res.data);
       },
       fail: function (res) {
-           console.log("### fail ###");
-           console.log(res);
+        console.error(res);
       },
-      complete: function (res) {
-           console.log("### complete ###");
-           console.log(res);
-      },
+      complete: function (res) { },
     })
   },
-//处理banner图点击事件
+
+
+  //处理banner图点击事件
   handleBanner: function (event) {
     var that = this;
     var path = ''
     var src = event.currentTarget.dataset.src;
     that.navigateToUrl(src);
   },
-/*** 跳转url
-   */
+  
+  
+  /*** 
+   * 跳转url
+  */
   navigateToUrl: function (url) {
-   var that=this;
+    var that = this;
     var path;
     if (!util.isEmptyStr(url)) {
 
@@ -157,11 +159,11 @@ onLoad: function (options) {
       })
 
     } else {
-     console.warn("url为空")
+      console.warn("url为空")
       //测试
       that.showZanToast("url为空");
     }
-},
+  },
 
   handleAd: function (event) {
     var that = this;
@@ -264,7 +266,7 @@ onLoad: function (options) {
   },
 
 
-bindSearch: function () {
+  bindSearch: function () {
     var path = "/pages/search/search/search"
     wx.navigateTo({
       url: path

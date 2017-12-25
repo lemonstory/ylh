@@ -3,7 +3,6 @@ const app = getApp();
 const Toast = require('../../../zanui-weapp/dist/toast/index');
 var util = require('../../../utils/util.js')
 
-
 Page(Object.assign({}, Toast, {
 
   data: {
@@ -107,42 +106,42 @@ Page(Object.assign({}, Toast, {
         complete: function () { }
       });
 
-    } else {
+    }
 
-      var isDistributer = util.isDistributer();
-      var distributerAccessData = util.getDistributerAccessData();
-      that.setData({
-        isDistributer: isDistributer,
-        distributerAccessData: distributerAccessData
-      })
+    var isDistributer = util.isDistributer();
+    var distributerAccessData = util.getDistributerAccessData();
+    that.setData({
+      isDistributer: isDistributer,
+      distributerAccessData: distributerAccessData
+    })
 
-      //用户为非代理商
-      if (!isDistributer) {
+    //用户为非代理商
+    if (!isDistributer) {
 
-        //用户没有代理商id
-        if (!util.isOwnDistributerId()) {
+      //用户没有代理商id
+      if (!util.isOwnDistributerId()) {
+        wx: wx.redirectTo({
+          url: '/pages/user/visitor/visitor',
+          success: function (res) { },
+          fail: function (res) { },
+          complete: function (res) { },
+        })
+      } else {
+
+        //用户有代理商Id但未注册
+        console.log(that.data);
+        if (!util.isOwnAccessToken()) {
           wx: wx.redirectTo({
-            url: '/pages/user/visitor/visitor',
+            url: '/pages/user/wx-mobile/wx-mobile',
             success: function (res) { },
             fail: function (res) { },
             complete: function (res) { },
           })
-        } else {
-
-          //用户有代理商Id但未注册
-          console.log(that.data);
-          if (!util.isOwnAccessToken()) {
-            wx: wx.redirectTo({
-              url: '/pages/user/wx-mobile/wx-mobile',
-              success: function (res) { },
-              fail: function (res) { },
-              complete: function (res) { },
-            })
-          }
         }
       }
-      console.log(that.data);
     }
+    console.log(that.data);
+
   },
 
   /**
@@ -212,7 +211,7 @@ Page(Object.assign({}, Toast, {
 
   handleTapCommission: function () {
     wx.navigateTo({
-         url:'/pages/distributer/commission/commission'
+      url: '/pages/distributer/commission/commission'
     })
   },
 

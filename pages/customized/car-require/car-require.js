@@ -32,11 +32,8 @@ Page(Object.assign({}, Toast, {
     var pages = getCurrentPages();
     var currPage = pages[pages.length - 1];   //当前页面
     var prevPage = pages[pages.length - 3];  //上上一个页面
-
     var prevPageFormDataTemp = prevPage.data.formData;
-
     var defaultCarsSites = prevPageFormDataTemp.cars.sites;
-
     var defaultCarsTypeId = prevPageFormDataTemp.cars.type;
     var defaultCarsTypeTitle = util.getTitleWithId(app.constant.carsType, defaultCarsTypeId)
 

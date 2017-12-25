@@ -63,7 +63,7 @@
 
 
     <!--全程单房差开始  -->
-    <view class="all-box">
+    <view class="all-box" wx:if="{{prevPageData.formData.isAddedDifference}}">
       <view class="yufu">
         <view class="yufu-text">预付单房差</view>
         <view class="yufu-money">+ ¥{{prevPageData.formData.difference/100}}</view>
@@ -71,7 +71,7 @@
     </view>
     <!--全程单房差结束  -->
 
-    <view class="fapiao-box">
+    <view class="fapiao-box" wx:if="{{prevPageData.isSelected}}">
       <view class="fapiao">
         <view class="fapiao-text">开具发票</view>
       </view>
@@ -92,7 +92,7 @@
     <!--开具发票结束  -->
 
     <!--收获地址开始  -->
-    <view class="get-add">
+    <view class="get-add" wx:if="{{prevPageData.isSelected}}">
       <view class="fapiao">发票地址</view>
       <view class="choice-add ">{{prevPageData.formData.receiverAddress}}</view>
     </view>

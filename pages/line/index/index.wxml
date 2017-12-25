@@ -16,8 +16,7 @@
                     <image src="http://image.365zhiding.com/wxapp/20171112/sou.png"></image>
                </view>
           </view>
-
-     </view>
+</view>
 
 
      <!--广告位的判断，如果为空不显示  -->
@@ -29,8 +28,7 @@
           </view>
      </block>
 
-
-     <!-- 热门目的地开始 -->
+<!-- 热门目的地开始 -->
      <view class="hot">
           <view class="hot-font">
                <view>{{areaList.title}}</view>

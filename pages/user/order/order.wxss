@@ -1,5 +1,58 @@
 /* pages/API/my-order/my-order.wxss */
 
+
+.container1 {
+     box-sizing: border-box;
+     margin: 0;
+     padding: 0;
+     list-style: none;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: space-between;
+     background: #fff;
+     border-top: 1rpx solid #eee;
+     height: 100vh;
+     position: relative;
+     width:100%;
+     overflow: hidden;
+}
+
+.image-order {
+     width: 350rpx;
+     height: 275rpx;
+     position: absolute;
+     top: 214rpx;
+     left: 214rpx;
+}
+
+.message {
+     width: 473px;
+     height: 35px;
+     font-size: 40rpx;
+     font-family:'DFPWaWaW5';
+     color: rgba(102, 102, 102, 1);
+     position: absolute;
+     top: 573rpx;
+     left: 154rpx;
+}
+
+.bottom1 {
+     position: absolute;
+     bottom: 30rpx;
+     left: 30rpx;
+     height: 88rpx;
+     width: 690rpx;
+     background: #F78210;
+     font-size: 32rpx;
+     font-family: PingFang-SC-Regular;
+     color: rgba(255, 255, 255, 1);
+     line-height: 88rpx;
+     text-align: center;
+     border-radius: 10rpx;
+
+}
+
 .container {
   display: flex;
   flex-direction: column;

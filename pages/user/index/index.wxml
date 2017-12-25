@@ -7,8 +7,7 @@
           </view>
 
           <view class="box1">
-
-               <view class="list" bindtap='handleTapCommission'>
+          <view class="list" bindtap='handleTapCommission'>
                     <view class="list-left">
                          <view class="icon">
                               <image src='http://image.365zhiding.com/wxapp/20171121/111 (2).png'></image>

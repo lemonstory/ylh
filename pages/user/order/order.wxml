@@ -65,13 +65,15 @@
       </view>
     </block>  -->
 
-      <!--签证结束  -->
+<!--签证结束  -->
       
     </block>
     <block wx:else>
-      <image class="image-order" src="http://image.365zhiding.com/wxapp/20171220/order.png"></image>
-      <view class="message">哎呦，您现在还没有订单～</view>
-      <view class="bottom">我要定制旅游</view>
+<view class="container1">
+    <image class="image-order" src="http://image.365zhiding.com/wxapp/20171220/order.png"></image>
+   <view class="message">哎呦，您现在还没有订单～</view>
+   <navigator url='../../customized/index/index'><view class="bottom1">我要定制旅游</view></navigator>
+</view>
     </block>
 
     <!--取消订单弹出信息的展示开始  -->

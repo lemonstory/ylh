@@ -116,7 +116,7 @@ Page(Object.assign({}, Toast, {
 
     var pages = getCurrentPages();
     var currPage = pages[pages.length - 1];   //当前页面
-    var prevPage = pages[pages.length - 3];  //上一个页面
+    var prevPage = pages[pages.length - 2];  //上一个页面
 
     var prevPageFormDataTemp = prevPage.data.formData;
     prevPageFormDataTemp.cars.type = id;
@@ -141,7 +141,7 @@ onChangeCarsTypeViewShow: function () {
 
     var pages = getCurrentPages();
     var currPage = pages[pages.length - 1];   //当前页面
-    var prevPage = pages[pages.length - 3];  //上一个页面
+    var prevPage = pages[pages.length - 2];  //上一个页面
 
     var prevPageFormDataTemp = prevPage.data.formData;
 
@@ -163,7 +163,7 @@ onChangeCarsTypeViewShow: function () {
 
     var pages = getCurrentPages();
     var currPage = pages[pages.length - 1];   //当前页面
-    var prevPage = pages[pages.length - 3];  //上一个页面
+    var prevPage = pages[pages.length - 2];  //上一个页面
     
     var prevPageFormDataTemp = prevPage.data.formData;
 
@@ -184,7 +184,7 @@ onChangeCarsTypeViewShow: function () {
 
     var pages = getCurrentPages();
     var currPage = pages[pages.length - 1];   //当前页面
-    var prevPage = pages[pages.length - 3];  //上一个页面
+    var prevPage = pages[pages.length - 2];  //上一个页面
 
     var prevPageFormDataTemp = prevPage.data.formData;
     prevPageFormDataTemp.cars.appoint = value;
@@ -211,12 +211,10 @@ onChangeCarsTypeViewShow: function () {
     })
   },
 
-  /**
-   * 
+/** 
    * 下一步
    */
-  handleTapNextStep: function () {
-
+handleTapNextStep: function () {
     var that = this;
     var url = '/pages/customized/food-require/food-require';
     wx.redirectTo({

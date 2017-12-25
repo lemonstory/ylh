@@ -203,7 +203,7 @@
 
   <!--收获地址开始  -->
   <view class="get-add">
-    <view class="fapiao">收获地址</view>
+    <view class="fapiao">发票地址</view>
     <view class="choice-add ">{{orderDetail.receiverAddress}}</view>
   </view>
 </view>

@@ -63,28 +63,31 @@ Page(Object.assign({}, Toast, {
                   },
                   success: function (res) {
 
-                    guid = res.data.guid;
-                    // 本地存储用户信息
-                    wx.setStorage({
-                      key: that.data.constant.userAccessDataKey,
-                      data: res.data,
-                      success: function (res) {
+                    if(res.statusCode == 200) {
 
-                        //重置userAccessData值
-                        console.log("[重置] 本地存储 userAccessData ")
-                        app.constant.userAccessData = {};
-                        util.getUserAccessData();
-                      },
-                      fail: function (res) {
-                        console.error(res);
+                      guid = res.data.guid;
+                      // 本地存储用户信息
+                      wx.setStorage({
+                        key: that.data.constant.userAccessDataKey,
+                        data: res.data,
+                        success: function (res) {
+
+                          //重置userAccessData值
+                          console.log("[重置] 本地存储 userAccessData ")
+                          app.constant.userAccessData = {};
+                          util.getUserAccessData();
+                        },
+                        fail: function (res) {
+                          console.error(res);
+                        }
+                      });
+
+                      //代理商信息存储
+                      if (!util.isEmptyStr(res.data.distributerId)) {
+                        util.setDistributerId(res.data.distributerId);
+                      } else {
+                        console.warn("res.data.distributerId = " + res.data.distributerId);
                       }
-                    });
-
-                    //代理商信息存储
-                    if (!util.isEmptyStr(res.data.distributerId)) {
-                      util.setDistributerId(res.data.distributerId);
-                    } else {
-                      console.warn("res.data.distributerId = " + res.data.distributerId);
                     }
                   },
 

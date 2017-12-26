@@ -94,7 +94,7 @@
                <image class=" logo" src="{{userAccessData.headimgurl}}"></image>
                <view class="text2" style='margin-top:-30rpx;'>{{userAccessData.mobile}}</view>
           </view>
-          <view class="box1">
+          <view class="box2">
                <view class="list" bindtap='bindUserOrder'>
                     <view class="list-left">
                          <view class="icon">

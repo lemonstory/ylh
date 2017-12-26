@@ -43,7 +43,8 @@ transform:translate(-50%, -48%) scale(0.73);
      width: 100%;
      height: auto;
      background: #fff;
-     margin-top: 5rpx;
+     margin-top:5rpx;
+     padding-top: 30rpx;
 }
 
 .go-time {
@@ -52,7 +53,6 @@ transform:translate(-50%, -48%) scale(0.73);
      font-size: 24rpx;
      font-family: PingFang-SC-Regular;
      color: rgba(102, 102, 102, 1);
-     margin-top: 30rpx;
      margin-left: 30rpx;
 }
 

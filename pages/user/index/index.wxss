@@ -51,6 +51,11 @@ width:750rpx;
 height:300rpx; 
 background:#fff;
 }
+.box2{
+width:750rpx;
+height:auto; 
+background:#fff;
+}
 .list{
   width:690rpx;
   height:98rpx;
@@ -67,6 +72,7 @@ background:#fff;
 .icon{
   width:34rpx;
   height:34rpx;
+  display: flex;
   }
 .icon image{
   width:100%;

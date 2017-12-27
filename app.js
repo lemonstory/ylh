@@ -56,11 +56,11 @@ App({
 
       if (!util.isEmptyStr(distributerId)) {
 
-        if (util.isEmptyObject(util.getUserAccessData())) {
+        // if (util.isEmptyObject(util.getUserAccessData())) {
 
           wx.checkSession({
             success: function () {
-              //session 未过期，并且在本生命周期一直有效
+              console.log("session 未过期，并且在本生命周期一直有效")
             },
 
             fail: function () {
@@ -167,7 +167,7 @@ App({
             },
             complete: function () { }
           });
-        }
+        // }
       } else {
 
         //跳转到订单查询

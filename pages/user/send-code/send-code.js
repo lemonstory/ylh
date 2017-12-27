@@ -43,14 +43,14 @@ Page(Object.assign({}, Toast, {
 
       //再次获取guid
       var distributerId = util.getDistributerId();
-      wx.checkSession({
-        success: function () {
-          //session 未过期，并且在本生命周期一直有效
-        },
+      // wx.checkSession({
+      //   success: function () {
+      //     //session 未过期，并且在本生命周期一直有效
+      //   },
 
-        fail: function () {
+      //   fail: function () {
 
-          console.log("🚀 🚀 🚀 -- [send-code.js]微信登录态过期,重新登录");
+          console.log("🚀 🚀 🚀 -- [send-code.js] 调用get_session接口");
           //登录态过期
           //重新登录
           wx.login({
@@ -123,8 +123,8 @@ Page(Object.assign({}, Toast, {
 
             complete: function (res) { }
           });
-        }
-      })
+        // }
+      // })
     }
   },
 

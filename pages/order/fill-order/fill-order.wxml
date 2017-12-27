@@ -9,8 +9,7 @@
           <view class="go-plan">行程：{{day}}天{{night}}晚</view>
      </view>
      <!--出行时间结束  -->
-
-     <!--选择出行人数开始  -->
+<!--选择出行人数开始  -->
      <view class="choice">
           <view class="person">选择出行人数</view>
           <view class="choice-num">{{formData.tourers.subNum.adult}}成人 {{formData.tourers.subNum.child}}儿童 {{formData.tourers.subNum.old}}老人 </view>
@@ -95,6 +94,8 @@
                     </radio-group>
                </view>
 
+
+               <block wx:if="{{formData.orderBill.type==2}}">
                <view class="input-name">抬头：
                     <input class="input" placeholder="请输入抬头" placeholder-style="font-size:26rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);" style='padding-left:82rpx; box-sizing: border-box;' bindinput='bindInputValueChange' id="formData.orderBill.title"
                          value='{{formData.orderBill.title}}'></input>
@@ -103,6 +104,7 @@
                     <input class="input" placeholder="请填写纳税人识别号" placeholder-style="font-size:26rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);" style='padding-left:82rpx; box-sizing: border-box;' bindinput='bindInputValueChange' id="formData.orderBill.taxNum"
                          value='{{formData.orderBill.taxNum}}'></input>
                </view>
+               </block>
 
                <view class="shuoming">说明：所开发票为增值税普通发票，金额为实际支付的商品费用，内容为代办签证费。</view>
           </view>
@@ -123,7 +125,7 @@
 </view>
      <!--收获地址结束-->
      <!--底部开始 -->
-     <view class="bottom">
+     <view class="bottom" style="z-index: 9999;">
           <view class="bottom-left">
                <view class='total'>总计：
                     <view class="total-money">￥{{formData.amount / 100}}</view>

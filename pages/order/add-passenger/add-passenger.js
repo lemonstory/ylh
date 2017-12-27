@@ -12,7 +12,7 @@ Page(Object.assign({}, Toast, {
     'cardType': 0,
     'cardNumber': '',
     'ageGroup': 0,
-    'gender': 0,
+    'gender': -1,
 
     'id': 0,
     'newId': 0,
@@ -25,6 +25,16 @@ Page(Object.assign({}, Toast, {
 
     //是否是修改
     'isUpdate': false,
+
+
+    //[重要]出行人的性别,和其他地方不一致 0：女， 1：男
+    passengerGender: [{
+      id: '1',
+      title: '男'
+    }, {
+      id: '0',
+      title: '女'
+    }],
   },
 
   /**
@@ -245,7 +255,7 @@ Page(Object.assign({}, Toast, {
       return false;
     }
 
-    if (parseInt(that.data.gender) <= 0) {
+    if (parseInt(that.data.gender) < 0) {
 
       that.showZanToast("请选择性别");
       return false;

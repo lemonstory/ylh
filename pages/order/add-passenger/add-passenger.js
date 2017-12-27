@@ -46,6 +46,7 @@ Page(Object.assign({}, Toast, {
     var itemJsonStr = options.itemJsonStr;
     console.log("🦃 🦃 🦃")
     console.log("itemJsonStr = " + itemJsonStr);
+
     if (typeof (itemJsonStr) != "undefined") {
 
       //修改页面标题
@@ -237,6 +238,12 @@ Page(Object.assign({}, Toast, {
       return false;
     }
 
+    if (that.data.name.length > 10) {
+
+      that.showZanToast("中文名称最多10个汉字");
+      return false;
+    }
+
     if (parseInt(that.data.title) <= 0) {
 
       that.showZanToast("请选择职业身份");
@@ -267,11 +274,20 @@ Page(Object.assign({}, Toast, {
       return false;
     }
 
-    if (!util.isMobile(that.data.mobile)) {
+    if (1 == that.data.cardType && !util.isValidID(that.data.cardNumber)) {
+
+      that.showZanToast("请检查输入的身份证号");
+      return false;
+    }
+
+    if (!util.isMobile(that.data.mobile) && !util.isTelephone(that.data.mobile)) {
 
       that.showZanToast("请输入联系电话");
       return false;
     }
+
+
+
     return true;
   },
 

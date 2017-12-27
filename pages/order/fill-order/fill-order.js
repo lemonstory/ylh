@@ -19,7 +19,7 @@ Page(Object.assign({}, Toast, {
 
     // 收货地址显示信息
     'defaultReceiverAddress': '请添加您的收货地址',
-    'profileId':0,
+    'profileId': 0,
     // 收货地址信息
     'receiverAddress': {},
 
@@ -241,11 +241,11 @@ Page(Object.assign({}, Toast, {
       that.setData({
         'formData.amount': that.data.formData.amount + that.data.formData.postage
       })
-    }else{
+    } else {
       that.setData({
         'formData.amount': that.data.formData.amount - that.data.formData.postage
       })
-    } 
+    }
   },
 
   /**
@@ -283,19 +283,40 @@ Page(Object.assign({}, Toast, {
 
       that.showZanToast("请输入联系电话");
       return false;
-    
-    }else if (!util.isMobile(that.data.formData.linkTel)) {
+
+    } else if (!util.isMobile(that.data.formData.linkTel)) {
 
       that.showZanToast("联系人手机号不正确");
       return false;
     }
 
+    if (that.data.formData.orderBill.type == 2) {
 
-    // if (that.data.formData.receiverAddress.length <= 0) {
+      if (util.isEmptyStr(that.data.formData.orderBill.title)) {
 
-    //   that.showZanToast("请添加您的收货地址");
-    //   return false;
-    // }
+        that.showZanToast("请输入发票抬头");
+        return false;
+      }
+            
+      if (util.isEmptyStr(that.data.formData.orderBill.taxNum)) {
+
+        that.showZanToast("请输入发票税号");
+        return false;
+      } else {
+
+        if (!util.isTax(that.data.formData.orderBill.taxNum)) {
+
+          that.showZanToast("发票税号输入不正确");
+          return false;
+        }
+      }
+    }
+
+    if (that.data.isSelected && that.data.formData.receiverAddress.length <= 0) {
+
+      that.showZanToast("请添加您的发票地址");
+      return false;
+    }
 
     // if (that.data.formData.linkEmail.length > 0 && !util.isEmail(that.data.formData.linkEmail)) {
 
@@ -317,7 +338,7 @@ Page(Object.assign({}, Toast, {
       //如果没有单房差
       if (!that.data.formData.isAddedDifference) {
         that.setData({
-          'formData.difference':0
+          'formData.difference': 0
         });
       }
 
@@ -340,5 +361,5 @@ Page(Object.assign({}, Toast, {
       })
     }
   },
-  
+
 }));

@@ -243,7 +243,13 @@ Page(Object.assign({}, Toast, {
       return false;
     }
 
-    if (!util.isMobile(that.data.formData.linkTel)) {
+    if (that.data.formData.linkMan.length > 10) {
+
+      that.showZanToast("中文名称最多10个汉字");
+      return false;
+    }
+
+    if (!util.isMobile(that.data.formData.linkTel) && !util.isTelephone(that.data.formData.linkTel)) {
 
       that.showZanToast("请输入联系电话");
       return false;

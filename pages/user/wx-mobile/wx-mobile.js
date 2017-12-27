@@ -242,7 +242,7 @@ Page(Object.assign({}, Toast, {
 
               console.error("url = " + url);
               console.error(res);
-              that.showZanToast(res.data);
+              that.showZanToast(JSON.stringify(res.data));
             }
           },
 

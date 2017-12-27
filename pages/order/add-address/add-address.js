@@ -413,11 +413,18 @@ Page(Object.assign({}, Toast, {
    * 新建地址
    */
   createAddress: function () {
-
     var that = this;
-    wx.showLoading({
-      title: '加载中',
-    })
+    // 手机号和邮箱判断
+    var email = that.data.addressInfo.email;
+    var pone = that.data.addressInfo.mobile;
+    if (!util.isEmail(email)){        // 不为email
+      that.showZanToast("请输入正确的邮箱");
+      return;
+    }
+    if (!util.isMobile(pone)){     //不为电话
+      that.showZanToast("请输入正确的电话号码");
+      return;
+    }
 
     var url = '';
     if (that.data.addressInfo.id == 0) {       //新建
@@ -426,7 +433,9 @@ Page(Object.assign({}, Toast, {
       url = that.data.constant.domain + '/distrbuter/member/address/update';
     }
     var commitData = that.data.addressInfo;
-
+    wx.showLoading({
+      title: '加载中',
+    })
     wx.request({
       url: url,
       data: commitData,

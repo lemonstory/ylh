@@ -31,6 +31,7 @@ Page(Object.assign({}, Toast, {
       'linkTel': '',                  //订单联系电话(string,required)
       'linkEmail': '',                //联系人邮件(string,required)
       'isIncludeBaby': 0,             //是否包含婴儿(number,required)
+      'suitId': 0,                    //套餐id(number,required)
       'childprice': 0,                  //儿童费用
       'adultprice': 0,                  //成人费用
       'oldprice': 0,                    //老人价
@@ -105,6 +106,8 @@ Page(Object.assign({}, Toast, {
         'formData.difference': lineDetail.difference,
         'formData.isAddedDifference': lineDetail.isAddedDifference,
 
+        'formData.suitId': lineDetail.suitId,
+
         'formData.amount': lineDetail.amount,
         'formData.tourers.subNum.child': lineDetail.tourers.subNum.child,
         'formData.tourers.subNum.adult': lineDetail.tourers.subNum.adult,
@@ -114,9 +117,10 @@ Page(Object.assign({}, Toast, {
       })
     }
 
-    // console.log("xxxxx");
     console.log(that.data.formData);
+
   },
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成

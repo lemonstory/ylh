@@ -289,6 +289,7 @@ Page(Object.assign({}, Toast, {
         url: url,
         data: {
           //数据urlencode方式编码，变量间用&连接，再post
+          'id': that.data.id,
           'name': that.data.name,
           'title': that.data.title,
           'mobile': that.data.mobile,

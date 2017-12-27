@@ -32,11 +32,14 @@ Page(Object.assign({}, Toast, {
     var guid = userAccessData.guid;
     if (util.isEmptyStr(guid)) {
 
+
+
       //再次获取guid
       var distributerId = util.getDistributerId();
       wx.checkSession({
         success: function () {
           //session 未过期，并且在本生命周期一直有效
+          console.log("session 未过期，并且在本生命周期一直有效")
         },
 
         fail: function () {

@@ -26,6 +26,11 @@
   margin-right: 30rpx;
   padding-bottom: 30rpx;
   padding-top: 10rpx;
+
+
+      position: relative;
+    overflow: hidden;
+     
 }
 
 .ul-top {

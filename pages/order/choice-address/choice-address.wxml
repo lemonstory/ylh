@@ -2,19 +2,20 @@
 <import src="/zanui-weapp/dist/toast/index.wxml" />
 <view class="container">
   <view class="main-box">
-    <view class="address-ul" wx:for="{{data.list}}" wx:key="list" wx:for-index="idx">
-                <view bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" data-index="{{idx}}" style="{{item.txtStyle}}" class="inner txt">
-      <view catchtap='handelAddressSelect' data-id="{{ item.id}}" data-address="{{item.street}}">
-        <view class="ul-top">
-          <image class="check" src="{{ selectAddress==item.id ? icSelect :icUnSelect}}"></image>
-          <view class="top-name">{{item.name}}</view>
-          <view class="top-tell">{{item.mobile}}</view>
-          <image class="xiugai" src="http://image.365zhiding.com/wxapp/20171121/xiugai.png" catchtap='handelAddressEdit' data-idx="{{idx}}"></image>
+    <view class="address-ul" wx:for="{{data.list}}" wx:key="list" wx:for-index="idx" >
+       <view bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" data-index="{{idx}}" style="{{item.txtStyle}}" class="inner txt"> 
+        <view catchtap='handelAddressSelect' data-id="{{ item.id}}" data-address="{{item.street}}">
+          <view class="ul-top">
+            <image class="check" src="{{ selectAddress==item.id ? icSelect :icUnSelect}}"></image>
+            <view class="top-name">{{item.name}}</view>
+            <view class="top-tell">{{item.mobile}}</view>
+            <image class="xiugai" src="http://image.365zhiding.com/wxapp/20171121/xiugai.png" catchtap='handelAddressEdit' data-idx="{{idx}}"></image>
+          </view>
+          <view class="ul-bottom">{{item.street}}</view>
         </view>
-        <view class="ul-bottom">{{item.street}}</view>
-      </view>
-      </view>
-      <view data-index="{{idx}}" bindtap = "delItem" class="inner del">删除</view>
+              <view data-index="{{idx}}" data-addressid="{{item.id}}" bindtap="delItem" class="inner del" >删除</view>
+       </view> 
+
     </view>
 
     <view class="bottom">

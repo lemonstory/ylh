@@ -31,7 +31,7 @@ Page(Object.assign({}, Toast, {
 
 
   onLoad: function (options) {
-    
+
     var that = this;
 
     // 页面初始化 options为页面跳转所带来的参数
@@ -172,30 +172,27 @@ Page(Object.assign({}, Toast, {
     });
   },
 
-  //点击删除按钮事件
+  /**
+   * 删除事件
+   */
   delItem: function (e) {
-    //获取列表中要删除项的下标
-    var index = e.target.dataset.index;
-
-    //调用接口删除
     var that = this;
+    var index = e.target.dataset.index;
+    var addressId = e.currentTarget.dataset.addressid;
     wx.showLoading({
       title: '加载中',
     })
 
-    //删除出行人接口
-    // var url = that.data.constant.domain + '/distrbuter/member/passenger/delete';
-    // wx.request({
-    //   url: url,
-    //   data: {
-    //     'id': that.data.data.list[index].id,
-    //   },
-    //   method: 'POST',
-    //   header: util.postRequestHeader(),
-    //   success: function (res) {
-
-    //     if (res.statusCode == 200) {
-
+    var url = that.data.constant.domain + "/distrbuter/member/address/delete";
+    wx.request({
+      url: url,
+      data: {
+        "id": addressId
+      },
+      header: util.getRequestHeader(),
+      method: 'POST',
+      success: function (res) {
+        if (res.statusCode == 200) {
           var list = that.data.data.list;
           //移除列表中下标为index的项
           list.splice(index, 1);
@@ -203,24 +200,17 @@ Page(Object.assign({}, Toast, {
           that.setData({
             'data.list': list
           });
+        }
+      },
+      fail: function (res) {
+        console.error(res);
+      },
+      complete: function (res) {
+        wx.hideLoading();
+        console.log(res);
 
-      //   } else {
-
-      //     console.error(res);
-      //     that.showZanToast(res.data.message);
-      //   }
-      // },
-
-      // fail: function (res) {
-      //   console.error(res);
-      //   var res = JSON.stringify(res);
-      //   that.showZanToast(res);
-      // },
-
-      // complete: function (res) {
-      //   wx.hideLoading();
-      // }
-    // });
+      }
+    })
   },
 
 

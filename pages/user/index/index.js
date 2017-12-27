@@ -23,96 +23,98 @@ Page(Object.assign({}, Toast, {
   onLoad: function (options) { 
      var that = this;
 
-    //当用户切换至{我的}是app.js里面的get_session还没有返回
-    //如果userAccessData为空,则调用get_session
-    var userAccessData = util.getUserAccessData();
-    if (util.isEmptyObject(userAccessData)) {
+     var userAccessData = util.getUserAccessData();
+     var guid = userAccessData.guid;
+     if (util.isEmptyStr(guid)) {
 
-      console.warn("[我的]userAccessData为空,调用get_session");
-      wx.checkSession({
-        success: function () {
-          //session 未过期，并且在本生命周期一直有效
-        },
+       //再次获取guid
+       var distributerId = util.getDistributerId();
+       wx.checkSession({
+         success: function () {
+           //session 未过期，并且在本生命周期一直有效
+         },
 
-        fail: function () {
-          console.log("🚀 🚀 🚀 -- 微信登录态过期,重新登录");
-          //登录态过期
-          //重新登录
-          wx.login({
-            success: function (res) {
-              var url = that.data.constant.domain + "/weixin/get_session";
-              console.log("url = " + url);
-              if (res.code) {
-                //发起网络请求
-                wx.request({
-                  url: url,
-                  data: {
-                    code: res.code,
-                    distributerId: distributerId
-                  },
+         fail: function () {
 
-                  header: {
-                    'content-type': 'application/json' // 默认值
-                  },
+           console.log("🚀 🚀 🚀 -- [index.js]微信登录态过期,重新登录");
+           //登录态过期
+           //重新登录
+           wx.login({
 
-                  success: function (res) {
+             success: function (res) {
 
-                    if (res.statusCode == 200) {
-                      guid = res.data.guid;
-                      // 本地存储用户信息
-                      wx.setStorage({
-                        key: that.data.constant.userAccessDataKey,
-                        data: res.data,
-                        success: function (res) {
+               var url = that.data.constant.domain + "/weixin/get_session";
+               console.log("url = " + url);
+               if (res.code) {
+                 //发起网络请求
+                 wx.request({
+                   header: util.getRequestHeader(),
+                   url: url,
+                   data: {
+                     code: res.code,
+                     distributerId: distributerId
+                   },
+                   success: function (res) {
 
-                          //重置userAccessData值
-                          console.log("[重置] 本地存储 userAccessData ")
-                          that.data.constant.userAccessData = {};
+                     if (res.statusCode == 200) {
 
-                          //代理商信息存储
-                          if (!util.isEmptyStr(res.data.distributerId)) {
-                            util.setDistributerId(res.data.distributerId);
-                          } else {
+                       guid = res.data.guid;
+                       // 本地存储用户信息
+                       wx.setStorage({
+                         key: that.data.constant.userAccessDataKey,
+                         data: res.data,
+                         success: function (res) {
 
-                            console.error("res.data.distributerId = " + res.data.distributerId);
-                          }
+                           //重置userAccessData值
+                           app.constant.userAccessData = {};
+                           util.getUserAccessData();
 
-                          that.wxLoginCallBack();
-                        },
-                        fail: function (res) {
-                          console.error(res);
-                        }
-                      });
-                    } else {
-                      console.error(res)
-                    }
-                  },
+                           that.wxLoginCallBack();
+                         },
+                         fail: function (res) {
+                           console.error(res);
+                         }
+                       });
 
-                  fail: function (res) {
-                    console.error(res);
-                  },
-                  complete: function (res) { }
-                })
-              } else {
-                console.log('获取用户登录态失败！' + res.errMsg)
-              }
-            },
+                       //代理商信息存储
+                       if (!util.isEmptyStr(res.data.distributerId)) {
+                         util.setDistributerId(res.data.distributerId);
+                       } else {
+                         console.error("代理商信息返回错误(不能为空) gsRes.data.distributerId = " + gsRes.data.distributerId);
+                       }
+                       
+                     } else {
 
-            fail: function (res) {
+                       var message = '/weixin/get_session 调用失败' + JSON.stringify(res);
+                       console.error(message);
+                       that.showZanToast(message);
+                     }
+                   },
 
-              console.error(res);
-              //代理商信息存储
-              util.setDistributerId(distributerId);
-            },
-            complete: function (res) { }
-          });
+                   fail: function (res) {
+                     console.error(res);
+                     that.showZanToast(JSON.stringify(res));
+                   },
+                   complete: function (res) { }
+                 })
+               } else {
 
-        },
+                 var message = '获取用户登录态失败！' + res.errMsg;
+                 console.log(message)
+                 that.showZanToast(message);
+               }
+             },
 
-        complete: function () { }
-      });
+             fail: function (res) {
+               console.error(res);
+               that.showZanToast(JSON.stringify(res));
+             },
 
-    } else {
+             complete: function (res) { }
+           });
+         }
+       })
+     } else {
 
       that.wxLoginCallBack();
     }
@@ -133,6 +135,10 @@ Page(Object.assign({}, Toast, {
   onShow: function () {
 
     var that = this;
+    var isDistributer = util.isDistributer();
+    that.setData({
+      isDistributer: isDistributer,
+    })
 
   },
 

@@ -70,7 +70,7 @@ Page(Object.assign({}, Toast, {
       //是否【已选择】包含婴儿(number,required)
       'isAllowBabySelected': 0,
       'suitId': 0,                      //套餐id(number,required)
-      
+
       "adultprice": 0,                  //成人费用
       "childprice": 0,                  //儿童费用
       "oldprice": 0,                    //老人费用
@@ -447,7 +447,7 @@ Page(Object.assign({}, Toast, {
       'userSelectedLineDetail.amount': amount,
     })
 
-    console.log("adultAmount = " + adultAmount + ", childAmount = " + childAmount + ", oldAmount = " + oldAmount + ", postage = " + postage);
+    console.log("adultAmount = " + adultAmount + ", childAmount = " + childAmount + ", oldAmount = " + oldAmount + ", postage = " + postage + ", difference = " + difference);
     console.log("总计：" + amount);
   },
 

@@ -12,7 +12,7 @@ Page(Object.assign({}, Toast, {
     show: false,
     showView:false,
   
-//是否为代理商
+    //是否为代理商
     isDistributer: false,
     distributerAccessData: {},
   },

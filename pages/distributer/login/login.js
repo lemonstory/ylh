@@ -114,6 +114,7 @@ Page(Object.assign({}, Toast, {
       wx.request({
 
         url: url,
+        header: util.getRequestHeader(true),
         data: that.data.formData,
         method: 'POST',
         header: util.postRequestHeader(true),

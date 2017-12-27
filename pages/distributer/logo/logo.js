@@ -92,17 +92,21 @@ Page(Object.assign({}, Toast, {
         wx.showLoading({
           title: '正在上传...',
         })
+
+        console.log("that.data.distributerId = " + that.data.distributerId);
         wx.uploadFile({
           url: app.constant.distributerDomain + '/distributerShop/updateShopLogoByPrimaryKey',
           filePath: tempFilePaths[0],
+          header: util.getRequestHeader(true),
           name: 'file',
           formData: {
             'distributerId': that.data.distributerId
           },
-
+          
           success: function (resl) {
 
             resl.data = JSON.parse(resl.data);
+            console.log(resl.data);
             if (resl.data.code == "OK") {
 
               // 重置本地存储的代理商信息
@@ -145,6 +149,15 @@ Page(Object.assign({}, Toast, {
 
             //得到上传成功后的图片地址 do something
             // var data = res.data
+
+          },
+          
+          fail: function (resl){
+
+            console.error(resl);
+          },
+
+          complete:function(resl) {
 
           }
         })

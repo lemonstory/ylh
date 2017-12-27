@@ -54,7 +54,7 @@ Page(Object.assign({}, Toast, {
     city: [],
     district: [],
 
-    value: [2, 0, 0],
+    value: [0, 0, 0],
 
     value1Defult: '省',
     value2Defult: '市',
@@ -62,7 +62,7 @@ Page(Object.assign({}, Toast, {
 
     selectProvinceId: 193,
     selectCityId: 194,
-    selectDistrictId: 200,
+    selectDistrictId: 195,
 
     selectValue1: 0,
     selectValue2: 0,
@@ -92,14 +92,14 @@ Page(Object.assign({}, Toast, {
         title: '修改地址',
       })
       var address;
-      if (that.data.addressInfo.province != 0 && that.data.addressInfo.city != 0 && that.data.addressInfo.district != 0) {
+      if (that.data.addressInfo.province != 0 && that.data.addressInfo.city != 0 && (that.data.addressInfo.district != 0 && !util.isEmptyStr(that.data.addressInfo.district))) {
         address = areaUtil.getAreaName(that.data.addressInfo.province) + "-" + areaUtil.getAreaName(that.data.addressInfo.city) + "-" + areaUtil.getAreaName(that.data.addressInfo.district);
-      } else if (that.data.addressInfo.province != 0 && that.data.addressInfo.city != 0 && that.data.addressInfo.district == 0) {
+      } else if (that.data.addressInfo.province != 0 && that.data.addressInfo.city != 0 && (that.data.addressInfo.district == 0 || util.isEmptyStr(that.data.addressInfo.district))) {
         address = areaUtil.getAreaName(that.data.addressInfo.province) + "-" + areaUtil.getAreaName
           (that.data.addressInfo.city);
-      } else if (that.data.addressInfo.province != 0 && that.data.addressInfo.city == 0 && that.data.addressInfo.district == 0){
+      } else if (that.data.addressInfo.province != 0 && (that.data.addressInfo.city == 0 || util.isEmptyStr(that.data.addressInfo.city)) && (that.data.addressInfo.district == 0 || util.isEmptyStr(that.data.addressInfo.district))) {
         address = areaUtil.getAreaName(that.data.addressInfo.province);
-      } 
+      }
       that.setData({
         addressDetail: address,
       })
@@ -258,12 +258,19 @@ Page(Object.assign({}, Toast, {
 
   hideOrShowAddressPicker: function () {
     var that = this;
+    that.getCity();
+    that.getDistrict();
     var isShow = that.data.isAddressPickShow;
     console.log(isShow)
     if (isShow) {
       isShow = false;
     } else {
       isShow = true;
+      that.setData({
+        selectProvinceId: 193,
+        selectCityId: 194,
+        selectDistrictId: 195,
+      });
     }
     that.setData({
       isAddressPickShow: isShow,
@@ -277,12 +284,12 @@ Page(Object.assign({}, Toast, {
     var that = this;
     var isWhole = true;
     if (that.data.city.length > 0) {
-      if (that.data.selectCityId == 0 || that.data.value2Defult == "市") {
+      if (that.data.selectCityId == 0) {
         isWhole = false;
       }
     }
     if (that.data.district.length > 0) {
-      if (that.data.selectDistrictId == 0 || that.data.value3Defult == "区") {
+      if (that.data.selectDistrictId == 0) {
         isWhole = false;
       }
     }
@@ -302,17 +309,18 @@ Page(Object.assign({}, Toast, {
  */
   handelAddressCommit: function (e) {
     var that = this;
-    if (that.addressIsWhole()) {
+    // if (that.addressIsWhole()) {
       that.hideOrShowAddressPicker();
       // 处理地址赋值
       var addressShow;
       if (that.data.selectCityId != 0 && that.data.selectDistrictId != 0) {
-        addressShow = that.data.value1Defult + "-" + that.data.value2Defult + "-" + that.data.value3Defult;
+        addressShow = areaUtil.getAreaName(that.data.selectProvinceId) + "-" + areaUtil.getAreaName(that.data.selectCityId) + "-" + areaUtil.getAreaName(that.data.selectDistrictId);
       } else if (that.data.selectCityId != 0 && that.data.selectDistrictId == 0) {
-        addressShow = that.data.value1Defult + "-" + that.data.value2Defult;
+        addressShow = areaUtil.getAreaName(that.data.selectProvinceId) + "-" + areaUtil.getAreaName(that.data.selectCityId);
       } else if (that.data.selectCityId == 0 && that.data.selectDistrictId == 0) {
-        addressShow = that.data.value1Defult;
+        addressShow = areaUtil.getAreaName(that.data.selectProvinceId);
       }
+      console.log(addressShow)
       var address = that.data.addressInfo;
       address.province = that.data.selectProvinceId;
       address.city = that.data.selectCityId;
@@ -322,11 +330,9 @@ Page(Object.assign({}, Toast, {
         addressDetail: addressShow
       })
       console.log(that.data.addressInfo);
-    } 
-    
-    else {
-      that.showZanToast("请完善地址！");
-     }
+    // } else {
+    //   that.showZanToast("请完善地址！");
+    // }
   },
 
 
@@ -348,7 +354,7 @@ Page(Object.assign({}, Toast, {
     var that = this;
     const val = e.detail.value;
     var provinceVal = that.data.province[val[0]].id;
-    if (provinceVal != that.data.selectProvinceId) {
+    if (provinceVal != that.data.selectProvinceId) {        // 省的选择
       var selectProvinceName = that.data.province[val[0]].name;
       that.setData({
         value1Defult: selectProvinceName,
@@ -356,9 +362,10 @@ Page(Object.assign({}, Toast, {
       })
       that.getCity();
     }
-    if (that.data.city.length > 0) {
+
+    if (that.data.city.length > 0) {                          //市的选择
       var index1;
-      if (val[1] == that.data.selectValue1) {
+      if (provinceVal != that.data.selectProvinceId && val[1] == that.data.selectValue1 ) {
         index1 = 0;
       } else {
         index1 = val[1];
@@ -415,11 +422,35 @@ Page(Object.assign({}, Toast, {
    * 新建地址
    */
   createAddress: function () {
-
     var that = this;
-    wx.showLoading({
-      title: '加载中',
-    })
+    // 手机号和邮箱判断
+    var email = that.data.addressInfo.email;
+    var pone = that.data.addressInfo.mobile;
+    var name = that.data.addressInfo.name;
+    var address = that.data.addressInfo.province;
+    var addressDetail = that.data.addressInfo.street;
+    if (util.isEmptyStr(name)) {
+      that.showZanToast("请输入联系人姓名");
+      return;
+    }
+
+    if (!util.isEmail(email)) {        // 不为email
+      that.showZanToast("请输入正确的邮箱");
+      return;
+    }
+    if (!util.isMobile(pone)) {     //不为电话
+      that.showZanToast("请输入正确的电话号码");
+      return;
+    }
+    if (address == 0) {
+      that.showZanToast("请选择城市");
+      return;
+    }
+    if (util.isEmptyStr(addressDetail)) {
+      that.showZanToast("请输入详细地址");
+      return;
+    }
+
 
     var url = '';
     if (that.data.addressInfo.id == 0) {       //新建
@@ -428,7 +459,9 @@ Page(Object.assign({}, Toast, {
       url = that.data.constant.domain + '/distrbuter/member/address/update';
     }
     var commitData = that.data.addressInfo;
-
+    wx.showLoading({
+      title: '加载中',
+    })
     wx.request({
       url: url,
       data: commitData,

@@ -17554,8 +17554,11 @@ function getChildAreas(){
 function getAreaName(areaId){
   var areaName;
   for (var i = 0; i < childAreas.length; i++){
-    if (childAreas[i].id =areaId){
+    if (childAreas[i].id ==areaId){
       areaName = childAreas[i].name;
+      console.log("-----------------------------------------------------------------");
+      console.log(areaId);
+      console.log(areaName);
       return areaName;
     }
   }

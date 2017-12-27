@@ -7,7 +7,7 @@ Page({
     'constant': app.constant,
     // 请求post数据
     postData: {
-      "distributerPid": 1,
+      "distributerPid":'',
     },
 
     //默认全部关闭
@@ -21,6 +21,10 @@ Page({
     var that = this;
     that.getDistributerInfoData();
     showView: (options.showView == "true" ? true : false);
+    
+    that.setData({
+      'postData.distributerPid': util.getDistributerId()
+    })
   },
   
   /**
@@ -82,8 +86,12 @@ Page({
       header: util.getRequestHeader(true),
       method: 'POST',
       success: function (res) {
-        console.log("请求数据成功！");
-        that.setData(res.data);
+        if(res.statusCode == 200) {
+          console.log("请求数据成功！");
+          that.setData(res.data);
+        }else{
+          console.error(res);
+        }
       },
       fail: function (res) {
         console.log("请求数据失败！")

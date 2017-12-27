@@ -415,7 +415,7 @@ swiper {
 }
 
 .day1img {
-     width: 599rpx;
+     width: 600rpx;
      margin-left: 120rpx;
      height: auto;
 }
@@ -426,13 +426,13 @@ swiper {
 }
 
 .day1text {
-     width: 609rpx;
+     width: 600rpx;
      height: auto;
      font-size: 26rpx;
      font-family: PingFang-SC-Regular;
      color: rgba(51, 51, 51, 1);
      margin-top: 30rpx;
-     margin-left: 110rpx;
+     margin-left: 120rpx;
      line-height: 38rpx;
 }
 
@@ -474,18 +474,18 @@ swiper {
 }
 
 .shuoming {
-     width: 609rpx;
+     width: 600rpx;
      height: auto;
      font-size: 26rpx;
      font-family: PingFang-SC-Regular;
      color: rgba(51, 51, 51, 1);
-     margin-left: 110rpx;
+     margin-left: 120rpx;
      margin-top: 29rpx;
      line-height: 42rpx;
 }
 
 .img-box {
-     width: 610rpx;
+     width: 600rpx;
      height: auto;
      margin-left: 120rpx;
      margin-top: 29rpx;
@@ -495,7 +495,7 @@ swiper {
 
 
 .one-img{
-     width:610rpx;
+     width:600rpx;
      height:100%;
      border-radius: 10rpx;
 }
@@ -507,7 +507,7 @@ swiper {
 .two-img {
      height:193rpx;
      width: 290rpx;
-     margin-right: 20rpx;
+     margin-right: 10rpx;
 }
 
 .two-img image{
@@ -517,10 +517,10 @@ swiper {
 }
 
 .jing-text {
-     width: 609rpx;
+     width: 600rpx;
      height: auto;
      margin-top: 29rpx;
-     margin-left: 110rpx;
+     margin-left: 120rpx;
      font-size: 26rpx;
      font-family: PingFang-SC-Regular;
      color: rgba(51, 51, 51, 1);
@@ -551,7 +551,7 @@ swiper {
 }
 
 .pointtext {
-     width: 689rpx;
+     width: 690rpx;
      height: auto;
      margin-top: 90rpx;
      font-size: 26rpx;
@@ -580,7 +580,7 @@ swiper {
 }
 
  .paytext{
-     width: 689rpx;
+     width: 690rpx;
      height: auto;
      margin-top: 120rpx;
      font-size: 26rpx;
@@ -907,22 +907,23 @@ swiper {
 }
 
 .goto-normal {
-     width: 500px;
+     width: 610rpx;
      height: auto;
      font-size: 26rpx;
      font-family: PingFang-SC-Regular;
      color: rgba(255, 102, 0, 1);
-     margin-left: 120rpx;
+     box-sizing: border-box;
+     margin-left: 110rpx;
      margin-top: 20rpx;
 }
 
 .jiaotong-normal {
-     width: 620rpx;
+     width: 610rpx;
      height: auto;
      font-size: 26rpx;
      font-family: PingFang-SC-Regular;
      color: rgba(153, 153, 153, 1);
-     margin-left: 120rpx;
+     margin-left: 110rpx;
      margin-top: 29rpx;
      box-sizing: border-box;
 }

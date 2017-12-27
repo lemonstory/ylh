@@ -46,16 +46,16 @@
   <view class="order-box">
     <view class="order-ul">
       <view class="order-li">
-        <view class="time">10月27日</view>
-        <view class="date">周五出发</view>
+        <view class="time">{{orderDetail.travelDate}}</view>
+        <view class="date">{{departWeek}}出发</view>
       </view>
       <view class="order-li">
         <view class="person">{{orderDetail.tourers.subNum.adult}}成人{{orderDetail.tourers.subNum.child}}儿童{{orderDetail.tourers.subNum.old}}老人</view>
         <view class="person">北京出发</view>
       </view>
       <view class="order-li">
-        <view class="time">10月30日</view>
-        <view class="date">周一返回</view>
+        <view class="time">{{orderDetail.endDate}}</view>
+        <view class="date">{{endWeek}}返回</view>
       </view>
     </view>
     <view class="order-money">
@@ -182,18 +182,18 @@
 
   <!--出行人信息结束  -->
 
-  <view class="fapiao-box">
-    <view class="fapiao">
-      <view class="fapiao-text">开具发票</view>
+  <view class="fapiao-box" wx:if = "{{orderDetail.orderBill.type >0}}">
+    <view class="fapiao ">
+      <view class="fapiao-text ">开具发票</view>
     </view>
-    <view class="fapiao-type">
-      <view class="type-name">类型：</view>
+    <view class="fapiao-type ">
+      <view class="type-name ">类型：</view>
       <view style='margin-left:81rpx'>{{orderDetail.orderBill.type == 1?'个人':'企业'}}</view>
     </view>
-    <view class="input-name">抬头：
+    <view class="input-name ">抬头：
       <view style='margin-left:81rpx'>{{orderDetail.orderBill.title}}</view>
     </view>
-    <view class="input-name input-shui">税号：
+    <view class="input-name input-shui ">税号：
       <view style='margin-left:81rpx'>{{orderDetail.orderBill.taxNum}}</view>
     </view>
   </view>
@@ -202,8 +202,8 @@
   <!--开具发票结束  -->
 
   <!--收获地址开始  -->
-  <view class="get-add">
-    <view class="fapiao">发票地址</view>
+  <view class="get-add "wx:if = "{{orderDetail.orderBill.type >0}}">
+    <view class="fapiao ">发票地址</view>
     <view class="choice-add ">{{orderDetail.receiverAddress}}</view>
   </view>
 </view>
@@ -211,38 +211,38 @@
 
 
 <!--费用明细弹出框交互-->
-<view class="shadow {{selectPay == 0 ? 'hiddenPay':'activemessage'}}">
-  <view class="shadow-box1">
-    <view class="text-title" style='width:100%;height:90rpx;text-align:center;line-height:90rpx;border-bottom:1rpx solid #eee;'>费用说明</view>
-    <view class="text-content">
+<view class="shadow {{selectPay==0 ? 'hiddenPay': 'activemessage'}} ">
+  <view class="shadow-box1 ">
+    <view class="text-title " style='width:100%;height:90rpx;text-align:center;line-height:90rpx;border-bottom:1rpx solid #eee;'>费用说明</view>
+    <view class="text-content ">
       <view style='color:rgba(102,102,102,1);'>订单总额</view>
       <view style='color:rgba(255,102,0,1)'>￥{{orderDetail.amount/100}}</view>
     </view>
-    <view class="text-content" wx:if="{{orderDetail.amountDetail.adultprice.number > 0}}">
-      <view style='color:rgba(102,102,102,1);'>成人费用</view>
-      <view style='color:rgba(255,102,0,1)'>￥{{orderDetail.amountDetail.adultprice.subAmount*orderDetail.amountDetail.adultprice.number/100}}</view>
-    </view>
-    <view class="text-content" wx:if="{{orderDetail.amountDetail.childprice.number > 0}}">
-      <view style='color:rgba(102,102,102,1);'>儿童费用</view>
-      <view style='color:rgba(255,102,0,1)'>￥{{orderDetail.amountDetail.childprice.subAmount*orderDetail.amountDetail.childprice.number/100}}</view>
-    </view>
-    <view class="text-content" wx:if="{{orderDetail.amountDetail.oldprice.number > 0}}">
-      <view style='color:rgba(102,102,102,1);'>老人费用</view>
-      <view style='color:rgba(255,102,0,1)'>￥{{orderDetail.amountDetail.oldprice.subAmount*orderDetail.amountDetail.oldprice.number/100}}</view>
-    </view>
-    <view class="text-content" wx:if="{{orderDetail.amountDetail.roombalance > 0}}">
-      <view style='color:rgba(102,102,102,1);'>单房差费用</view>
-      <view style='color:rgba(255,102,0,1)'>￥{{orderDetail.amountDetail.roombalance/100}}</view>
-    </view>
-    <view class="text-content" wx:if="{{orderDetail.amountDetail.postage> 0}}">
-      <view style='color:rgba(102,102,102,1);'>发票快递费</view>
-      <view style='color:rgba(255,102,0,1)'>￥{{orderDetail.amountDetail.postage/100}}</view>
-    </view>
+    <view class="text-content " wx:if="{{orderDetail.amountDetail.adultprice.number> 0}}">
+    <view style='color:rgba(102,102,102,1);'>成人费用</view>
+    <view style='color:rgba(255,102,0,1)'>￥{{orderDetail.amountDetail.adultprice.subAmount*orderDetail.amountDetail.adultprice.number/100}}</view>
   </view>
+  <view class="text-content" wx:if="{{orderDetail.amountDetail.childprice.number > 0}}">
+    <view style='color:rgba(102,102,102,1);'>儿童费用</view>
+    <view style='color:rgba(255,102,0,1)'>￥{{orderDetail.amountDetail.childprice.subAmount*orderDetail.amountDetail.childprice.number/100}}</view>
+  </view>
+  <view class="text-content" wx:if="{{orderDetail.amountDetail.oldprice.number > 0}}">
+    <view style='color:rgba(102,102,102,1);'>老人费用</view>
+    <view style='color:rgba(255,102,0,1)'>￥{{orderDetail.amountDetail.oldprice.subAmount*orderDetail.amountDetail.oldprice.number/100}}</view>
+  </view>
+  <view class="text-content" wx:if="{{orderDetail.amountDetail.roombalance > 0}}">
+    <view style='color:rgba(102,102,102,1);'>单房差费用</view>
+    <view style='color:rgba(255,102,0,1)'>￥{{orderDetail.amountDetail.roombalance/100}}</view>
+  </view>
+  <view class="text-content" wx:if="{{orderDetail.amountDetail.postage> 0}}">
+    <view style='color:rgba(102,102,102,1);'>发票快递费</view>
+    <view style='color:rgba(255,102,0,1)'>￥{{orderDetail.amountDetail.postage/100}}</view>
+  </view>
+</view>
 
-  <view class="goback" bindtap='bindPaycancel'>
-    <image src="http://image.365zhiding.com/wxapp/20171221/back.png"></image>
-  </view>
+<view class="goback" bindtap='bindPaycancel'>
+  <image src="http://image.365zhiding.com/wxapp/20171221/back.png"></image>
+</view>
 </view>
 
 <!-- 费用明细弹出框交互结束 -->

@@ -186,10 +186,10 @@ Page(Object.assign({}, Toast, {
                 },
 
                 'fail': function (res) {
-
+                  wx.hideLoading();
                   console.error(res);
                   var res = JSON.stringify(res);
-                  that.showZanToast(res);
+                  // that.showZanToast(res);
                 }
               })
 

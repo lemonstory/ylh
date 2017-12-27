@@ -284,6 +284,20 @@ Page(Object.assign({}, Toast, {
     }
   },
 
+  /**
+   * item点击事件
+   */
+  handleItemClick:function(e){
+    var that = this;
+    var selectOrderSn = e.currentTarget.dataset.ordersn;
+    console.log(selectOrderSn);
+    var url = "/pages/order/detail/detail?orderSn=" + selectOrderSn;
+    console.log(url);
+    wx.redirectTo({
+      url: url,
+    })
+  },
+
   onChangeShowState: function (e) {
     var that = this;
     var selectOrderSn = e.currentTarget.dataset.ordersn;
@@ -365,7 +379,7 @@ Page(Object.assign({}, Toast, {
               wx.hideLoading();
               console.error(res);
               var res = JSON.stringify(res);
-              that.showZanToast(res);
+              // that.showZanToast(res);
             }
           })
 

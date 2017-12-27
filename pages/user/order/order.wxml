@@ -19,7 +19,7 @@
           </view>
           <view class="route-center">
             <image class="route-img" src="http://image.365zhiding.com/wxapp/20171221/00.png"></image>
-            <view class="center-text">
+            <view class="center-text" catchtap='handleItemClick' data-ordersn="{{item.ordersn}} ">
               <view class="text1">{{item.pName}}</view>
               <view class="text2">出行时间：{{item.travelDate}}</view>
               <view class="text3">出行人数：{{item.travelNumber}}人</view>

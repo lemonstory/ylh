@@ -50,34 +50,34 @@ App({
         distributerId = getParamDistributerId;
       }
 
-      console.log("🚚 🚚 🚚 [代理商ID] getParamDistributerId = " + getParamDistributerId + ", localDistributerId = " + localDistributerId);
-      console.log(typeof (distributerId));
+      console.log("🚚  🚚 [代理商ID] getParamDistributerId = " + getParamDistributerId + ", localDistributerId = " + localDistributerId);
+      console.log("🚚  [代理商ID] distributerId = " + distributerId);
       console.log(util.getUserAccessData());
 
       if (!util.isEmptyStr(distributerId)) {
 
-        if (util.isEmptyObject(util.getUserAccessData())) {
+        // if (util.isEmptyObject(util.getUserAccessData())) {
 
           wx.checkSession({
             success: function () {
-              //session 未过期，并且在本生命周期一直有效
+              console.log("session 未过期，并且在本生命周期一直有效")
             },
 
             fail: function () {
 
-              console.log("🚀 🚀 🚀 -- 微信登录态过期,重新登录");
+              console.log("🚀 🚀 🚀 -- [app.js]微信登录态过期,重新登录");
               //登录态过期
               //重新登录
               wx.login({
-                success: function (res) {
+                success: function (ckRes) {
                   var url = constant.constant.domain + "/weixin/get_session";
                   console.log("url = " + url);
-                  if (res.code) {
+                  if (ckRes.code) {
                     //发起网络请求
                     wx.request({
                       url: url,
                       data: {
-                        code: res.code,
+                        code: ckRes.code,
                         distributerId: distributerId
                       },
 
@@ -85,40 +85,38 @@ App({
                         'content-type': 'application/json' // 默认值
                       },
 
-                      success: function (res) {
+                      success: function (gsRes) {
 
-                        if (res.statusCode == 200) {
+                        if (gsRes.statusCode == 200) {
 
-                          guid = res.data.guid;
+                          guid = gsRes.data.guid;
                           // 本地存储用户信息
                           wx.setStorage({
                             key: constant.constant.userAccessDataKey,
-                            data: res.data,
-                            success: function (res) {
+                            data: gsRes.data,
+                            success: function (stRes) {
 
                               //重置userAccessData值
-                              console.log("[重置] 本地存储 userAccessData ")
                               constant.constant.userAccessData = {};
                             },
-                            fail: function (res) {
-                              console.warn(res);
+                            fail: function (stRes) {
+                              console.error(stRes);
                             }
                           });
 
                           //代理商信息存储
-                          if (!util.isEmptyStr(res.data.distributerId)) {
-                            util.setDistributerId(res.data.distributerId);
+                          if (!util.isEmptyStr(gsRes.data.distributerId)) {
+                            util.setDistributerId(gsRes.data.distributerId);
                           } else {
-
-                            console.error("res.data.distributerId = " + res.data.distributerId);
+                            console.error("代理商信息返回错误(不能为空) gsRes.data.distributerId = " + gsRes.data.distributerId);
                           }
 
                           // 获取用户信息
                           wx.getSetting({
-                            success: res => {
+                            success: gsRes => {
 
-                              console.log(res.authSetting);
-                              if (res.authSetting['scope.userInfo']) {
+                              console.log(gsRes.authSetting);
+                              if (gsRes.authSetting['scope.userInfo']) {
                                 // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
                                 that.getWxUserInfo();
                               } else {
@@ -132,44 +130,44 @@ App({
                                     that.getWxUserInfo();
                                   },
                                   fail() {
-                                    console.log("失败 调用")
-                                    console.warn(res);
+                                    console.error('获取用户信息失败 ')
+                                    console.error(gsRes);
                                   },
-                                  complete() {
-                                    console.log("完成 调用")
-                                  }
+                                  complete() {}
                                 })
                               }
                             }
                           })
                         } else {
-                          console.error(res);
+                          console.error(gsRes);
                         }
                       },
 
-                      fail: function (res) {
-                        console.error(res);
+                      fail: function (gsRes) {
+
+                        console.error('/weixin/get_session 调用失败'); 
+                        console.error(gsRes); 
                       },
-                      complete: function (res) { }
+                      complete: function (gsRes) { }
                     })
                   } else {
-                    console.log('获取用户登录态失败！' + res.errMsg)
+                    console.log('获取用户登录态失败！' + ckRes.errMsg)
                   }
                 },
 
-                fail: function (res) {
+                fail: function (ckRes) {
 
-                  console.error(res);
+                  console.error(ckRes);
                   //代理商信息存储
                   util.setDistributerId(distributerId);
                 },
-                complete: function (res) { }
+                complete: function (ckRes) { }
               });
 
             },
             complete: function () { }
           });
-        }
+        // }
       } else {
 
         //跳转到订单查询

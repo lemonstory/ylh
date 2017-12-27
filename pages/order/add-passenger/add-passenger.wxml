@@ -24,7 +24,7 @@
                     <!--性别单选 -开始-->
                     <view class="choice_sex">
                          <radio-group class="radio-group" bindchange="genderRadioChange">
-                              <label class="radio" wx:for="{{constant.gender}}" wx:key="constant.gender">
+                              <label class="radio" wx:for="{{passengerGender}}" wx:key="passengerGender">
                                    <radio value="{{item.id}}" checked="{{gender == item.id ? true : false}}" />{{item.title}}
                               </label>
                          </radio-group>

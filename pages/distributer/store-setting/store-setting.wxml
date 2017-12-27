@@ -10,7 +10,7 @@
       </view>
     </navigator>
 
-    <navigator url="/pages/distributer/store-name/store-name">
+    <navigator url="/pages/distributer/store-name/store-name?distributerId={{distributerAccessData.dShop.distributerId}}">
       <view class="logo">店铺名称
         <view class="logo-right">
           <view>{{distributerAccessData.dShop.shopName}}</view>

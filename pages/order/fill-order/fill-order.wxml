@@ -73,9 +73,13 @@
 
      <view class="fapiao-box">
           <view class="fapiao">
+          <view style='display:flex'>
                <view class="fapiao-text">开具发票</view>
                <view class="fapiao-pay">（快递费¥{{formData.postage/100}}）</view>
-               <image class="ischeck" src="{{isSelected?isSelect:isUnSelect}}" bindtap='handleTapSelectType'></image>
+          </view>
+          <view style='height:90rpx;width:90rpx;display:flex;  align-items: center;justify-content:flex-end;' bindtap='handleTapSelectType'>
+               <image class="ischeck" src="{{isSelected?isSelect:isUnSelect}}" ></image>
+               </view>
                <!-- <radio class="fapiao-radio" color='#FF6600' style='width:30rpx;height:30rpx;'></radio>  -->
           </view>
           <!--发票信息的显示与隐藏 -->

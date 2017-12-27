@@ -19,8 +19,8 @@ outline:0;
 border:1px solid #D1D1D1;
 background-color:#FFFFFF;
 border-radius:50%;
-width:24rpx;
-height:24rpx;
+width:30rpx;
+height:30rpx;
 position:relative;
 }
 .radio{
@@ -29,7 +29,7 @@ position:relative;
 radio .wx-radio-input.wx-radio-input-checked ::before{
 font:normal normal normal 14px/1 "weui";
 content:"\EA08";
-font-size:22rpx;
+font-size:20rpx;
 position:absolute;
 top:50%;
 left:50%;
@@ -219,9 +219,8 @@ transform:translate(-50%, -48%) scale(0.73);
 }
 
 .ischeck{
-     width: 32rpx;
-     height:32rpx;
-     margin-left: 306rpx;
+     width: 24rpx;
+     height:24rpx;
 }
 
 .ischeck image{
@@ -291,6 +290,7 @@ transform:translate(-50%, -48%) scale(0.73);
      line-height: 84rpx;
      display: flex;
      align-items: center;
+     justify-content: space-between;
 }
 
 .fapiao-hidden{
@@ -321,10 +321,13 @@ transform:translate(-50%, -48%) scale(0.73);
      color: rgba(51, 51, 51, 1);
      border-bottom: 1rpx solid #eee;
      display: flex;
+     align-items: center;
 }
 
 .radio-group {
      margin-left: 83rpx;
+     display: flex;
+     align-items: center;
 }
 
 .radio {

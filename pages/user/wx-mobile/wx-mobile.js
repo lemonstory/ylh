@@ -34,14 +34,15 @@ Page(Object.assign({}, Toast, {
 
       //再次获取guid
       var distributerId = util.getDistributerId();
-      wx.checkSession({
-        success: function () {
-          //session 未过期，并且在本生命周期一直有效
-        },
+      // wx.checkSession({
+      //   success: function () {
+      //     //session 未过期，并且在本生命周期一直有效
+      //     console.log("session 未过期，并且在本生命周期一直有效")
+      //   },
 
-        fail: function () {
+      //   fail: function () {
 
-          console.log("🚀 🚀 🚀 -- 微信登录态过期,重新登录");
+           console.log("🚀 🚀 🚀 -- [wx-mobile.js] 调用get_session接口");
           //登录态过期
           //重新登录
           wx.login({
@@ -71,7 +72,6 @@ Page(Object.assign({}, Toast, {
                         success: function (res) {
 
                           //重置userAccessData值
-                          console.log("[重置] 本地存储 userAccessData ")
                           app.constant.userAccessData = {};
                           util.getUserAccessData();
                         },
@@ -84,29 +84,40 @@ Page(Object.assign({}, Toast, {
                       if (!util.isEmptyStr(res.data.distributerId)) {
                         util.setDistributerId(res.data.distributerId);
                       } else {
-                        console.warn("res.data.distributerId = " + res.data.distributerId);
+                        console.error("代理商信息返回错误(不能为空) gsRes.data.distributerId = " + gsRes.data.distributerId);
                       }
+                    }else{
+                      
+                      var message = '/weixin/get_session 调用失败' + JSON.stringify(res);
+                      console.error(message);
+                      that.showZanToast(message); 
                     }
                   },
 
                   fail: function (res) {
                     console.error(res);
+                    that.showZanToast(JSON.stringify(res));
+
                   },
                   complete: function (res) { }
                 })
               } else {
-                console.log('获取用户登录态失败！' + res.errMsg)
+                
+                var message = '获取用户登录态失败！' + res.errMsg;
+                console.log(message)
+                that.showZanToast(message);
               }
             },
 
             fail: function (res) {
               console.error(res);
+              that.showZanToast(res.data);
             },
 
             complete: function (res) { }
           });
-        }
-      })
+        // }
+      // })
     }
   },
 
@@ -200,7 +211,6 @@ Page(Object.assign({}, Toast, {
                 data: res.data,
                 success: function (res) {
 
-                  console.log("[重置] 本地存储 userAccessData ")
                   app.constant.userAccessData = {};
                   util.getUserAccessData();
 
@@ -230,17 +240,9 @@ Page(Object.assign({}, Toast, {
 
             } else {
 
-
-
               console.error("url = " + url);
               console.error(res);
               that.showZanToast(res.data);
-
-              //跳转到绑定手机号页面
-              // wx.redirectTo({
-              //   url: '/pages/user/send-code/send-code?returnUrl=' + that.data.returnUrl,
-              // })
-              
             }
           },
 

@@ -123,7 +123,7 @@
 </view>
      <!--收获地址结束-->
      <!--底部开始 -->
-     <view class="bottom">
+     <view class="bottom" style="z-index: 9999;">
           <view class="bottom-left">
                <view class='total'>总计：
                     <view class="total-money">￥{{formData.amount / 100}}</view>

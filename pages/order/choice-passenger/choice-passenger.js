@@ -145,7 +145,7 @@ Page(Object.assign({}, Toast, {
       });
     }
   },
-  
+
   //获取元素自适应后的实际宽度
   getEleWidth: function (w) {
     var real = 0;
@@ -160,7 +160,7 @@ Page(Object.assign({}, Toast, {
       // Do something when catch error
     }
   },
-  
+
   initEleWidth: function () {
     var delBtnWidth = this.getEleWidth(this.data.delBtnWidth);
     this.setData({
@@ -172,15 +172,52 @@ Page(Object.assign({}, Toast, {
   delItem: function (e) {
     //获取列表中要删除项的下标
     var index = e.target.dataset.index;
-    var list = this.data.list;
-    //移除列表中下标为index的项
-    list.splice(index, 1);
-    //更新列表的状态
-    this.setData({
-      list: list
+    
+    //调用接口删除
+    var that = this;
+    wx.showLoading({
+      title: '加载中',
+    })
+
+    //删除出行人接口
+    var url = that.data.constant.domain + '/distrbuter/member/passenger/delete';
+    wx.request({
+      url: url,
+      data: {
+        'id': that.data.data.list[index].id,
+      },
+      method: 'POST',
+      header: util.postRequestHeader(),
+      success: function (res) {
+
+        if(res.statusCode == 200) {
+
+          var list = that.data.data.list;
+          //移除列表中下标为index的项
+          list.splice(index, 1);
+          //更新列表的状态
+          that.setData({
+            'data.list': list
+          });
+
+        }else{
+
+          console.error(res);
+          that.showZanToast(res.data.message);
+        }
+      },
+
+      fail: function (res) {
+        console.error(res);
+        var res = JSON.stringify(res);
+        that.showZanToast(res);
+      },
+
+      complete: function (res) {
+        wx.hideLoading();
+      }
     });
   },
-
 
 
   bindCheckbox: function (e) {
@@ -312,7 +349,7 @@ Page(Object.assign({}, Toast, {
           checkedPassengerList.push(tempData.list[i]);
         }
       }
-    
+
     } else {
 
       this.showZanToast('一个出行人都没有选哦');

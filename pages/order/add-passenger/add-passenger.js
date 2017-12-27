@@ -333,46 +333,4 @@ Page(Object.assign({}, Toast, {
       });
     }
   },
-
-  /**
-   * 处理删除按钮
-   */
-  handleDeleteTap: function (event) {
-
-    var that = this;
-    wx.showLoading({
-      title: '加载中',
-    })
-
-    //删除出行人接口
-    var url = that.data.constant.domain + '/distrbuter/member/passenger/delete';
-    wx.request({
-      url: url,
-      data: {
-        'id': that.data.id,
-      },
-      method: 'POST',
-      header: util.postRequestHeader(),
-      success: function (res) {
-
-        var code = res.data.code
-        if (code != "SUCCESS") {
-          that.showZanToast(code);
-        }
-      },
-
-      fail: function (res) {
-
-        var res = JSON.stringify(res);
-        that.showZanToast(res);
-      },
-
-      complete: function (res) {
-
-        wx.hideLoading();
-        wx.navigateBack();
-      }
-    });
-
-  }
 }));

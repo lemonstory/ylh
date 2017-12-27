@@ -155,7 +155,7 @@ function getCanlenderData(year, month) {
  */
 function getUserAccessData() {
 
-  var userAccessDataValue = '';
+  var userAccessDataValue = {};
   if (isEmptyObject(constant.constant.userAccessData)) {
 
     console.log("全局 accessToken为空");

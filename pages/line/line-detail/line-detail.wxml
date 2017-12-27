@@ -187,12 +187,14 @@
      <!--温馨提示结束  -->
 
      <!-- 费用说明开始 -->
+     <block wx:if="{{expense!=''}}"> 
      <view class="pay">
           <view class="react"></view>
           <view class="leadertitle">费用说明</view>
           <view class="react1"></view>
           <rich-text class="paytext" nodes="{{expense}}"></rich-text>
      </view>
+     </block>
 
      <!--费用说明结束  -->
 

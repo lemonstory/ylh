@@ -535,7 +535,8 @@ swiper {
      padding-bottom: 30rpx;
      box-sizing: border-box;
      padding-top: 30rpx;
-     padding-left: 30rpx
+     padding-left: 30rpx;
+     padding-right: 30rpx;
 }
 
 .pointtext {
@@ -564,6 +565,7 @@ swiper {
      box-sizing: border-box;
      padding-top: 30rpx;
      padding-left: 30rpx;
+     padding-right: 30rpx;
 }
 
  .paytext{

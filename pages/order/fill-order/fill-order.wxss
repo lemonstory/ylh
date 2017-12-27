@@ -407,6 +407,7 @@ transform:translate(-50%, -48%) scale(0.73);
      align-content: center;
      position: fixed;
      bottom: 0;
+  
 }
 
 .bottom-left {
@@ -419,6 +420,7 @@ transform:translate(-50%, -48%) scale(0.73);
      color: rgba(153, 153, 153, 1);
      line-height: 98rpx;
      background: #fff;
+     z-index: 999;
 }
 
 .total {

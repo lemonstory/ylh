@@ -2,7 +2,6 @@
 const app = getApp();
 const Toast = require('../../../zanui-weapp/dist/toast/index');
 var util = require('../../../utils/util.js')
-var guid = '';
 /**
  * 
  */
@@ -29,7 +28,6 @@ Page(Object.assign({}, Toast, {
       })
     }
 
-    util.getUserAccessData();
     var userAccessData = util.getUserAccessData();
     var guid = userAccessData.guid;
     if (util.isEmptyStr(guid)) {

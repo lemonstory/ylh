@@ -322,9 +322,11 @@ Page(Object.assign({}, Toast, {
         addressDetail: addressShow
       })
       console.log(that.data.addressInfo);
-    } else {
+    } 
+    
+    else {
       that.showZanToast("请完善地址！");
-    }
+     }
   },
 
 

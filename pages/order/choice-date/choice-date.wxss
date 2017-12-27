@@ -151,6 +151,7 @@ color:#EE6F2E;
 .chengren {
      width: auto;
      height: 25rpx;
+   
 }
 
 .count {
@@ -165,8 +166,8 @@ color:#EE6F2E;
 
 .num {
      right: 57rpx;
-     width:60rpx;
-     text-align: center;
+     width:70rpx;
+     text-align: right;
 }
 
 .add {

@@ -31,6 +31,20 @@
   line-height: 84rpx;
   display: flex;
 }
+.input-name1 {
+  width: 690rpx;
+  height: 84rpx;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  border-bottom: 1rpx solid #eee;
+  font-size: 28rpx;
+  font-family: PingFang-SC-Regular;
+  color: rgba(51, 51, 51, 1);
+  line-height: 84rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
 .input-name input {
   height: 84rpx;

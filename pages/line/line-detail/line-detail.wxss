@@ -124,7 +124,7 @@ swiper {
 }
 
 .banner-text1 {
-     width: 361rpx;
+     width: auto;
      height: 23rpx;
      font-size: 24rpx;
      font-family: PingFang-SC-Regular;

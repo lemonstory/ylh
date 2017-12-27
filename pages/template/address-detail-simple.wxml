@@ -5,8 +5,6 @@
      <block wx:for="{{template.simple}}" wx:for-index="idx" wx:for-item="item" wx:key="template.simple">
           <view class="jiaotong">{{item.key}}</view>
           <view class="shijian" wx:for="{{item.items}}" wx:for-index="idx" wx:for-item="item" wx:key="item.items">{{item.key}}{{item.value}}</view>
-
-
           <block wx:if="{{theme.images.length==1}}">
                <view class="img-box">
                     <view wx:for="{{theme.images}}" wx:for-item="item" wx:key="item">

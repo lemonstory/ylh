@@ -1,13 +1,13 @@
 var constant = {
 
   //业务域名
-  "domain": "https://qa-api.yuelvhui.com",
+     "domain":"https://api.yuelvhui.com",
 
   //代理商域名
-  "distributerDomain": "https://qa-distributor.yuelvhui.com",
+     "distributerDomain":"https://distributor.yuelvhui.com/api",
 
   //收银台域名
-  "payDomain": "https://payment.yuelvhui.com",
+     "payDomain":"https://payment.yuelvhui.com",
 
 
   //代理商ID(number,required)

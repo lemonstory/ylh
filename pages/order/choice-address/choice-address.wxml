@@ -2,9 +2,9 @@
 <import src="/zanui-weapp/dist/toast/index.wxml" />
 <view class="container">
      <view class="main-box">
-          <view class="address-ul item" wx:for="{{data.list}}" wx:key="list" wx:for-index="idx">
-               <view bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" data-index="{{idx}}" style="{{item.txtStyle}}" class="inner txt">
-                    <view catchtap='handelAddressSelect' data-id="{{item.id}}" data-address="{{item.street}}">
+          <view class="address-ul item" wx:for="{{data.list}}" wx:key="list" wx:for-index="idx" class="item">
+               <view catchtap='handelAddressSelect' data-id="{{item.id}}" data-address="{{item.street}}">
+                    <view bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" data-index="{{idx}}" style="{{item.txtStyle}}" class="inner txt">
                          <view class="ul-top">
                               <view style='display:flex; align-items: center; height:64rpx;'>
                                    <image class="check" src="{{ selectAddress==item.id ? icSelect :icUnSelect}}"></image>

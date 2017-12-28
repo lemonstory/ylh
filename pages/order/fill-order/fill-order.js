@@ -74,9 +74,6 @@ Page(Object.assign({}, Toast, {
     'title': '',                     //标题
     'day': 0,                        //行程-几天
     'night': 0,                      //行程-几晚
-
-
-
   },
 
   onLoad: function (options) {
@@ -243,7 +240,8 @@ Page(Object.assign({}, Toast, {
       })
     } else {
       that.setData({
-        'formData.amount': that.data.formData.amount - that.data.formData.postage
+        'formData.amount': that.data.formData.amount - that.data.formData.postage,
+        'formData.orderBill': {}
       })
     }
   },

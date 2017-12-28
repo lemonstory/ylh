@@ -287,7 +287,7 @@ Page(Object.assign({}, Toast, {
   /**
    * item点击事件
    */
-  handleItemClick:function(e){
+  handleItemClick: function (e) {
     var that = this;
     var selectOrderSn = e.currentTarget.dataset.ordersn;
     console.log(selectOrderSn);
@@ -316,7 +316,7 @@ Page(Object.assign({}, Toast, {
     that.setData({
       'prepayPostData.openId': util.getWxOpenId()
     });
-    var url = that.data.constant.domain +"/distrbuter/member/order/getPaymentCode/" + orderSn;
+    var url = that.data.constant.domain + "/distrbuter/member/order/getPaymentCode/" + orderSn;
     wx.request({
       url: url,
       data: {},
@@ -369,7 +369,7 @@ Page(Object.assign({}, Toast, {
               // 支付成功，修改当前订单状态
 
               wx.hideLoading();
-              var url = '/pages/order/pay-sucess/pay-sucess?orderSn='+orderSn;
+              var url = '/pages/order/pay-sucess/pay-sucess?orderSn=' + orderSn;
               wx.navigateTo({
                 url: url,
               })
@@ -398,6 +398,18 @@ Page(Object.assign({}, Toast, {
       },
 
       complete: function (res) { }
+    })
+  },
+
+  /**
+   * 上传资料
+   */
+  bindTapPossport: function (e) {
+
+    var orderSn = e.currentTarget.dataset.ordersn;
+    var url = "/pages/member/possport-list/possport-list?orderSn=" + orderSn;
+    wx.redirectTo({
+      url: url,
     })
   },
 

@@ -49,6 +49,10 @@ Page(Object.assign({}, Toast, {
     reminderTop: 0,
     expensesTop: 0,
     subHeaderHeight: 0,
+    isSubHeaderTop:false,
+    isStrokeFocus: false,
+    isReminderFocus: false,
+    isExpensesFocus: false,
   },
 
   onLoad: function (options) {
@@ -503,9 +507,8 @@ wx.getSystemInfo({
   scroll: function (e) {
 
     var that = this;
-    that.setData({
-      scrollTop: e.detail.scrollTop
-    })
+    var scrollTop = e.detail.scrollTop
+
 
     if (util.isEmptyStr(that.data.subHeaderTop)) {
       wx.createSelectorQuery().select('#sub-header').boundingClientRect(function (rect) {
@@ -551,6 +554,66 @@ wx.getSystemInfo({
         })
       }).exec()
     }
+
+    console.log("💥 💥 💥")
+    console.log("scrollTop = " + scrollTop);
+    console.log("that.data.subHeaderTop  = " + that.data.subHeaderTop );
+    if (scrollTop > 0 && that.data.subHeaderTop > 0 && scrollTop >= that.data.subHeaderTop) {
+
+      that.setData({
+        isSubHeaderTop: true,
+      })
+
+    } else {
+
+      that.setData({
+        isSubHeaderTop: false,
+      })
+    }
+
+    if ((scrollTop + that.data.subHeaderHeight) >= that.data.strokeTop && (scrollTop + that.data.subHeaderHeight) < that.data.reminderTop) {
+
+      that.setData({
+        isStrokeFocus:true
+      })
+    }else {
+
+      that.setData({
+        isStrokeFocus: false
+      })
+    }
+
+    if ((scrollTop + that.data.subHeaderHeight) >= that.data.reminderTop && (scrollTop + that.data.subHeaderHeight) < that.data.expensesTop ) {
+
+      that.setData({
+        isReminderFocus: true
+      })
+    }else {
+      that.setData({
+        isReminderFocus: false
+      })
+    }
+
+    if ((scrollTop + that.data.subHeaderHeight) >= that.data.expensesTop) {
+
+      that.setData({
+        isExpensesFocus: true
+      })
+
+    }else{
+
+      that.setData({
+        isExpensesFocus: false
+      })
+    }
+  },
+
+  upper: function (e) {
+
+    var that = this;
+    that.setData({
+      scrollTop: 0
+    })
   },
 }));
 

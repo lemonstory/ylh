@@ -15,7 +15,7 @@ Page(Object.assign({}, Toast, {
     duration: 1000,
 
     optionsId: '',
-//电话弹窗
+    //电话弹窗
     isShowPhoneDialog: false,
 
     //优惠弹窗
@@ -40,10 +40,19 @@ Page(Object.assign({}, Toast, {
     'isNoMore': false,
     //是否正在加载中
     'isLoading': false,
+
+    toView: '',
+    windowHeight: '',
+    scrollTop: 0,
+    subHeaderTop: 0,
+    strokeTop: 0,
+    reminderTop: 0,
+    expensesTop: 0,
+    subHeaderHeight: 0,
   },
 
   onLoad: function (options) {
-   var that = this;
+    var that = this;
     console.log(options);
     //接收页面参数
     var id = options.id;
@@ -56,10 +65,18 @@ Page(Object.assign({}, Toast, {
     } else {
       console.error("id (线路Id) 不能为空 ")
     }
+
+wx.getSystemInfo({
+      success: function (res) {
+        that.setData({
+          windowHeight: res.windowHeight
+        })
+      }
+    })
   },
-/**
-   * 生命周期函数--监听页面初次渲染完成
-   */
+  /**
+     * 生命周期函数--监听页面初次渲染完成
+     */
   onReady: function () {
 
   },
@@ -68,7 +85,6 @@ Page(Object.assign({}, Toast, {
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
 
   },
 
@@ -83,7 +99,7 @@ Page(Object.assign({}, Toast, {
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-       
+
   },
 
   /**
@@ -169,7 +185,7 @@ Page(Object.assign({}, Toast, {
    * 优惠-点击
    */
   handleTapActivity: function () {
-   var that = this;
+    var that = this;
     that.setData({
       isShowActivityDetail: !that.data.isShowActivityDetail
     });
@@ -377,7 +393,7 @@ Page(Object.assign({}, Toast, {
 
     //默认选中的出行日期
     that.setData({
-         
+
       selectedTravelDate: that.data.startDatePriceListFormat[0].date,
       selectedTravelDateIndex: 0,
       currentSelectedMonthIndex: 0,
@@ -451,7 +467,90 @@ Page(Object.assign({}, Toast, {
         url: url,
       })
     }
-  }
+  },
 
+  /**
+   * 锚点跳转
+   */
+  bindAnchorScroll: function (e) {
+
+    console.log(e);
+    var that = this;
+    var id = e.currentTarget.dataset.id;
+    var scrollTop = 0;
+    switch (id) {
+
+      case 'stroke':
+        scrollTop = that.data.strokeTop - that.data.subHeaderHeight
+        break;
+
+      case 'reminder':
+        scrollTop = that.data.reminderTop - that.data.subHeaderHeight
+        break;
+
+      case 'expenses':
+        scrollTop = that.data.expensesTop - that.data.subHeaderHeight
+        break;
+    }
+
+    that.setData({
+      toView: id,
+      scrollTop: scrollTop
+    })
+  },
+
+
+  scroll: function (e) {
+
+    var that = this;
+    that.setData({
+      scrollTop: e.detail.scrollTop
+    })
+
+    if (util.isEmptyStr(that.data.subHeaderTop)) {
+      wx.createSelectorQuery().select('#sub-header').boundingClientRect(function (rect) {
+        rect.id      // 节点的ID
+        rect.dataset // 节点的dataset
+        rect.left    // 节点的左边界坐标
+        rect.right   // 节点的右边界坐标
+        rect.top     // 节点的上边界坐标
+        rect.bottom  // 节点的下边界坐标
+        rect.width   // 节点的宽度
+        rect.height  // 节点的高度
+
+        var subHeaderTop = rect.top + e.detail.scrollTop;
+        that.setData({
+          subHeaderTop: subHeaderTop,
+          subHeaderHeight: rect.height
+        })
+
+      }).exec()
+    }
+
+    if (util.isEmptyStr(that.data.strokeTop)) {
+      wx.createSelectorQuery().select('#stroke').boundingClientRect(function (rect) {
+        that.setData({
+          strokeTop: rect.top + e.detail.scrollTop
+        })
+      }).exec()
+    }
+
+    if (util.isEmptyStr(that.data.reminderTop)) {
+      wx.createSelectorQuery().select('#reminder').boundingClientRect(function (rect) {
+        that.setData({
+          reminderTop: rect.top + e.detail.scrollTop
+        })
+
+      }).exec()
+    }
+
+    if (util.isEmptyStr(that.data.expensesTop)) {
+      wx.createSelectorQuery().select('#expenses').boundingClientRect(function (rect) {
+        that.setData({
+          expensesTop: rect.top + e.detail.scrollTop
+        })
+      }).exec()
+    }
+  },
 }));
 

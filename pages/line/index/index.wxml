@@ -59,7 +59,7 @@
                     <image src="{{item.image}}" mode='aspectFill'></image>
                </view>
                <view class="tuijuan-text">
-                    <view class="text1">{{item.title}}</view>
+                    <view class="text1">【{{item.attr}}】{{item.title}}</view>
                     <view class="tuijuan-bottom">
                          <view class="text2">¥{{item.price / 100}}
                               <view class="person">/人起</view>

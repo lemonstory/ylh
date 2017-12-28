@@ -1,5 +1,16 @@
 /* pages/API/choice-person/choice-person.wxss */
- .remove{  
+ .container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background: #f7f7f7;
+  border-top:1rpx solid #eee;
+}
+.remove{
     width: 60px;  
     height: 100%;  
     background-color: red;  
@@ -31,17 +42,7 @@ left:50%;
 transform:translate(-50%, -48%) scale(0.73);
 -webkit-transform:translate(-50%, -48%) scale(0.73);
 }
-.container {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  background: #f7f7f7;
-  border-top:1rpx solid #eee;
-}
+
 .main-box {
   width: 100%;
   height: auto;
@@ -62,13 +63,17 @@ transform:translate(-50%, -48%) scale(0.73);
   align-items: center;
   height: 64rpx;
   justify-content: space-between;
+  padding-right: 30rpx;
+  box-sizing: border-box;
+  
 }
 .top-name {
   font-size: 28rpx;
   font-family: PingFang-SC-Regular;
   color: rgba(51, 51, 51, 1);
- width:auto;
- margin-left: 20rpx;
+  margin-left: 20rpx;
+ 
+ text-align: center;
 }
 .top-tell {
   font-size: 28rpx;
@@ -101,9 +106,7 @@ transform:translate(-50%, -48%) scale(0.73);
   height: 98rpx;
   position: fixed;
   bottom: 0;
-
 }
-
 .bottom-left {
   width: 50%;
   height: 100%;
@@ -113,7 +116,6 @@ transform:translate(-50%, -48%) scale(0.73);
   text-align: center;
   line-height: 98rpx;
 }
-
 .bottom-right {
   width: 50%;
   height: 100%;
@@ -131,13 +133,43 @@ transform:translate(-50%, -48%) scale(0.73);
 .call{
   margin-left: 30rpx;
   color:#333;
+  display: block;
 }
+
+/* .item{
+    position: relative;
+    height: 180rpx;
+    line-height: 180rpx;
+    overflow: hidden;
+    border-bottom: 1rpx solid #eee;
+}
+.inner{
+    position: absolute;
+    top:0;
+}
+.inner.txt{
+    background-color: #fff;
+    width: 100%;
+    z-index: 5;
+    padding:0 10rpx;
+    transition: left 0.2s ease-in-out;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+.inner.del{
+    background-color: #e64340;
+    width: 180rpx;
+    text-align: center;
+    z-index: 4;
+    right: 0;
+    color: #fff;
+} */
 
 
 .item{
     position: relative;
-    border-top: 2rpx solid #eee;
-    height: 120rpx;
+    height: 180rpx;
     line-height: 120rpx;
     overflow: hidden;
      
@@ -161,8 +193,10 @@ transform:translate(-50%, -48%) scale(0.73);
 }
 .inner.del{
     background-color: #e64340;
-    width: 180rpx;text-align: center;
+    width: 180rpx;
+    text-align: center;
     z-index: 4;
     right: 0;
-    color: #fff
+    color: #fff;
+
 }

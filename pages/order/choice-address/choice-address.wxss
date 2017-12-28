@@ -24,24 +24,22 @@
   border-bottom: 1rpx solid #eee;
   margin-left: 30rpx;
   margin-right: 30rpx;
-  padding-bottom: 30rpx;
   padding-top: 10rpx;
-
-
-      position: relative;
-    overflow: hidden;
-     
+  overflow: hidden;
 }
 
 .ul-top {
   display: flex;
   align-items: center;
   height: 64rpx;
+  justify-content: space-between;
+
 }
 
 .check {
   width: 32rpx;
   height: 32rpx;
+  display: flex;
 }
 
 .top-name {
@@ -49,28 +47,31 @@
   font-family: PingFang-SC-Regular;
   color: rgba(51, 51, 51, 1);
   margin-left: 31rpx;
-  width: 120rpx;
+  width: auto;
+ 
 }
 
 .top-tell {
   font-size: 28rpx;
   font-family: PingFang-SC-Regular;
   color: rgba(153, 153, 153, 1);
+  margin-left: 40rpx;
 }
 
 .xiugai {
   width: 32rpx;
   height: 32rpx;
-  margin-left: 280rpx;
+  z-index: 999;
 }
 
 .ul-bottom {
   margin-left: 63rpx;
   width: auto;
-  height: autopx;
+  height: 64rpx;
   font-size: 28rpx;
   font-family: PingFang-SC-Regular;
   color: rgba(102, 102, 102, 1);
+
 }
 
 .bottom {
@@ -102,14 +103,13 @@
   font-family: PingFang-SC-Regular;
 }
 
-.item{
+
+ .item{
     position: relative;
-    border-top: 2rpx solid #eee;
     height: 120rpx;
-    line-height: 120rpx;
+    line-height: 64rpx;
     overflow: hidden;
-     
-}
+} 
 .item:last-child{
     border-bottom: 2rpx solid #eee;
 }
@@ -117,20 +117,32 @@
     position: absolute;
     top:0;
 }
-.inner.txt{
+ .inner.txt{
     background-color: #fff;
     width: 100%;
-    z-index: 5;
-    padding:0 10rpx;
     transition: left 0.2s ease-in-out;
     white-space:nowrap;
     overflow:hidden;
     text-overflow:ellipsis;
-}
+} 
 .inner.del{
     background-color: #e64340;
-    width: 180rpx;text-align: center;
-    z-index: 4;
+    width: 180rpx;
+    text-align: center;
     right: 0;
-    color: #fff
+    color: #fff;
+    height:130rpx;
+    line-height: 130rpx;
+ 
 }
+ .remove{  
+    width: 60rpx;  
+    height: 100%;  
+    background-color: red;  
+    display: flex;  
+    justify-content: center;  
+    align-items: center; 
+    top: 0;
+    position: absolute; 
+    right:-60rpx; 
+}   

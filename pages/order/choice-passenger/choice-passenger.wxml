@@ -1,61 +1,56 @@
 <!--pages/API/choice-person/choice-person.wxml-->
 <import src="/zanui-weapp/dist/toast/index.wxml" />
 <view class="container">
-  <view class="main-box">
+     <view class="main-box" style='margin-bottom:120rpx;'>
+          <!-- <checkbox-group class='free-radios' bindchange=" bindCheckbox">  -->
+          <!-- <checkbox-group bindchange="checkboxChange"> -->
+               <view class="address-ul" wx:for="{{data.list}}" wx:key="{{list}}" wx:for-index="idx" wx:for-item="listItem" class="item">
+   <view bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" data-index="{{idx}}" style="{{listItem.txtStyle}}" class="inner txt"> 
+                         <view class="ul-top" bindchange="checkboxChange">
+                                   
+                              <view style='display:flex;align-items: center;'>
+                                   <checkbox value="{{listItem.id}}" checked="{{listItem.checked}}" />
+                                   <view class="top-name">{{listItem.name}}</view>
+                                   <view class="top-tell" wx:if="{{listItem.ageGroup == 2}}">(儿童)</view>
+                                   <view class="top-tell" wx:if="{{listItem.ageGroup == 3}}">(成人)</view>
+                              </view>
+                              <image class="xiugai" src="http://image.365zhiding.com/wxapp/20171121/xiugai.png" data-idx="{{idx}}" bindtap='handleTapEdit'></image>
+                         </view>
+                         <view class="ul-bottom" wx:if="{{listItem.cardType == 1}}">身份证：
+                              <view class="idcal">{{listItem.cardNumber}}</view>
+                         </view>
+                         <view class="ul-bottom" wx:if="{{listItem.cardType == 2}}">军官证：
+                              <view class="idcal">{{listItem.cardNumber}}</view>
+                         </view>
+                         <view class="ul-bottom" wx:if="{{listItem.cardType == 3}}">护照：
+                              <view class="idcal">{{listItem.cardNumber}}</view>
+                         </view>
+                         <view class="ul-bottom" wx:if="{{listItem.cardType == 4}}">港澳通行证：
+                              <view class="idcal">{{listItem.cardNumber}}</view>
+                         </view>
+                         <view class="ul-bottom" wx:if="{{listItem.cardType == 5}}">台湾通行证：
+                              <view class="idcal">{{listItem.cardNumber}}</view>
+                         </view>
+                         <view class="ul-bottom" wx:if="{{listItem.cardType == 99}}">其它：
+                              <view class="idcal">{{listItem.cardNumber}}</view>
+                         </view>
+                         <view class="ul-bottom">联系电话：
+                              <view class="call">{{listItem.mobile}}</view>
+                         </view>
+                             </view>
+                   <view data-index="{{idx}}" bindtap="delItem" class="inner del">删除</view>
+                    </view> 
+           
+  <!-- </checkbox-group> -->
 
-    <!-- <checkbox-group class='free-radios' bindchange=" bindCheckbox">  -->
-    <view style='margin-bottom:120rpx;'>
-      <checkbox-group bindchange="checkboxChange">
-        <view class="address-ul" wx:for="{{data.list}}" wx:key="{{list}}" wx:for-index="idx" wx:for-item="listItem" class="item">
-          <view bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" data-index="{{idx}}" style="{{listItem.txtStyle}}" class="inner txt">
-            <view class="ul-top">
-              <view style='display:flex;align-items: center;'>
-                <checkbox value="{{listItem.id}}" checked="{{listItem.checked}}" />
-
-                <view class="top-name">{{listItem.name}}</view>
-                <view class="top-tell" wx:if="{{listItem.ageGroup == 2}}">(儿童)</view>
-                <view class="top-tell" wx:if="{{listItem.ageGroup == 3}}">(成人)</view>
-              </view>
-              <image class="xiugai" src="http://image.365zhiding.com/wxapp/20171121/xiugai.png" data-idx="{{idx}}" bindtap='handleTapEdit'></image>
-            </view>
-
-            <view class="ul-bottom" wx:if="{{listItem.cardType == 1}}">身份证：
-              <view class="idcal">{{listItem.cardNumber}}</view>
-            </view>
-            <view class="ul-bottom" wx:if="{{listItem.cardType == 2}}">军官证：
-              <view class="idcal">{{listItem.cardNumber}}</view>
-            </view>
-            <view class="ul-bottom" wx:if="{{listItem.cardType == 3}}">护照：
-              <view class="idcal">{{listItem.cardNumber}}</view>
-            </view>
-            <view class="ul-bottom" wx:if="{{listItem.cardType == 4}}">港澳通行证：
-              <view class="idcal">{{listItem.cardNumber}}</view>
-            </view>
-            <view class="ul-bottom" wx:if="{{listItem.cardType == 5}}">台湾通行证：
-              <view class="idcal">{{listItem.cardNumber}}</view>
-            </view>
-            <view class="ul-bottom" wx:if="{{listItem.cardType == 99}}">其它：
-              <view class="idcal">{{listItem.cardNumber}}</view>
-            </view>
-            <view class="ul-bottom">联系电话：
-              <view class="call">{{listItem.mobile}}</view>
-            </view>
-            
+   </view>
+     <view class="bottom">
+          <view class="bottom-left">
+               <navigator open-type="redirect" url="/pages/order/add-passenger/add-passenger">添加出行人</navigator>
           </view>
-          <view data-index="{{idx}}" bindtap = "delItem" class="inner del">删除</view>
-        </view>
-      </checkbox-group>
-
-    </view>
-    <view class="bottom">
-      <view class="bottom-left">
-        <navigator open-type="redirect" url="/pages/order/add-passenger/add-passenger">添加出行人</navigator>
-      </view>
-      <view class="bottom-right" bindtap='handleTapComplete'>完成</view>
-    </view>
-
-  </view>
-
+          <view class="bottom-right" bindtap='handleTapComplete'>完成</view>
+     </view>
+  
   <!-- 直接使用 zan-toast 模板，并且直接传入 zanToast -->
-  <template is="zan-toast" data="{{ zanToast }}"></template>
+     <template is="zan-toast" data="{{ zanToast }}"></template>
 </view>

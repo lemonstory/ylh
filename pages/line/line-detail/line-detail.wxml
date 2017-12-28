@@ -21,10 +21,10 @@
       </swiper>
 
       <view class="tuijuan-text">
-        <view class="text1">【{{attr}}】{{title}}</view>
+        <view class="text1" wx:if="{{title}}">【{{attr}}】{{title}}</view>
         <view class="tuijuan-bottom">
-          <view class="text2">¥{{minPrice / 100}}
-            <view class="personal">/人起</view>
+          <view class="text2" wx:if="{{minPrice}}">¥{{minPrice / 100}}
+            <view class="personal" wx:if="{{minPrice}}">/人起</view>
             <view class="tehui" wx:for="{{tags}}" wx:key="tags" wx:for-index="idx" style="background:{{item.color}}">{{item.name}}</view>
           </view>
         </view>

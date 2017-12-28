@@ -7,7 +7,7 @@
 
 <view class="container">
   <!-- 顶部开始 -->
-  <scroll-view scroll-y='{{true}}' style="height: {{windowHeight}}px;" bindscroll="scroll" scroll-into-view="{{toView}}" bindscroll="scroll" scroll-top="{{scrollTop}}">
+  <!-- <scroll-view scroll-y='{{true}}' style="height: {{windowHeight}}px;" bindscroll="scroll" scroll-into-view="{{toView}}" bindscroll="scroll" scroll-top="{{scrollTop}}"> -->
 
     <view class="ul">
       <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
@@ -145,12 +145,22 @@
       </view>
     </block>
   
-    <view class="plan {{scrollTop > 0 && subHeaderTop > 0 && scrollTop >= subHeaderTop ?  'sub-header' : ''}}" id="sub-header" style="z-index:9999">
+    <view class="plan">
+      <view wx:if="{{template.name =='simple'}}">详细行程 </view>
+          <view data-id='stroke' wx:else>{{day}}日行程 </view>
+              <view data-id='reminder'>温馨提示 </view>
+                  <view data-id='expenses'>费用说明 </view>
+
+     
+                  <!-- <view>用户评价</view> -->
+
+
+
+                      <!-- <view class="plan {{scrollTop > 0 && subHeaderTop > 0 && scrollTop >= subHeaderTop ?  'sub-header' : ''}}" id="sub-header" style="z-index:9999">
       <view wx:if="{{template.name =='simple'}}" data-id='stroke' style='height:65rpx' bindtap='bindAnchorScroll' class="{{(scrollTop+subHeaderHeight) >= strokeTop && (scrollTop+subHeaderHeight) < reminderTop ? 'choice-active' : ''}}">详细行程 </view>
           <view data-id='stroke' bindtap='bindAnchorScroll' style='height:65rpx' class="{{(scrollTop+subHeaderHeight) >= strokeTop && (scrollTop+subHeaderHeight)< reminderTop ? 'choice-active' : ''}}" wx:else>{{day}}日行程 </view>
               <view data-id='reminder'  style='height:65rpx' bindtap='bindAnchorScroll' class="{{(scrollTop+subHeaderHeight) >= reminderTop && (scrollTop+subHeaderHeight)< expensesTop ? 'choice-active' : ''}}">温馨提示 </view>
-                  <view data-id='expenses' style='height:65rpx' bindtap='bindAnchorScroll' class="{{(scrollTop+subHeaderHeight) >= expensesTop ? 'choice-active' : ''}}">费用说明 </view>
-                  <!-- <view>用户评价</view> -->
+                  <view data-id='expenses' style='height:65rpx' bindtap='bindAnchorScroll' class="{{(scrollTop+subHeaderHeight) >= expensesTop ? 'choice-active' : ''}}">费用说明 </view> -->
               </view>
 
 
@@ -200,7 +210,7 @@
                   <rich-text class="paytext" nodes="{{expense}}"></rich-text>
                 </view>
               </block>
-  </scroll-view>
+  <!-- </scroll-view> -->
 
   <!--费用说明结束  -->
 

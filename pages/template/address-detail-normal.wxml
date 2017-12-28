@@ -1,7 +1,6 @@
 <template name="address-detail-normal">
   <block wx:for="{{template.normal}}" wx:for-index="idx" wx:for-item="item" wx:key="idx">
     <view class="oneday ">{{item.key}}</view>
-    <view class="dian"> 。。。。。。。。。。 </view>
     <view class="goto-normal ">{{item.title}}</view>
     <view class="jiaotong-normal" wx:for="{{item.info1}}" wx:for-item="item" wx:key="idx">{{item.key}}：{{item.content}}</view>
     <block wx:for="{{item.theme}}" wx:for-item="theme" wx:key="theme">

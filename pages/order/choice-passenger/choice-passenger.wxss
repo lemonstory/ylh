@@ -10,7 +10,7 @@
   background: #f7f7f7;
   border-top:1rpx solid #eee;
 }
-.remove{
+ .remove{
     width: 60px;  
     height: 100%;  
     background-color: red;  
@@ -20,7 +20,7 @@
     display: flex;  
     justify-content: center;  
     align-items: center;  
-}  
+}   
 checkbox .wx-checkbox-input {
 margin-right:5px;
 -webkit-appearance:none;
@@ -136,47 +136,16 @@ transform:translate(-50%, -48%) scale(0.73);
   display: block;
 }
 
-/* .item{
-    position: relative;
-    height: 180rpx;
-    line-height: 180rpx;
-    overflow: hidden;
-    border-bottom: 1rpx solid #eee;
-}
-.inner{
-    position: absolute;
-    top:0;
-}
-.inner.txt{
-    background-color: #fff;
-    width: 100%;
-    z-index: 5;
-    padding:0 10rpx;
-    transition: left 0.2s ease-in-out;
-    white-space:nowrap;
-    overflow:hidden;
-    text-overflow:ellipsis;
-}
-.inner.del{
-    background-color: #e64340;
-    width: 180rpx;
-    text-align: center;
-    z-index: 4;
-    right: 0;
-    color: #fff;
-} */
-
-
 .item{
     position: relative;
-    height: 180rpx;
+    height: 160rpx;
     line-height: 120rpx;
     overflow: hidden;
+    padding-bottom: 10rpx;
+    border-bottom: 1rpx solid #eee;
      
 }
-.item:last-child{
-    border-bottom: 2rpx solid #eee;
-}
+
 .inner{
     position: absolute;
     top:0;
@@ -193,11 +162,13 @@ transform:translate(-50%, -48%) scale(0.73);
 }
 .inner.del{
     background-color: #e64340;
-    width: 180rpx;
+    width: 160rpx;
     text-align: center;
     z-index: 4;
     right: 0;
     color: #fff;
+    height:180rpx;
+    line-height: 160rpx;
 
 }
 

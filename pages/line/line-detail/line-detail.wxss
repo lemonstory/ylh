@@ -363,7 +363,6 @@ swiper {
      width: 750rpx;
      height: 90rpx;
      background: rgba(255, 255, 255, 1);
-     margin-top: 10rpx;
      display: flex;
      justify-content: space-around;
      align-items: center;
@@ -1041,4 +1040,15 @@ swiper {
      right:0;
      text-align: center;
      line-height: 90rpx;
+}
+
+.sub-header{
+  position:fixed;
+  top:0px;
+}
+
+::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    color: transparent;
 }

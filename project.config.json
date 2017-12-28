@@ -27,7 +27,7 @@
 					"id": 0,
 					"name": "悦旅会-公众号-代理商菜单",
 					"pathName": "pages/distributer/login/login",
-					"query": "",
+					"query": "isDistributer=1",
 					"scene": "1035",
 					"referrerInfo": {}
 				},
@@ -46,6 +46,20 @@
 					"query": "",
 					"scene": "1036",
 					"referrerInfo": {}
+				},
+				{
+					"id": -1,
+					"name": "悦旅会-选择出行人",
+					"pathName": "pages/order/choice-passenger/choice-passenger",
+					"query": "distributerId=119",
+					"scene": "1036",
+					"referrerInfo": {}
+				},
+				{
+					"id": -1,
+					"name": "悦旅会-选择地址",
+					"pathName": "pages/order/choice-address/choice-address",
+					"query": ""
 				}
 			]
 		}

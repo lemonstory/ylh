@@ -29,6 +29,7 @@
             <view class="bottom-left">订单金额：¥{{item.amount}}</view>
             <view class="all-right">
               <view class="bottom-right" data-ordersn="{{item.ordersn}} " wx:if="{{item.isAllowCancel ==1}}" bindtap='onChangeShowState'>取消订单</view>
+              <view class="bottom-right" data-ordersn="{{item.ordersn}}" style='color:#FF6600;border:1rpx solid #FF6600; margin-left:20rpx' bindtap='bindTapPossport' wx:if="{{item.statusId == 102}}">上传资料</view>
               <view class="bottom-right" style='color:#FF6600;border:1rpx solid #FF6600; margin-left:20rpx' data-statusid="{{item.statusId}}" data-ordersn="{{item.ordersn}} " bindtap='toOrderDetail'>{{item.statusId == 101 ? "去支付":"订单详情"}}</view>
             </view>
           </view>
@@ -65,15 +66,17 @@
       </view>
     </block>  -->
 
-<!--签证结束  -->
-      
+      <!--签证结束  -->
+
     </block>
     <block wx:else>
-<view class="container1">
-    <image class="image-order" src="http://image.365zhiding.com/wxapp/20171220/order.png"></image>
-   <view class="message">哎呦，您现在还没有订单～</view>
-   <navigator url='../../customized/index/index'><view class="bottom1">我要定制旅游</view></navigator>
-</view>
+      <view class="container1">
+        <image class="image-order" src="http://image.365zhiding.com/wxapp/20171220/order.png"></image>
+        <view class="message">哎呦，您现在还没有订单～</view>
+        <navigator url='../../customized/index/index'>
+          <view class="bottom1">我要定制旅游</view>
+        </navigator>
+      </view>
     </block>
 
     <!--取消订单弹出信息的展示开始  -->

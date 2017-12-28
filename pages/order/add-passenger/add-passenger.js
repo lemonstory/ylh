@@ -71,8 +71,8 @@ Page(Object.assign({}, Toast, {
         'gender': item.gender,
 
 
-        'cardTitle': util.getTitleWithId(app.constant.passengerTitle, item.cardType),
-        'passengerTitle': util.getTitleWithId(app.constant.passengerCardType, item.title)
+        'cardTitle': util.getTitleWithId(app.constant.passengerCardType, item.cardType),
+        'passengerTitle': util.getTitleWithId(app.constant.passengerTitle, item.title)
       })
 
       console.log(that.data);

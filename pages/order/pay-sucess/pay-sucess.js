@@ -86,9 +86,9 @@ Page(Object.assign({}, Toast, {
    * 查看订单详情
    */
   bindTapOrderDetail: function () {
-
+    var that = this;
     wx.redirectTo({
-      url: '/pages/order/detail/detail?orderSn=' + that.data.orderSn,
+      url: "/pages/order/detail/detail?orderSn=" + that.data.orderSn,
       success: function (res) { },
       fail: function (res) { },
       complete: function (res) { },
@@ -99,8 +99,9 @@ Page(Object.assign({}, Toast, {
    * 上传旅客资料
    */
   bindTapFillPossport: function () {
+    var that = this;
     wx.redirectTo({
-      url: '/pages/member/possport-list/possport-list?orderSn=' + that.data.orderSn,
+      url: "/pages/member/possport-list/possport-list?orderSn=" + that.data.orderSn,
       success: function (res) { },
       fail: function (res) { },
       complete: function (res) { },

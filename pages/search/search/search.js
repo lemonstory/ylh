@@ -177,7 +177,7 @@ Page(Object.assign({}, Toast, {
           var category = 0;
           var pageIndex = 1;
           var pageSize = app.constant.pageSize;
-          var path = "/pages/API/line-list/line-list?areaId=" + areaId + "&category=" + category + "&pageIndex=" + pageIndex + "&pageSize=" + pageSize;
+          var path = "/pages/line/line-list/line-list?areaId=" + areaId + "&category=" + category + "&pageIndex=" + pageIndex + "&pageSize=" + pageSize;
           console.log(path);
           wx.navigateTo({
                url: path
@@ -187,11 +187,13 @@ Page(Object.assign({}, Toast, {
      /**
     * 点击搜索结果-线路-每一条
     */
-     handleTapLineListItem: function (e) {
+     handleTapLineListItem: function (event) {
 
           var that = this;
-          var id = e.currentTarget.dataset.area_id;
-          var path = "/pages/API/line-detail/line-detail?id=" + id;
+          var id = event.currentTarget.dataset.id;
+         console.log(1111111111111111111111)
+          console.log(id);
+          var path = "/pages/line/line-detail/line-detail?id=" + id;
           wx.navigateTo({
                url: path
           })

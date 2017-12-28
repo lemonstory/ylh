@@ -130,6 +130,9 @@
     </block>
     <!--领队介绍结束 -->
 
+
+    
+
     <!--行程亮点开始-->
     <!--判断行程亮点是否为空-->
     <block wx:if="{{merits==''}}"></block>
@@ -141,7 +144,7 @@
         <rich-text class="xing-text" nodes="{{merits}}"></rich-text>
       </view>
     </block>
-
+  
     <view class="plan {{scrollTop > 0 && subHeaderTop > 0 && scrollTop >= subHeaderTop ?  'sub-header' : ''}}" id="sub-header" style="z-index:9999">
       <view wx:if="{{template.name =='simple'}}" data-id='stroke' style='height:65rpx' bindtap='bindAnchorScroll' class="{{(scrollTop+subHeaderHeight) >= strokeTop && (scrollTop+subHeaderHeight) < reminderTop ? 'choice-active' : ''}}">详细行程 </view>
           <view data-id='stroke' bindtap='bindAnchorScroll' style='height:65rpx' class="{{(scrollTop+subHeaderHeight) >= strokeTop && (scrollTop+subHeaderHeight)< reminderTop ? 'choice-active' : ''}}" wx:else>{{day}}日行程 </view>

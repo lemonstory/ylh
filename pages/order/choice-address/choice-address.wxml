@@ -1,6 +1,7 @@
 <!--pages/API/choice-address/choice-address.wxml-->
 <import src="/zanui-weapp/dist/toast/index.wxml" />
 <view class="container">
+
      <view class="main-box">
           <view class="address-ul item" wx:for="{{data.list}}" wx:key="list" wx:for-index="idx" class="item">
                <view catchtap='handelAddressSelect' data-id="{{item.id}}" data-address="{{item.street}}">

@@ -26,7 +26,7 @@
 				{
 					"id": 0,
 					"name": "悦旅会-公众号-代理商菜单",
-					"pathName": "pages/distributer/login/login",
+					"pathName": "pages/line/index/index",
 					"query": "",
 					"scene": "1035",
 					"referrerInfo": {}
@@ -34,7 +34,7 @@
 				{
 					"id": 1,
 					"name": "悦旅会-分享-卡片",
-					"pathName": "pages/line/index/index",
+					"pathName": "pages/order/choice-address/choice-address",
 					"query": "distributerId=119",
 					"scene": "1036",
 					"referrerInfo": {}
@@ -42,7 +42,7 @@
 				{
 					"id": 2,
 					"name": "悦旅会-分享-游客",
-					"pathName": "pages/line/index/index",
+					"pathName": "pages/customized/index/index",
 					"query": "",
 					"scene": "1036",
 					"referrerInfo": {}

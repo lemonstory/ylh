@@ -171,7 +171,8 @@ Page(Object.assign({}, Toast, {
       delBtnWidth: delBtnWidth
     });
   },
-/**
+
+  /**
    * 删除事件
    */
   delItem: function (e) {
@@ -200,7 +201,7 @@ Page(Object.assign({}, Toast, {
             'data.list': list
           });
         }
-     },
+      },
       fail: function (res) {
         console.error(res);
       },

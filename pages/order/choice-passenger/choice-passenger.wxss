@@ -200,3 +200,9 @@ transform:translate(-50%, -48%) scale(0.73);
     color: #fff;
 
 }
+
+.check {
+  width: 32rpx;
+  height: 32rpx;
+  display: flex;
+}

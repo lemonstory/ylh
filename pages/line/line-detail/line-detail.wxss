@@ -7,10 +7,6 @@
      width: 100%;
      overflow: hidden;
 }
-
-
-
-
 .data12 {
      width: 750rpx;
      background: #fff;
@@ -24,6 +20,7 @@
      position: relative;
      align-items: center;
 }
+
 .dingicon {
      width: 24rpx;
      height: 32rpx;
@@ -34,7 +31,6 @@
      width: 100%;
      height: 100%;
 }
-
 .back12 {
      width: 14rpx;
      height: 24rpx;
@@ -469,7 +465,7 @@ swiper {
      font-size: 26rpx;
      font-family: PingFang-SC-Regular;
      color: rgba(153, 153, 153, 1);
-     margin-left: 110rpx;
+     /* margin-left: 110rpx; */
      margin-top: 29rpx;
      height: auto;
      line-height: 24rpx;
@@ -489,32 +485,34 @@ swiper {
 .img-box {
      width: 600rpx;
      height: auto;
-     margin-left: 120rpx;
+     /* margin-left: 120rpx; */
      margin-top: 29rpx;
      display: flex;
      justify-content: space-between;
+     margin-left: 10rpx;
+ 
 }
 
-
-.one-img{
-     width:600rpx;
-     height:100%;
+.one-img {
+     width: 600rpx;
+     height: 100%;
      border-radius: 10rpx;
 }
-.one-img image{
-     width:100%;
+
+.one-img image {
+     width: 100%;
      border-radius: 10rpx;
 }
 
 .two-img {
-     height:193rpx;
+     height: 193rpx;
      width: 290rpx;
      margin-right: 10rpx;
 }
 
-.two-img image{
-     width:100%;
-     height:100%;
+.two-img image {
+     width: 100%;
+     height: 100%;
      border-radius: 10rpx;
 }
 
@@ -522,7 +520,7 @@ swiper {
      width: 600rpx;
      height: auto;
      margin-top: 29rpx;
-     margin-left: 120rpx;
+     /* margin-left: 120rpx; */
      font-size: 26rpx;
      font-family: PingFang-SC-Regular;
      color: rgba(51, 51, 51, 1);
@@ -581,7 +579,7 @@ swiper {
      padding-right: 30rpx;
 }
 
- .paytext{
+.paytext {
      width: 690rpx;
      height: auto;
      margin-top: 120rpx;
@@ -592,10 +590,7 @@ swiper {
      margin-left: 30rpx;
      padding-top: 130rpx;
      box-sizing: border-box;
-} 
-
-
-
+}
 
 .ptext1 {
      font-size: 28rpx;
@@ -915,7 +910,7 @@ swiper {
      font-family: PingFang-SC-Regular;
      color: rgba(255, 102, 0, 1);
      box-sizing: border-box;
-     margin-left: 110rpx;
+     /* margin-left: 110rpx; */
      margin-top: 20rpx;
 }
 
@@ -925,7 +920,7 @@ swiper {
      font-size: 26rpx;
      font-family: PingFang-SC-Regular;
      color: rgba(153, 153, 153, 1);
-     margin-left: 110rpx;
+     /* margin-left: 110rpx; */
      margin-top: 29rpx;
      box-sizing: border-box;
 }
@@ -1025,9 +1020,9 @@ swiper {
      color: rgba(102, 102, 102, 1);
      position: absolute;
      width: 50%;
-     height:90rpx;
-     bottom:0;
-     left:0;
+     height: 90rpx;
+     bottom: 0;
+     left: 0;
      text-align: center;
      line-height: 90rpx;
 }
@@ -1038,27 +1033,25 @@ swiper {
      color: #0076ff;
      position: absolute;
      width: 50%;
-     height:90rpx;
-     bottom:0;
-     right:0;
+     height: 90rpx;
+     bottom: 0;
+     right: 0;
      text-align: center;
      line-height: 90rpx;
 }
 
-.sub-header{
-  position:fixed;
-  top:0px;
+.sub-header {
+     position: fixed;
+     top: 0px;
 }
 
 ::-webkit-scrollbar {
-    width: 0;
-    height: 0;
-    color: transparent;
+     width: 0;
+     height: 0;
+     color: transparent;
 }
 
-
-.choice-active{
-color:#f60;
-border-bottom: 5rpx solid #f60;
-
+.choice-active {
+     color: #f60;
+     border-bottom: 5rpx solid #f60;
 }

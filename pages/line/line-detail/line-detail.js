@@ -53,6 +53,9 @@ Page(Object.assign({}, Toast, {
     isStrokeFocus: false,
     isReminderFocus: false,
     isExpensesFocus: false,
+    normalIds:[],
+    normalViewHei:[] ,   // day显示的高度集合
+    hei:0
   },
 
   onLoad: function (options) {
@@ -89,7 +92,8 @@ wx.getSystemInfo({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+     
+     
   },
 
   /**
@@ -242,18 +246,17 @@ wx.getSystemInfo({
       header: util.getRequestHeader(),
       success: function (res) {
         if (res.statusCode == 200) {
-
           console.log(res.data);
           that.setData(res.data);
           that.setDataCallBack();
 
         } else {
-
           var message = JSON.stringify(res.data)
           that.showZanToast(message);
         }
       }
     })
+
   },
 
   //获取评论数据
@@ -397,19 +400,17 @@ wx.getSystemInfo({
 
     //默认选中的出行日期
     that.setData({
-
       selectedTravelDate: that.data.startDatePriceListFormat[0].date,
       selectedTravelDateIndex: 0,
       currentSelectedMonthIndex: 0,
-    })
+    });
+   
   },
 
-
-  /**
+/**
    * 出发日期-点击
    */
   handleTapChooseDate: function (e) {
-
     //选中的出行日期
     var currentSelectedTravelDate = e.currentTarget.dataset.date;
     //选中的出行日期所在的月份索引值
@@ -422,8 +423,7 @@ wx.getSystemInfo({
 
     //设置当前样式
     if (this.data.selectedTravelDateIndex != dataIdx) {
-
-      this.setData({
+     this.setData({
         selectedTravelDateIndex: dataIdx,
         selectedTravelDate: e.currentTarget.dataset.date,
         currentSelectedMonthIndex: currentSelectedMonthIndex
@@ -449,7 +449,6 @@ wx.getSystemInfo({
    * 开始预订-点击
    */
   handleTapStartOrder: function (e) {
-
     var that = this;
     var url = `/pages/order/choice-date/choice-date?currentSelectedTravelDate=${that.data.selectedTravelDate}&currentSelectedMonthIndex=${that.data.currentSelectedMonthIndex}`
     console.log("url = " + url);
@@ -505,11 +504,8 @@ wx.getSystemInfo({
 
 
   scroll: function (e) {
-
     var that = this;
     var scrollTop = e.detail.scrollTop
-
-
     if (util.isEmptyStr(that.data.subHeaderTop)) {
       wx.createSelectorQuery().select('#sub-header').boundingClientRect(function (rect) {
         rect.id      // 节点的ID
@@ -520,8 +516,7 @@ wx.getSystemInfo({
         rect.bottom  // 节点的下边界坐标
         rect.width   // 节点的宽度
         rect.height  // 节点的高度
-
-        var subHeaderTop = rect.top + e.detail.scrollTop;
+       var subHeaderTop = rect.top + e.detail.scrollTop;
         that.setData({
           subHeaderTop: subHeaderTop,
           subHeaderHeight: rect.height
@@ -530,11 +525,14 @@ wx.getSystemInfo({
       }).exec()
     }
 
+   
+
     if (util.isEmptyStr(that.data.strokeTop)) {
       wx.createSelectorQuery().select('#stroke').boundingClientRect(function (rect) {
         that.setData({
           strokeTop: rect.top + e.detail.scrollTop
         })
+        that.getViewHeigh();
       }).exec()
     }
 
@@ -615,5 +613,66 @@ wx.getSystemInfo({
       scrollTop: 0
     })
   },
+
+/**
+ * 动态获得item的高低
+ */
+getViewHeigh:function(){
+     var that =this;
+     var ids=[];
+     var viewHei;
+     var normalHeighs=[];
+     if (that.data.template.normal.length >0){    // 当有数据后
+          for (var i = 0; i < that.data.template.normal.length; i++){
+               var name = "normal-"+i;
+               ids.push(name);
+               console.log(name);
+          }
+          that.setData({
+               normalIds :ids 
+          })
+
+          console.log("数据——————————————————————————————————————————————————————————————");
+          console.log(that.data.template.normal.length);
+          for (var i = 0; i < that.data.template.normal.length; i++){
+               var index ="#"+that.data.normalIds[i];
+               wx.createSelectorQuery().select(index).boundingClientRect(function (rect) {
+                    rect.id      // 节点的ID  
+                    rect.dataset // 节点的dataset  
+                    rect.left    // 节点的左边界坐标  
+                    rect.right   // 节点的右边界坐标  
+                    rect.top     // 节点的上边界坐标  
+                    rect.bottom  // 节点的下边界坐标  
+                    rect.width   // 节点的宽度  
+                    rect.height  // 节点的高度  
+                    viewHei = rect.bottom - rect.top ;
+                    console.log("高度——————————————————————————————————————————————————————————————");
+                    console.log(viewHei);
+                    normalHeighs.push(viewHei);
+                    that.setData({
+                         normalViewHei: normalHeighs
+                    });
+                    console.log("高度集合——————————————————————————————————————————————————————————————");
+                    console.log(that.data.normalViewHei);
+
+                    that.setData({
+                         hei:viewHei
+                    })
+
+               }).exec();
+          }
+
+     }else{
+          console.log("数据空———————");
+
+     }
+},
+
+
+
+
+
+
+
 }));
 

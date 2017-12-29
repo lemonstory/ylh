@@ -1,4 +1,4 @@
-// pages/API/choice-person/choice-person.js
+      // pages/API/choice-person/choice-person.js
 const app = getApp();
 const Toast = require('../../../zanui-weapp/dist/toast/index');
 var util = require('../../../utils/util.js')
@@ -18,7 +18,7 @@ Page(Object.assign({}, Toast, {
   /**
      * 生命周期函数--监听页面加载
      */
-  onLoad: function () {
+onLoad: function () {
 
 
   },

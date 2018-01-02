@@ -405,7 +405,6 @@ Page(Object.assign({}, Toast, {
    * 上传资料
    */
   bindTapPossport: function (e) {
-
     var orderSn = e.currentTarget.dataset.ordersn;
     var url = "/pages/member/possport-list/possport-list?orderSn=" + orderSn;
     wx.redirectTo({

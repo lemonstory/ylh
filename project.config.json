@@ -8,7 +8,7 @@
 		"newFeature": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "1.6.4",
+	"libVersion": "1.7.2",
 	"appid": "wx97f4b0ff6e3f3b72",
 	"projectname": "huanyue",
 	"condition": {
@@ -26,7 +26,7 @@
 				{
 					"id": 0,
 					"name": "悦旅会-公众号-代理商菜单",
-					"pathName": "pages/line/index/index",
+					"pathName": "pages/distributer/login/login",
 					"query": "",
 					"scene": "1035",
 					"referrerInfo": {}
@@ -42,7 +42,7 @@
 				{
 					"id": 2,
 					"name": "悦旅会-分享-游客",
-					"pathName": "pages/customized/index/index",
+					"pathName": "pages/line/index/index",
 					"query": "",
 					"scene": "1036",
 					"referrerInfo": {}

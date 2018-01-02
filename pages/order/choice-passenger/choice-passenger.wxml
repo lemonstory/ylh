@@ -13,6 +13,7 @@
                               <view class="top-name">{{listItem.name}}</view>
                               <view class="top-tell" wx:if="{{listItem.ageGroup == 2}}">(儿童)</view>
                               <view class="top-tell" wx:if="{{listItem.ageGroup == 3}}">(成人)</view>
+                              <view class="top-tell" wx:if="{{listItem.ageGroup == 4}}">(老人)</view>
                          </view>
                          <image class="xiugai" src="http://image.365zhiding.com/wxapp/20171121/xiugai.png" data-idx="{{idx}}" bindtap='handleTapEdit'></image>
                     </view>

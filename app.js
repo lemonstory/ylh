@@ -33,13 +33,23 @@ App({
     } else {
 
       //非代理商处理
-      //get取得代理商Id
-      var getParamDistributerId = options.query.distributerId;
+      //scene取得代理商Id
+      var getParamDistributerId = 0;
+      var queryScene = decodeURIComponent(options.query.scene)
+      var sceneParamArr = queryScene.split(",")   
+      if (sceneParamArr.length > 0) {
+
+        for (var i = 0; i < sceneParamArr.length; i++) {
+          if (sceneParamArr[i].indexOf("distributerId") != -1) {
+            var distributerIdPair = sceneParamArr[i].split(":");
+            getParamDistributerId = distributerIdPair[1];
+          }
+        }
+      }
+
       //本地读取代理商Id
       var localDistributerId = util.getDistributerId();
-
       var distributerId = '';
-
 
       if (!util.isEmptyStr(localDistributerId)) {
 

@@ -22,6 +22,8 @@ Page(Object.assign({}, Toast, {
   },
 
   onLoad: function (options) {
+
+
     //用户为非代理商 且 用户没有代理商id
     // if (!util.isDistributer() && !util.isOwnDistributerId()) {
 

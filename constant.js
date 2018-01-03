@@ -19,8 +19,8 @@ var constant = {
   'pageSize': 20,
 
   //收银台支付
-  "paymentTradeType": "WX_JSAPP",
-  "paymentSysSource": "distributor",
+  "paymentTradeType":"WX_JSAPP",
+  "paymentSysSource":"distributor",
 
   //数据存储key
   'userAccessDataKey': 'userAccessData',
@@ -32,9 +32,7 @@ var constant = {
   'distributerId': '',
   'distributerAccessData': {},
 
-
-
-  //旅客证件类型
+//旅客证件类型
   "passengerCardType": [{
     id: '1',
     title: '身份证'

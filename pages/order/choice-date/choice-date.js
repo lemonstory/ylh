@@ -250,6 +250,7 @@ Page(Object.assign({}, Toast, {
     that.setData({
       canlenderMonthDataList: canlenderMonthDataListTemp
     })
+    
   },
 
   /**

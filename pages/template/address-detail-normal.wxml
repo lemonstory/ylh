@@ -2,7 +2,7 @@
      <block wx:for="{{template.normal}}" wx:for-index="idx" wx:for-item="item" wx:key="idx">
           <view class="oneday">{{item.key}}</view>
           <view style="display:flex">
-               <view class="dian" style='display:flex; display:-webkit-box;word-break:break-all;overflow:hidden;flex-direction:column; width:110rpx; height:500rpx;padding-left:54rpx;padding-right:54rpx;box-sizing:border-box;color:#AAA;'>. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . </view>
+               <view class="dian" style='display:flex; display:-webkit-box;word-break:break-all;overflow:hidden;flex-direction:column; width:110rpx; height:500rpx;padding-left:54rpx;padding-right:54rpx;box-sizing:border-box;color:#AAA;'></view>
 
                <view id="{{normalIds[idx]}}">
                     <view class="goto-normal ">{{item.title}}</view>

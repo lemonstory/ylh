@@ -52,7 +52,10 @@
           "pages/API/divide-order-detail1/divide-order-detail1",
           "pages/visa/category/category",
           "pages/visa/visa-list/visa-list",
-          "pages/visa/choice-date/choice-date"
+          "pages/visa/choice-date/choice-date",
+          "pages/visa/visa-detail/visa-detail",
+          "pages/visa/detail-handle-way/detail-handle-way",
+          "pages/visa/detail-comment/detail-comment"
      ],
      "window": {
           "navigationBarBackgroundColor": "#ffffff",
@@ -72,12 +75,7 @@
                     "iconPath": "pages/image/3.png",
                     "selectedIconPath": "pages/image/4.png"
                },
-               {
-                    "pagePath": "pages/visa/choice-date/choice-date",
-                    "text": "签证",
-                    "iconPath": "pages/image/5.png",
-                    "selectedIconPath": "pages/image/6.png"
-               },
+              
                {
                     "pagePath": "pages/user/index/index",
                     "text": "我的",

@@ -244,7 +244,7 @@
   <!--底部开始  -->
   <view class="bottom">
     <image class="zixun" src="http://image.365zhiding.com/wxapp/20171121/zixun.png" bindtap='handleTapPhone'></image>
-    <view class="zixuntext">资询</view>
+    <view class="zixuntext">咨询</view>
     <view class="yuding" bindtap='handleTapStartOrder'>开始预订</view>
   </view>
   <!--底部结束-->
@@ -256,8 +256,8 @@
 <view class="hidden-box hide {{isShowPhoneDialog? 'xianshi': ''}} "></view>
 <view class="hidden hide {{isShowPhoneDialog? 'xianshi': ''}} ">
   <view class="hidden-text1 ">呼叫客服</view>
-  <view class="hidden-text2 ">{{link.linkTel}}</view>
-  <view class="hidden-text3 ">{{link.date}}{{link.time}}</view>
+  <view class="hidden-text2 ">400-189-0876</view>
+  <view class="hidden-text3 ">周一至周六 09:30-18:30</view>
   <view class="line1 "></view>
   <view class="line2 "></view>
   <view class="cancel " bindtap='handleTapCancelPhoneDialog'>取消</view>

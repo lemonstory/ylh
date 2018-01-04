@@ -1,14 +1,17 @@
 /**app.wxss**/
- @import "./zanui-weapp/dist/index.wxss";
+@import "./zanui-weapp/dist/index.wxss";
+
 .container {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  box-sizing: border-box;
-  margin:0;
-  padding:0;
-  background: #F7F7F7;
+     width: 100%;
+     height: auto;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     box-sizing: border-box;
+     margin: 0;
+     padding: 0;
+     background: #f7f7f7;
+     font-family: PingFang-SC-Regular;
 }
 
 /** popup -start */
@@ -25,7 +28,6 @@
      top: 0;
      bottom: 0;
 }
-
 .popup-example--top .zan-popup__container {
      left: 0;
      right: 0;
@@ -54,9 +56,11 @@
      height: auto;
      background: #fff;
 }
-.zan-btns{
-     margin:0;
+
+.zan-btns {
+     margin: 0;
 }
+
 .zan-btn {
      border: none;
      line-height: 84rpx;
@@ -66,18 +70,21 @@
      font-family: PingFang-SC-Regular;
      color: rgba(153, 153, 153, 1);
 }
-.zan-cancel{
-  width: 200rpx;
-  margin: 0; 
-text-align: left; 
+
+.zan-cancel {
+     width: 200rpx;
+     margin: 0;
+     text-align: left;
 }
-.zan-sure{
-  width: 200rpx;
-  margin: 0; 
-text-align: right; 
+
+.zan-sure {
+     width: 200rpx;
+     margin: 0;
+     text-align: right;
 }
-.zan-top{
-     display:flex;
+
+.zan-top {
+     display: flex;
      justify-content: space-between;
 }
 

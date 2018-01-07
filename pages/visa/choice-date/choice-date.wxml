@@ -1,0 +1,54 @@
+<!--pages/visa/choice-date/choice-date.wxml-->
+<view class="page">
+     <!--日历开始  -->
+     <view class="calendar">
+          <!-- 日历-月份开始 -->
+          <view class="calendar-panel">
+               <!-- <view class="day">{{canlender.date}}日</view>      -->
+               <block wx:for="{{canlenderMonthDataList}}" wx:key="canlenderMonthDataList" wx:for-index="canlenderMonthDataListIndex">
+
+                    <view class="month" data-month_index="{{canlenderMonthDataListIndex}}" bindtap='handleTapMonthHeader'>12月
+                         <view class="price">￥{{item.min / 100}}起</view>
+
+                         <view wx:if="{{canlenderMonthDataListIndex == currentSelectedMonthIndex}}">
+                              <image src="http://image.365zhiding.com/wxapp/20171220/choice.png" style='width:50rpx;height:18rpx;position:absolute;left:75rpx;bottom:-3rpx'></image>
+                         </view>
+                         <view wx:else></view>
+                    </view>
+
+               </block>
+          </view>
+          <!-- 日历-月份结束 -->
+          <!-- 日历-日期开始 -->
+          <view class="calendar-header">
+               <view class="xingqi">
+                    <view>日</view>
+                    <view>一</view>
+                    <view>二</view>
+                    <view>三</view>
+                    <view>四</view>
+                    <view>五</view>
+                    <view>六</view>
+               </view>
+          </view>
+
+          <view class="calendar-body">
+               <block wx:for="{{canlenderMonthDataList}}" wx:for-item="months" wx:key="canlenderMonthDataListItem" wx:for-index="idx">
+                    <block wx:for="{{months.canlenderData.weeks}}" wx:for-item="days" wx:key="months.canlenderData.weeks" wx:for-index="weekIndex">
+                         <view class="calender-body-date-week" wx:if="{{idx == currentSelectedMonthIndex}}">
+                              <block wx:for="{{days}}" wx:for-item="day" wx:key="item" wx:for-index="dayIndex">
+                                   <view>
+                                        <view class="date {{months.month == day.month?'active':'hidden'}} {{day.date==currentSelectedDay?'date-current' :''}}" data-date="{{day.date}}" date-month_index="{{currentSelectedMonthIndex}}" data-week_index="{{weekIndex}}" data-day_index="{{dayIndex}}"
+                                             bindtap='handleTapCanlenderDay'>
+                                             {{day.date}}
+
+                                        </view>
+                                   </view>
+                              </block>
+                         </view>
+                    </block>
+               </block>
+          </view>
+
+     </view>
+</view>

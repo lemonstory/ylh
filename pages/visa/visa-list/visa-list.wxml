@@ -1,0 +1,56 @@
+<!--pages/visa/visa-list/visa-list.wxml-->
+<view class="container">
+     <view class="banner">
+          <image src='http://image.365zhiding.com/wxapp/20171221/00.png' mode='aspectFill'></image>
+          <view class="banner-shadow" bindtap="handleTapChoiceAddress">
+               <view class="banner-address">长期居住地</view>
+               <view class="line">|</view>
+               <view class="banner-country">{{cityFilterTitle}}</view>
+               <view class="banner-more">
+                    <image src="http://image.365zhiding.com/wxapp/20180102/san.png"></image>
+               </view>
+          </view>
+     </view>
+
+     <view class="box-ul">
+          <view class="visa-order">日本旅游签-北京领区-免提供机票酒单</view>
+          <view class="visa-radio">
+               <view style='display:flex;align-items:center;'>
+                    <image src='http://image.365zhiding.com/wxapp/20171219/start1.png' style="width:18rpx;height:18rpx;margin-right:8rpx;"></image>
+                    <image src='http://image.365zhiding.com/wxapp/20171219/start2.png' style="width:18rpx;height:18rpx;margin-right:8rpx;"></image>
+                    <image src='http://image.365zhiding.com/wxapp/20171219/start2.png' style="width:18rpx;height:18rpx;margin-right:8rpx;"></image>
+                    <image src='http://image.365zhiding.com/wxapp/20171219/start2.png' style="width:18rpx;height:18rpx;margin-right:8rpx;"></image>
+                    <image src='http://image.365zhiding.com/wxapp/20171219/start2.png' style="width:18rpx;height:18rpx;margin-right:8rpx;"></image>
+                    <view class="radio-text" style='margin-left:12rpx;'>出签率 99%</view>
+               </view>
+               <view class="old-money" style='text-decoration:line-through'>￥1200</view>
+          </view>
+          <view class="visa-time">
+               <view>办理8-10工作日</view>
+               <view style='color:#f60;font-size:28rpx;'>¥449</view>
+          </view>
+     </view>
+
+</view>
+
+
+  
+  
+  
+  <!--出发地弹出框交互  -->
+          <view class="shadow {{show ==0 ? 'hidden':'active'}}">
+               <view class="shadow-box">
+                    <view class="text-title" style='height:90rpx;line-height:90rpx;border-bottom:1rpx solid #eee;margin:0;font-size:32rpx;font-family:PingFang-SC-Regular;color:rgba(51,51,51,1);text-align:center;'>长期居住地</view>
+                    <view class="address_ul">
+                         <view class="address_li {{currentItem==item.id?'active-tag':''}}" data-id="{{item.id}}" wx:for="{{addressList}}" wx:key="id" bindtap="handleTapChoiceItem">
+                              <view class="choice_address {{currentItem==item.id?'active':''}}">{{item.title}}</view>
+                             
+                         </view>
+                    </view>
+               </view>
+               <view class="goback" bindtap='handleTapCancle'>
+                    <image src="http://image.365zhiding.com/wxapp/20171221/back.png"></image>
+               </view>
+          </view>
+
+          <!-- 出发地弹出框交互结束 -->

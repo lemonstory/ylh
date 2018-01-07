@@ -1,0 +1,196 @@
+/* pages/visa/data-template/data-template.wxss */
+
+/*提示框开始  */
+
+.tishi {
+  width: 690rpx;
+  height: 81rpx;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+  background: #f4deca;
+  border-radius: 10rpx;
+  font-size: 24rpx;
+  font-family: PingFang-SC-Regular;
+  color: #666;
+  display: flex;
+  align-items: center;
+  margin-left: 30rpx;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+  justify-content: space-between;
+}
+
+.star {
+  color: rgba(255, 102, 0, 1);
+}
+
+.send {
+  width: 173rpx;
+  height: 50rpx;
+  background: #fff;
+  border-radius: 10rpx;
+  font-size: 24rpx;
+  font-family: PingFang-SC-Regular;
+  color: #f60;
+  line-height: 50rpx;
+  text-align: center;
+}
+
+/*提示框结束  */
+
+.section {
+  width: 100%;
+  height: auto;
+  background: red;
+  position: relative;
+}
+
+.data-img {
+  position: absolute;
+  top: 200rpx;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.data-text {
+  position: absolute;
+  top: 374rpx;
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  font-size: 28rpx;
+  color: rgba(51, 51, 51, 1);
+}
+
+.data-line {
+  width: 690rpx;
+  height: 5rpx;
+  background: #f60;
+  position: absolute;
+  top: 430rpx;
+  left: 30rpx;
+}
+
+.data-radio {
+  font-size: 24rpx;
+  color: rgba(153, 153, 153, 1);
+  position: absolute;
+  top: 465rpx;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  font-size: 30rpx;
+  position: absolute;
+  top: 588rpx;
+  left: 30rpx;
+  width: 690rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  border: 1rpx solid #f60;
+  color: #f60;
+}
+
+/*弹出框交互  */
+
+.hidden-box {
+  width: 750rpx;
+  height: 100vh;
+  position: absolute;
+  background: #000;
+  opacity: 0.4;
+  z-index: 99;
+  top: 0;
+  left: 0;
+}
+
+.hidden {
+  width: 540rpx;
+  height: 288rpx;
+  background: rgba(255, 255, 255, 1);
+  opacity: 1;
+  border-radius: 26rpx;
+  position: absolute;
+  top: 35%;
+  z-index: 9999;
+  left: 15%;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+.hidden-text1 {
+  font-size: 34rpx;
+  font-family: PingFang-SC-Regular;
+  color: rgba(0, 0, 0, 1);
+  line-height: 40rpx;
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  top: 43rpx;
+}
+.email{
+width: 420rpx;
+height:68rpx;
+position: absolute;
+top:103rpx;
+left:60rpx;
+border:1rpx solid #eee;
+}
+
+.line {
+  width: 540rpx;
+  height: 2rpx;
+  background: #cdced2;
+  position: absolute;
+  bottom: 89rpx;
+  left: 0;
+  opacity: 0.5;
+}
+
+.line2 {
+  width: 1rpx;
+  height: 90rpx;
+  background: rgba(205, 206, 210, 1);
+  opacity: 0.5;
+  position: absolute;
+  bottom: 0;
+  left: 270rpx;
+}
+
+.cancel {
+  font-size: 34rpx;
+  font-family: PingFang-SC-Regular;
+  color: rgba(102, 102, 102, 1);
+  position: absolute;
+  width: 50%;
+  height: 90rpx;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+  line-height: 90rpx;
+}
+.sure {
+  font-size: 34rpx;
+  font-family: PingFang-SC-Regular;
+  color: #0076ff;
+  position: absolute;
+  width: 50%;
+  height: 90rpx;
+  bottom: 0;
+  right: 0;
+  text-align: center;
+  line-height: 90rpx;
+}

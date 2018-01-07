@@ -1,0 +1,196 @@
+/* pages/visa/visa-list/visa-list.wxss */
+
+.container {
+     width: 100%;
+     height: auto;
+     background: #fff;
+     box-sizing: border-box;
+     font-family: PingFang-SC-Regular;
+}
+
+.banner {
+     width: 100%;
+     height: 350rpx;
+     position: relative;
+}
+
+.banner image {
+     width: 100%;
+     height: 100%;
+}
+
+.banner-shadow {
+     width: 344rpx;
+     height: 69rpx;
+     background: #000;
+     position: absolute;
+     top: 116rpx;
+     left: 203rpx;
+     border-radius: 10rpx;
+     opacity: 0.4;
+     display: flex;
+     align-items: center;
+}
+
+.banner-address {
+     font-size: 28rpx;
+     color: rgba(255, 255, 255, 1);
+     margin-left: 34rpx;
+}
+
+.line {
+     color: rgba(255, 255, 255, 1);
+     margin-left: 20rpx;
+     display: flex;
+}
+
+.banner-country {
+     font-size: 28rpx;
+     color: rgba(255, 255, 255, 1);
+     margin-left: 20rpx;
+}
+
+.banner-more {
+     width: 22rpx;
+     height: 19rpx;
+     display: flex;
+     margin-left: 20rpx;
+}
+
+.banner-more image {
+     width: 100%;
+     height: 100%;
+}
+
+.box-ul {
+     width: 690rpx;
+     height: auto;
+     background: #fff;
+     padding-top: 30rpx;
+     padding-bottom: 30rpx;
+     border-bottom: 1rpx solid #eee;
+     box-sizing: border-box;
+     display: flex;
+     flex-direction: column;
+}
+
+.visa-order {
+     font-size: 28rpx;
+     font-family: PingFang-SC-Regular;
+     color: rgba(51, 51, 51, 1);
+     width: 100%;
+     height: auto;
+}
+
+.visa-radio {
+     display: flex;
+     margin-top: 20rpx;
+     font-size: 24rpx;
+     color: rgba(51, 51, 51, 1);
+     align-items: center;
+     justify-content: space-between;
+}
+
+.visa-time {
+     width: 100%;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     font-size: 24rpx;
+     color: rgba(102, 102, 102, 1);
+     margin-top: 20rpx;
+}
+
+
+/*出发地弹出层交互  */
+.shadow {
+     position: fixed;
+     left: 0;
+     top: 0;
+     width: 100%;
+     height: 100%;
+     background: rgba(0, 0, 0, 0.4);
+     z-index: 99;
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: center;
+     align-content: center;
+}
+
+.hidden {
+     display: none;
+}
+
+.active {
+     display: flex;
+}
+
+.shadow-box {
+     width: 690rpx;
+     height: auto;
+     background: rgba(255, 255, 255, 1);
+     border-radius: 10rpx;
+     top:230rpx;
+     z-index: 999;
+     position: fixed;
+
+}
+
+.shadow-box1 {
+     width: 690rpx;
+     height: 720rpx;
+     background: rgba(255, 255, 255, 1);
+     border-radius: 10rpx;
+     position: absolute;
+     bottom: 300rpx;
+     z-index: 999;
+}
+
+.goback {
+     width: 58rpx;
+     height: 58rpx;
+     position: absolute;
+     bottom: 60rpx;
+     z-index: 999;
+}
+
+.goback image {
+     width: 100%;
+     height: 100%;
+}
+
+.address_ul {
+     width: 100%;
+     height: auto;
+     padding: 30rpx 15rpx 30rpx 30rpx;
+     box-sizing: border-box;
+     display: flex;
+     flex-wrap: wrap;
+}
+
+.address_li {
+     width: 146rpx;
+     height: 58rpx;
+     border: 1rpx solid #aaa;
+     border-radius: 10rpx;
+     margin-right: 15rpx;
+     margin-bottom: 15rpx;
+     box-sizing: border-box;
+     display: flex;
+     flex-direction: column;
+     justify-content: space-around;
+     align-items: center;
+}
+
+.choice_address {
+     font-size: 24rpx;
+     font-family: PingFang-SC-Regular;
+     color: rgba(102, 102, 102, 1);
+}
+.active-tag {
+     border: 1rpx solid #f60;
+     color: #f60;
+}
+.active {
+     color: #f60;
+}

@@ -1,0 +1,93 @@
+<!--pages/visa/application-information/application-information.wxml-->
+<view class="container">
+     <view class="data-information">
+          <view>此处仅提交电子版资料，纸质资料需要邮寄</view>
+          <image class="back" src='http://image.365zhiding.com/wxapp/20171114/1.png'></image>
+     </view>
+     <view class="ziliao-box">
+          <view style='display:flex'>
+               <view class="ziliao-proce">0%</view>
+               <view class="name-box">
+                    <view class="ziliao-zhiwei">学龄前儿童</view>
+               </view>
+          </view>
+          <view class="ziliao-shang">查看资料详情</view>
+     </view>
+
+     <view class="category-box">
+          <view class="category-title">
+               <view class="line"></view>
+               <view style='margin-left:20rpx;margin-right:20rpx'>必备资料（9/12）</view>
+               <view class="line"></view>
+          </view>
+          <view class="data-box">
+               <view style='display:flex;align-items: center;'>
+                    <image class="data-type" src='http://image.365zhiding.com/wxapp/20180107/complate.png'></image>
+                    <view class="data-info" style='margin-left:20rpx;font-size:28rpx;color:#333;display:flex; '>照片</view>
+               </view>
+
+               <image class="back" src='http://image.365zhiding.com/wxapp/20171114/1.png'></image>
+
+          </view>
+          <view class="data-box">
+               <view style='display:flex;align-items: center;'>
+                    <image class="data-type" src='http://image.365zhiding.com/wxapp/20180107/wait.png'></image>
+                    <view class="data-info" style='margin-left:20rpx;font-size:28rpx;color:#333;display:flex; '>照片</view>
+               </view>
+
+               <view style='display:flex;align-items: center;'>
+                    <view class="wait" style='margin-right:20rpx;font-size:28rpx;color:#999;display:flex;'>待上传</view>
+
+                    <image class="back" src='http://image.365zhiding.com/wxapp/20171114/1.png'></image>
+
+               </view>
+
+          </view>
+
+
+
+
+     </view>
+
+
+     <view class="category-box">
+          <view class="category-title">
+               <view class="line"></view>
+               <view style='margin-left:20rpx;margin-right:20rpx'>可选资料（0/3）</view>
+               <view class="line"></view>
+          </view>
+          <view class="data-box">
+               <view style='display:flex;align-items: center;'>
+                    <image class="data-type" src='http://image.365zhiding.com/wxapp/20180107/complate.png'></image>
+                    <view class="data-info" style='margin-left:20rpx;font-size:28rpx;color:#333;display:flex; '>照片</view>
+               </view>
+
+               <image class="back" src='http://image.365zhiding.com/wxapp/20171114/1.png'></image>
+
+          </view>
+          <view class="data-box">
+               <view style='display:flex;align-items: center;'>
+                    <image class="data-type" src='http://image.365zhiding.com/wxapp/20180107/wait.png'></image>
+                    <view class="data-info" style='margin-left:20rpx;font-size:28rpx;color:#333;display:flex; '>照片</view>
+               </view>
+
+               <view style='display:flex;align-items: center;'>
+                    <view class="wait" style='margin-right:20rpx;font-size:28rpx;color:#999;display:flex;'>待上传</view>
+
+                    <image class="back" src='http://image.365zhiding.com/wxapp/20171114/1.png'></image>
+
+               </view>
+
+          </view>
+
+
+
+
+     </view>
+
+<view class="bottom">
+        <view class="next">下一步</view>
+     </view>
+
+
+</view>

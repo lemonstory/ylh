@@ -55,7 +55,10 @@
           "pages/visa/choice-date/choice-date",
           "pages/visa/visa-detail/visa-detail",
           "pages/visa/detail-handle-way/detail-handle-way",
-          "pages/visa/detail-comment/detail-comment"
+          "pages/visa/detail-comment/detail-comment",
+          "pages/visa/data-template/data-template",
+          "pages/visa/data-requirements/data-requirements",
+          "pages/visa/application-information/application-information"
      ],
      "window": {
           "navigationBarBackgroundColor": "#ffffff",
@@ -75,7 +78,12 @@
                     "iconPath": "pages/image/3.png",
                     "selectedIconPath": "pages/image/4.png"
                },
-              
+               {
+                    "pagePath": "pages/visa/index/index",
+                    "text": "签证",
+                    "iconPath": "pages/image/5.png",
+                    "selectedIconPath": "pages/image/6.png"
+               },
                {
                     "pagePath": "pages/user/index/index",
                     "text": "我的",

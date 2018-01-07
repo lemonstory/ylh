@@ -1,0 +1,82 @@
+<!--pages/visa/data-requirements/data-requirements.wxml-->
+<view class="container">
+<view style='margin-bottom:100rpx'>
+
+     <view class="handle-way">
+          <view>在职人员</view>
+          <image src='http://image.365zhiding.com/wxapp/20180107/close.png' style="width:24rpx;height:24rpx;"></image>
+     </view>
+     <view class="tishi">
+          <view class="star" style='margin-right:10rpx'>*</view>提示：资料模版文档可通过邮件下载
+     </view>
+
+
+     <view class="electronic-data">
+          <view class="electronic-title">电子资料</view>
+          <view style='display:flex;flex-direction:column;height:auto;margin-left: 60rpx;width: 630rpx; border-bottom: 1rpx solid #eee;'>
+               <view class="electronic-detail">
+                    <view style='display:flex'>
+                         <view style='color:#f60'>*</view>
+                         <view style='margin-left:10rpx;'>照片</view>
+                    </view>
+               </view>
+          </view>
+
+
+          <view style='display:flex;flex-direction:column;height:auto;margin-left: 60rpx;width: 630rpx; border-bottom: 1rpx solid #eee;'>
+               <view class="electronic-detail">
+                    <view style='display:flex'>
+                         <view style='color:#f60'>*</view>
+                         <view style='margin-left:10rpx;'>照片</view>
+                    </view>
+                    <view class='data-example'>样例</view>
+
+               </view>
+               <view class="electronic-detail-info">
+                    <view>·有效期离出发日期应至少还有6个月</view>
+                    <view>·露出四个边角，清晰拍照，不要反光</view>
+               </view>
+          </view>
+     </view>
+
+
+
+
+
+     <view class="electronic-data">
+          <view class="electronic-title">纸质资料</view>
+          <view style='display:flex;flex-direction:column;height:auto;margin-left: 60rpx;width: 630rpx; border-bottom: 1rpx solid #eee;'>
+               <view class="electronic-detail">
+                    <view style='display:flex'>
+                         <view style='color:#f60'>*</view>
+                         <view style='margin-left:10rpx;'>护照（原件）</view>
+                    </view>
+               </view>
+          </view>
+
+
+          <view style='display:flex;flex-direction:column;height:auto;margin-left: 60rpx;width: 630rpx; border-bottom: 1rpx solid #eee;'>
+               <view class="electronic-detail">
+                    <view style='display:flex'>
+                         <view style='color:#f60'>*</view>
+                         <view style='margin-left:10rpx;'>中文版在职证明</view>
+                    </view>
+                    <view class='data-example'>模板</view>
+
+               </view>
+               <view class="electronic-detail-info">
+                    <view>·有效期离出发日期应至少还有6个月</view>
+                    <view>·露出四个边角，清晰拍照，不要反光</view>
+               </view>
+          </view>
+     </view>
+
+
+
+     <view class="bottom">
+        <view class="yuding">发送到邮箱</view>
+     </view>
+
+</view>
+
+</view>

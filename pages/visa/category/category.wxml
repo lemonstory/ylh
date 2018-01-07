@@ -1,0 +1,60 @@
+<!--pages/visa/category/category.wxml-->
+<!--pages/visa/index/index.wxml-->
+<import src="/zanui-weapp/dist/toast/index.wxml" />
+<view class="container">
+     <view class="main">
+          <view class="continent-img one">
+          </view>
+          <view class="continent-img two">
+          </view>
+          <view class="continent-img three">
+          </view>
+          <view class="continent-img four">
+          </view>
+          <view class="continent-img five">
+          </view>
+          <view class="category-box">
+               <view class="category-title">
+                    <view class="line"></view>
+                    <view style='margin-left:20rpx;margin-right:20rpx'>亚洲</view>
+                    <view class="line"></view>
+               </view>
+               <view class="category-content">已支持21个国家及地区</view>
+          </view>
+     </view>
+
+
+     <view class="country-ul">
+          <view class="country-li">
+               <image src='http://image.365zhiding.com/wxapp/20171221/00.png' mode='aspectFill'></image>
+               <view class="country-name">日本</view>
+
+               <view class="country-monery" style='display:flex; justify-content: center;'>￥299
+                    <view style="font-size:24rpx">起</view>
+               </view>
+          </view>
+          <view class="country-li">
+               <image src='http://image.365zhiding.com/wxapp/20171221/00.png' mode='aspectFill'></image>
+               <view class="country-name">日本</view>
+
+               <view class="country-monery" style='display:flex; justify-content: center;'>￥299
+                    <view style="font-size:24rpx">起</view>
+               </view>
+          </view>
+
+     </view>
+
+
+
+
+
+
+
+
+
+
+
+
+
+     <template is="zan-toast" data="{{ zanToast }}"></template>
+</view>

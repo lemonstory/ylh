@@ -142,7 +142,10 @@
         bindinput='bindInputValueChange' id="characteristic" value='{{formData.characteristic}}' />
     </view>
 
-    <view class="bottom" style="z-index:9999;" bindtap='handleTapNext'>下一步</view>
+    <view class="bottom" bindtap='handleTapNext'>
+    <view class="next">下一步</view>
+    </view>
+
   </view>
 
   <!-- 直接使用 zan-toast 模板，并且直接传入 zanToast -->

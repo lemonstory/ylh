@@ -1,0 +1,88 @@
+<!--pages/visa/index/index.wxml-->
+<import src="/zanui-weapp/dist/toast/index.wxml" />
+<view class="container">
+     <view class="banner">
+          <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+               <block wx:for="{{banner}}" wx:key="banner" wx:for-index="idx">
+                    <swiper-item data-src="{{item.url}}" bindtap="handleBanner" data-index="{{idx}}" data-id="{{item.id}}">
+                         <image src="{{item.image}}" class="slide-image" width="750rpx" height="350rpx" />
+                    </swiper-item>
+               </block>
+          </swiper>
+
+          <view class="search" bindtap='bindSearch'>
+               <view id="myInput" style='font-size:24rpx; color:#fff;opacity:0.8;padding-left:72rpx;line-height:'>搜索国家或地区</view>
+               <view class="search-icon">
+                    <image src="http://image.365zhiding.com/wxapp/20171112/sou.png"></image>
+               </view>
+          </view>
+     </view>
+
+     <scroll-view class="country-nav" scroll-x="true">
+          <view>亚洲</view>
+          <view>大洋洲</view>
+          <view>北美洲</view>
+          <view>亚洲</view>
+          <view>大洋洲</view>
+          <view>北美洲</view>
+          <view>亚洲</view>
+          <view>大洋洲</view>
+          <view>北美洲</view>
+     </scroll-view>
+
+
+
+     <view class="category-box">
+          <view class="category-title">
+               <view class="line"></view>
+               <view style='margin-left:20rpx;margin-right:20rpx'>亚洲</view>
+               <view class="line"></view>
+          </view>
+          <view class="category-content">已支持21个国家及地区</view>
+          <view class="category-ul">
+               <view class="category-li">
+                    <image class="image-li" src='http://image.365zhiding.com/wxapp/20171221/00.png' mode='aspectFill'></image>
+                    <view style='display:flex'>
+                         <view style='font-size:26rpx;font-family:PingFang-SC-Regular;color:rgba(51,51,51,1);margin-top:20rpx;margin-right:20rpx;'>日本</view>
+                         <view style='font-size:24rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);margin-top:21rpx;'>Japan</view>
+                    </view>
+                    <view style='display:flex'>
+                         <view style='font-size:30rpx;font-family:PingFang-SC-Regular;color:#FF6600;margin-top:10rpx;'>￥299</view>
+                         <view style='font-size:24rpx;font-family:PingFang-SC-Regular;color:#999;margin-top:13rpx;'>起</view>
+                    </view>
+
+               </view>
+
+
+
+               <view class="category-li">
+                    <image class="image-li" src='http://image.365zhiding.com/wxapp/20171221/00.png' mode='aspectFill'></image>
+                    <view style='display:flex'>
+                         <view style='font-size:26rpx;font-family:PingFang-SC-Regular;color:rgba(51,51,51,1);margin-top:20rpx;margin-right:20rpx;'>日本</view>
+                         <view style='font-size:24rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);margin-top:21rpx;'>Japan</view>
+                    </view>
+                    <view style='display:flex'>
+                         <view style='font-size:30rpx;font-family:PingFang-SC-Regular;color:#FF6600;margin-top:10rpx;'>￥299</view>
+                         <view style='font-size:24rpx;font-family:PingFang-SC-Regular;color:#999;margin-top:13rpx;'>起</view>
+                    </view>
+
+               </view>
+
+          </view>
+
+          <view class="category_more">查看更多
+               <image src="../../image/jiantou.png" style='width:14rpx;height:24rpx;'></image>
+          </view>
+     </view>
+
+
+
+
+     
+
+
+
+
+
+     <template is="zan-toast" data="{{ zanToast }}"></template>
+</view>

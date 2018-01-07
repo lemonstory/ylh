@@ -1,0 +1,413 @@
+.container {
+     height: auto;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     box-sizing: border-box;
+     margin: 0;
+     padding: 0;
+     background: #F7F7F7;
+     font-family: PingFang-SC-Regular;
+     width: 100%;
+     overflow: hidden;
+}
+
+.continent-img {
+     width: 750rpx;
+     height: 500rpx;
+     position: relative;
+}
+
+.visa-title {
+     width: 100%;
+     position: absolute;
+     top: 60rpx;
+     z-index: 999;
+     font-size: 32rpx;
+     align-items: PingFang-SC-Regular;
+     color: rgba(255, 255, 255, 1);
+     text-align: center;
+     padding-left: 30rpx;
+     padding-right: 30rpx;
+     box-sizing: border-box;
+}
+
+.visa-box {
+     width: 100%;
+     position: absolute;
+     top: 127rpx;
+     display: flex;
+     justify-content: center;
+}
+
+.visa-money {
+     font-size: 60rpx;
+     color: rgba(255, 255, 255, 1);
+     display: flex;
+     align-items: center;
+     height: 46rpx;
+     width: auto;
+     margin-right: 60rpx;
+}
+
+.visa-detail {
+     width: 146rpx;
+     height: 58rpx;
+     background: #000;
+     opacity: 0.3;
+     border-radius: 10rpx;
+     color: #fff;
+     font-size: 28rpx;
+     text-align: center;
+     line-height: 58rpx;
+}
+
+.visa-handle {
+     width: 690rpx;
+     position: absolute;
+     top: 210rpx;
+     display: flex;
+     justify-content: center;
+     font-size: 28rpx;
+     font-family: PingFang-SC-Regular;
+     color: rgba(255, 255, 255, 1);
+     align-items: center;
+     left: 30rpx;
+     padding-bottom: 20rpx;
+     border-bottom: 1rpx solid rgba(255, 255, 255, 0.3);
+}
+
+.visa-instructions {
+     width: 100%;
+     height: 128rpx;
+     position: absolute;
+     top: 266rpx;
+     padding-left: 100rpx;
+     padding-right: 100rpx;
+     padding-top: 25rpx;
+     padding-bottom: 25rpx;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     box-sizing: border-box;
+}
+
+.instructions-ul {
+     font-size: 28rpx;
+     color: rgba(255, 255, 255, 1);
+     width: auto;
+     display: flex;
+     flex-direction: column;
+     justify-content: space-between;
+     align-items: center;
+     height: 100%;
+}
+
+.visa-radio-box {
+     position: absolute;
+     top: 395rpx;
+     left: 30rpx;
+     width: 690rpx;
+     height: 238rpx;
+     background: #fff;
+     z-index: 9999;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+}
+
+.visa-radio-top {
+     width: 630rpx;
+     height: 105rpx;
+     border-bottom: 1rpx solid #eee;
+     padding-top: 30rpx;
+     padding-bottom: 20rpx;
+     box-sizing: border-box;
+     font-size: 24rpx;
+     font-family: PingFang-SC-Regular;
+     color: rgba(51, 51, 51, 1);
+     display: flex;
+     flex-direction: column;
+}
+
+.visa-radio-bottom {
+     width: 100%;
+     height: 133rpx;
+     padding: 0 30rpx;
+     box-sizing: border-box;
+     display: flex;
+     justify-content: space-between;
+}
+
+.visa-bottom-ul {
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+}
+
+.cicle {
+     width: 8rpx;
+     height: 8rpx;
+     border-radius: 50%;
+     border: 4rpx solid rgba(153, 153, 153, 1);
+}
+
+.required-information {
+     width: 100%;
+     height: auto;
+     background: #fff;
+     margin-top: 134rpx;
+     padding-top: 30rpx;
+     padding-bottom: 30rpx;
+     box-sizing: border-box;
+     display: flex;
+     flex-direction: column;
+}
+
+.information-title {
+     height: 32rpx;
+     width: 100%;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     font-size: 32rpx;
+     font-family: PingFang-SC-Regular;
+     color: rgba(51, 51, 51, 1);
+}
+
+.line {
+     width: 43rpx;
+     height: 3rpx;
+     background: rgba(255, 102, 0, 1);
+}
+
+.information-nav {
+     width: 100%;
+     font-size: 30rpx;
+     font-family: PingFang-SC-Regular;
+     color: rgba(51, 51, 51, 1);
+     background: rgba(255, 255, 255, 1);
+     display: flex;
+     padding-left: 30rpx;
+     box-sizing: border-box;
+     align-items: center;
+     white-space: nowrap;
+     overflow: scroll;
+     border-bottom: 1rpx solid #eee;
+     padding-bottom: 30rpx;
+     padding-top: 20rpx;
+}
+
+.information-ul {
+     flex-direction: column;
+     align-items: center;
+     width: auto;
+     display: inline-block;
+     margin-right: 84rpx;
+}
+
+.electronic-data {
+     margin-top: 30rpx;
+     width: 100%;
+     height: auto;
+}
+
+.electronic-title {
+     width: 100%;
+     margin-left: 30rpx;
+     font-size: 30rpx;
+     color: rgba(51, 51, 51, 1);
+     margin-bottom: 10rpx;
+}
+
+.electronic-detail {
+     display: flex;
+     margin-left: 40rpx;
+     width: auto;
+     margin-top: 10rpx;
+     font-size: 26rpx;
+     color: #333;
+     height: auto;
+     align-items: center;
+}
+
+.more-information {
+     width: 230rpx;
+     height: 60rpx;
+     border-radius: 10rpx;
+     border: 1rpx solid #f60;
+     font-size: 28rpx;
+     color: rgba(255, 102, 0, 1);
+     margin-left: 260rpx;
+     margin-top: 60rpx;
+     line-height: 60rpx;
+     text-align: center;
+}
+
+.basic-information {
+     width: 100%;
+     height: auto;
+     background: #fff;
+     margin-top: 10rpx;
+     padding-top: 30rpx;
+     padding-bottom: 30rpx;
+     box-sizing: border-box;
+     display: flex;
+     flex-direction: column;
+}
+
+.basic-title {
+     height: 32rpx;
+     width: 100%;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     font-size: 32rpx;
+     font-family: PingFang-SC-Regular;
+     color: rgba(51, 51, 51, 1);
+}
+
+.Services-include {
+     margin-top: 34rpx;
+     width: 100%;
+}
+
+.Services-title {
+     margin-left: 30rpx;
+     margin-bottom: 30rpx;
+     width: auto;
+     height: auto;
+     display: flex;
+     font-size: 30rpx;
+     font-family: PingFang-SC-Regular;
+     color: rgba(51, 51, 51, 1);
+}
+
+.Services-content {
+     width: 630rpx;
+     margin-left: 90rpx;
+     height: auto;
+     font-size: 26rpx;
+     color: #333;
+     line-height: 40rpx;
+}
+
+.detail-introduction {
+     width: 100%;
+     height: auto;
+     background: #fff;
+     margin-top: 10rpx;
+     padding-top: 30rpx;
+     padding-bottom: 30rpx;
+     box-sizing: border-box;
+     display: flex;
+     flex-direction: column;
+     margin-bottom: 100rpx;
+}
+
+.detail-title {
+     height: 32rpx;
+     width: 100%;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     font-size: 32rpx;
+     font-family: PingFang-SC-Regular;
+     color: rgba(51, 51, 51, 1);
+}
+.detail-image{
+     width:690rpx;
+     margin-left: 30rpx;
+     margin-top: 30rpx;
+}
+.bottom {
+     width: 750rpx;
+     height: 98rpx;
+     background: rgba(255, 255, 255, 1);
+     position: fixed;
+     bottom: 0;
+}
+
+.zixun {
+     width: 46rpx;
+     height: 46rpx;
+     position: absolute;
+     top: 15rpx;
+     left: 68rpx;
+}
+.zixuntext {
+     width: 50rpx;
+     height: 20rpx;
+     font-size: 20rpx;
+     font-family: PingFang-SC-Regular;
+     color: rgba(153, 153, 153, 1);
+     position: absolute;
+     left: 68rpx;
+     bottom: 15rpx;
+}
+
+.yuding {
+     width: 540rpx;
+     height: 88rpx;
+     background: rgba(247, 130, 16, 1);
+     border-radius: 10rpx;
+     position: absolute;
+     top: 5rpx;
+     right: 30rpx;
+     font-size: 32rpx;
+     font-family: PingFang-SC-Regular;
+     color: rgba(255, 255, 255, 1);
+     text-align: center;
+     line-height: 88rpx;
+}
+
+
+
+/*费用明细弹出框*/
+.shadow {
+     position: fixed;
+     left: 0;
+     top: 0;
+     width: 100%;
+     height: 100%;
+     background: rgba(0, 0, 0, 0.4);
+     z-index: 9999;
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: center;
+     align-content: center;
+}
+
+.hidden {
+     display: none;
+}
+
+.active {
+     display: flex;
+}
+
+.shadow-box {
+     width: 540rpx;
+     height: auto;
+     background: rgba(255, 255, 255, 1);
+     border-radius: 10rpx;
+     top:340rpx;
+     z-index: 999;
+     position: fixed;
+
+}
+.goback {
+     width: 58rpx;
+     height: 58rpx;
+     position: absolute;
+     bottom: 60rpx;
+     z-index: 999;
+}
+.goback image {
+     width: 100%;
+     height: 100%;
+}
+
+
+

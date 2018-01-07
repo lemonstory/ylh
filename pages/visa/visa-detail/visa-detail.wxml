@@ -1,0 +1,248 @@
+<!--pages/visa/visa-detail/visa-detail.wxml-->
+<view class="container">
+     <view class="bg-img">
+          <image class="continent-img" src="http://image.365zhiding.com/wxapp/20180104/meizhou.png" mode="aspectFill">
+               <view class="visa-title">日本旅游签-北京领区-免提供机票酒店单</view>
+               <view class="visa-box">
+                    <view class="visa-money">
+                         <view style='font-size:40rpx;'>¥</view>44</view>
+                    <view class="visa-detail" bindtap='handleTapDetail'>明细</view>
+               </view>
+               <view class="visa-handle" bindtap='handleTapLongTime'>
+                    <view style='opacity: 0.5;margin-right:48rpx;'>办理时长</view>
+                    <view style='opacity: 0.8;margin-right:30rpx;'>8-10工作日</view>
+                    <image src="http://image.365zhiding.com/wxapp/20180104/back.png" style='width:14rpx;height:24rpx;display:flex'></image>
+               </view>
+               <view class="visa-instructions">
+                    <view class="instructions-ul">
+                         <view>3个月</view>
+                         <view style='opacity: 0.5;font-size:24rpx;'>有效期限</view>
+                    </view>
+                    <view class="instructions-ul">
+                         <view>15天</view>
+                         <view style='opacity: 0.5;font-size:24rpx;'>最长停留</view>
+                    </view>
+
+                    <view class="instructions-ul">
+                         <view>1次</view>
+                         <view style='opacity: 0.5;font-size:24rpx;'>入境次数</view>
+                    </view>
+               </view>
+          </image>
+     </view>
+
+     <view class="visa-radio-box">
+          <view class="visa-radio-top">
+               <view style='display:flex; justify-content: space-between;'>
+                    <view>出签率 99%</view>
+                    <view style='display:flex; flex-direction: column; align-items: center;'>
+                         <view style='display:flex;align-items: center;'>
+                              <view style='margin-right:20rpx; '>评价</view>
+                              <image src='http://image.365zhiding.com/wxapp/20171219/start1.png ' style="width:18rpx;height:18rpx;margin-right:8rpx;"></image>
+                              <image src='http://image.365zhiding.com/wxapp/20171219/start2.png ' style="width:18rpx;height:18rpx;margin-right:8rpx;"></image>
+                              <image src='http://image.365zhiding.com/wxapp/20171219/start2.png ' style="width:18rpx;height:18rpx;margin-right:8rpx;"></image>
+                              <image src='http://image.365zhiding.com/wxapp/20171219/start2.png ' style="width:18rpx;height:18rpx;margin-right:8rpx;"></image>
+                              <image src='http://image.365zhiding.com/wxapp/20171219/start2.png ' style="width:18rpx;height:18rpx;margin-right:8rpx;"></image>
+                              <image src="http://image.365zhiding.com/wxapp/20180104/back1.png" style='width:14rpx;height:24rpx;display:flex;margin-left:20rpx;'></image>
+
+                         </view>
+                         <view style='font-size:24rpx;color:rgba(153,153,153,1);height:23rpx;display:flex;'>(23)</view>
+                    </view>
+               </view>
+          </view>
+
+          <view class="visa-radio-bottom">
+               <view class="visa-bottom-ul">
+                    <image src='http://image.365zhiding.com/wxapp/20180104/tuikuan.png' style="width:42rpx;height:42rpx;">
+                    </image>
+                    <view style='font-size:20rpx;color:rgba(153,153,153,1);margin-top:10rpx'>拒签退全款</view>
+               </view>
+               <view class="visa-bottom-ul">
+                    <image src='http://image.365zhiding.com/wxapp/20180104/money.png' style="width:42rpx;height:42rpx;">
+                    </image>
+                    <view style='font-size:20rpx;color:rgba(153,153,153,1);margin-top:10rpx'>免交担保金</view>
+               </view>
+               <view class="visa-bottom-ul">
+                    <image src='http://image.365zhiding.com/wxapp/20180104/photo.png' style="width:42rpx;height:34rpx;">
+                    </image>
+                    <view style='font-size:20rpx;color:rgba(153,153,153,1);margin-top:18rpx'>免费拍照</view>
+               </view>
+               <view class="visa-bottom-ul">
+                    <view style='display:flex;'>
+                         <view class="cicle"></view>
+                         <view class="cicle" style='margin-left:6rpx;margin-right:6rpx;'></view>
+                         <view class="cicle"></view>
+                    </view>
+                    <view style='font-size:20rpx;color:rgba(153,153,153,1);margin-top:28rpx'>更多</view>
+               </view>
+
+          </view>
+     </view>
+
+     <!--所需资料开始  -->
+     <view class="required-information">
+          <view class="information-title">
+               <view class="line"></view>
+               <view style='margin-left:20rpx;margin-right:20rpx'>所需资料</view>
+               <view class="line"></view>
+          </view>
+
+          <scroll-view class="information-nav" scroll-x="true">
+               <view class="information-ul">
+                    <image src='http://image.365zhiding.com/wxapp/20180104/child.png' style="width:115rpx;height:115rpx;">
+                    </image>
+                    <view style='font-size:26rpx;color:#999;margin-top:18rpx'>学龄前儿童</view>
+               </view>
+               <view class="information-ul">
+                    <image src='http://image.365zhiding.com/wxapp/20180104/student.png' style="width:115rpx;height:115rpx;">
+                    </image>
+                    <view style='font-size:26rpx;color:#999;margin-top:18rpx'>在校学生</view>
+               </view>
+               <view class="information-ul">
+                    <image src='http://image.365zhiding.com/wxapp/20180104/person.png' style="width:115rpx;height:115rpx;">
+                    </image>
+                    <view style='font-size:26rpx;color:#999;margin-top:18rpx'>在职人员</view>
+               </view>
+               <view class="information-ul">
+                    <image src='http://image.365zhiding.com/wxapp/20180104/free.png' style="width:115rpx;height:115rpx;">
+                    </image>
+                    <view style='font-size:26rpx;color:#999;margin-top:18rpx'>自由职业者</view>
+               </view>
+               <view class="information-ul">
+                    <image src='http://image.365zhiding.com/wxapp/20180104/tuixiu.png' style="width:115rpx;height:115rpx;">
+                    </image>
+                    <view style='font-size:26rpx;color:#999;margin-top:18rpx'>退休人员</view>
+               </view>
+          </scroll-view>
+
+          <view class="electronic-data">
+               <view class="electronic-title">电子资料</view>
+               <view class="electronic-detail">
+                    <view>·</view>
+                    <view style='margin-left:10rpx;margin-right:10rpx'>照片</view>
+                    <view style='color:#f60'>*</view>
+               </view>
+               <view class="electronic-detail">
+                    <view>·</view>
+                    <view style='margin-left:10rpx;margin-right:10rpx'>户照首页</view>
+                    <view style='color:#f60'>*</view>
+               </view>
+               <view class="electronic-detail">
+                    <view>·</view>
+                    <view style='margin-left:10rpx;margin-right:10rpx'>婚姻状况</view>
+                    <view style='color:#f60'>*</view>
+               </view>
+
+          </view>
+
+
+          <view class="electronic-data">
+               <view class="electronic-title">纸质资料</view>
+               <view class="electronic-detail">
+                    <view>·</view>
+                    <view style='margin-left:10rpx;margin-right:10rpx'>照片</view>
+                    <view style='color:#f60'>*</view>
+               </view>
+               <view class="electronic-detail">
+                    <view>·</view>
+                    <view style='margin-left:10rpx;margin-right:10rpx'>户照首页</view>
+                    <view style='color:#f60'>*</view>
+               </view>
+               <view class="electronic-detail">
+                    <view>·</view>
+                    <view style='margin-left:10rpx;margin-right:10rpx'>婚姻状况</view>
+                    <view style='color:#f60'>*</view>
+               </view>
+
+          </view>
+
+          <view class="electronic-data">
+               <view class="electronic-title" style='font-size:26rpx;color:#999;display:flex;margin-bottom:0'>带
+                    <view style='color:#f60'>*</view>为必备资料</view>
+          </view>
+
+          <view class="more-information">查看资料要求</view>
+     </view>
+
+
+     <!--所需资料结束  -->
+
+
+     <!--基本信息开始  -->
+
+     <view class="basic-information">
+          <view class="basic-title">
+               <view class="line"></view>
+               <view style='margin-left:20rpx;margin-right:20rpx'>基本资料</view>
+               <view class="line"></view>
+          </view>
+          <view class="Services-include">
+               <view class="Services-title">
+                    <image src="http://image.365zhiding.com/wxapp/20180104/fuwu.png" style='width:38rpx;height:38rpx;margin-right:20rpx;'></image>服务包含</view>
+               <view class="Services-content">·签证客服热线服务+签证专家审核资料+签证专家专业方案+签证领馆收费代缴+签证专人代递代取+签证出签顺丰回寄+签证照片免费代洗</view>
+
+          </view>
+
+          <view class="Services-include">
+               <view class="Services-title">
+                    <image src="http://image.365zhiding.com/wxapp/20180104/shouli.png" style='width:38rpx;height:38rpx;margin-right:20rpx;'></image>受理范围</view>
+               <view class="Services-content">·长期居住地或工作地在北京／天津／河北／河南／湖北／湖南／山西／内蒙古／西藏／甘肃／陕西／青海／宁夏的申请人
+
+               </view>
+               <view class="Services-content">·不受理没有指定发达出境记录的外领区户口的申请者，和高危地区的申请人，如寄资料，直接退回。
+
+               </view>
+
+          </view>
+          <view class="Services-include">
+               <view class="Services-title">
+                    <image src="http://image.365zhiding.com/wxapp/20180104/banli.png" style='width:38rpx;height:38rpx;margin-right:20rpx;'></image>办理流程</view>
+               <view class="Services-content">·下单支付 选择在线支付方式支付·准备并上传资料、完善申请表 准备资料好后拍照上传，完善申请 ·寄送资料 按邮寄资料清单寄送
+               </view>
+
+          </view>
+     </view>
+     <!--基本信息结束  -->
+
+     <!--详细介绍开始  -->
+     <view class="detail-introduction">
+          <view class="detail-title">
+               <view class="line"></view>
+               <view style='margin-left:20rpx;margin-right:20rpx'>详细介绍</view>
+               <view class="line"></view>
+          </view>
+          <view class="detail-image">
+               <image style="width:690rpx;" src="http://image.365zhiding.com/wxapp/20180104/meizhou.png" mode="widthFit"></image>
+               <image style="width:690rpx;" src="http://image.365zhiding.com/wxapp/20180104/meizhou.png" mode="widthFit"></image>
+          </view>
+     </view>
+
+     <view class="bottom">
+          <image class="zixun" src="http://image.365zhiding.com/wxapp/20171121/zixun.png"></image>
+          <view class="zixuntext">咨询</view>
+          <view class="yuding">开始办理</view>
+     </view>
+</view>
+
+<!--明细及费用弹出框交互 -->
+<view class="shadow {{showDetail ==true||showLongTime==true? 'active':'hidden'}}">
+     <view class="shadow-box">
+          <view class="text-title" style='height:90rpx;line-height:90rpx;border-bottom:1rpx solid #eee;margin:0;font-size:32rpx;font-family:PingFang-SC-Regular;color:rgba(51,51,51,1);text-align:center;'>
+               <block wx:if="{{showDetail==true}}">费用明细</block>
+               <block wx:else>办理时长</block>
+          </view>
+          <view style='display:flex;justify-content: center; width:100%;color:#f60;font-size:26rpx;margin-top:32rpx;'>
+               <block wx:if="{{showDetail==true}}">￥398</block>
+               <block wx:else>8-10工作日</block>
+          </view>
+          <view style='width:100%;padding-left:30rpx;padding-right:30rpx;box-sizing:border-box;height:auto;font-size:26rpx;color:#666;margin-top:30rpx;margin-bottom:60rpx;'>
+               <block wx:if="{{showDetail==true}}">签证客服在线服务+签证专家审核资料+签证费代缴+专人代递代取+出签顺丰回寄+照片免费代洗</block>
+               <block wx:else>从资料收齐后开始计算：资料操作处理1工作日+使馆受理7-9工作日</block>
+
+          </view>
+     </view>
+     <view class="goback" bindtap='handleTapCancle'>
+          <image src="http://image.365zhiding.com/wxapp/20171221/back.png"></image>
+     </view>
+</view>
+<!-- 明细弹出框交互结束-->

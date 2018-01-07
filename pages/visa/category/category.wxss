@@ -1,0 +1,144 @@
+/* pages/visa/category/category.wxss */
+
+.container {
+     box-sizing: border-box;
+     background: #f7f7f7;
+     width: 100%;
+     height: auto;
+}
+
+.main {
+     width: 100%;
+     height: 346rpx;
+     background: #fff;
+     margin-top: 1rpx;
+     position: relative;
+}
+
+.continent-img {
+     width: 134rpx;
+     height: 134rpx;
+     background: #f60;
+     border-radius: 50%;
+     z-index: 999;
+}
+
+.one {
+     position: absolute;
+     top: 24rpx;
+     left: 97rpx;
+}
+
+.two {
+     position: absolute;
+     top: 60rpx;
+     left: 308rpx;
+}
+
+.three {
+     position: absolute;
+     top: 60rpx;
+     left: 497rpx;
+}
+
+.four {
+     position: absolute;
+     top: 187rpx;
+     left: 60rpx;
+}
+
+.five {
+     position: absolute;
+     top: 203rpx;
+     left: 574rpx;
+}
+
+.category-box {
+     width: 100%;
+     height: auto;
+     background: #fff;
+     position: absolute;
+     top: 230rpx;
+}
+
+.category-title {
+     width: 100%;
+     height: 80rpx;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     font-size: 32rpx;
+     font-family: PingFang-SC-Regular;
+     color: rgba(51, 51, 51, 1);
+}
+
+.line {
+     width: 43rpx;
+     height: 3rpx;
+     background: rgba(255, 102, 0, 1);
+}
+
+.category-content {
+     width: 100%;
+     height: 24rpx;
+     font-size: 24rpx;
+     font-family: PingFang-SC-Regular;
+     color: rgba(51, 51, 51, 1);
+     display: flex;
+     align-items: center;
+     justify-content: center;
+}
+.country-ul {
+     width: 100%;
+     height: 200rpx;
+     background: #fff;
+     margin-top: 10rpx;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     padding-top: 20rpx;
+     box-sizing: border-box;
+}
+
+.country-li {
+     width: 690rpx;
+     height: 276rpx;
+     background: red;
+     margin-bottom: 10rpx;
+     background: rgba(0, 0, 0, 1);
+     border-radius: 5px;
+     position: relative;
+     display: inline-block;
+     background: #000;
+    
+}
+
+.country-li image {
+     width: 100%;
+     height: 100%;
+     opacity: 0.8;
+     border-radius: 5px;
+}
+.country-name {
+     position: absolute;
+     top: 97rpx;
+     width: 100%;
+     height: auto;
+     text-align: center;
+     font-size: 36rpx;
+     font-family: PingFang-SC-Regular;
+     color: rgba(255, 255, 255, 1);
+     opacity: 0.8;
+}
+.country-monery{
+     position: absolute;
+     top: 153rpx;
+     width: 100%;
+     height: auto;
+     text-align: center;
+     font-size: 30rpx;
+     font-family: PingFang-SC-Regular;
+     color: rgba(255, 255, 255, 1);
+     opacity: 0.6;
+     align-items: flex-end;
+}

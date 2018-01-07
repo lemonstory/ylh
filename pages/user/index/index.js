@@ -21,7 +21,6 @@ Page(Object.assign({}, Toast, {
       */
      onLoad: function (options) {
           var that = this;
-
           var userAccessData = util.getUserAccessData();
           var guid = userAccessData.guid;
           if (util.isEmptyStr(guid)) {

@@ -1,0 +1,32 @@
+/* pages/visa/detail-handle-way/detail-handle-way.wxss */
+.section-box{
+     width:100%;
+     height:auto;
+     background: #fff;
+     border-top:1rpx solid #eee;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+}
+.handle-way{
+   width:100%;
+   height:90rpx;
+   display: flex;
+   justify-content: space-between;
+   padding-left: 30rpx;
+   padding-right: 30rpx;
+   box-sizing: border-box;
+   align-items: center;
+   font-size:32rpx;
+   color:rgba(51,51,51,1); 
+   border-bottom: 1rpx solid #eee; 
+}
+.handle-detail{
+ width: 690rpx;
+ height:100rpx;
+ border-bottom: 1rpx solid #eee;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+}

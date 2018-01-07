@@ -1,0 +1,30 @@
+<!--pages/visa/data-template/data-template.wxml-->
+<view class="container">
+  <!--提示框开始  -->
+  <view class="tishi">
+    <view class="star">*</view>提示：模版文档可通过发送到邮件下载
+    <view class="send" bindtap='handleTapSendToEmail'>发送到邮箱</view>
+  </view>
+  <!-- </提示框结束> -->
+  <view class='section'>
+    <view class="data-img">
+      <image src='http://image.365zhiding.com/wxapp/20180106/doc.png' style='width:114rpx;height:114rpx'></image>
+    </view>
+    <view class='data-text'>中文版在职证明</view>
+    <view class="data-line"></view>
+    <view class="data-radio">(100%/17.5k)</view>
+    <button>预览资料模板</button>
+  </view>
+</view>
+
+<!--弹出信息的展示开始  -->
+<view class="hidden-box hide{{showSendMesssage?'show':''}}"></view>
+<view class="hidden hide{{showSendMesssage?'show':''}}">
+  <view class="hidden-text1">发送到邮箱</view>
+  <input class="email" placeholder='请输入邮箱地址' placeholder-style='font-size:26rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);' style='padding-left:10rpx;font-size:26rpx;'></input>
+  <view class="line"></view>
+  <view class="line2"></view>
+  <view class="cancel" bindtap='handleTapCancle'>取消</view>
+  <view class="sure">确定</view>
+</view>
+<!--弹出信息的展示结束-->

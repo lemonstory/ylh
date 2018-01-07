@@ -1,0 +1,23 @@
+<!--pages/visa/detail-handle-way/detail-handle-way.wxml-->
+<view class="container">
+     <view class="section-box">
+          <view class="handle-way">
+               <view>办理方式</view>
+               <image src='http://image.365zhiding.com/wxapp/20180107/close.png' style="width:24rpx;height:24rpx;"></image>
+          </view>
+          <view class="handle-detail">
+               <image src='http://image.365zhiding.com/wxapp/20180104/tuikuan.png' style="width:42rpx;height:42rpx;"></image>
+               <view style='color:#333;font-size:24rpx;'>拒签退全款</view>
+          </view>
+          <view class="handle-detail">
+               <image src='http://image.365zhiding.com/wxapp/20180104/money.png' style="width:42rpx;height:42rpx;">
+               </image>
+               <view style='color:#333;font-size:24rpx;'>免交担保金</view>
+          </view>
+          <view class="handle-detail">
+               <image src='http://image.365zhiding.com/wxapp/20180104/photo.png' style="width:42rpx;height:34rpx;">
+               </image>
+               <view style='color:#333;font-size:24rpx;'>免费拍照</view>
+          </view>
+     </view>
+</view>

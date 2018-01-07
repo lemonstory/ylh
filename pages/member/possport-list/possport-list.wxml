@@ -1,8 +1,6 @@
 <import src="/zanui-weapp/dist/toast/index.wxml" />
 <view class="container">
-
-
-     <block wx:for="{{orderDetail.tourers.list}}" wx:key="orderDetail.tourers.list" wx:item="item">
+<block wx:for="{{orderDetail.tourers.list}}" wx:key="orderDetail.tourers.list" wx:item="item">
 
           <view class="ziliao-box">
 

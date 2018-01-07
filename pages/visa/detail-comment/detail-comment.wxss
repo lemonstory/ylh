@@ -1,0 +1,61 @@
+/* pages/visa/detail-comment/detail-comment.wxss */
+
+.section-box {
+     width: 100%;
+     height: auto;
+     background: #fff;
+     border-top: 1rpx solid #eee;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+}
+
+.comment-list {
+     width: 100%;
+     height: auto;
+     display: flex;
+     padding: 30rpx;
+     box-sizing: border-box;
+     border-bottom: 1rpx solid #eee;
+}
+
+.userlogo {
+     width: 62rpx;
+     height: 62rpx;
+     border-radius: 50%;
+     margin-right: 30rpx;
+}
+
+.comment-detail {
+     display: flex;
+     flex-direction: column;
+     width: 598rpx;
+     height: auto;
+}
+
+.username {
+     width: 100%;
+     height: auto;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     font-size: 28rpx;
+     color: rgba(51, 51, 51, 1);
+}
+
+.user-comment {
+     width: 100%;
+     height: auto;
+     margin-top: 20rpx;
+     font-size: 28rpx;
+     color: rgba(51, 51, 51, 1);
+}
+
+.comment-time {
+     width: 100%;
+     height: auto;
+     font-size: 24rpx;
+     color: rgba(153, 153, 153, 1);
+     margin-top: 20rpx;
+}

@@ -1,0 +1,41 @@
+<!--pages/visa/detail-comment/detail-comment.wxml-->
+<view class="container">
+     <view class="section-box">
+          <view class="comment-list">
+               <image class="userlogo" src="http://image.365zhiding.com/wxapp/20171121/logo.png"></image>
+               <view class="comment-detail">
+                    <view class="username">
+                         <view>153****4899</view>
+                         <view>
+                              <image src='http://image.365zhiding.com/wxapp/20171219/start1.png ' style="width:18rpx;height:18rpx;margin-right:8rpx;"></image>
+                              <image src='http://image.365zhiding.com/wxapp/20171219/start2.png ' style="width:18rpx;height:18rpx;margin-right:8rpx;"></image>
+                              <image src='http://image.365zhiding.com/wxapp/20171219/start2.png ' style="width:18rpx;height:18rpx;margin-right:8rpx;"></image>
+                              <image src='http://image.365zhiding.com/wxapp/20171219/start2.png ' style="width:18rpx;height:18rpx;margin-right:8rpx;"></image>
+                              <image src='http://image.365zhiding.com/wxapp/20171219/start2.png ' style="width:18rpx;height:18rpx;margin-right:8rpx;"></image>
+                         </view>
+                    </view>
+                    <view class="user-comment">不错哦，挺快的，好方便，下次出国旅游，还来这里办</view>
+                    <view class="comment-time">2017-10-12 15:48:32</view>
+
+               </view>
+          </view>
+<view class="comment-list">
+               <image class="userlogo" src="http://image.365zhiding.com/wxapp/20171121/logo.png"></image>
+               <view class="comment-detail">
+                    <view class="username">
+                         <view>153****48912121219</view>
+                         <view>
+                              <image src='http://image.365zhiding.com/wxapp/20171219/start1.png ' style="width:18rpx;height:18rpx;margin-right:8rpx;"></image>
+                              <image src='http://image.365zhiding.com/wxapp/20171219/start2.png ' style="width:18rpx;height:18rpx;margin-right:8rpx;"></image>
+                              <image src='http://image.365zhiding.com/wxapp/20171219/start2.png ' style="width:18rpx;height:18rpx;margin-right:8rpx;"></image>
+                              <image src='http://image.365zhiding.com/wxapp/20171219/start2.png ' style="width:18rpx;height:18rpx;margin-right:8rpx;"></image>
+                              <image src='http://image.365zhiding.com/wxapp/20171219/start2.png ' style="width:18rpx;height:18rpx;margin-right:8rpx;"></image>
+                         </view>
+                    </view>
+                    <view class="user-comment">不错哦，挺快的，好方便，下次出国旅游，还来这里办 不错哦，挺快的，好方便，下次出国旅游，还来这里办</view>
+                    <view class="comment-time">2017-10-12 15:48:32</view>
+
+               </view>
+          </view>
+     </view>
+</view>

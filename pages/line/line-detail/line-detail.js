@@ -532,7 +532,7 @@ Page(Object.assign({}, Toast, {
                     that.setData({
                          strokeTop: rect.top + e.detail.scrollTop
                     })
-                    that.getViewHeigh();
+                    // that.getViewHeigh();
                }).exec()
           }
 

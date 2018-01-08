@@ -5,15 +5,13 @@
                <view class="dian" style='display:flex; display:-webkit-box;word-break:break-all;overflow:hidden;flex-direction:column; width:110rpx; height:500rpx;padding-left:54rpx;padding-right:54rpx;box-sizing:border-box;color:#AAA;'></view>
 
                <view id="{{normalIds[idx]}}">
-                    <view class="goto-normal ">{{item.title}}</view>
+                    <view class="goto-normal">{{item.title}}</view>
                     <view class="jiaotong-normal" wx:for="{{item.info1}}" wx:for-item="item" wx:key="idx">{{item.key}}：{{item.content}}</view>
                     <block wx:for="{{item.theme}}" wx:for-item="theme" wx:key="theme">
                          <block wx:if="{{theme.images.length==1}}">
                               <view class="img-box">
                                    <view wx:for="{{theme.images}}" wx:for-item="item" wx:key="item">
-                                        <view class="one-img">
-                                             <image src="{{item}}" mode="widthFit"></image>
-                                        </view>
+                                        <image class="one-img" src="{{item}}" mode="widthFix" style='width:600rpx;'></image>
                                    </view>
                               </view>
                          </block>

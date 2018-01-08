@@ -8,9 +8,9 @@
           <block wx:if="{{theme.images.length==1}}">
                <view class="img-box">
                     <view wx:for="{{theme.images}}" wx:for-item="item" wx:key="item">
-                         <view class="one-img">
-                              <image src="{{item}}" mode="widthFit"></image>
-                         </view>
+                    
+                           <image class="one-img" src="{{item}}" mode="widthFix" style='width:600rpx;'></image>
+                        
                     </view>
                </view>
           </block>

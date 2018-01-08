@@ -607,8 +607,7 @@ Page(Object.assign({}, Toast, {
      },
 
      upper: function (e) {
-
-          var that = this;
+        var that = this;
           that.setData({
                scrollTop: 0
           })
@@ -617,56 +616,56 @@ Page(Object.assign({}, Toast, {
      /**
       * 动态获得item的高低
       */
-     getViewHeigh: function () {
-          var that = this;
-          var ids = [];
-          var viewHei;
-          var normalHeighs = [];
-          if (that.data.template.normal.length > 0) {    // 当有数据后
-               for (var i = 0; i < that.data.template.normal.length; i++) {
-                    var name = "normal-" + i;
-                    ids.push(name);
-                    console.log(name);
-               }
-               that.setData({
-                    normalIds: ids
-               })
+     // getViewHeigh: function () {
+     //      var that = this;
+     //      var ids = [];
+     //      var viewHei;
+     //      var normalHeighs = [];
+     //      if (that.data.template.normal.length > 0) {    // 当有数据后
+     //           for (var i = 0; i < that.data.template.normal.length; i++) {
+     //                var name = "normal-" + i;
+     //                ids.push(name);
+     //                console.log(name);
+     //           }
+     //           that.setData({
+     //                normalIds: ids
+     //           })
 
-               console.log("数据——————————————————————————————————————————————————————————————");
-               console.log(that.data.template.normal.length);
-               for (var i = 0; i < that.data.template.normal.length; i++) {
-                    var index = "#" + that.data.normalIds[i];
-                    wx.createSelectorQuery().select(index).boundingClientRect(function (rect) {
-                         rect.id      // 节点的ID  
-                         rect.dataset // 节点的dataset  
-                         rect.left    // 节点的左边界坐标  
-                         rect.right   // 节点的右边界坐标  
-                         rect.top     // 节点的上边界坐标  
-                         rect.bottom  // 节点的下边界坐标  
-                         rect.width   // 节点的宽度  
-                         rect.height  // 节点的高度  
-                         viewHei = rect.bottom - rect.top ;
-                         console.log("高度——————————————————————————————————————————————————————————————");
-                         console.log(viewHei);
-                         normalHeighs.push(viewHei);
-                         that.setData({
-                              normalViewHei: normalHeighs
-                         });
-                         console.log("高度集合——————————————————————————————————————————————————————————————");
-                         console.log(that.data.normalViewHei);
+     //           console.log("数据——————————————————————————————————————————————————————————————");
+     //           console.log(that.data.template.normal.length);
+     //           for (var i = 0; i < that.data.template.normal.length; i++) {
+     //                var index = "#" + that.data.normalIds[i];
+     //                wx.createSelectorQuery().select(index).boundingClientRect(function (rect) {
+     //                     rect.id      // 节点的ID  
+     //                     rect.dataset // 节点的dataset  
+     //                     rect.left    // 节点的左边界坐标  
+     //                     rect.right   // 节点的右边界坐标  
+     //                     rect.top     // 节点的上边界坐标  
+     //                     rect.bottom  // 节点的下边界坐标  
+     //                     rect.width   // 节点的宽度  
+     //                     rect.height  // 节点的高度  
+     //                     viewHei = rect.bottom - rect.top ;
+     //                     console.log("高度——————————————————————————————————————————————————————————————");
+     //                     console.log(viewHei);
+     //                     normalHeighs.push(viewHei);
+     //                     that.setData({
+     //                          normalViewHei: normalHeighs
+     //                     });
+     //                     console.log("高度集合——————————————————————————————————————————————————————————————");
+     //                     console.log(that.data.normalViewHei);
 
-                         that.setData({
-                              hei: viewHei
-                         })
+     //                     that.setData({
+     //                          hei: viewHei
+     //                     })
 
-                    }).exec();
-               }
+     //                }).exec();
+     //           }
 
-          } else {
-               console.log("数据空———————");
+     //      } else {
+     //           console.log("数据空———————");
 
-          }
-     },
+     //      }
+     // },
 
 
 

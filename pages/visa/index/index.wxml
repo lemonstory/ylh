@@ -29,10 +29,7 @@
           <view>大洋洲</view>
           <view>北美洲</view>
      </scroll-view>
-
-
-
-     <view class="category-box">
+<view class="category-box">
           <view class="category-title">
                <view class="line"></view>
                <view style='margin-left:20rpx;margin-right:20rpx'>亚洲</view>

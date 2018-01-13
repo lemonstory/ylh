@@ -530,7 +530,7 @@ Page(Object.assign({}, Toast, {
           if (util.isEmptyStr(that.data.strokeTop)) {
                wx.createSelectorQuery().select('#stroke').boundingClientRect(function (rect) {
                     that.setData({
-                         strokeTop: rect.top + e.detail.scrollTop
+                         strokeTop: rect.top + e.detail.scrollTop - 30
                     })
                     // that.getViewHeigh();
                }).exec()
@@ -539,7 +539,7 @@ Page(Object.assign({}, Toast, {
           if (util.isEmptyStr(that.data.reminderTop)) {
                wx.createSelectorQuery().select('#reminder').boundingClientRect(function (rect) {
                     that.setData({
-                         reminderTop: rect.top + e.detail.scrollTop
+                         reminderTop: rect.top + e.detail.scrollTop - 30
                     })
 
                }).exec()
@@ -548,7 +548,7 @@ Page(Object.assign({}, Toast, {
           if (util.isEmptyStr(that.data.expensesTop)) {
                wx.createSelectorQuery().select('#expenses').boundingClientRect(function (rect) {
                     that.setData({
-                         expensesTop: rect.top + e.detail.scrollTop
+                         expensesTop: rect.top + e.detail.scrollTop - 30
                     })
                }).exec()
           }
@@ -607,7 +607,7 @@ Page(Object.assign({}, Toast, {
      },
 
      upper: function (e) {
-        var that = this;
+          var that = this;
           that.setData({
                scrollTop: 0
           })

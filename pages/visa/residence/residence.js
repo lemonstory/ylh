@@ -1,4 +1,4 @@
-// pages/API/passport/passport.js
+// pages/visa/residence/residence.js
 Page({
 
   /**
@@ -62,11 +62,5 @@ Page({
    */
   onShareAppMessage: function () {
   
-  },
-  bindPassPortDirection:function(){
-       var path = "/pages/API/passport_direction/passport_direction";
-       wx.navigateTo({
-            url: path,
-       })
   }
 })

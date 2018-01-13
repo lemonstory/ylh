@@ -238,7 +238,7 @@ Page(Object.assign({}, Toast, {
   /**
    *  输入变化的监听
    */
-  handelTextChanged: function (e) {
+  handelTextChanged:function (e) {
     var that = this;
     var id = e.currentTarget.id;
     var address = that.data.addressInfo;

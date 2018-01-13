@@ -9,8 +9,6 @@
           <view class="box" style='width:90rpx;height:90rpx;display:flex;background:#fff' bindtap='handleTapClearInput'>
                <image class="img" src="http://image.365zhiding.com/wxapp/20171221/close.png" ></image>
           </view>
-
-
           <button class="confirm" bindtap='changeStoreName'>确定</button>
           <template is="zan-toast" data="{{zanToast}}"></template>
      </view>

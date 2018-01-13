@@ -1,0 +1,42 @@
+<!--pages/visa/idcard/idcard.wxml-->
+<view class="container">
+     <view class="idcard-box">
+          <view>没有身份证？</view>
+          <view style='height:90rpx;width:90rpx;display:flex;align-items: center;justify-content:flex-end;' bindtap='handleTapSelectType'>
+               <image class="ischeck" src="{{isSelected?isSelect:isUnSelect}}"></image>
+          </view>
+     </view>
+     <view class="idcard-hidden {{isSelected?'idcard-active':''}}">
+          <view class="idcard-info">未满16周岁，尚未办理身份证</view>
+          <view class="idcard-info idcard-inifo-two">身份证丢失</view>
+     </view>
+<view class="section">
+          <view style='color:#333;font-size:28rpx;margin-bottom:20rpx;'>身份证正面</view>
+          <view class="id-box">
+               <view class="idcard">
+                    <image src='http://image.365zhiding.com/wxapp/20180108/idcardzh1.png'></image>
+               </view>
+               <view class="camera" bindtap="bindTapChooseImage">
+                    <image src='http://image.365zhiding.com/wxapp/20180108/photoshopsmall.png'></image>
+               </view>
+          </view>
+          <view style='color:#333;font-size:28rpx;margin-bottom:20rpx;margin-top:30rpx;'>身份证反面</view>
+
+          <view class="camera-box">
+               <view class="idcard">
+                    <image src='http://image.365zhiding.com/wxapp/20180108/idcardfan1.png'></image>
+               </view>
+
+               <view class="camera">
+                    <image src='http://image.365zhiding.com/wxapp/20180108/photoshopsmall.png'></image>
+               </view>
+          </view>
+          <view class="means_rules" style='margin-bottom:120rpx'>
+               <view class="rules_title" style='color:#333;font-size:28rpx;margin-top:60rpx'>资料要求</view>
+               <view style='color:#333;font-size:24rpx;margin-top:30rpx'>· 清晰拍摄正反面、不能反光</view>
+               <view style='color:#333;font-size:24rpx;margin-top:19rpx'>· 请注意露出四个边角，不要压边拍摄</view>
+
+          </view>
+          <view class="bottom" bindtap='bindPassPortDirection'>确定</view>
+     </view>
+</view>

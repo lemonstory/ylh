@@ -2,25 +2,64 @@
 <view class="container">
      <view class="section">
           <view class="prompt">
-               <view class="prompt_message">点击下方按钮调整图片方向</view>
+               <block wx:if="{{showCutView==false}}">
+                    <view class="prompt_message">拖动圆点调整文档区域</view>
+               </block>
+               <block wx:else>
+                    <view class="prompt_message">点击下方按钮调整图片方向</view>
+               </block>
           </view>
-          <view class="camera-box">
-               <view class="camera"></view>
-          </view>
-          <view class="bottom">
 
+          <view class="wx-content-info">
+               <!-- 图片容器 -->
+               <view class="wx-corpper" style="width:{{cropperInitW}}rpx;height:{{cropperInitH}}rpx; margin-top:80rpx;">
+                    <view class="wx-corpper-content" style="width:{{cropperW}}rpx;height:{{cropperH}}rpx;left:{{cropperL}}rpx;top:{{cropperT}}rpx">
+                         <image src="{{imageSrc}}" animation="{{animationData}}" style="width:{{cropperW}}rpx;height:{{cropperH}}rpx"></image>
+                         <!-- 裁剪框 -->
+                         <block wx:if="{{showCutView == false}}">
+                              <view class="wx-corpper-crop-box" bindtouchstart="contentStartMove" bindtouchmove="contentMoveing" style="width:{{cutW}}rpx;height:{{cutH}}rpx;left:{{cutL}}rpx;top:{{cutT}}rpx">
+                                   <view class="wx-cropper-view-box">
+                                        <view class="wx-cropper-dashed-h"></view>
+                                        <view class="wx-cropper-dashed-v"></view>
+                                        <view class="wx-cropper-line-t" data-drag="top" catchtouchstart="dragStart" catchtouchmove="dragMove"></view>
+                                        <view class="wx-cropper-line-r" data-drag="right" catchtouchstart="dragStart" catchtouchmove="dragMove"></view>
+                                        <view class="wx-cropper-line-b" data-drag="bottom" catchtouchstart="dragStart" catchtouchmove="dragMove"></view>
+                                        <view class="wx-cropper-line-l" data-drag="left" catchtouchstart="dragStart" catchtouchmove="dragMove"></view>
+                                        <view class="wx-cropper-point point-t" data-drag="top" catchtouchstart="dragStart" catchtouchmove="dragMove"></view>
+                                        <view class="wx-cropper-point point-tr" data-drag="topTight"></view>
+                                        <view class="wx-cropper-point point-r" data-drag="right" catchtouchstart="dragStart" catchtouchmove="dragMove"></view>
+                                        <view class="wx-cropper-point point-rb" data-drag="rightBottom" catchtouchstart="dragStart" catchtouchmove="dragMove"></view>
+                                        <view class="wx-cropper-point point-b" data-drag="bottom" catchtouchstart="dragStart" catchtouchmove="dragMove"></view>
+                                        <view class="wx-cropper-point point-bl" data-drag="bottomLeft"></view>
+                                        <view class="wx-cropper-point point-l" data-drag="left" catchtouchstart="dragStart" catchtouchmove="dragMove"></view>
+                                        <view class="wx-cropper-point point-lt" data-drag="leftTop"></view>
+                                   </view>
+                              </view>
 
-
-               <view class="icon_box">
-                    <image src="http://image.365zhiding.com/wxapp/20171219/back1.png" style='width:60rpx;height:60rpx;'></image>
-                    <image src="http://image.365zhiding.com/wxapp/20171219/back2.png" style='width:60rpx;height:60rpx;'></image>
-                    <image src="http://image.365zhiding.com/wxapp/20171219/check.png" style='width:60rpx;height:60rpx;'></image>
+                         </block>
+                         <!-- 裁剪框 -->
+                    </view>
+                    <!-- <view class="wx-cropper-drag-box"></view> -->
                </view>
+               <!-- 图片容器 -->
+
+               <canvas canvas-id="myCanvas" style="position:absolute;border: 1px solid red; width:{{imageW}}rpx;height:{{imageH}}rpx;top:-9999px;left:-9999px;"></canvas>
+               <block wx:if="{{showCutView==false}}">
+                    <view class="bottom" bindtap="cutImage">
+                         <view class="icon_box1">
+                              <image src="http://image.365zhiding.com/wxapp/20171219/check.png" style='width:60rpx;height:60rpx;'></image>
+                         </view>
+                    </view>
+               </block>
+               <block wx:else>
+                    <view class="bottom">
+                         <view class="icon_box">
+                              <image src="http://image.365zhiding.com/wxapp/20171219/back1.png" style='width:60rpx;height:60rpx;' bindtap='handleTapRotate'></image>
+                              <image src="http://image.365zhiding.com/wxapp/20171219/back2.png" style='width:60rpx;height:60rpx;' bindtap='handleTapRotateN'></image>
+                              <image src="http://image.365zhiding.com/wxapp/20171219/check.png" style='width:60rpx;height:60rpx;' bindtap='handleTapIdCard'></image>
+                         </view>
+                    </view>
+               </block>
           </view>
-          <!-- <view class="bottom">
-               <view class="icon_box1">
-                 <image src="http://image.365zhiding.com/wxapp/20171219/check.png" style='width:60rpx;height:60rpx;'></image>
-               </view>
-        </view> -->
      </view>
 </view>

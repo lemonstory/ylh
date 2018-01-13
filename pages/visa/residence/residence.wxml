@@ -1,0 +1,20 @@
+<!--pages/visa/residence/residence.wxml-->
+<view class="container">
+     <view class="section">
+          <view class="id-box">
+               <view class="idcard">
+                    <image src='http://image.365zhiding.com/wxapp/20180112/hulouben.png'></image>
+               </view>
+               <view class="camera" bindtap="bindTapChooseImage">
+                    <image src='http://image.365zhiding.com/wxapp/20180108/photoshopsmall.png'></image>
+               </view>
+          </view>
+          <view class="means_rules" style='margin-bottom:120rpx'>
+               <view class="rules_title" style='color:#333;font-size:28rpx;margin-top:60rpx'>资料要求</view>
+               <view style='color:#333;font-size:24rpx;margin-top:30rpx'>· 家庭户口的：拍摄整本户口本的所有页</view>
+               <view style='color:#333;font-size:24rpx;margin-top:19rpx'>· 集体户口的：拍摄申请人本人页</view>
+          <view style='color:#333;font-size:24rpx;margin-top:19rpx'>· 要保证照片上的字体清晰可见，露出四个边角，不要压边拍</view>
+    </view>
+          <view class="bottom" bindtap='bindPassPortDirection'>确定</view>
+     </view>
+</view>

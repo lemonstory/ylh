@@ -34,7 +34,7 @@
 				{
 					"id": 1,
 					"name": "悦旅会-分享-卡片",
-					"pathName": "pages/line/index/index",
+					"pathName": "pages/visa/idcard/idcard",
 					"query": "scene=distributerId:119",
 					"scene": "1036",
 					"referrerInfo": {}

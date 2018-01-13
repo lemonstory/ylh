@@ -15,8 +15,6 @@ const formatNumber = n => {
      n = n.toString()
      return n[1] ? n : '0' + n
 }
-
-
 function isMobile(value) {
      var pattern = /^1[3578][0123456789]\d{8}$/;
      if (!pattern.test(value)) {
@@ -24,19 +22,14 @@ function isMobile(value) {
      }
      return true;
 }
-
-
 function isTelephone(value) {
-
      //"兼容格式: 国家代码(2到3位)-区号(2到3位)-电话号码(7到8位)-分机号(3位)"
      var pattern = /^(([0\+]\d{2,3}-)?(0\d{2,3})-)(\d{7,8})(-(\d{3,}))?$/;
      if (!pattern.test(value)) {
           return false;
      }
      return true;
-
 }
-
 function isTax(value) {
 
      var pattern = /^[A-Z0-9]{15}$|^[A-Z0-9]{17}$|^[A-Z0-9]{18}$|^[A-Z0-9]{20}$/;
@@ -47,15 +40,13 @@ function isTax(value) {
 }
 
 function hideMobile(value) {
-
      var mobile = value;
      mobile = mobile.replace(/(\d{3})\d{4}(\d{4})/, '$1****$2');
      return mobile;
 }
 
 function isEmail(value) {
-
-     var pattern = /^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$/;
+var pattern = /^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$/;
      if (!pattern.test(value)) {
           return false;
      }
@@ -63,7 +54,6 @@ function isEmail(value) {
 }
 
 function getTitleWithId(mapArr, idValue) {
-
      var title = '';
      for (var i = 0; i < mapArr.length; i++) {
           if (mapArr[i].id == idValue) {
@@ -83,27 +73,21 @@ function sortBy(field1, field2) {
 
 /**
  * 根据年-月获取日历数据
- * 
  *  data.canlender = canlender;
  *  data.canlender.year = year;
  *  data.canlender.month = month;
  *  data.canlender.weeks = weeks;
  */
 function getCanlenderData(year, month) {
-
      var that = this;
-
      var canlender = [];
      // var _date = new Date()
      // var year = _date.getFullYear()  //年
      // var month = _date.getMonth() + 1  //月
      // var date = _date.getDate()  //日
-
      // var year = 2017  //年
      // var month = 10  //月
      // var date = 6  //日
-
-
      console.log("📅 现在日期")
      console.info(year + "-" + month)
 
@@ -360,7 +344,6 @@ function isDistributer() {
      } catch (e) {
           ret = false;
      }
-
      return ret;
      return true;
 }
@@ -387,7 +370,6 @@ function isOwnDistributerId() {
  * 是否含有accessToken
  */
 function isOwnAccessToken() {
-
      var ret = false;
      try {
 
@@ -407,13 +389,11 @@ function isOwnAccessToken() {
  * 获取微信OpenId
  */
 function getWxOpenId() {
-
      var openId = '';
      try {
 
           var userAccessData = getUserAccessData();
-
-          //接口里面的返回的openid i是小写
+        //接口里面的返回的openid i是小写
           openId = userAccessData.openid;
 
      } catch (e) {
@@ -461,11 +441,6 @@ function getDistributerId() {
      return distributerIdValue;
 }
 
-
-
-
-
-
 /**
  * 代理商是否登录
  */
@@ -512,7 +487,6 @@ function defaultShareData() {
           }
      }
 }
-
 module.exports = {
      formatTime: formatTime,
      isMobile: isMobile,

@@ -9,12 +9,9 @@
  */
 
 (function(global) {
-
-    'use strict';
-
-    var global = global || {};
-
-    // existing version for noConflict()
+'use strict';
+var global = global || {};
+// existing version for noConflict()
     var _Base64 = global.Base64;
     var version = "2.1.9";
     // if node.js, we use Buffer
@@ -26,8 +23,7 @@
         } catch (err) {}
     }
     */
-
-    // constants
+// constants
     var b64chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
     var b64tab = function(bin) {
         var t = {};

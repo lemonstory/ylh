@@ -9,8 +9,7 @@
                     <view class="prompt_message">点击下方按钮调整图片方向</view>
                </block>
           </view>
-
-          <view class="wx-content-info">
+<view class="wx-content-info">
                <!-- 图片容器 -->
                <view class="wx-corpper" style="width:{{cropperInitW}}rpx;height:{{cropperInitH}}rpx; margin-top:80rpx;">
                     <view class="wx-corpper-content" style="width:{{cropperW}}rpx;height:{{cropperH}}rpx;left:{{cropperL}}rpx;top:{{cropperT}}rpx">
@@ -42,8 +41,7 @@
                     <!-- <view class="wx-cropper-drag-box"></view> -->
                </view>
                <!-- 图片容器 -->
-
-               <canvas canvas-id="myCanvas" style="position:absolute;border: 1px solid red; width:{{imageW}}rpx;height:{{imageH}}rpx;top:-9999px;left:-9999px;"></canvas>
+    <canvas canvas-id="myCanvas" style="position:absolute;border: 1px solid red; width:{{imageW}}rpx;height:{{imageH}}rpx;top:-9999px;left:-9999px;"></canvas>
                <block wx:if="{{showCutView==false}}">
                     <view class="bottom" bindtap="cutImage">
                          <view class="icon_box1">

@@ -47,10 +47,11 @@
           "pages/distributer/qrcode/qrcode",
           "pages/API/personal-my-order/personal-my-order",
           "pages/API/visa-find/visa-find",
-          "pages/API/passport/passport",
           "pages/API/passport_direction/passport_direction",
           "pages/API/divide-order-detail1/divide-order-detail1",
           "pages/visa/category/category",
+          "pages/visa/passport/passport",
+          "pages/visa/passport_direction/passport_direction",
           "pages/visa/visa-list/visa-list",
           "pages/visa/choice-date/choice-date",
           "pages/visa/visa-detail/visa-detail",
@@ -58,7 +59,14 @@
           "pages/visa/detail-comment/detail-comment",
           "pages/visa/data-template/data-template",
           "pages/visa/data-requirements/data-requirements",
-          "pages/visa/application-information/application-information"
+          "pages/visa/application-information/application-information",
+          "pages/visa/photo/photo",
+          "pages/visa/idcard/idcard",
+          "pages/visa/idcard-face/idcard-face",
+          "pages/visa/idcard-back/idcard-back",
+          "pages/visa/residence/residence",
+          "pages/visa/marital-status/marital-status",
+          "pages/visa/application/application"
      ],
      "window": {
           "navigationBarBackgroundColor": "#ffffff",

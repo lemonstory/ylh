@@ -8,7 +8,6 @@ App({
      onLaunch: function (options) {
 
      },
-
      onShow: function (options) {
           console.log("🚀 App->onShow options ↓");
           console.log(options);
@@ -28,7 +27,6 @@ App({
                })
 
           } else {
-
                //非代理商处理
                //scene取得代理商Id
                var getParamDistributerId = 0;

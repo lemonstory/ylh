@@ -3,7 +3,6 @@
 const app = getApp();
 const Toast = require('../../../zanui-weapp/dist/toast/index');
 var util = require('../../../utils/util.js');
-var Base64 = require("../../../utils/base64.js");
 var windowWRPX = 750
 // 拖动时候的 pageX
 var pageX = 0
@@ -43,7 +42,8 @@ Page({
           cutH: 0,
           cutL: 0,
           cutT: 0,
-},
+
+     },
      /**
       * 生命周期函数--监听页面加载
       */
@@ -58,9 +58,7 @@ Page({
           console.log("---------------初始的------------------------");
           console.log(that.data.imageSrc);
      },
-     /**
-      * 生命周期函数--监听页面初次渲染完成
-      */
+
      onReady: function () {
           var that = this
           that.initImage();
@@ -138,13 +136,12 @@ Page({
           console.log(`${maxX} ----- ${minX}`)
           pageX = e.touches[0].pageX
           pageY = e.touches[0].pageY
-          },
-     
-cutImage()
-         {
-         var that = this;
+     },
+
+     cutImage() {
+          var that = this;
           wx.showLoading({
-          title: '正在裁剪...',
+               title: '正在裁剪...',
           })
           // 计算图片尺寸
           var canvasW = that.data.cutW / that.data.cropperW * that.data.imageW / pixelRatio
@@ -156,8 +153,8 @@ cutImage()
           ctx.drawImage(that.data.imageSrc);
           // TODO ..................................................................
           ctx.draw();
-        
-        // 生成新的图片路径
+
+          // 生成新的图片路径
           console.log(`canvasW:${canvasW} --- canvasH: ${canvasH} --- canvasL: ${canvasL} --- canvasT: ${canvasT} ------ that.data.imageW: ${that.data.imageW}  ------- that.data.imageH: ${that.data.imageH}`)
           wx.canvasToTempFilePath({
                x: canvasL,
@@ -182,13 +179,14 @@ cutImage()
                          }
                     })
                     that.setData({
-                         imageSrc: newImgePath,
+                         // imageSrc: newImgePath,
+                         imageSrc: "http://image.365zhiding.com/wxapp/20180114/451274520792646944.png",
                          showCutView: true,
                     })
-                    wx.previewImage({
-                         current: '', // 当前显示图片的http链接
-                         urls: [that.data.imageSrc] // 需要预览的图片http链接列表
-                    })
+                    // wx.previewImage({
+                    //      current: '', // 当前显示图片的http链接
+                    //      urls: [that.data.imageSrc] // 需要预览的图片http链接列表
+                    // })
                },
                complete(res) {
                     console.log(res);
@@ -298,7 +296,6 @@ cutImage()
                                    cutH: initDragCutH - dragLengthY
                               })
                          }
-
                          // right 方向的变化
                          if ((dragLengthX < 0 && that.data.cropperW > initDragCutL + that.data.cutW) || (dragLengthX > 0)) {
                               this.setData({
@@ -313,16 +310,10 @@ cutImage()
                     }
                     break;
                case 'topTight':
-
-
-                    break;
+               break;
                case 'bottomLeft':
-
-
-                    break;
+               break;
                case 'leftTop':
-
-
                     break;
 
                default:
@@ -376,9 +367,9 @@ cutImage()
           this.setData({
                animationData: animation.export()
           })
-          },
-     handleTapRotate: function () {
-          var n = 0;
+     },
+     handleTapRotate: function (n) {
+          var n=0;
           n = n + 1,
                console.log(n);
           this.animation.rotate(90 * (n)).step()
@@ -387,8 +378,8 @@ cutImage()
           })
 
      },
-     handleTapRotateN: function () {
-          var m = 0;
+     handleTapRotateN: function (m) {
+          var m=0;
           m = m - 1;
           console.log(m)
           this.animation.rotate(90 * (m)).step()
@@ -397,28 +388,42 @@ cutImage()
           })
 
      },
-     handleTapIdCard: function () {
-          var that = this;
-          var url = 'http(s)://dm-51.data.aliyun.com/rest/160601/ocr/ocr_idcard.json';
+// 调用身份证api,识别身份证信息
+handleTapIdCard: function (){
+     var that = this;
+          // const base64 = wx.arrayBufferToBase64(that.data.imageSrc);
+          // that.setData({
+          //      imageData: "data:image/png;base64," + base64
+          // });
+          console.log(2222222222222222222222222222222222222);
+          console.log(that.data.imageSrc);
+          var imageUrl = Base64.encode(that.data.imageSrc);
+          console.log(imageUrl)
+          var url = 'https://dm-51.data.aliyun.com/rest/160601/ocr/ocr_idcard.json';
           console.log("url =" + url);
           wx.request({
+               // 'Authorization:e682e10d5ba94a2d895d318138d06850',
                url: url,
-               header: 'Authorization:e682e10d5ba94a2d895d318138d06850',
-               'Content-Type': 'application/json;charset=UTF-8',
-               data: {
-                    "inputs": [
-                         {
-                              "image": {
-                                   "dataType": 50,
-                                   "dataValue": "图片二进制数据的base64编码"
-                              },
-                              "configure": {
-                                   "dataType": 50,
-                                   "dataValue": "{\"side\":\"face\"}"
-                              }
-                         }
-                    ],
+               method: 'POST',
+               header: {
+                    'Content-Type': 'application/json',
+                    'Authorization': "APPCODE " + "e682e10d5ba94a2d895d318138d06850"
                },
+               beforeSend: function (xhr) {
+                    console.log('授权码');
+                    xhr.setRequestHeader("Authorization", "APPCODE " + "e682e10d5ba94a2d895d318138d06850");
+               },
+              data: {
+                    image: {
+                         "dataType": 50,
+                         "dataValue": "data:image/png;base64," + imageUrl
+                         // "dataValue": 'imageUrl'
+                    },
+                    configure: {
+                         "dataType": 50,
+                         "dataValue": "{\"side\":\"face\"}"
+                    }
+                    },
                success: function (res) {
                     console.log("### success ###");
                     console.log(res.data);

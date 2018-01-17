@@ -55,19 +55,24 @@ var constant = {
      //旅客职业身份
      "passengerTitle": [{
           id: '1',
-          title: '学龄前儿童'
+          title: '学龄前儿童',
+          url:'http://image.365zhiding.com/wxapp/20180104/child.png'
      }, {
           id: '2',
-          title: '在校学生'
+          title: '在校学生',
+          url:'http://image.365zhiding.com/wxapp/20180104/student.png'
      }, {
           id: '3',
-          title: '在职人员'
+          title: '在职人员',
+          url:'http://image.365zhiding.com/wxapp/20180104/person.png'
      }, {
           id: '4',
-          title: '自由职业者'
+          title: '自由职业者',
+          url:'http://image.365zhiding.com/wxapp/20180104/free.png'
      }, {
           id: '5',
-          title: '退休人员'
+          title: '退休人员',
+          url:'http://image.365zhiding.com/wxapp/20180104/tuixiu.png'
      }],
 
      //性别

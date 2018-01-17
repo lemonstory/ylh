@@ -294,18 +294,15 @@ function getDistributerAuthorizationValue() {
 }
 
 function getRequestHeader(isDistributer = false) {
-
-     var authValue = ''
-
-     if (isDistributer) {
-          authValue = getDistributerAuthorizationValue();
+ var authValue = ''
+ if (isDistributer) {
+     authValue = getDistributerAuthorizationValue();
      } else {
           authValue = getUserAuthorizationValue();
      }
-
-     var header = {
+var header = {
           'Authorization': authValue,
-          'Content-Type': 'application/json', // 默认值
+          'Content-Type': 'application/json', //默认值
      }
      return header;
 }

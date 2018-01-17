@@ -11,5 +11,5 @@
   <view class="line1"></view>
   <view class="bottom" bindtap='handleTapLoginBtn'>登录</view>
 <!-- 直接使用 zan-toast 模板，并且直接传入 zanToast -->
-  <template is="zan-toast" data="{{ zanToast }}"></template>
+  <template is="zan-toast" data="{{zanToast}}"></template>
 </view>

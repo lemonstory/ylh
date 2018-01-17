@@ -166,7 +166,7 @@
 }
 
 .information-title {
-     height: 32rpx;
+     height: auto;
      width: 100%;
      display: flex;
      justify-content: center;
@@ -175,7 +175,6 @@
      font-family: PingFang-SC-Regular;
      color: rgba(51, 51, 51, 1);
 }
-
 .line {
      width: 43rpx;
      height: 3rpx;

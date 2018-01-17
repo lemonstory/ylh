@@ -12,7 +12,7 @@
           </view>
      </view>
 
-     <view class="box-ul">
+     <view class="box-ul" bindtap='handleTapVisaDetail'>
           <view class="visa-order">日本旅游签-北京领区-免提供机票酒单</view>
           <view class="visa-radio">
                <view style='display:flex;align-items:center;'>

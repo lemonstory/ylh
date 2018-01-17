@@ -6,4 +6,4 @@
   <!-- 直接使用 zan-toast 模板，并且直接传入 zanToast -->
   <template is="zan-toast" data="{{ zanToast }}"></template>
 </view>
-<!-- <button type="primary" size="default"  bindtap="handleSaveImageToPhotosAlbum"> 保存图片 </button> -->
+<!--<button type="primary" size="default"  bindtap="handleSaveImageToPhotosAlbum"> 保存图片 </button>-->

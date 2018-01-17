@@ -171,7 +171,6 @@ Page(Object.assign({}, Toast, {
    * 全部目的地-点击
    */
   handleTapAreaItem:function(event) {
-
     var that = this;
     var areaId = event.currentTarget.dataset.area_id;
     var path = "/pages/line/line-list/line-list?areaId=" + areaId;

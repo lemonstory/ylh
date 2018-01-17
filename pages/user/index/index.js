@@ -15,7 +15,6 @@ Page(Object.assign({}, Toast, {
           isDistributer: false,
           distributerAccessData: {},
      },
-
      /**
       * 生命周期函数--监听页面加载
       */
@@ -24,27 +23,18 @@ Page(Object.assign({}, Toast, {
           var userAccessData = util.getUserAccessData();
           var guid = userAccessData.guid;
           if (util.isEmptyStr(guid)) {
-
                //再次获取guid
                var distributerId = util.getDistributerId();
-
-
-
-
-
                //  wx.checkSession({
                //    success: function () {
                //      //session 未过期，并且在本生命周期一直有效
                //    },
-
-               //  fail: function () {
-
-               console.log("🚀 🚀 🚀 -- [index.js] 调用 get_session接口");
+          //  fail: function () {
+             console.log("🚀 🚀 🚀 -- [index.js] 调用 get_session接口");
                //登录态过期
                //重新登录
                wx.login({
-
-                    success: function (res) {
+               success: function (res) {
                          var url = that.data.constant.domain + "/weixin/get_session";
                          console.log("url = " + url);
                          if (res.code) {

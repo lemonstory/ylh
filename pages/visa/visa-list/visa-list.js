@@ -69,10 +69,8 @@ Page({
       * 用户点击右上角分享
       */
      onShareAppMessage: function () {
-
+          
      },
-
-
      handleTapCancle: function () {
           var that = this;
           that.setData({
@@ -100,6 +98,16 @@ Page({
                })
           }
      },
+
+     handleTapVisaDetail:function(event){
+          var id = event.currentTarget.dataset.id;
+          console.log(id);
+          var path = "/pages/visa/visa-detail/visa-detail?id=" + id;
+          wx.navigateTo({
+               url: path
+          })
+     },
+     
 
 })
 

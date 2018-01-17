@@ -37,24 +37,47 @@ Page(Object.assign({}, Toast, {
 
      },
      /**
-      * 页面相关事件处理函数--监听用户下拉动作
-      */
+     * 页面相关事件处理函数--监听用户下拉动作
+     */
      onPullDownRefresh: function () {
-
+          var that = this;
+          that.getData();
      },
+
+     /**
+       * 停止下拉刷新动画
+       */
+     stopPullDownRefresh: function () {
+          wx.stopPullDownRefresh({
+               complete: function (res) {
+               }
+          });
+     },
+
 
      /**
       * 页面上拉触底事件的处理函数
       */
      onReachBottom: function () {
-
+          if (!this.data.isNoMore) {
+               this.setData({
+                    'isLoading': true,
+                    'pageIndex': this.data.pageIndex + 1,
+               });
+               setTimeout(() => {
+                    this.getDataMore(this.data.pageIndex, this.data.Pagesize);
+               }, 500);
+          } else {
+               this.setData({
+                    'isLoading': false,
+               });
+          }
      },
-    /**
-      * 用户点击右上角分享
-      */
+     //  * 用户点击右上角分享
+     //  */
      onShareAppMessage: function () {},
 //获取接口
-getData: function () {
+getData:function () {
           var that = this;
           var url = that.data.constant.domain + '/distrbuter/index';
           console.log("url = " + url);
@@ -115,6 +138,21 @@ getData: function () {
                //测试 
              that.showZanToast("url为空");
           }
+          },
 
+    bindHandleTapVisaList: function(event) {
+          var id = event.currentTarget.dataset.id;
+          console.log(id);
+          var path = "/pages/visa/visa-list/visa-list?id=" + id;
+          wx.navigateTo({
+               url: path
+          })
      },
+
+bindHandleMoreMessage:function(){
+    var path = "/pages/visa/category/category";
+     wx.navigateTo({
+          url: path
+     }) 
+}
 }))

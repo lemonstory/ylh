@@ -1,7 +1,6 @@
 const app = getApp();
 const Toast = require('../../../zanui-weapp/dist/toast/index');
 var util = require('../../../utils/util.js');
-var Base64 = require("../../../utils/base64.js");
 Page({
      data: {
           isSelected: 0,
@@ -64,6 +63,10 @@ Page({
                isSelected: !this.data.isSelected,
           })
      },
+
+     /**
+      * 正面图片
+      */
      bindTapChooseImage: function () {
           var that = this;
           wx.chooseImage({
@@ -72,11 +75,19 @@ Page({
                     var tempFilePaths = res.tempFilePaths;
                     console.log(tempFilePaths);
                     wx.navigateTo({
-                         url: '../../API/passport_direction/passport_direction?imagepath=' + tempFilePaths,
+                         url: '/pages/visa/passport_direction/passport_direction?imageface=' + tempFilePaths,
                     })
                }
           }
           )
+     },
+
+
+/**
+ * 反面图片
+ */
+     bindTapChoseImageBack:function(){
+
      }
 
 })

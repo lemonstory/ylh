@@ -109,7 +109,6 @@ Page(Object.assign({}, Toast, {
 
     //下载头像
     wx.downloadFile({
-
       url: that.data.avatarUrl,
       success: function (res) {
         console.log("wx.downloadFile SUCCESS");
@@ -139,9 +138,7 @@ Page(Object.assign({}, Toast, {
   },
 
   startCanvasDraw: function () {
-
     console.log("🐶 --- startCanvasDraw")
-
     var rectWidth;
     var rectHeight;
     var rectX = 30;
@@ -176,11 +173,7 @@ Page(Object.assign({}, Toast, {
     }
 
     console.log("rectWidth = " + rectWidth + ", rectHeight = " + rectHeight + ", rectX = " + rectX + ", rectY = " + rectY);
-
-
-
-    var that = this;
-
+var that = this;
     //正方形容器,阴影
     //TODO:圆角矩形背景
     ctx.setFillStyle("#ffffff")
@@ -203,12 +196,10 @@ Page(Object.assign({}, Toast, {
     ctx.setTextAlign('left')
     ctx.fillText(that.data.userName, rectX + avatarWidth + nameMarginLeft, rectY + avatarMargin + avatarMargin + 10)
 
-
-    // //二维码
+// //二维码
     ctx.drawImage(that.data.qrCodeTempFilePath, rectX + rectWidth / 2 - imageWidth / 2, rectY + avatarHeight + avatarMargin * 2, imageWidth, imageHeight);
 
-
-    //二维码推荐语
+//二维码推荐语
     ctx.setFontSize(14)
     ctx.setFillStyle("#000111")
     ctx.setTextAlign('left')
@@ -223,7 +214,7 @@ Page(Object.assign({}, Toast, {
       that.handleCanvasToTempFilePath();
     });
 
-    if (!that.data.isCanvasToFileBeing && !that.data.isCanvasToFileOk) {
+  if (!that.data.isCanvasToFileBeing && !that.data.isCanvasToFileOk) {
       setTimeout(that.handleCanvasToTempFilePath, 600);
     }
   },

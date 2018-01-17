@@ -32,7 +32,7 @@
      </view>
 
      <view class="visa-radio-box">
-          <view class="visa-radio-top">
+          <view class="visa-radio-top" bindtap='handleTapUserComment'>
                <view style='display:flex; justify-content: space-between;'>
                     <view>出签率 99%</view>
                     <view style='display:flex; flex-direction: column; align-items: center;'>
@@ -86,32 +86,11 @@
                <view style='margin-left:20rpx;margin-right:20rpx'>所需资料</view>
                <view class="line"></view>
           </view>
-
           <scroll-view class="information-nav" scroll-x="true">
-               <view class="information-ul">
-                    <image src='http://image.365zhiding.com/wxapp/20180104/child.png' style="width:115rpx;height:115rpx;">
+               <view class="information-ul" wx:for="{{constant.passengerTitle}}" wx:key="{{passengerTitleList}}" wx:for-index="idx" wx:for-item="listItem">
+                    <image src='{{listItem.url}}' style="width:115rpx;height:115rpx;">
                     </image>
-                    <view style='font-size:26rpx;color:#999;margin-top:18rpx'>学龄前儿童</view>
-               </view>
-               <view class="information-ul">
-                    <image src='http://image.365zhiding.com/wxapp/20180104/student.png' style="width:115rpx;height:115rpx;">
-                    </image>
-                    <view style='font-size:26rpx;color:#999;margin-top:18rpx'>在校学生</view>
-               </view>
-               <view class="information-ul">
-                    <image src='http://image.365zhiding.com/wxapp/20180104/person.png' style="width:115rpx;height:115rpx;">
-                    </image>
-                    <view style='font-size:26rpx;color:#999;margin-top:18rpx'>在职人员</view>
-               </view>
-               <view class="information-ul">
-                    <image src='http://image.365zhiding.com/wxapp/20180104/free.png' style="width:115rpx;height:115rpx;">
-                    </image>
-                    <view style='font-size:26rpx;color:#999;margin-top:18rpx'>自由职业者</view>
-               </view>
-               <view class="information-ul">
-                    <image src='http://image.365zhiding.com/wxapp/20180104/tuixiu.png' style="width:115rpx;height:115rpx;">
-                    </image>
-                    <view style='font-size:26rpx;color:#999;margin-top:18rpx'>退休人员</view>
+                    <view style='font-size:26rpx;color:#999;margin-top:18rpx'> {{listItem.title}}</view>
                </view>
           </scroll-view>
 
@@ -132,10 +111,7 @@
                     <view style='margin-left:10rpx;margin-right:10rpx'>婚姻状况</view>
                     <view style='color:#f60'>*</view>
                </view>
-
           </view>
-
-
           <view class="electronic-data">
                <view class="electronic-title">纸质资料</view>
                <view class="electronic-detail">

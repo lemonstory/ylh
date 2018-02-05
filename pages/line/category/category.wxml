@@ -1,55 +1,54 @@
 <view class="container">
-     <view class="nav">
-          <view class="taga {{currentCategoryIndex==item.id?'active-tag':''}}" wx:for="{{category}}" data-category_id="{{item.id}}" data-category_index="{{index}}" bindtap="handleTapCategoryItem" wx:key="item">
-               {{item.name}}
+  <view class="nav">
+    <view class="taga {{currentCategoryIndex==item.id?'active-tag':''}}" wx:for="{{category}}" data-category_id="{{item.id}}" data-category_index="{{index}}" bindtap="handleTapCategoryItem" wx:key="item">
+      {{item.name}}
+    </view>
+  </view>
+
+<!--国家详情选项卡的展示-->
+  <view class="nav-right">
+    <!-- 目的地 - 开始 -->
+    <view class="lii">{{category[currentCategoryIndex].name}}</view>
+    <view class="ul">
+      <view class="li" wx:for="{{currentMappingAreaList}}" data-id="{{item.id}}" bindtap="handleTapAreaItem" wx:key="item">
+        <image src="{{item.image}}">
+          <view class="hiddenl"></view>
+        </image>
+        <view class="country">{{item.name}}</view>
+      </view>
+    </view>
+    <!-- 目的地 - 结束 -->
+
+    <!-- 全部目的地 -开始 -->
+    <block wx:if="{{mapping[currentMappingIndex].listAll!=''}}">
+      <view class="lii">全部目的地</view>
+      <view class="addname">
+        <view class="li" wx:for="{{mapping[currentMappingIndex].listAll}}" wx:key="item" bindtap="handleTapAreaItem" data-area_id="{{item.areaId}}">
+          <view>{{areaList[item].name}}</view>
+        </view>
+      </view>
+    </block>
+    <!-- 全部目的地 - 结束-->
+
+    <!-- 推荐线路 -开始-->
+    <block wx:if="{{lineList!=''}}">
+      <view class="nav-bottom">推荐线路</view>
+      <view class="list">
+        <view class="addul" wx:for="{{LineList}}" bindtap="handleTapLineDetail" wx:key="item" data-id='{{item.id}}'>
+          <view class="addli">
+            <view class="liimg">
+              <image src="{{item.image}}"></image>
+            </view>
+            <view class="litext">{{item.title}}</view>
+            <view class="back">
+              <image src="http://image.365zhiding.com/wxapp/20171114/1.png"></image>
+            </view>
           </view>
-     </view>
+          <view class="line"></view>
+        </view>
+      </view>
+    </block>
+    <!-- 推荐线路 - 结束 -->
 
-     <!--国家详情选项卡的展示-->
-     <view class="nav-right">
-
-          <!-- 目的地 - 开始 -->
-          <view class="lii">{{category[currentCategoryIndex].name}}</view>
-          <view class="ul">
-               <view class="li" wx:for="{{currentMappingAreaList}}" data-id="{{item.id}}" bindtap="handleTapAreaItem" wx:key="item">
-                    <image src="{{item.image}}">
-                         <view class="hiddenl"></view>
-                    </image>
-                    <view class="country">{{item.name}}</view>
-               </view>
-          </view>
-          <!-- 目的地 - 结束 -->
-
-          <!-- 全部目的地 -开始 -->
-          <block wx:if="{{mapping[currentMappingIndex].listAll!=''}}">
-               <view class="lii">全部目的地</view>
-               <view class="addname">
-                    <view class="li" wx:for="{{mapping[currentMappingIndex].listAll}}" wx:key="item" bindtap="handleTapAreaItem" data-area_id="{{item.areaId}}">
-                         <view>{{areaList[item].name}}</view>
-                    </view>
-               </view>
-          </block>
-          <!-- 全部目的地 - 结束-->
-          
-          <!-- 推荐线路 -开始-->
-          <block wx:if="{{lineList!=''}}">
-               <view class="nav-bottom">推荐线路</view>
-               <view class="list">
-                    <view class="addul" wx:for="{{LineList}}" bindtap="handleTapLineDetail" wx:key="item" data-id='{{item.id}}'>
-                         <view class="addli">
-                              <view class="liimg">
-                                   <image src="{{item.image}}"></image>
-                              </view>
-                              <view class="litext">{{item.title}}</view>
-                              <view class="back">
-                                   <image src="http://image.365zhiding.com/wxapp/20171114/1.png"></image>
-                              </view>
-                         </view>
-                         <view class="line"></view>
-                    </view>
-               </view>
-          </block>
-          <!-- 推荐线路 - 结束 -->
-
-     </view>
+  </view>
 </view>

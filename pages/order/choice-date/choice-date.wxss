@@ -1,277 +1,281 @@
 /* pages/API/start-order/start-order.wxss */
 
 .page {
-     height: auto;
-     padding: 0;
-     width: 100%;
-     margin:0;
-     box-sizing: border-box;
-     overflow: hidden;
+  height: auto;
+  padding: 0;
+  width: 100%;
+  margin: 0;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .calendar-panel {
-     width: 100%;
-     height: 78rpx;
-     background: #fff;
-     display: flex;
-     border-top:1rpx solid #eee;
+  height: 78rpx;
+  background: #fff;
+  display: flex;
+  border-top: 1rpx solid #eee;
+  overflow-x: scroll;
+  width: 750rpx;
+  white-space: nowrap;
+  box-sizing: border-box;
+  overflow: scroll;
 }
-
 .month {
-     width: 200rpx;
-     height: 78rpx;
-     /* background: rgba(243, 244, 246, 1); */
-     background: #fff;
-     font-size: 20rpx;
-     font-family: PingFang-SC-Regular;
-     color: rgba(51, 51, 51, 1);
-     display: flex;
-     align-items: center;
-     justify-content: center;
-     position: relative;
+  width: 200rpx;
+  height: 78rpx;
+  /* background: rgba(243, 244, 246, 1); */
+  background: #fff;
+  font-size: 20rpx;
+  font-family: PingFang-SC-Regular;
+  color: rgba(51, 51, 51, 1);
+ line-height: 78rpx;
+ text-align: center;
+  justify-content: center;
+  position: relative;
+  display: inline-block;
 }
-
 
 .price {
-     color: #f60;
+  color: #f60;
 }
 
 .calendar-header {
-     width: 750rpx;
-     height: 94rpx;
-     position: absolute;
-     top: 68rpx;
-     display: flex;
-     justify-content: space-around;
-
+  width: 750rpx;
+  height: 94rpx;
+  position: absolute;
+  top: 68rpx;
+  display: flex;
+  justify-content: space-around;
 }
-.xingqi {
-     width: 100%;
-     height: 84rpx;
-     position: absolute;
-     top: 10rpx;
-     display: flex;
-     justify-content: space-around;
-     align-items: center;
-     font-family: PingFang-SC-Regular;
-     color: rgba(51, 51, 51, 1);
-     font-size: 24rpx;
-     background: #BCBCBC;
 
+.xingqi {
+  width: 100%;
+  height: 84rpx;
+  position: absolute;
+  top: 10rpx;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-family: PingFang-SC-Regular;
+  color: rgba(51, 51, 51, 1);
+  font-size: 24rpx;
+  background: #bcbcbc;
 }
 
 .calendar-body {
-     width: 100%;
-     height: auto;
-     margin-top: 90rpx;
-     display: flex;
-     justify-content: space-around;
-     flex-wrap: wrap;
-     border-bottom: 1rpx solid #eee;
+  width: 100%;
+  height: auto;
+  margin-top: 90rpx;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  border-bottom: 1rpx solid #eee;
 }
 
 .calender-body-date-week {
-     width: 750rpx;
-     display: flex;
-     justify-content: space-around;
-     flex-wrap: wrap;
-     height: 100rpx;
-     align-items: center;
+  width: 750rpx;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  height: 100rpx;
+  align-items: center;
 }
 
 .calender-body-date-week .date {
-     width: 78rpx;
-     height: 79rpx;
-     display: flex;
-     align-items: center;
-     font-size: 32rpx;
-     font-family: PingFang-SC-Regular;
-     color: rgba(51, 51, 51, 1);
-     flex-direction: column;
-     justify-content: space-around;
-     text-align: center;
+  width: 78rpx;
+  height: 79rpx;
+  display: flex;
+  align-items: center;
+  font-size: 32rpx;
+  font-family: PingFang-SC-Regular;
+  color: rgba(51, 51, 51, 1);
+  flex-direction: column;
+  justify-content: space-around;
+  text-align: center;
 }
 
 .money {
-     font-size: 20rpx;
-     font-family: PingFang-SC-Regular;
-     color: rgba(255, 102, 0, 1);
+  font-size: 20rpx;
+  font-family: PingFang-SC-Regular;
+  color: rgba(255, 102, 0, 1);
 }
 
 .money-current {
-     color: #fff;
+  color: #fff;
 }
 
 /*套餐开始  */
 
 .taocan {
-     width: 750rpx;
-     height:auto;
-     align-items: center;
-     justify-content: flex-start;
-     margin-top: 20rpx;
-     padding-left: 10rpx;
-     white-space: nowrap;
-     display: flex;
-     box-sizing: border-box;
-     overflow: scroll;
+  width: 750rpx;
+  height: auto;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 20rpx;
+  padding-left: 10rpx;
+  white-space: nowrap;
+  display: flex;
+  box-sizing: border-box;
+  overflow: scroll;
 }
 
 .tname {
-     width: 146rpx;
-     height: 80rpx;
-     border:1rpx solid #AAA;
-     /* border: 1rpx solid #e98836; */
-     border-radius: 10rpx;
-     margin-left: 20rpx;
-     font-size: 24rpx;
-     font-family: PingFang-SC-Regular;
-     color: rgba(102, 102, 102, 1);
-     text-align: center;
-     display: inline-block;
-     line-height: 80rpx;
+  width: 146rpx;
+  height: 80rpx;
+  border: 1rpx solid #aaa;
+  /* border: 1rpx solid #e98836; */
+  border-radius: 10rpx;
+  margin-left: 20rpx;
+  font-size: 24rpx;
+  font-family: PingFang-SC-Regular;
+  color: rgba(102, 102, 102, 1);
+  text-align: center;
+  display: inline-block;
+  line-height: 80rpx;
 }
-.active-tag{
-border: 1rpx solid #e98836;
-color:#EE6F2E;
+
+.active-tag {
+  border: 1rpx solid #e98836;
+  color: #ee6f2e;
 }
+
 .adult {
-     margin: 0 auto;
-     width: 630rpx;
-     height: 84rpx;
-     font-size: 26rpx;
-     font-family: PingFang-SC-Regular;
-     color: rgba(51, 51, 51, 1);
-     display: flex;
-     align-items: center;
-     border-bottom: 1rpx solid #eee;
-     justify-content: space-between;
+  margin: 0 auto;
+  width: 630rpx;
+  height: 84rpx;
+  font-size: 26rpx;
+  font-family: PingFang-SC-Regular;
+  color: rgba(51, 51, 51, 1);
+  display: flex;
+  align-items: center;
+  border-bottom: 1rpx solid #eee;
+  justify-content: space-between;
 }
 
 .chengren {
-     width: auto;
-     height: 25rpx;
-   
+  width: auto;
+  height: 25rpx;
 }
 
 .count {
-     display: flex;
-     align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .jian {
-     height: 31rpx;
-     width: 31rpx;
+  height: 31rpx;
+  width: 31rpx;
 }
 
 .num {
-     right: 57rpx;
-     width:70rpx;
-     text-align: right;
+  right: 57rpx;
+  width: 70rpx;
+  text-align: right;
 }
 
 .add {
-     height: 31rpx;
-     width: 31rpx;
+  height: 31rpx;
+  width: 31rpx;
 }
 
 .yanger {
-     width: 630rpx;
-     height: 84rpx;
-     font-size: 26rpx;
-     font-family: PingFang-SC-Regular;
-     color: rgba(51, 51, 51, 1);
-     display: flex;
-     align-items: center;
-     margin: 0 auto;
-     justify-content: space-between;
+  width: 630rpx;
+  height: 84rpx;
+  font-size: 26rpx;
+  font-family: PingFang-SC-Regular;
+  color: rgba(51, 51, 51, 1);
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  justify-content: space-between;
 }
 
 .old {
-     width: 630rpx;
-     height: 84rpx;
-     font-size: 26rpx;
-     font-family: PingFang-SC-Regular;
-     color: rgba(51, 51, 51, 1);
-     display: flex;
-     align-items: center;
-     margin: 0 auto;
+  width: 630rpx;
+  height: 84rpx;
+  font-size: 26rpx;
+  font-family: PingFang-SC-Regular;
+  color: rgba(51, 51, 51, 1);
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
 }
 
 .bottom {
-     width: 100%;
-     height: 98rpx;
-     display: flex;
-     align-content: center;
-     position: fixed;
-     bottom:0;
+  width: 100%;
+  height: 98rpx;
+  display: flex;
+  align-content: center;
+  position: fixed;
+  bottom: 0;
 }
 
 .bottom-left {
-     width: 50%;
-     height: 100%;
-     display: flex;
-     justify-content: space-around;
-     font-size: 24rpx;
-     font-family: PingFang-SC-Regular;
-     color: rgba(153, 153, 153, 1);
-     line-height: 98rpx;
-     background:#fff;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  font-size: 24rpx;
+  font-family: PingFang-SC-Regular;
+  color: rgba(153, 153, 153, 1);
+  line-height: 98rpx;
+  background: #fff;
 }
 
 .total {
-     display: flex;
+  display: flex;
 }
 
 .bottom-right {
-     width: 50%;
-     height: 100%;
-     background: #f78210;
-     font-size: 32rpx;
-     font-family: PingFang-SC-Regular;
-     color: rgba(255, 255, 255, 1);
-     text-align: center;
-     line-height: 98rpx;
+  width: 50%;
+  height: 100%;
+  background: #f78210;
+  font-size: 32rpx;
+  font-family: PingFang-SC-Regular;
+  color: rgba(255, 255, 255, 1);
+  text-align: center;
+  line-height: 98rpx;
 }
 
 .total-money {
-     font-size: 36rpx;
-     font-family: PingFang-SC-Regular;
-     color: #f60;
+  font-size: 36rpx;
+  font-family: PingFang-SC-Regular;
+  color: #f60;
 }
 
 .calender-body-date-week .date-current {
-     background: #f60;
-     color: white;
+  background: #f60;
+  color: white;
 }
 
 .calender-body-date-week .active {
-     display: block;
+  display: block;
 }
 
 .calender-body-date-week .hidden {
-     background: #fff;
-     color: #fff;
+  background: #fff;
+  color: #fff;
 }
 
 .ischeck {
-     width: 32rpx;
-     height: 32rpx;
-     border-radius: 50%;
+  width: 32rpx;
+  height: 32rpx;
+  border-radius: 50%;
 }
 
-.ischeck image{
-     width:100%;
-     height:100%;
+.ischeck image {
+  width: 100%;
+  height: 100%;
 }
 
 /*底部提示框开始  */
-.item{
-  width:100%;
-  height:84rpx;
-  color:#333;
-  font-size:28rpx;
-  font-family:PingFang-SC-Regular;
+
+.item {
+  width: 100%;
+  height: 84rpx;
+  color: #333;
+  font-size: 28rpx;
+  font-family: PingFang-SC-Regular;
   display: flex;
   align-items: center;
   padding: 0 0rpx 0 60rpx;
@@ -279,20 +283,24 @@ color:#EE6F2E;
   position: relative;
   z-index: 999;
 }
-.deli{
+
+.deli {
   padding: 0 30rpx 0 30rpx;
 }
-.item-price{
-  color: #FF6600;
-  font-size:26rpx;
-  font-family:PingFang-SC-Regular;
+
+.item-price {
+  color: #f60;
+  font-size: 26rpx;
+  font-family: PingFang-SC-Regular;
   display: flex;
   position: absolute;
-  right:90rpx;
+  right: 90rpx;
 }
-.itemul{
+
+.itemul {
   width: 100%;
   position: fixed;
-  top:50%;
+  top: 50%;
 }
+
 /*底部提示框结束  */

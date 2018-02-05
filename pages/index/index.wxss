@@ -123,10 +123,13 @@ swiper {
   width: 690rpx;
   height: 276rpx;
   margin-left: 30rpx;
+  border-radius: 6rpx;
 }
 .tuijuan-img image {
   width: 100%;
   height: 100%;
+  border-radius: 6rpx;
+
 }
 .tuijuan-text {
   padding-top: 20rpx;

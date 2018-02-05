@@ -88,7 +88,7 @@ swiper {
      height: auto;
      background: #fff;
      margin-top: 10rpx;
-}
+    }
 
 .hot-font {
      height: 30rpx;
@@ -144,7 +144,6 @@ swiper {
      border-radius: 10rpx;
      opacity: 0.8;
 }
-
 .section {
      width: 750rpx;
      height: auto;
@@ -152,7 +151,6 @@ swiper {
      background: #fff;
      margin-top: 10rpx;
 }
-
 .tuijian {
      height: 34rpx;
      font-size: 30rpx;
@@ -169,11 +167,13 @@ swiper {
      width: 690rpx;
      height: 276rpx;
      margin-left: 30rpx;
+     border-radius: 6rpx;
 }
 
 .tuijuan-img image {
      width: 100%;
      height: 100%;
+     border-radius: 6rpx;
 }
 
 .tuijuan-text {

@@ -180,7 +180,7 @@
 
           <!--行程安排结束  -->
           <!--温馨提示开始-->
-          <block wx:if="{{tips!=''}}">
+          <block wx:if="{{tips!=null}}">
                <view class="point" id='reminder'>
                     <view class="react"></view>
                     <view class="leadertitle">温馨提示</view>

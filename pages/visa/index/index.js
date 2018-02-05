@@ -2,6 +2,12 @@ const app = getApp();
 const Toast = require('../../../zanui-weapp/dist/toast/index');
 var util = require('../../../utils/util.js');
 //测试
+//  {
+//       "pagePath": "pages/visa/index/index",
+//       "text": "签证",
+//       "iconPath": "pages/image/5.png",
+//       "selectedIconPath": "pages/image/6.png"
+//  },
 Page(Object.assign({}, Toast, {
      data: {
           constant: app.constant,

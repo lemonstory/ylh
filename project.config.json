@@ -25,7 +25,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 1,
+			"current": 3,
 			"list": [
 				{
 					"id": 0,
@@ -48,6 +48,14 @@
 					"name": "悦旅会-分享-游客",
 					"pathName": "pages/line/index/index",
 					"query": "",
+					"scene": "1036",
+					"referrerInfo": {}
+				},
+				{
+					"id": 3,
+					"name": "测试",
+					"pathName": "pages/line/index/index",
+					"query": "distributerId=119",
 					"scene": "1036",
 					"referrerInfo": {}
 				}

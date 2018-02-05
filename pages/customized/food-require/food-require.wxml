@@ -25,7 +25,7 @@
                     </view>
                     <view class='num' style='width:40rpx;text-align:center'>{{currentFoodSoups}}</view>
                     <view style='height:90rpx;width:90rpx; display:flex;flex;align-items:center;justify-content:center;' bindtap="handleTapIncrease" id="soups">
-                         <image src="http://image.365zhiding.com/wxapp/20171121/add.png" style='width:31rpx;height:31rpx;' bindtap="handleTapIncrease" id="soups"></image>
+                         <image src="http://image.365zhiding.com/wxapp/20171121/add.png" style='width:31rpx;height:31rpx;'></image>
                     </view>
                </view>
           </view>

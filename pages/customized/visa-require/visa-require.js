@@ -199,7 +199,7 @@ Page(Object.assign({}, Toast, {
     var prevPage = pages[pages.length - 3];  //上一个页面
     var prevPageFormDataTemp = prevPage.data.formData;
     //用户创建定制需求接口
-    var url = that.data.constant.domain + '/distrbuter/member/order/addCustomized';
+    var url = that.data.constant.domain + '/distrbuter/customized';
     wx.request({
       url: url,
       data:prevPageFormDataTemp,

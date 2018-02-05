@@ -20,11 +20,9 @@
 
 
      <!--广告位的判断，如果为空不显示  -->
-     <block wx:if="{{ad ==''}}">
-     </block>
-     <block wx:else>
-          <view class="order" bindtap='handleAd' data-src="{{ad.url}}">
-               <image src="{{ad.image}}" mode='aspectFill' style='width:200rpx;height:200rpx;overflow:hidden'></image>
+     <block wx:if="{{ad !=''}}">
+          <view class="order" bindtap='handleBanner' data-src="{{ad.url}}">
+               <image src="{{ad.image}}" mode='aspectFill' style='overflow:hidden'></image>
           </view>
      </block>
 

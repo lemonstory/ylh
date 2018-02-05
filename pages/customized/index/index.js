@@ -13,7 +13,7 @@ Page(Object.assign({}, Toast, {
       'linkEmail': '',                  //联系人邮件(string,required) drk@163.com
       'weixin': '',                     //微信(string,required), wx1233
       'isInternational': 0,             //境内还是境外 1境内，2境外(number,required)
-      'categroy': '',                   //目的地(string,required), 湖北
+      'destination': '',                   //目的地(string,required), 湖北
       'tourers': {                      //出行人信息(array,required)
         "subNum": {
           'child': 0,                   //小孩数量
@@ -23,7 +23,7 @@ Page(Object.assign({}, Toast, {
       },
       'day': '',                        //出行天数(number,required),
       'travelDate': '',                 //出发日期(string,required), 2017-12-01
-      'backDate': '',                   //返回日期(string,required), 2017-12-15
+      'endDate': '',                   //返回日期(string,required), 2017-12-15
       'fromCity': '',                   //出发城市(string,required), 武汉
       'toCity': '',                     //抵达城市(string,required),  武汉
       'characteristic': '',             //(string,required),黄鹤楼
@@ -256,7 +256,7 @@ Page(Object.assign({}, Toast, {
     }
 
 
-    if (that.data.formData.categroy.length <= 0) {
+    if (that.data.formData.destination.length <= 0) {
 
       that.showZanToast("请填写目的地");
       return false;
@@ -286,7 +286,7 @@ Page(Object.assign({}, Toast, {
       return false;
     }
 
-    if (that.data.formData.backDate.length <= 0) {
+    if (that.data.formData.endDate.length <= 0) {
 
       that.showZanToast("请填写返回日期");
       return false;

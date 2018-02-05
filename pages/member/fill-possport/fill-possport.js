@@ -290,6 +290,7 @@ Page(Object.assign({}, Toast, {
 
     } else if (!util.isMobile(that.data.formData.mobile)) {
 
+      console.log(that.data.formData.mobile);
       that.showZanToast("请检查填写的 手机号码");
       return false;
 
@@ -312,6 +313,9 @@ Page(Object.assign({}, Toast, {
     if (that.checkInput()) {
 
       var url = that.data.constant.domain + '/distrbuter/member/passport';
+
+      //mobile=telphoneCode_mobile
+      //that.data.formData.mobile = that.data.formData.telphoneCode + "_" + that.data.formData.mobile
       wx.request({
 
         url: url,
@@ -340,7 +344,6 @@ Page(Object.assign({}, Toast, {
         },
 
         complete: function (res) {
-
         }
       })
     }

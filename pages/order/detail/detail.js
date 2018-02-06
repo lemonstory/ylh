@@ -10,7 +10,7 @@ Page({
    */
   data: {
 
-    'constant': app.constant,
+    constant: app.constant,
     selectPay: 0,
     selectDuds: 0,
     selectAir: 0,
@@ -29,6 +29,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+
     var that = this;
     var orderSn = options.orderSn;
     console.log(orderSn);
@@ -232,3 +233,5 @@ Page({
 
 
 })
+
+

@@ -328,6 +328,12 @@ Page(Object.assign({}, Toast, {
           if (res.statusCode == 200) {
 
             console.log("🍺 🍺 🍺 [成功] 增加会员常旅客护照接口")
+            let pages = getCurrentPages();//当前页面
+            let prevPage = pages[pages.length - 2];//上一页面
+            prevPage.setData({
+              isReLoad: true
+            });
+
             wx.navigateBack({
               delta: 1,
             });

@@ -19,7 +19,7 @@
           </view>
      </block>
 
-     <navigator url="/pages/order/detail/detail?orderId={{orderSn}}">
+     <navigator url="/pages/order/detail/detail?orderSn={{orderSn}}">
           <view class="chakan">查看订单详情</view>
      </navigator>
 

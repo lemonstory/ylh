@@ -204,7 +204,7 @@ Page(Object.assign({}, Toast, {
       url: url,
       data:prevPageFormDataTemp,
       method: 'POST',
-      header: util.postRequestHeader(),
+      header: util.getRequestHeader(),
 
       success: function (res) {
         
@@ -215,15 +215,18 @@ Page(Object.assign({}, Toast, {
         console.log("🍺 🍺 🍺")
         console.log(res);
 
-        wx.showToast({
-          title: '成功',
-          icon: 'success',
-          duration: 1000,
-        })
+        if(res.statusCode == 200) {
 
+          wx.showToast({
+            title: '成功',
+            icon: 'success',
+            duration: 1000,
+          })
+        }
+        
         setTimeout(function () {
-          wx.redirectTo({
-            url: '/pages/user/visitor/visitor',
+          wx.navigateBack({
+            delta:3
           })
         }, 1000);
       },

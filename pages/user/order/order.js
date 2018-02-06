@@ -10,6 +10,8 @@ Page(Object.assign({}, Toast, {
     currentTab: 0, //预设当前项的值
     scrollLeft: 0, //tab标题的滚动条位置
 
+    isLoadingData:true,
+
     selectCancleReson: 0,
 
     cancleReson: [
@@ -98,6 +100,7 @@ Page(Object.assign({}, Toast, {
       }
     });
     // 获得订单数据
+    wx.showNavigationBarLoading();
     that.getCommonData();
     that.getVisaData();
   },
@@ -115,7 +118,8 @@ Page(Object.assign({}, Toast, {
         header: util.getRequestHeader(),
         success: function (res) {
           if (res.data.orderList.length > 0) {
-            var index = that.data.commonPageIndex++;
+
+            var index = that.data.commonPageIndex + 1;
             var pageCount = res.data.totalPage;
             var moreData = that.data.commonOrder;
             Array.prototype.push.apply(moreData, res.data.orderList)
@@ -133,6 +137,10 @@ Page(Object.assign({}, Toast, {
         },
         complete: function (res) {
           console.log(res);
+          wx.hideNavigationBarLoading();
+          that.setData({
+            isLoadingData: false,
+          })
         }
       })
     }

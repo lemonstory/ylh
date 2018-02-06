@@ -1,7 +1,7 @@
 <!--pages/API/my-order/my-order.wxml-->
 <import src="/zanui-weapp/dist/toast/index.wxml" />
 <view class="container">
-  <view class="main">
+  <view class="main" wx:if="{{!isLoadingData}}">
     <!-- <view class="tab-h" bindtap='checkCor'>
       <view class="tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="swichNav">{{ orderType[0].name}}</view> -->
     <!-- <view class="tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="swichNav">{{ orderType[1].name}}</view> -->

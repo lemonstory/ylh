@@ -1056,7 +1056,7 @@ swiper {
   box-sizing: border-box;
   overflow: hidden;
   background: url('http://image.365zhiding.com/wxapp/20180206/dian1.png') 0 0 repeat-y;
-  background-size: 8rpx auto;
+  background-size: 6rpx auto;
   margin-left: 55rpx;
   }
 

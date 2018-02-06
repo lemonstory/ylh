@@ -286,7 +286,7 @@ Page(Object.assign({}, Toast, {
     } else {    // 去详情页
       var url = "/pages/order/detail/detail?orderSn=" + selectOrderSn;
       console.log(url);
-      wx.redirectTo({
+      wx.navigateTo({
         url: url,
       })
     }
@@ -301,7 +301,7 @@ Page(Object.assign({}, Toast, {
     console.log(selectOrderSn);
     var url = "/pages/order/detail/detail?orderSn=" + selectOrderSn;
     console.log(url);
-    wx.redirectTo({
+    wx.navigateTo({
       url: url,
     })
   },
@@ -415,7 +415,7 @@ Page(Object.assign({}, Toast, {
   bindTapPossport: function (e) {
     var orderSn = e.currentTarget.dataset.ordersn;
     var url = "/pages/member/possport-list/possport-list?orderSn=" + orderSn;
-    wx.redirectTo({
+    wx.navigateTo({
       url: url,
     })
   },

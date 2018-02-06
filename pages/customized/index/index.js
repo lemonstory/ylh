@@ -27,7 +27,7 @@ Page(Object.assign({}, Toast, {
       'fromCity': '',                   //出发城市(string,required), 武汉
       'toCity': '',                     //抵达城市(string,required),  武汉
       'characteristic': '',             //(string,required),黄鹤楼
-      'agentId': app.constant.agentId,  //代理商ID(number,required),
+      'distributerId': util.getDistributerId(),  //代理商ID(number,required),
       'tradeId': app.constant.tradeId,  //系统来源,10悦旅汇，20小程序(number,required),
       'planeTicket': {                  //机票要求
         'type': 0,                      //机型(1直达，2转机，99无要求)(number,required)

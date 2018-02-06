@@ -9,10 +9,6 @@ var constant = {
      //收银台域名
      "payDomain": "https://payment.yuelvhui.com",
 
-
-     //代理商ID(number,required)
-     //TODO: 获取代理商信息后需要设置这个值
-     'agentId': 1,
      //系统来源,10悦旅汇，20小程序
      'tradeId': 20,
      //每页显示条数

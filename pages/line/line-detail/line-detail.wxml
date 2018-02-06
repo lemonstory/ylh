@@ -4,7 +4,7 @@
 <import src="../../template/address-detail-normal" />
 <import src="/zanui-weapp/dist/toast/index.wxml" />
 <import src="/zanui-weapp/dist/loadmore/index.wxml" />
-<view class="container">
+<view class="container" wx:if="{{id > 0}}">
      <!-- 顶部开始 -->
      <scroll-view scroll-y='{{true}}' style="height: {{windowHeight}}px;" bindscrolltoupper="upper" scroll-into-view="{{toView}}" bindscroll="scroll" scroll-top="{{scrollTop}}">
 
@@ -18,7 +18,6 @@
                          </swiper-item>
                     </block>
                </swiper>
-
                <view class="tuijuan-text">
                     <view class="text1" wx:if="{{title}}">【{{attr}}】{{title}}</view>
                     <view class="tuijuan-bottom">

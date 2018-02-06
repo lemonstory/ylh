@@ -1,6 +1,6 @@
 <import src="/zanui-weapp/dist/toast/index.wxml" />
 <import src="/zanui-weapp/dist/loadmore/index.wxml" />
-<view class="container">
+<view class="container" wx:if="{{lineList.length > 0}}">
      <view class="banner">
           <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
                <block wx:for="{{banner}}" wx:key="banner" wx:for-index="idx">

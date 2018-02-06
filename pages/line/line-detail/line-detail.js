@@ -59,6 +59,7 @@ Page(Object.assign({}, Toast, {
 
   onLoad: function (options) {
     var that = this;
+    wx.showNavigationBarLoading();
     console.log(options);
     //接收页面参数
     var id = options.id;
@@ -252,6 +253,9 @@ Page(Object.assign({}, Toast, {
           var message = JSON.stringify(res.data)
           that.showZanToast(message);
         }
+      },
+      complete:function(res) {
+        wx.hideNavigationBarLoading();
       }
     })
 

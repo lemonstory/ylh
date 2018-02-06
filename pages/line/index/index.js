@@ -23,17 +23,26 @@ Page(Object.assign({}, Toast, {
 
   onLoad: function (options) {
 
-    //用户为非代理商 且 用户没有代理商id
-    if (!util.isDistributer() && !util.isOwnDistributerId()) {
-      wx: wx.reLaunch({
-        url: '/pages/user/visitor/visitor',
-        success: function (res) { },
-        fail: function (res) { },
-        complete: function (res) { },
-      })
-    } else {
-      this.getData();
-    }
+    var that = this;
+    wx.showNavigationBarLoading();
+    //获取用户没有代理商id
+    var getDistributerId = setInterval(function () { 
+      //要延时执行的代码
+      console.log("开始延迟执行");
+      if (!util.isEmptyObject(util.getUserAccessData())) {
+        if (!util.isOwnDistributerId()) {
+          wx: wx.reLaunch({
+            url: '/pages/user/visitor/visitor',
+            success: function (res) { },
+            fail: function (res) { },
+            complete: function (res) { },
+          })
+        }else{
+          that.getData();
+        }
+        clearInterval(getDistributerId);
+      }
+    }, 200)
   },
 
   /**
@@ -123,7 +132,9 @@ Page(Object.assign({}, Toast, {
       fail: function (res) {
         console.error(res);
       },
-      complete: function (res) { },
+      complete: function (res) { 
+        wx.hideNavigationBarLoading();
+      },
     })
   },
 

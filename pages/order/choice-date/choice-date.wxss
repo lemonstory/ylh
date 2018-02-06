@@ -14,11 +14,11 @@
   background: #fff;
   display: flex;
   border-top: 1rpx solid #eee;
-  overflow-x: scroll;
   width: 750rpx;
   white-space: nowrap;
   box-sizing: border-box;
-  overflow: scroll;
+  overflow-x: scroll;
+
 }
 .month {
   width: 200rpx;
@@ -38,14 +38,15 @@
 .price {
   color: #f60;
 }
-
 .calendar-header {
   width: 750rpx;
   height: 94rpx;
   position: absolute;
   top: 68rpx;
+  left: 0rpx;
   display: flex;
   justify-content: space-around;
+  overflow: hidden;
 }
 
 .xingqi {
@@ -60,6 +61,8 @@
   color: rgba(51, 51, 51, 1);
   font-size: 24rpx;
   background: #bcbcbc;
+  left: 0;
+  overflow: hidden;
 }
 
 .calendar-body {

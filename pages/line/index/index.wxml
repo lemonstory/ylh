@@ -43,7 +43,7 @@
      <scroll-view class="hot-image" scroll-x="true">
           <view class="li" wx:for="{{areaList.list}}" data-id='item.areaId' wx:key="areaList">
                <image src="{{item.image}}" bindtap='handleTapAreaListItem' data-src="{{item.url}}"></image>
-                <view class="address-text">{{item.name}}</view> 
+                <view class="address-text" bindtap='handleTapAreaListItem' data-src="{{item.url}}">{{item.name}}</view> 
           </view>
      </scroll-view>
 

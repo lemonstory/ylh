@@ -165,9 +165,7 @@ Page(Object.assign({}, Toast, {
       })
 
     } else {
-      console.warn("url为空")
-      //测试
-      that.showZanToast("url为空");
+      console.error("url为空")
     }
   },
 

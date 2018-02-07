@@ -180,8 +180,10 @@ Page(Object.assign({}, Toast, {
     var that = this;
     var path = ''
     var src = event.currentTarget.dataset.src;
-    that.navigateToUrl(src);
+    var name = event.currentTarget.dataset.name;
 
+    var path = src + "&name="+name;
+    that.navigateToUrl(path);
   },
 
   bindAddressDetail: function (event) {

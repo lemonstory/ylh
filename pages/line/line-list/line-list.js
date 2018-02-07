@@ -15,7 +15,7 @@ Page(Object.assign({}, Toast, {
     attrId: 0,
 
     //目的地名称
-    title: '目的地名称',
+    title: '',
 
     //是否还有更多数据
     'isNoMore': false,
@@ -32,6 +32,8 @@ Page(Object.assign({}, Toast, {
     var categoryTemp = that.data.category;
     var pageIndexTemp = that.data.pageIndex;
     var attrIdTemp = that.data.attrId;
+    var titleTemp = that.data.title;
+    
 
     if (!util.isEmptyStr(options.areaId)) {
       areaIdTemp = options.areaId;
@@ -49,12 +51,22 @@ Page(Object.assign({}, Toast, {
       attrIdTemp = options.attrId;
     }
 
+    if (!util.isEmptyStr(options.name)) {
+      titleTemp = options.name;
+      wx.setNavigationBarTitle({
+        title: titleTemp,
+      });
+    }
+
+    
+
     that.setData({
 
       areaId: areaIdTemp,
       category: categoryTemp,
       pageIndex: pageIndexTemp,
       attrId: attrIdTemp,
+      title: titleTemp
     });
 
     that.getData(that.data.areaId, that.data.category, that.data.attrId, that.data.pageIndex, that.data.pageSize);

@@ -321,7 +321,7 @@ Page(Object.assign({}, Toast, {
         url: url,
         data: that.data.formData,
         method: 'POST',
-        header: util.postRequestHeader(),
+        header: util.getRequestHeader(),
 
         success: function (res) {
 

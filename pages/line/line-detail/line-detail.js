@@ -146,8 +146,19 @@ Page(Object.assign({}, Toast, {
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function (options) {
 
+    var that = this;
+    return {
+      title: that.data.title,
+      path: 'pages/line/line-detail/line-detail?id=' + that.data.id + "&distributerId=" + that.data.constant.distributerId,
+      success: function (res) {
+        // 转发成功
+      },
+      fail: function (res) {
+        // 转发失败
+      }
+    }
   },
 
   /**

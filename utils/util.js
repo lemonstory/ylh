@@ -178,7 +178,6 @@ function getUserAccessData() {
                console.warn(e);
           }
      } else {
-          console.log("全局 accessToken 不为空");
           userAccessDataValue = constant.constant.userAccessData;
      }
 
@@ -412,10 +411,14 @@ function getWxOpenId() {
  */
 function setDistributerId(distributerId) {
 
+  console.log("😀 😀 😀");
      //写入本地存储
      wx.setStorage({
           key: constant.constant.distributerIdKey,
           data: distributerId,
+          success:function(res) {
+            constant.constant.distributerId = distributerId;
+          },
           fail: function (res) {
                console.warn("setDistributerId Fail");
                console.warn(res)

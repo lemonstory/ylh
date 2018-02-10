@@ -208,27 +208,28 @@ Page(Object.assign({}, Toast, {
 
       success: function (res) {
         
-        
         //orderId 订单id(number,required)
         //ordersn 订单号 (string,required)
         //tourGroup 团号(string,required)
         console.log("🍺 🍺 🍺")
         console.log(res);
 
-        if(res.statusCode == 200) {
+        if(res.statusCode != 200) {
 
           wx.showToast({
             title: '成功',
             icon: 'success',
             duration: 1000,
           })
+
+          setTimeout(function () {
+            wx.navigateBack({
+              delta: 3
+            })
+          }, 1000);
+        }else {
+          that.showZanToast("系统出现错误,创建定制需求失败");
         }
-        
-        setTimeout(function () {
-          wx.navigateBack({
-            delta:3
-          })
-        }, 1000);
       },
 
       fail: function (res) {
@@ -237,7 +238,9 @@ Page(Object.assign({}, Toast, {
         that.showZanToast(res);
       },
 
-      complete: function (res) {}
+      complete: function (res) {
+        wx.hideLoading();
+      }
     });
   }
 }));

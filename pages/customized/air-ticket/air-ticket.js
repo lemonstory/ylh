@@ -5,7 +5,7 @@ var util = require('../../../utils/util.js')
 Page(Object.assign({}, Toast, {
   data: {
 
-    'constant': app.constant,
+    constant: app.constant,
 
     currentPlaneTicketShippingSpaceId: '',
     currentPlaneTicketShippingSpaceTitle: '',
@@ -22,9 +22,10 @@ Page(Object.assign({}, Toast, {
     currentPlaneTicketTypeTypeTitle: '',
     currentAppointValue: ''
   },
+  
   /**
-       * 生命周期函数--监听页面加载
-       */
+  * 生命周期函数--监听页面加载
+  */
   onLoad: function (options) {
     // 生命周期函数--监听页面加载
     var that = this;
@@ -104,7 +105,6 @@ Page(Object.assign({}, Toast, {
   onShareAppMessage: function () {
 
   },
-
 
 
   /**

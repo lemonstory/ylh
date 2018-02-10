@@ -65,7 +65,7 @@ App({
       //设置全局代理商ID
       constant.constant.distributerId = distributerId;
 
-      console.log("🚚  🚚 [代理商ID] getParamDistributerId = " + getParamDistributerId + ", localDistributerId = " + localDistributerId);
+      console.log("🚚  🚚 [代理商ID] getParamDistributerId = " + getParamDistributerId + ", localDistributerId = " + localDistributerId + ", getQueryDistributerId = " + getQueryDistributerId);
       console.log("🚚  [代理商ID] distributerId = " + distributerId);
       // console.log(util.getUserAccessData());
 

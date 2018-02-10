@@ -277,16 +277,13 @@ Page(Object.assign({}, Toast, {
 
     var currentMonthIndex = that.data.currentSelectedMonthIndex
     var currentCanlenderMonthData = that.data.canlenderMonthDataList[currentMonthIndex];
-
-    // console.log("😀 😀 😀 😀");
-    // console.log(currentCanlenderMonthData);
-    // console.log("weekIndex = " + weekIndex + ", dayIndex = " + dayIndex);
+    
     if (currentCanlenderMonthData.canlenderData.weeks[weekIndex][dayIndex].suitList.length > 0) {
-
       that.setData({
         currentSelectedDay: day,
         currentSelectedDayIndex: dayIndex,
         currentSelectedWeekIndex: weekIndex,
+        currentSelectedTravelDate: currentCanlenderMonthData.canlenderData.year + "-" + currentCanlenderMonthData.canlenderData.weeks[weekIndex][dayIndex].month + "-" + currentCanlenderMonthData.canlenderData.weeks[weekIndex][dayIndex].date,
         currentSuitList: currentCanlenderMonthData.canlenderData.weeks[weekIndex][dayIndex].suitList,
 
         //已选中套餐索引重置
@@ -311,10 +308,29 @@ Page(Object.assign({}, Toast, {
   * 月份-标题切换
   */
   handleTapMonthHeader: function (e) {
+    
     var that = this;
     var monthIndex = e.currentTarget.dataset.month_index;
+    var currentCanlenderMonthData = that.data.canlenderMonthDataList[monthIndex];
+
+    //根据当前日期定位周索引和日索引
+    var weeksIndexTemp = 0;
+    var dayIndexTemp = 0;
+    for (var weeksIndex = 0; weeksIndex < currentCanlenderMonthData.canlenderData.weeks.length; weeksIndex++) {
+      for (var dayIndex = 0; dayIndex < currentCanlenderMonthData.canlenderData.weeks[weeksIndex].length; dayIndex++) {
+
+        var day = currentCanlenderMonthData.canlenderData.weeks[weeksIndex][dayIndex];        if (day.date == that.data.currentSelectedDay) {      
+          weeksIndexTemp = weeksIndex;
+          dayIndexTemp = dayIndex;
+        }
+      }
+    }
+
     that.setData({
       currentSelectedMonthIndex: monthIndex,
+      currentSelectedWeekIndex: weeksIndexTemp,
+      currentSelectedDayIndex: dayIndexTemp,
+      currentSelectedTravelDate: currentCanlenderMonthData.canlenderData.year + "-" + currentCanlenderMonthData.canlenderData.weeks[weeksIndexTemp][dayIndexTemp].month + "-" + currentCanlenderMonthData.canlenderData.weeks[weeksIndexTemp][dayIndexTemp].date,
     })
   },
 

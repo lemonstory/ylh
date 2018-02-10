@@ -214,7 +214,7 @@ Page(Object.assign({}, Toast, {
         console.log("🍺 🍺 🍺")
         console.log(res);
 
-        if(res.statusCode != 200) {
+        if(res.statusCode == 200) {
 
           wx.showToast({
             title: '成功',

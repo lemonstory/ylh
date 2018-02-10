@@ -25,7 +25,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
+			"current": 0,
 			"list": [
 				{
 					"id": 0,
@@ -54,8 +54,8 @@
 				{
 					"id": 3,
 					"name": "测试",
-					"pathName": "pages/line/index/index",
-					"query": "distributerId=119",
+					"pathName": "pages/member/possport-list/possport-list",
+					"query": "orderSn=1151790809893424165",
 					"scene": "1036",
 					"referrerInfo": {}
 				}

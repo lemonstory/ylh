@@ -18,12 +18,12 @@ Page({
           console.log(options);
           var imageface = options.imageface;
           var userInfo = JSON.parse(options.userInfo);
-          console.log($$$$$$$$$$$$$$$$$$$$$$$);
-          console.log(userInfo);
-
+          console.log(userInfo.outputs[0].outputValue.dataValue)
+          var userDetails = JSON.parse(userInfo.outputs[0].outputValue.dataValue)
        if (!util.isEmptyStr(imageface)) {
                that.setData({
                     imageSrc: imageface,
+                    userInfo: userDetails
                })
           }
           console.log(that.data.imageSrc);

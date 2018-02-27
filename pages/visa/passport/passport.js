@@ -1,11 +1,14 @@
 // pages/API/passport/passport.js
+const app = getApp();
+const Toast = require('../../../zanui-weapp/dist/toast/index');
+var util = require('../../../utils/util.js');
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    imageNum:true
   },
 
   /**
@@ -62,8 +65,25 @@ Page({
   onShareAppMessage: function () {
   
   },
+  /**
+   * 
+   */
+  bindTapChosePassportImage: function () {
+    var that = this;
+    wx.chooseImage({
+      count: 1,
+      success: function (res) {
+        var tempFilePaths = res.tempFilePaths;
+        that.setData({
+          imageNum:false,
+          imageUrl: tempFilePaths[0]
+        })
+      }
+    }
+    )
+  },
   bindPassPortDirection:function(){
-       var path = "/pages/API/passport_direction/passport_direction";
+    var path = "/pages/visa/passport_direction/passport_direction?imagePassport=" + this.data.imageUrl;
        wx.navigateTo({
             url: path,
        })

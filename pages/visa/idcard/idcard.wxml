@@ -27,7 +27,7 @@
                     <image src='http://image.365zhiding.com/wxapp/20180108/idcardfan1.png'></image>
                </view>
 
-               <view class="camera">
+               <view class="camera" bindtap="bindTapChoseImageBack">
                     <image src='http://image.365zhiding.com/wxapp/20180108/photoshopsmall.png'></image>
                </view>
           </view>

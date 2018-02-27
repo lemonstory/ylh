@@ -10,7 +10,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "1.7.2",
 	"appid": "wx97f4b0ff6e3f3b72",
-	"projectname": "huanyue",
+	"projectname": "%E7%8E%AF%E7%90%83%E6%82%A6%E6%97%85%E4%BC%9A",
 	"condition": {
 		"search": {
 			"current": -1,
@@ -25,7 +25,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 1,
+			"current": 3,
 			"list": [
 				{
 					"id": 0,
@@ -48,6 +48,14 @@
 					"name": "悦旅会-分享-游客",
 					"pathName": "pages/line/index/index",
 					"query": "",
+					"scene": "1036",
+					"referrerInfo": {}
+				},
+				{
+					"id": -1,
+					"name": "悦旅会-分享-护照",
+					"pathName": "pages/visa/passport/passport",
+					"query": "scene=distributerId:119",
 					"scene": "1036",
 					"referrerInfo": {}
 				}

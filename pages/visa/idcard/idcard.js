@@ -87,7 +87,18 @@ Page({
  * 反面图片
  */
      bindTapChoseImageBack:function(){
-
+       var that = this;
+       wx.chooseImage({
+         count: 1,
+         success: function (res) {
+           var tempFilePaths = res.tempFilePaths;
+           console.log(tempFilePaths);
+           wx.navigateTo({
+             url: '/pages/visa/passport_direction/passport_direction?imageback=' + tempFilePaths,
+           })
+         }
+       }
+       )
      }
 
 })

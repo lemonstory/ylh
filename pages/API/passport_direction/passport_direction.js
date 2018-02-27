@@ -179,8 +179,8 @@ Page({
                          }
                     })
                     that.setData({
-                         // imageSrc: newImgePath,
-                         imageSrc: "http://image.365zhiding.com/wxapp/20180114/451274520792646944.png",
+                         imageSrc: newImgePath,
+                        //  imageSrc: "http://image.365zhiding.com/wxapp/20180114/451274520792646944.png",
                          showCutView: true,
                     })
                     // wx.previewImage({

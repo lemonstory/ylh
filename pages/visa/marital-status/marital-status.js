@@ -8,7 +8,8 @@ Page({
        isSelected: 0,
        isUnSelect: 'http://image.365zhiding.com/wxapp/20171210/unselect.png',
        isSelect: 'http://image.365zhiding.com/wxapp/20171210/select.png',
-       marrystatus:'1'
+       marrystatus:'1',
+       imageNum:true
      },
 /**
    * 生命周期函数--监听页面加载
@@ -75,5 +76,31 @@ onLoad: function (options) {
          })
        console.log(marrystatus)
      },
-
+/**
+ * 进行照片选择
+ */
+  bindTapChooseImage: function () {
+    var that = this;
+    wx.chooseImage({
+      count: 1,
+      sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+      sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+      success: function (res) {
+        var tempFilePaths = res.tempFilePaths;
+        that.setData({
+          imageNum: false,
+          imageUrl: tempFilePaths[0]
+        })
+      }
+    })
+  },
+  /**
+   * 点击确认跳转显示详情
+   */
+  bindToShowInfo: function () {
+    var path = "/pages/visa/passport_direction/passport_direction?imageMarry=" + this.data.imageUrl;
+    wx.navigateTo({
+      url: path,
+    })
+  }
 })

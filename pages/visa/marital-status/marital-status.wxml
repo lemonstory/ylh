@@ -1,50 +1,75 @@
 <!--pages/visa/marital-status/marital-status.wxml-->
 <view class="container">
-     <view class="idcard-box">
-          <view>当前婚姻状况</view>
-     </view>
-     <view class="idcard-hidden">
-          <view class="idcard-info">
-               <view style='display: flex;justify-content: center;align-items: center;height:90rpx;width:90rpx;' bindtap='handleMarrySelect' data-type='1'>
-                    <image class="ischeck" style="width:24rpx;height:24rpx;"src="{{marrystatus==1?isSelect:isUnSelect}}"></image>
-               </view>
-               <view class="man">未婚</view>
+  <view class="idcard-box">
+    <view>当前婚姻状况</view>
+  </view>
+  <view class="idcard-hidden">
+    <view class="idcard-info">
+      <view style='display: flex;justify-content: center;align-items: center;height:90rpx;width:90rpx;' bindtap='handleMarrySelect' data-type='1'>
+        <image class="ischeck" style="width:24rpx;height:24rpx;" src="{{marrystatus==1?isSelect:isUnSelect}}"></image>
+      </view>
+      <view class="man">未婚</view>
 
-               <view style='display: flex;justify-content: center;align-items: center;height:90rpx;width:90rpx;' bindtap='handleMarrySelect' data-type='2'>
-                    <image class="ischeck" style="width:24rpx;height:24rpx;" src="{{marrystatus==2?isSelect:isUnSelect}}"></image>
-               </view>
-               <view class="man">已婚</view>
+      <view style='display: flex;justify-content: center;align-items: center;height:90rpx;width:90rpx;' bindtap='handleMarrySelect' data-type='2'>
+        <image class="ischeck" style="width:24rpx;height:24rpx;" src="{{marrystatus==2?isSelect:isUnSelect}}"></image>
+      </view>
+      <view class="man">已婚</view>
 
-               <view style='display: flex;justify-content: center;align-items: center;height:90rpx;width:90rpx;' bindtap='handleMarrySelect' data-type='3'>
-                    <image class="ischeck" style="width:24rpx;height:24rpx;" src="{{marrystatus==3?isSelect:isUnSelect}}"></image>
-               </view>
-               <view class="man">离异</view>
-               <view style='display: flex;justify-content: center;align-items: center;height:90rpx;width:90rpx;' bindtap='handleMarrySelect' data-type='4'>
-                    <image class="ischeck" style="width:24rpx;height:24rpx;" src="{{marrystatus==4?isSelect:isUnSelect}}"></image>
-               </view>
-               <view class="man">丧偶</view>
-          </view>
-     </view>
+      <view style='display: flex;justify-content: center;align-items: center;height:90rpx;width:90rpx;' bindtap='handleMarrySelect' data-type='3'>
+        <image class="ischeck" style="width:24rpx;height:24rpx;" src="{{marrystatus==3?isSelect:isUnSelect}}"></image>
+      </view>
+      <view class="man">离异</view>
+      <view style='display: flex;justify-content: center;align-items: center;height:90rpx;width:90rpx;' bindtap='handleMarrySelect' data-type='4'>
+        <image class="ischeck" style="width:24rpx;height:24rpx;" src="{{marrystatus==4?isSelect:isUnSelect}}"></image>
+      </view>
+      <view class="man">丧偶</view>
+    </view>
+  </view>
 
 
 
-      <view class="section"> 
-           <view style='color:#333;font-size:28rpx;margin-bottom:20rpx;'>结婚证</view>
-          <view class="id-box">
-               <view class="idcard">
-                    <image src='http://image.365zhiding.com/wxapp/20180112/marry.png'></image>
-               </view>
-               <view class="camera" bindtap="bindTapChooseImage">
-                    <image src='http://image.365zhiding.com/wxapp/20180108/photoshopsmall.png'></image>
-               </view>
-          </view> 
+  <view class="section">
+  <!-- 结婚证 -->
+    <view wx:if='{{marrystatus==2}}'>
+      <view style='color:#333;font-size:28rpx;margin-bottom:20rpx;'>结婚证</view>
+      <view class="id-box">
+      <!-- 选择图片之前 -->
+        <view class="idcard" wx:if='{{imageNum}}'>
+          <image src='http://image.365zhiding.com/wxapp/20180112/marry.png'></image>
+        </view>
+        <!-- 选择图片之后 -->
+        <view class="idcard" wx:else>
+          <image src='{{imageUrl}}'></image>
+        </view>
+        <view class="camera" bindtap="bindTapChooseImage">
+          <image src='http://image.365zhiding.com/wxapp/20180108/photoshopsmall.png'></image>
+        </view>
+      </view>
+    </view>
+  <!-- 离婚证 -->
+  <view wx:if='{{marrystatus==3}}'>
+      <view style='color:#333;font-size:28rpx;margin-bottom:20rpx;'>离婚证</view>
+      <view class="id-box">
+       <!-- 选择图片之前 -->
+        <view class="idcard" wx:if='{{imageNum}}'>
+          <image src='http://image.365zhiding.com/wxapp/20180112/marry.png'></image>
+        </view>
+        <!-- 选择图片之后 -->
+        <view class="idcard" wx:else>
+          <image src='{{imageUrl}}'></image>
+        </view>
+        <view class="camera" bindtap="bindTapChooseImage">
+          <image src='http://image.365zhiding.com/wxapp/20180108/photoshopsmall.png'></image>
+        </view>
+      </view>
+    </view>
 
-          <view class="means_rules" style='margin-bottom:120rpx'>
-               <view class="rules_title" style='color:#333;font-size:28rpx;margin-top:60rpx'>资料要求</view>
-               <view style='color:#333;font-size:24rpx;margin-top:30rpx'> · 已婚者：请提供结婚证</view>
-               <view style='color:#333;font-size:24rpx;margin-top:19rpx'> · 离婚者：请提供离婚证</view>
-               <view style='color:#333;font-size:24rpx;margin-top:19rpx'> · 未婚、丧偶者无需提供</view>
-          </view>
-          <view class="bottom" bindtap='bindPassPortDirection'>确定</view>
-     </view>
+    <view class="means_rules" style='margin-bottom:120rpx'>
+      <view class="rules_title" style='color:#333;font-size:28rpx;margin-top:60rpx'>资料要求</view>
+      <view style='color:#333;font-size:24rpx;margin-top:30rpx'> · 已婚者：请提供结婚证</view>
+      <view style='color:#333;font-size:24rpx;margin-top:19rpx'> · 离婚者：请提供离婚证</view>
+      <view style='color:#333;font-size:24rpx;margin-top:19rpx'> · 未婚、丧偶者无需提供</view>
+    </view>
+    <view class="bottom" bindtap='bindToShowInfo'>确定</view>
+  </view>
 </view>

@@ -66,7 +66,8 @@
           "pages/visa/idcard-back/idcard-back",
           "pages/visa/residence/residence",
           "pages/visa/marital-status/marital-status",
-          "pages/visa/application/application"
+          "pages/visa/application/application",
+          "pages/visa/passport-info/passport-info"
      ],
      "window": {
           "navigationBarBackgroundColor": "#ffffff",
@@ -86,12 +87,7 @@
                     "iconPath": "pages/image/3.png",
                     "selectedIconPath": "pages/image/4.png"
                },
-               {
-                    "pagePath": "pages/visa/index/index",
-                    "text": "签证",
-                    "iconPath": "pages/image/5.png",
-                    "selectedIconPath": "pages/image/6.png"
-               },
+
                {
                     "pagePath": "pages/user/index/index",
                     "text": "我的",

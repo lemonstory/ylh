@@ -11,6 +11,7 @@ Page(Object.assign({}, Toast, {
     orderDetail: {},
 
     orderSn: '',
+    isReLoad: false
   },
 
   /**
@@ -44,6 +45,13 @@ Page(Object.assign({}, Toast, {
    */
   onShow: function () {
 
+    var that = this;
+    if (that.data.isReLoad) {
+      that.getOrderDetail();
+      that.setData({
+        isReLoad: false
+      });
+    }
   },
 
   /**

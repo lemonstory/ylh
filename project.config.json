@@ -25,7 +25,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 3,
+			"current": 9,
 			"list": [
 				{
 					"id": 0,
@@ -56,6 +56,54 @@
 					"name": "悦旅会-分享-护照",
 					"pathName": "pages/visa/passport/passport",
 					"query": "scene=distributerId:119",
+					"scene": "1036",
+					"referrerInfo": {}
+				},
+				{
+					"id": 3,
+					"name": "测试",
+					"pathName": "pages/member/possport-list/possport-list",
+					"query": "orderSn=1151790809893424165",
+					"scene": "1036",
+					"referrerInfo": {}
+				},
+				{
+					"id": -1,
+					"name": "签证",
+					"pathName": "pages/visa/index/index",
+					"query": "orderSn=1151790809893424165",
+					"scene": "1036",
+					"referrerInfo": {}
+				},
+				{
+					"id": -1,
+					"name": "护照详情",
+					"pathName": "pages/visa/passport-info/passport-info",
+					"query": "orderSn=1151790809893424165",
+					"scene": "1036",
+					"referrerInfo": {}
+				},
+				{
+					"id": -1,
+					"name": "照片",
+					"pathName": "pages/visa/photo/photo",
+					"query": "orderSn=1151790809893424165",
+					"scene": "1036",
+					"referrerInfo": {}
+				},
+				{
+					"id": -1,
+					"name": "结婚证",
+					"pathName": "pages/visa/marital-status/marital-status",
+					"query": "orderSn=1151790809893424165",
+					"scene": "1036",
+					"referrerInfo": {}
+				},
+				{
+					"id": -1,
+					"name": "户口本",
+					"pathName": "pages/visa/residence/residence",
+					"query": "orderSn=1151790809893424165",
 					"scene": "1036",
 					"referrerInfo": {}
 				}

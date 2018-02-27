@@ -46,7 +46,9 @@ Page({
     face: 0,
     // 图片base64数据
     imageBase64: "",
-
+    // 图片旋转
+    pRotateNum:1, //正转
+    nRotateNum: 1, //反转
   },
   /**
    * 生命周期函数--监听页面加载
@@ -54,25 +56,39 @@ Page({
   onLoad: function (options) {
     var that = this;
     console.log(options);
-    var imageface = options.imageface;
-    var imageback = options.imageback;
-    var imagePassport = options.imagePassport;
-    if (!util.isEmptyStr(imageface)) {
-      that.setData({
-        imageSrc: imageface,
-        face: 1
-      })
-    }
+    var imageface = options.imageface; // 身份证正面
+    var imageback = options.imageback;  // 身份证反面
+    var imagePassport = options.imagePassport;  // 护照
+    var imageMarry = options.imageMarry;  // 结婚证
+    var imageAccountBook = options.imageAccountBook; // 户口本
     if (!util.isEmptyStr(imageback)) {
       that.setData({
         imageSrc: imageback,
         face: 0
       })
     }
+    if (!util.isEmptyStr(imageface)) {
+      that.setData({
+        imageSrc: imageface,
+        face: 1
+      })
+    }
     if (!util.isEmptyStr(imagePassport)) {
       that.setData({
         imageSrc: imagePassport,
-        face: 0
+        face: 2
+      })
+    }
+    if (!util.isEmptyStr(imageMarry)) {
+      that.setData({
+        imageSrc: imageMarry,
+        face: 3
+      })
+    }
+    if (!util.isEmptyStr(imageAccountBook)) {
+      that.setData({
+        imageSrc: imageAccountBook,
+        face: 4
       })
     }
     console.log("---------------初始的------------------------");
@@ -154,7 +170,7 @@ Page({
             // 图片原始宽度 rpx
             imageW: res.width * pixelRatio,
             imageH: res.height * pixelRatio
-          }) 
+          })
         } else {
           that.setData({
             cropperW: windowWRPX * innerAspectRadio,
@@ -398,10 +414,18 @@ Page({
     // var n = 0;
     // n = n + 1,
     //      console.log(n);
-    // this.animation.rotate(90 * (n)).step()
-    this.animation.rotate(90).step()
+
+    if (util.isEmptyStr(this.animation.currentTransform.rotate)) {
+      this.animation.rotate(-90 * (this.data.nRotateNum)).step()
+    }else{
+      this.animation.rotate(parseInt(this.animation.currentTransform.rotate.args[0]) - 90).step()
+    }
+    console.log(typeof this.animation.currentTransform.rotate.args[0])
+    // this.animation.rotate(angle).step()
     this.setData({
-      animationData: this.animation.export()
+      animationData: this.animation.export(),
+      nRotateNum: this.data.nRotateNum+1,
+      pRotateNum: 1 
     })
   },
   /**
@@ -411,10 +435,16 @@ Page({
     // var m = 0;
     // m = m - 1;
     // console.log(m)
-    // this.animation.rotate(90 * (m)).step()
-    this.animation.rotate(90).step()
+    if (util.isEmptyStr(this.animation.currentTransform.rotate)) {
+      this.animation.rotate(90 * (this.data.nRotateNum)).step()
+    } else {
+      this.animation.rotate(parseInt(this.animation.currentTransform.rotate.args[0]) + 90).step()
+    }
+    // this.animation.rotate(90).step()
     this.setData({
-      animationData: this.animation.export()
+      animationData: this.animation.export(),
+      pRotateNum: this.data.pRotateNum+1,
+      nRotateNum:  1
     })
 
   },
@@ -445,10 +475,17 @@ Page({
           that.setData({
             imageBase64: img64data,
           })
+          // 根据图片类别调取不同的方法
           if (that.data.face == 1) {
             that.IdcardIdentification();
-          }else{
+          } else if (that.data.face == 0) {
             that.IdcardBackIdentification();
+          } else if (that.data.face == 2){
+            that.passportIdentification()
+          } else if (that.data.face == 3) {
+            that.marriageCertificateIdentification()
+          } else if (that.data.face == 4) {
+            that.accountBookIdentification()
           }
         }
       },
@@ -508,15 +545,15 @@ Page({
         })
       },
       complete: function (res) {
-        console.log("完成----------------证件识别----------------")
+        console.log("完成----------------证件身份证正面识别----------------")
         console.log(res);
       }
     })
   },
 
-   /**
-   * 证件识别--->身份证反面
-   */ 
+  /**
+  * 证件识别--->身份证反面
+  */
   IdcardBackIdentification: function () {
     var that = this;
     var imageBase64 = that.data.imageBase64;
@@ -555,7 +592,131 @@ Page({
         })
       },
       complete: function (res) {
-        console.log("完成----------------证件识别----------------")
+        console.log("完成----------------证件身份证反面识别----------------")
+        console.log(res);
+      }
+    })
+  },
+
+  /**
+  * 证件识别--->护照识别
+  */
+  passportIdentification: function () {
+    var that = this;
+    var imageBase64 = that.data.imageBase64;
+    wx.request({
+      url: "http://ocrhz.market.alicloudapi.com/rest/160601/ocr/ocr_passport.json",
+      method: 'POST',
+      header: {
+        'Content-Type': 'application/json',
+        'Authorization': "APPCODE " + "e682e10d5ba94a2d895d318138d06850"
+      },
+      data: {
+        "inputs": [
+          {
+            "image": {
+              "dataType": 50,
+              "dataValue": imageBase64
+            }
+          }
+        ]
+      },
+      success: function (res) {
+        var imageUrl = that.data.imageSrc;
+        wx.hideLoading();
+        console.log(res.data);
+        wx.navigateTo({
+          url: '/pages/visa/passport-info/passport-info?imageface=' + imageUrl + '&userInfo=' + JSON.stringify(res.data),
+        })
+      },
+      fail: function () {
+        wx.showLoading({
+          title: '身份证信息不完善，请...',
+        })
+      },
+      complete: function (res) {
+        console.log("完成----------------证件护照识别----------------")
+        console.log(res);
+      }
+    })
+  },
+  /**
+ * 证件识别--->结婚证识别 TODO
+ */
+  marriageCertificateIdentification: function () {
+    var that = this;
+    var imageBase64 = that.data.imageBase64;
+    wx.request({
+      url: "http://tysbgpu.market.alicloudapi.com/api/predict/ocr_general",
+      method: 'POST',
+      header: {
+        'Content-Type': 'application/json',
+        'Authorization': "APPCODE " + "e682e10d5ba94a2d895d318138d06850"
+      },
+      data: {
+        "image": imageBase64,
+        "configure": {
+          "min_size": 16,
+          "output_prob": true
+        }
+      },
+      success: function (res) {
+        var imageUrl = that.data.imageSrc;
+        wx.hideLoading();
+        console.log('结婚证识别')
+        console.log(res.data);
+        // wx.navigateTo({
+        //   url: '/pages/visa/passport-info/passport-info?imageface=' + imageUrl + '&userInfo=' + JSON.stringify(res.data),
+        // })
+      },
+      fail: function () {
+        wx.showLoading({
+          title: '身份证信息不完善，请...',
+        })
+      },
+      complete: function (res) {
+        console.log("完成----------------证件结婚证识别----------------")
+        console.log(res);
+      }
+    })
+  },
+
+  /**
+   * 证件识别--->户口本识别  TODO
+   */
+  accountBookIdentification: function () {
+    var that = this;
+    var imageBase64 = that.data.imageBase64;
+    wx.request({
+      url: "http://tysbgpu.market.alicloudapi.com/api/predict/ocr_general",
+      method: 'POST',
+      header: {
+        'Content-Type': 'application/json',
+        'Authorization': "APPCODE " + "e682e10d5ba94a2d895d318138d06850"
+      },
+      data: {
+        "image": imageBase64,
+        "configure": {
+          "min_size": 16,
+          "output_prob": true
+        }
+      },
+      success: function (res) {
+        var imageUrl = that.data.imageSrc;
+        wx.hideLoading();
+        console.log('户口本识别')
+        console.log(res.data);
+        // wx.navigateTo({
+        //   url: '/pages/visa/passport-info/passport-info?imageface=' + imageUrl + '&userInfo=' + JSON.stringify(res.data),
+        // })
+      },
+      fail: function () {
+        wx.showLoading({
+          title: '身份证信息不完善，请...',
+        })
+      },
+      complete: function (res) {
+        console.log("完成----------------户口本识别----------------")
         console.log(res);
       }
     })

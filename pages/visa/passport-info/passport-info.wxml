@@ -1,0 +1,73 @@
+<!--pages/visa/passport-info/passport-info.wxml-->
+<view class="container">
+  <view class="idcard-img">
+    <image src="{{imageSrc}}" mode="widthFit" style='width:750rpx;'></image>
+  </view>
+  <view class="section" style='margin-bottom:120rpx;'>
+    <view class="message-box">
+      <view style='font-size:24rpx;color:rgba(153,153,153,1);'>中文姓名</view>
+      <view style='font-size:28rpx;color:rgba(51,51,51,1);margin-top:20rpx'>{{userInfo.name_cn}}</view>
+    </view>
+
+    <view class="message-box">
+      <view style='font-size:24rpx;color:rgba(153,153,153,1);'>姓（拼音）：</view>
+      <view style='font-size:28rpx;color:rgba(51,51,51,1);margin-top:20rpx'>TAN</view>
+    </view>
+
+
+    <view class="message-box">
+      <view style='font-size:24rpx;color:rgba(153,153,153,1);'>名（拼音）：</view>
+      <view style='font-size:28rpx;color:rgba(51,51,51,1);margin-top:20rpx'>YU</view>
+    </view>
+
+    <view class="message-box">
+      <view style='font-size:24rpx;color:rgba(153,153,153,1);'>性别：</view>
+      <view style='font-size:28rpx;color:rgba(51,51,51,1);margin-top:20rpx'>{{userInfo.sex}}</view>
+    </view>
+
+    <view class="message-box">
+      <view style='font-size:24rpx;color:rgba(153,153,153,1);'>护照号：</view>
+      <view style='font-size:28rpx;color:rgba(51,51,51,1);margin-top:20rpx'>{{userInfo.passport_no}}</view>
+    </view>
+
+    <view class="message-box">
+      <view style='font-size:24rpx;color:rgba(153,153,153,1);'>出生日期：</view>
+      <view style='font-size:28rpx;color:rgba(51,51,51,1);margin-top:20rpx'>{{userInfo.birth_date}}</view>
+    </view>
+
+    <view class="message-box">
+      <view style='font-size:24rpx;color:rgba(153,153,153,1);'>出生地点：</view>
+      <view style='font-size:28rpx;color:rgba(51,51,51,1);margin-top:20rpx'>{{userInfo.birth_place}}</view>
+    </view>
+
+    <view class="message-box">
+      <view style='font-size:24rpx;color:rgba(153,153,153,1);'>出生地点英文：</view>
+      <view style='font-size:28rpx;color:rgba(51,51,51,1);margin-top:20rpx'>{{userInfo.birth_place}}</view>
+    </view>
+
+    <view class="message-box">
+      <view style='font-size:24rpx;color:rgba(153,153,153,1);'>签发日期：</view>
+      <view style='font-size:28rpx;color:rgba(51,51,51,1);margin-top:20rpx'>{{userInfo.issue_date}}</view>
+    </view>
+
+    <view class="message-box">
+      <view style='font-size:24rpx;color:rgba(153,153,153,1);'>有效期至：</view>
+      <view style='font-size:28rpx;color:rgba(51,51,51,1);margin-top:20rpx'>{{userInfo.expiry_date}}</view>
+    </view>
+
+    <view class="message-box">
+      <view style='font-size:24rpx;color:rgba(153,153,153,1);'>签发机关：</view>
+      <view style='font-size:28rpx;color:rgba(51,51,51,1);margin-top:20rpx'>{{userInfo.authority}}</view>
+    </view>
+
+    <view class="message-box">
+      <view style='font-size:24rpx;color:rgba(153,153,153,1);'>签发机关英文：</view>
+      <view style='font-size:28rpx;color:rgba(51,51,51,1);margin-top:20rpx'>{{userInfo.authority}}</view>
+    </view>
+  </view>
+</view>
+<view class="bottom">
+     <view class="bottom-left">重新拍摄</view>
+     <view class="bottom-right">保存并提交</view>
+
+</view>

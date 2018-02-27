@@ -23,7 +23,7 @@ Page(Object.assign({}, Toast, {
           var userAccessData = util.getUserAccessData();
           var guid = userAccessData.guid;
           if (util.isEmptyStr(guid)) {
-               //再次获取guid
+               //再次获取guiduser/send-code/
                var distributerId = util.getDistributerId();
                //  wx.checkSession({
                //    success: function () {

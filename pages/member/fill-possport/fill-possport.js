@@ -290,6 +290,7 @@ Page(Object.assign({}, Toast, {
 
     } else if (!util.isMobile(that.data.formData.mobile)) {
 
+      console.log(that.data.formData.mobile);
       that.showZanToast("请检查填写的 手机号码");
       return false;
 
@@ -312,18 +313,27 @@ Page(Object.assign({}, Toast, {
     if (that.checkInput()) {
 
       var url = that.data.constant.domain + '/distrbuter/member/passport';
+
+      //mobile=telphoneCode_mobile
+      //that.data.formData.mobile = that.data.formData.telphoneCode + "_" + that.data.formData.mobile
       wx.request({
 
         url: url,
         data: that.data.formData,
         method: 'POST',
-        header: util.postRequestHeader(),
+        header: util.getRequestHeader(),
 
         success: function (res) {
 
           if (res.statusCode == 200) {
 
             console.log("🍺 🍺 🍺 [成功] 增加会员常旅客护照接口")
+            let pages = getCurrentPages();//当前页面
+            let prevPage = pages[pages.length - 2];//上一页面
+            prevPage.setData({
+              isReLoad: true
+            });
+
             wx.navigateBack({
               delta: 1,
             });
@@ -340,7 +350,6 @@ Page(Object.assign({}, Toast, {
         },
 
         complete: function (res) {
-
         }
       })
     }

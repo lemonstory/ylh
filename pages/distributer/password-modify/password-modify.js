@@ -86,9 +86,12 @@ Page(Object.assign({}, Toast, {
   /*** 修改密码
         */
   changePassword: function () {
+
     var that = this;
     // var url = "https://qa-distributor.yuelvhui.com/distributerShop/findShopByPrimaryKey?distributerId=1"
     var url = that.data.constant.distributerDomain + "/distributerAccount/updatePassword";
+    console.log(url);
+    console.log(that.data.formData);
     if (!util.isEmptyStr(that.data.formData.password) && !util.isEmptyStr(that.data.formData.oldPassword) && !util.isEmptyStr(that.data.againPassword)) {
       if (that.data.againPassword == that.data.formData.password) {     // 若密码确认一致
         wx.request({
@@ -97,38 +100,43 @@ Page(Object.assign({}, Toast, {
           header: util.postRequestHeader(true),
           method: 'POST',
           success: function (res) {
-            if (res.data == "OK") {
 
-              // that.showZanToast("修改成功！");
-              wx.showToast({
-                title: '成功',
-                icon: 'success',
-                duration: 1000,
+            console.log("############");
+            if(res.statusCode == 200) {
 
-              })
+              if (res.data == "OK") {
 
-              setTimeout(function () {
-                // 密码修改成功，执行下一步
-                wx.navigateBack({
-                  delta: 1
-                })}, 1000);
+                // that.showZanToast("修改成功！");
+                wx.showToast({
+                  title: '成功',
+                  icon: 'success',
+                  duration: 1000,
 
-              that.onPasswordUpdate();
+                })
 
-            } else if (res.data == "error") {
-              that.showZanToast("原始密码错误！");
-            }
+                setTimeout(function () {
+                  // 密码修改成功，执行下一步
+                  wx.navigateBack({
+                    delta: 1
+                  })
+                }, 1000);
 
+                that.onPasswordUpdate();
 
-
+              } else {
+                that.showZanToast(res.data.message);
+              }
+            }else {
+              that.showZanToast("系统出现错误,修改密码失败");
+            }  
           },
+
           fail: function (res) {
             console.log("出错了！");
             that.showZanToast(res.message);
           },
           complete: function (res) {
             console.log(res);
-
           }
         })
       } else {     // 密码不一致
@@ -137,7 +145,6 @@ Page(Object.assign({}, Toast, {
     } else {
       that.showZanToast("请完善修改信息！");
     }
-
   },
 
   /**
@@ -145,7 +152,6 @@ Page(Object.assign({}, Toast, {
    */
   onPasswordUpdate: function () {
     // TODO 
-
   },
 
   /**

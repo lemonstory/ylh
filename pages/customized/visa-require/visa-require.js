@@ -199,15 +199,14 @@ Page(Object.assign({}, Toast, {
     var prevPage = pages[pages.length - 3];  //上一个页面
     var prevPageFormDataTemp = prevPage.data.formData;
     //用户创建定制需求接口
-    var url = that.data.constant.domain + '/distrbuter/member/order/addCustomized';
+    var url = that.data.constant.domain + '/distrbuter/customized';
     wx.request({
       url: url,
       data:prevPageFormDataTemp,
       method: 'POST',
-      header: util.postRequestHeader(),
+      header: util.getRequestHeader(),
 
       success: function (res) {
-        
         
         //orderId 订单id(number,required)
         //ordersn 订单号 (string,required)
@@ -215,17 +214,22 @@ Page(Object.assign({}, Toast, {
         console.log("🍺 🍺 🍺")
         console.log(res);
 
-        wx.showToast({
-          title: '成功',
-          icon: 'success',
-          duration: 1000,
-        })
+        if(res.statusCode == 200) {
 
-        setTimeout(function () {
-          wx.redirectTo({
-            url: '/pages/user/visitor/visitor',
+          wx.showToast({
+            title: '成功',
+            icon: 'success',
+            duration: 1000,
           })
-        }, 1000);
+
+          setTimeout(function () {
+            wx.navigateBack({
+              delta: 3
+            })
+          }, 1000);
+        }else {
+          that.showZanToast("系统出现错误,创建定制需求失败");
+        }
       },
 
       fail: function (res) {
@@ -234,7 +238,9 @@ Page(Object.assign({}, Toast, {
         that.showZanToast(res);
       },
 
-      complete: function (res) {}
+      complete: function (res) {
+        wx.hideLoading();
+      }
     });
   }
 }));

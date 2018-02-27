@@ -1,35 +1,47 @@
 <template name="address-detail-normal">
-     <block wx:for="{{template.normal}}" wx:for-index="idx" wx:for-item="item" wx:key="idx">
-          <view class="oneday">{{item.key}}</view>
-          <view style="display:flex">
-               <view class="dian" style='display:flex; display:-webkit-box;word-break:break-all;overflow:hidden;flex-direction:column; width:110rpx; height:500rpx;padding-left:54rpx;padding-right:54rpx;box-sizing:border-box;color:#AAA;'></view>
-
-               <view id="{{normalIds[idx]}}">
-                    <view class="goto-normal">{{item.title}}</view>
-                    <view class="jiaotong-normal" wx:for="{{item.info1}}" wx:for-item="item" wx:key="idx">{{item.key}}：{{item.content}}</view>
-                    <block wx:for="{{item.theme}}" wx:for-item="theme" wx:key="theme">
-                         <block wx:if="{{theme.images.length==1}}">
-                              <view class="img-box">
-                                   <view wx:for="{{theme.images}}" wx:for-item="item" wx:key="item">
-                                        <image class="one-img" src="{{item}}" mode="widthFix" style='width:600rpx;'></image>
-                                   </view>
-                              </view>
-                         </block>
-                         <block wx:else>
-                              <view class="img-box">
-                                   <view wx:for="{{theme.images}}" wx:for-item="item" wx:key="item">
-                                        <view class="two-img">
-                                             <image src="{{item}}" mode="widthFit"></image>
-                                        </view>
-                                   </view>
-                              </view>
-                         </block>
-                         <view class="jing-text">{{theme.intro}}</view>
-                    </block>
-                    <view class="shijian" wx:for="{{item.info2}}" wx:key="idx" wx:for-item="item">{{item.key}}：{{item.content}}</view>
-               </view>
-          </view>
+  <block wx:for="{{template.normal}}" wx:for-index="idx" wx:for-item="item" wx:key="idx">
+    <view class="oneday">{{item.key}}</view>
 
 
-     </block>
+
+    <view style="display:flex;height:auto;overflow:hidden;">
+<!-- 
+      <view class="left-line" style='display:flex; display:-webkit-box;word-break:break-all;overflow:hidden;flex-direction:column; width:110rpx; height:100%;padding-left:54rpx;padding-right:54rpx;box-sizing:border-box;color:#AAA;line-height:14rpx;'> . . . . . .</view> -->
+<view class="left-line"></view>
+      
+      
+      
+      
+      
+      <view>
+        <view class="goto-normal">{{item.title}}</view>
+        <view class="jiaotong-normal" wx:for="{{item.info1}}" wx:for-item="item" wx:key="idx">{{item.key}}：{{item.content}}</view>
+        <block wx:for="{{item.theme}}" wx:for-item="theme" wx:key="theme">
+          <block wx:if="{{theme.images.length==1}}">
+            <view class="img-box">
+              <view wx:for="{{theme.images}}" wx:for-item="item" wx:key="item">
+                <image class="one-img" src="{{item}}" mode="widthFix" style='width:600rpx;'></image>
+              </view>
+            </view>
+          </block>
+          <block wx:else>
+            <view class="img-box">
+              <view wx:for="{{theme.images}}" wx:for-item="item" wx:key="item">
+                <view class="two-img">
+                  <image src="{{item}}" mode="widthFit"></image>
+                </view>
+              </view>
+            </view>
+          </block>
+          <view class="jing-text">{{theme.intro}}</view>
+        </block>
+        <view class="shijian" wx:for="{{item.info2}}" wx:key="idx" wx:for-item="item">{{item.key}}：{{item.content}}</view>
+      </view>
+    </view>
+
+
+  
+  
+  
+  </block>
 </template>

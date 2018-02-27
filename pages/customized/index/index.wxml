@@ -41,7 +41,7 @@
     <view class="box">
       <view class="box-left">
         <view class="star">*</view>目的地</view>
-      <input class="input input1" placeholder="请输入目的地" placeholder-style="font-size:28rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);" bindinput='bindInputValueChange' id="categroy" value="{{formData.categroy}}"></input>
+      <input class="input input1" placeholder="请输入目的地" placeholder-style="font-size:28rpx;font-family:PingFang-SC-Regular;color:rgba(153,153,153,1);" bindinput='bindInputValueChange' id="destination" value="{{formData.destination}}"></input>
 
 
       <!-- <view class="inner">
@@ -105,9 +105,9 @@
     <view class="box">
       <view class="box-left">
         <view class="star">*</view>返回日期</view>
-      <picker mode="date" value="{{formData.backDate}}" bindchange="bindInputValueChange" id='backDate'>
+      <picker mode="date" value="{{formData.endDate}}" bindchange="bindInputValueChange" id='endDate'>
         <view class="picker">
-          <view class="godate">{{formData.backDate}}</view>
+          <view class="godate">{{formData.endDate}}</view>
           <image src="http://image.365zhiding.com/wxapp/20171121/date.png" style='width:30rpx;height:32rpx;margin-left:40rpx;float:right'></image>
         </view>
       </picker>

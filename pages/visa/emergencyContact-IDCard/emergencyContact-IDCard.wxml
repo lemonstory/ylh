@@ -1,0 +1,19 @@
+<!--pages/visa/emergencyContact-IDCard/emergencyContact-IDCard.wxml-->
+<view class="container">
+     <view class="section">
+          <view class="id-box">
+
+               <view class="camera" bindtap="bindTapChooseImage">
+                    <image src='http://image.365zhiding.com/wxapp/20180108/photoshopsmall.png'></image>
+               </view>
+          </view>
+          <view class="means_rules" style='margin-bottom:120rpx'>
+               <view class="rules_title" style='color:#333;font-size:28rpx;margin-top:60rpx'>资料要求</view>
+               <view style='color:#333;font-size:24rpx;margin-top:30rpx'>· 紧急联系人包括父母、子女、配偶三代直系亲属</view>
+               <view style='color:#333;font-size:24rpx;margin-top:19rpx'>· 紧急联系人不能为随同申请人</view>
+          <view style='color:#333;font-size:24rpx;margin-top:19rpx'>· 清晰拍摄正反面、不能反光</view>
+          <view style='color:#333;font-size:24rpx;margin-top:19rpx'>· 如直接从手机相册导入图片，需要彩色</view>
+    </view>
+          <view class="bottom" bindtap='bindToShowInfo'>确定</view>
+     </view>
+</view>

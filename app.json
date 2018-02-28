@@ -67,7 +67,19 @@
           "pages/visa/residence/residence",
           "pages/visa/marital-status/marital-status",
           "pages/visa/application/application",
-          "pages/visa/passport-info/passport-info"
+          "pages/visa/passport-info/passport-info",
+          "pages/visa/marriage-certificate/marriage-certificate",
+          "pages/visa/accountBook-info/accountBook-info",
+          "pages/visa/emergencyContact-IDCard/emergencyContact-IDCard",
+          "pages/visa/emergencyContact-prove/emergencyContact-prove",
+          "pages/visa/fixed-assets/fixed-assets",
+          "pages/visa/others-additional-materials/others-additional-materials",
+          "pages/visa/intoTaiwan-additional-materials/intoTaiwan-additional-materials",
+          "pages/visa/overseas-record/overseas-record",
+          "pages/visa/intoTaiwan-economic-proof/intoTaiwan-economic-proof",
+          "pages/visa/Taiwan-pass/Taiwan-pass",
+          "pages/visa/Taiwan-endorsement-page/Taiwan-endorsement-page",
+          "pages/visa/HongKong-Macao-pass/HongKong-Macao-pass"
      ],
      "window": {
           "navigationBarBackgroundColor": "#ffffff",

@@ -1,0 +1,25 @@
+<!--pages/API/HongKong-Macao-pass/HongKong-Macao-pass.wxml-->
+<view class="container">
+     <view class="section">
+          <view class="id-box">
+               <view class="idcard" wx:if="{{imageNum}}">
+                    <image src='http://image.365zhiding.com/wxapp/20180108/passport.png'></image>
+               </view>
+               <view class="idcard" wx:else>
+                    <image src='{{imageUrl}}'></image>
+               </view>
+          </view>
+          <view class="camera-box" bindtap="bindTapChosePassportImage">
+               <view class="camera">
+                    <image src='http://image.365zhiding.com/wxapp/20180108/photoshop.png'></image>
+               </view>
+          </view>
+          <view class="means_rules">
+               <view class="rules_title" style='color:#333;font-size:28rpx;margin-top:30rpx'>资料要求</view>
+               <view style='color:#333;font-size:24rpx;margin-top:30rpx'>· 有效期离出发日期应至少还有4个月</view>
+               <view style='color:#333;font-size:24rpx;margin-top:19rpx'>· 露出四个角，清晰拍照，不要反光</view>
+              
+          </view>
+          <view class="bottom" bindtap='bindPassPortDirection'>确定</view>
+     </view>
+</view>

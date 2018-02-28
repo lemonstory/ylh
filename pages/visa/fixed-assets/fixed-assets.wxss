@@ -1,0 +1,90 @@
+/* pages/visa/fixed-assets/fixed-assets.wxss */
+.section {
+     width: 100%;
+     height: auto;
+     padding: 30rpx;
+     box-sizing: border-box;
+     background: #fff;
+     border-top:1rpx solid #eee;
+}
+.id-box {
+     width: 100%;
+     height: auto;
+     display: flex;
+     justify-content: space-between;
+     }
+.idcard {
+     width: 335rpx;
+     height: 223rpx;
+     border-radius: 10rpx;
+}
+
+.idcard image {
+     width: 100%;
+     height: 100%;
+}
+.camera-box {
+     width: 100%;
+     height: auto;
+     display: flex;
+     justify-content: space-between;
+     margin-bottom: 30rpx;
+}
+.camera {
+     width: 335rpx;
+     height: 223rpx;
+     border-radius: 10rpx;
+}
+
+.camera image {
+     width: 100%;
+     height: 100%;
+}
+.bottom {
+     width: 690rpx;
+     height: 88rpx;
+     background: #f78210;
+     border-radius: 10rpx;
+     position: fixed;
+     bottom: 30rpx;
+     left: 30rpx;
+     font-size: 32rpx;
+     font-family: PingFang-SC-Regular;
+     color: rgba(255, 255, 255, 1);
+     text-align: center;
+     line-height: 88rpx;
+}
+.ischeck{
+     width: 24rpx;
+     height:24rpx;
+}
+
+.ischeck image{
+     width:100%;
+     height:100%;
+}
+
+.idcard-hidden{
+     display: none;
+}
+.idcard-active{
+     display: block;
+}
+.idcard-hidden{
+     width:100%;
+     height:auto;
+     background: #fff;
+     padding-left: 90rpx;
+     box-sizing: border-box;
+ 
+}
+.idcard-info{
+    font-size: 24rpx;
+    display:flex;
+    align-items:center;
+    height:84rpx;
+    border-bottom: 1rpx solid #eee;
+}
+.idcard-inifo-two{
+     border-bottom: none;
+}

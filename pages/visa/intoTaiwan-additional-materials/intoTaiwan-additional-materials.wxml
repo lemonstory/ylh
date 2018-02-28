@@ -1,0 +1,18 @@
+<!--pages/visa/intoTaiwan-additional-materials/intoTaiwan-additional-materials.wxml-->
+<view class="container">
+     <view class="section">
+          <view class="id-box">
+
+               <view class="camera" bindtap="bindTapChooseImage">
+                    <image src='http://image.365zhiding.com/wxapp/20180108/photoshopsmall.png'></image>
+               </view>
+          </view>
+          <view class="means_rules" style='margin-bottom:120rpx'>
+               <view class="rules_title" style='color:#333;font-size:28rpx;margin-top:60rpx'>资料要求</view>
+               <view style='color:#333;font-size:24rpx;margin-top:30rpx'>· 直系亲属作为紧急联系人，户口本无法证明关系，请在此上</view>
+               <view style='color:#333;font-size:24rpx;margin-top:19rpx'>  传彩色版；结婚证或出生证或独生子女证</view>
+          <!-- <view style='color:#333;font-size:24rpx;margin-top:19rpx'>· 邮寄存款证明原件（金额5万元，冻结3个月）</view> -->
+    </view>
+          <view class="bottom" bindtap='bindToShowInfo'>确定</view>
+     </view>
+</view>

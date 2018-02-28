@@ -1,0 +1,25 @@
+<!--pages/visa/intoTaiwan-economic-proof/intoTaiwan-economic-proof.wxml-->
+<view class="container">
+     <view class="section">
+          <view class="id-box">
+
+               <view class="camera" bindtap="bindTapChooseImage">
+                    <image src='http://image.365zhiding.com/wxapp/20180108/photoshopsmall.png'></image>
+               </view>
+          </view>
+          <view class="means_rules" style='margin-bottom:120rpx'>
+               <view class="rules_title" style='color:#333;font-size:28rpx;margin-top:60rpx'>资料要求</view>
+               <view style='color:#333;font-size:24rpx;margin-top:30rpx'>· 以下材料三选一提供，拍照即可</view>
+               <view style='color:#333;font-size:24rpx;margin-top:19rpx'>· 1、年薪13万以上的在职证明盖章原件</view>
+           <view style='color:#333;font-size:24rpx;margin-top:19rpx'>· 入职日期要显示至少一年以上的工作时间，入职日期和开具</view>
+           <view style='color:#333;font-size:24rpx;margin-top:19rpx'>时间要精准到年、月、日</view>
+           <view style='color:#333;font-size:24rpx;margin-top:19rpx'>· 必须要显示年薪，月薪不可用</view>
+           <view style='color:#333;font-size:24rpx;margin-top:19rpx'>· 年薪必须显示“人民币”</view>
+           <view style='color:#333;font-size:24rpx;margin-top:19rpx'>· 2、金卡信用卡、无限卡可尝试递交，但存在被退回的可能</view>
+           <view style='color:#333;font-size:24rpx;margin-top:19rpx'>性，具体以台湾移民局为准（公务卡不可用）</view>
+           <view style='color:#333;font-size:24rpx;margin-top:19rpx'>· 3、提前一个月到银行开具的冻结3个月，金额5万以上的存</view> 
+           <view style='color:#333;font-size:24rpx;margin-top:19rpx'>款证明</view> 
+    </view>
+          <view class="bottom" bindtap='bindToShowInfo'>确定</view>
+     </view>
+</view>

@@ -1,0 +1,27 @@
+<!--pages/API/Taiwan-endorsement-page/Taiwan-endorsement-page.wxml-->
+<view class="container">
+     <view class="section">
+          <view class="id-box">
+               <view class="idcard" wx:if="{{imageNum}}">
+                    <image src='http://image.365zhiding.com/wxapp/20180108/passport.png'></image>
+               </view>
+               <view class="idcard" wx:else>
+                    <image src='{{imageUrl}}'></image>
+               </view>
+          </view>
+          <view class="camera-box" bindtap="bindTapChosePassportImage">
+               <view class="camera">
+                    <image src='http://image.365zhiding.com/wxapp/20180108/photoshop.png'></image>
+               </view>
+          </view>
+          <view class="means_rules">
+               <view class="rules_title" style='color:#333;font-size:28rpx;margin-top:30rpx'>资料要求</view>
+               <view style='color:#333;font-size:24rpx;margin-top:30rpx'>· 有效的大陆居民前往台湾签注页(G签)
+</view>
+               <view style='color:#333;font-size:24rpx;margin-top:19rpx'>· 如直接从手机相册导入图片，需要彩色
+</view>
+              
+          </view>
+          <view class="bottom" bindtap='bindPassPortDirection'>确定</view>
+     </view>
+</view>

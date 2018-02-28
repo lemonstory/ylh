@@ -486,6 +486,7 @@ Page({
             that.marriageCertificateIdentification()
           } else if (that.data.face == 4) {
             that.accountBookIdentification()
+            // that.accountBookIdentificationByTable()
           }
         }
       },
@@ -665,9 +666,9 @@ Page({
         wx.hideLoading();
         console.log('结婚证识别')
         console.log(res.data);
-        // wx.navigateTo({
-        //   url: '/pages/visa/passport-info/passport-info?imageface=' + imageUrl + '&userInfo=' + JSON.stringify(res.data),
-        // })
+        wx.navigateTo({
+          url: '/pages/visa/marriage-certificate/marriage-certificate?imageface=' + imageUrl + '&certificateInfo=' + JSON.stringify(res.data.ret),
+        })
       },
       fail: function () {
         wx.showLoading({
@@ -682,13 +683,13 @@ Page({
   },
 
   /**
-   * 证件识别--->户口本识别  TODO
+   * 证件识别--->户口本识别  TODO  表格接口
    */
   accountBookIdentification: function () {
     var that = this;
     var imageBase64 = that.data.imageBase64;
     wx.request({
-      url: "http://tysbgpu.market.alicloudapi.com/api/predict/ocr_general",
+      url: "http://form.market.alicloudapi.com/api/predict/ocr_table_parse",
       method: 'POST',
       header: {
         'Content-Type': 'application/json',
@@ -697,18 +698,18 @@ Page({
       data: {
         "image": imageBase64,
         "configure": {
-          "min_size": 16,
-          "output_prob": true
+          "format": "json",
+          "finance": false
         }
       },
       success: function (res) {
         var imageUrl = that.data.imageSrc;
         wx.hideLoading();
-        console.log('户口本识别')
+        console.log('户口本识别--->表格')
         console.log(res.data);
-        // wx.navigateTo({
-        //   url: '/pages/visa/passport-info/passport-info?imageface=' + imageUrl + '&userInfo=' + JSON.stringify(res.data),
-        // })
+        wx.navigateTo({
+          url: '/pages/visa/accountBook-info/accountBook-info?imageface=' + imageUrl + '&accountBookInfo=' + JSON.stringify(res.data.tables),
+        })
       },
       fail: function () {
         wx.showLoading({
@@ -716,7 +717,7 @@ Page({
         })
       },
       complete: function (res) {
-        console.log("完成----------------户口本识别----------------")
+        console.log("完成----------------户口本识别    表格----------------")
         console.log(res);
       }
     })

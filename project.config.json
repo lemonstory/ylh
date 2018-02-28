@@ -77,14 +77,6 @@
 				},
 				{
 					"id": -1,
-					"name": "护照详情",
-					"pathName": "pages/visa/passport-info/passport-info",
-					"query": "orderSn=1151790809893424165",
-					"scene": "1036",
-					"referrerInfo": {}
-				},
-				{
-					"id": -1,
 					"name": "照片",
 					"pathName": "pages/visa/photo/photo",
 					"query": "orderSn=1151790809893424165",
@@ -103,6 +95,14 @@
 					"id": -1,
 					"name": "户口本",
 					"pathName": "pages/visa/residence/residence",
+					"query": "orderSn=1151790809893424165",
+					"scene": "1036",
+					"referrerInfo": {}
+				},
+				{
+					"id": 9,
+					"name": "港澳通行证",
+					"pathName": "pages/visa/HongKong-Macao-pass/HongKong-Macao-pass",
 					"query": "orderSn=1151790809893424165",
 					"scene": "1036",
 					"referrerInfo": {}

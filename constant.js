@@ -233,5 +233,8 @@ var constant = {
           id: '2',
           title: '企业'
      }],
+
+     //结婚证字段
+     "marriageCertificateField":['持证人', '登记日期', '结婚证字号', '备注', '姓名', '性别', '国籍', '出生日期', '身份证件号']
 }
 module.exports.constant = constant;

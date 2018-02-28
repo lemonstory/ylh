@@ -1,0 +1,113 @@
+<!--pages/visa/accountBook-info/accountBook-info.wxml-->
+<view class="container">
+  <view class="idcard-img">
+    <image src="{{imageSrc}}" mode="widthFit" style='width:750rpx;'></image>
+  </view>
+  <view class="section" style='margin-bottom:120rpx;'>
+    <view class="message-box">
+      <view style='font-size:24rpx;color:rgba(153,153,153,1);'>姓名：</view>
+      <view style='font-size:28rpx;color:rgba(51,51,51,1);margin-top:20rpx'>{{accountBookInfo.name}}</view>
+    </view>
+
+    <view class="message-box">
+      <view style='font-size:24rpx;color:rgba(153,153,153,1);'>户主或与户主关系：</view>
+      <view style='font-size:28rpx;color:rgba(51,51,51,1);margin-top:20rpx'>{{accountBookInfo.relation}}</view>
+    </view>
+
+
+    <view class="message-box">
+      <view style='font-size:24rpx;color:rgba(153,153,153,1);'>曾用名：</view>
+      <view style='font-size:28rpx;color:rgba(51,51,51,1);margin-top:20rpx'>{{accountBookInfo.oldName}}</view>
+    </view>
+
+    <view class="message-box">
+      <view style='font-size:24rpx;color:rgba(153,153,153,1);'>性别：</view>
+      <view style='font-size:28rpx;color:rgba(51,51,51,1);margin-top:20rpx'>{{accountBookInfo.sex}}</view>
+    </view>
+
+    <view class="message-box">
+      <view style='font-size:24rpx;color:rgba(153,153,153,1);'>出生地：</view>
+      <view style='font-size:28rpx;color:rgba(51,51,51,1);margin-top:20rpx'>{{accountBookInfo.birthPlace}}</view>
+    </view>
+
+    <view class="message-box">
+      <view style='font-size:24rpx;color:rgba(153,153,153,1);'>民族：</view>
+      <view style='font-size:28rpx;color:rgba(51,51,51,1);margin-top:20rpx'>{{accountBookInfo.ethnicGroup}}</view>
+    </view>
+
+    <view class="message-box">
+      <view style='font-size:24rpx;color:rgba(153,153,153,1);'>籍贯：</view>
+      <view style='font-size:28rpx;color:rgba(51,51,51,1);margin-top:20rpx'>{{accountBookInfo.nativePlace}}</view>
+    </view>
+
+    <view class="message-box">
+      <view style='font-size:24rpx;color:rgba(153,153,153,1);'>出生日期：</view>
+      <view style='font-size:28rpx;color:rgba(51,51,51,1);margin-top:20rpx'>{{accountBookInfo.birthday}}</view>
+    </view>
+
+    <view class="message-box">
+      <view style='font-size:24rpx;color:rgba(153,153,153,1);'>本市(县)其他住址：</view>
+      <view style='font-size:28rpx;color:rgba(51,51,51,1);margin-top:20rpx'>{{accountBookInfo.address}}</view>
+    </view>
+
+    <view class="message-box">
+      <view style='font-size:24rpx;color:rgba(153,153,153,1);'>宗教信仰：</view>
+      <view style='font-size:28rpx;color:rgba(51,51,51,1);margin-top:20rpx'>{{accountBookInfo.religion}}</view>
+    </view>
+
+    <view class="message-box">
+      <view style='font-size:24rpx;color:rgba(153,153,153,1);'>身份证号：</view>
+      <view style='font-size:28rpx;color:rgba(51,51,51,1);margin-top:20rpx'>{{accountBookInfo.IDCard}}</view>
+    </view>
+
+    <view class="message-box">
+      <view style='font-size:24rpx;color:rgba(153,153,153,1);'>身高</view>
+      <view style='font-size:28rpx;color:rgba(51,51,51,1);margin-top:20rpx'>{{accountBookInfo.height}}</view>
+    </view>
+
+    <view class="message-box">
+      <view style='font-size:24rpx;color:rgba(153,153,153,1);'>血型：</view>
+      <view style='font-size:28rpx;color:rgba(51,51,51,1);margin-top:20rpx'>{{accountBookInfo.bloodType}}</view>
+    </view>
+
+    <view class="message-box">
+      <view style='font-size:24rpx;color:rgba(153,153,153,1);'>文化程度：</view>
+      <view style='font-size:28rpx;color:rgba(51,51,51,1);margin-top:20rpx'>{{accountBookInfo.education}}</view>
+    </view>
+
+    <view class="message-box">
+      <view style='font-size:24rpx;color:rgba(153,153,153,1);'>婚姻状况：</view>
+      <view style='font-size:28rpx;color:rgba(51,51,51,1);margin-top:20rpx'>{{accountBookInfo.marry}}</view>
+    </view>
+
+    <view class="message-box">
+      <view style='font-size:24rpx;color:rgba(153,153,153,1);'>兵役状况：</view>
+      <view style='font-size:28rpx;color:rgba(51,51,51,1);margin-top:20rpx'>{{accountBookInfo.soldier}}</view>
+    </view>
+
+     <view class="message-box">
+      <view style='font-size:24rpx;color:rgba(153,153,153,1);'>服务处所：</view>
+      <view style='font-size:28rpx;color:rgba(51,51,51,1);margin-top:20rpx'>{{accountBookInfo.service}}</view>
+    </view>
+
+    <view class="message-box">
+      <view style='font-size:24rpx;color:rgba(153,153,153,1);'>职业：</view>
+      <view style='font-size:28rpx;color:rgba(51,51,51,1);margin-top:20rpx'>{{accountBookInfo.job}}</view>
+    </view>
+
+    <view class="message-box">
+      <view style='font-size:24rpx;color:rgba(153,153,153,1);'>何时由何地迁来本市(县)：</view>
+      <view style='font-size:28rpx;color:rgba(51,51,51,1);margin-top:20rpx'>{{accountBookInfo.migrationTime}}</view>
+    </view>
+
+    <view class="message-box">
+      <view style='font-size:24rpx;color:rgba(153,153,153,1);'>何时由何地迁来本址：</view>
+      <view style='font-size:28rpx;color:rgba(51,51,51,1);margin-top:20rpx'>{{accountBookInfo.migrationArea}}</view>
+    </view>
+  </view>
+</view>
+<view class="bottom">
+     <view class="bottom-left">重新拍摄</view>
+     <view class="bottom-right">保存并提交</view>
+
+</view>

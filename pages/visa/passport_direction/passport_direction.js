@@ -61,6 +61,7 @@ Page({
     var imagePassport = options.imagePassport;  // 护照
     var imageMarry = options.imageMarry;  // 结婚证
     var imageAccountBook = options.imageAccountBook; // 户口本
+    var imageHKM = options.imageHKM; // 港澳通行证
     if (!util.isEmptyStr(imageback)) {
       that.setData({
         imageSrc: imageback,
@@ -89,6 +90,12 @@ Page({
       that.setData({
         imageSrc: imageAccountBook,
         face: 4
+      })
+    }
+    if (!util.isEmptyStr(imageHKM)) {
+      that.setData({
+        imageSrc: imageHKM,
+        face: 5
       })
     }
     console.log("---------------初始的------------------------");
@@ -486,7 +493,8 @@ Page({
             that.marriageCertificateIdentification()
           } else if (that.data.face == 4) {
             that.accountBookIdentification()
-            // that.accountBookIdentificationByTable()
+          } else if (that.data.face == 5) {
+            that.HKMPassIdentification()
           }
         }
       },
@@ -721,7 +729,47 @@ Page({
         console.log(res);
       }
     })
-  }
+  },
+  /**
+  * 证件识别--->港澳通行证
+  */
+  HKMPassIdentification: function () {
+    var that = this;
+    var imageBase64 = that.data.imageBase64;
+    wx.request({
+      url: "http://tysbgpu.market.alicloudapi.com/api/predict/ocr_general",
+      method: 'POST',
+      header: {
+        'Content-Type': 'application/json',
+        'Authorization': "APPCODE " + "e682e10d5ba94a2d895d318138d06850"
+      },
+      data: {
+        "image": imageBase64,
+        "configure": {
+          "min_size": 16,
+          "output_prob": true
+        }
+      },
+      success: function (res) {
+        var imageUrl = that.data.imageSrc;
+        wx.hideLoading();
+        console.log('港澳通行证')
+        console.log(res.data);
+        // wx.navigateTo({
+        //   url: '/pages/visa/passport-info/passport-info?imageface=' + imageUrl + '&userInfo=' + JSON.stringify(res.data),
+        // })
+      },
+      fail: function () {
+        wx.showLoading({
+          title: '身份证信息不完善，请...',
+        })
+      },
+      complete: function (res) {
+        console.log("完成----------------证件港澳通行证识别----------------")
+        console.log(res);
+      }
+    })
+  },
 })
 
 

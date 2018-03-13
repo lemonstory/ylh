@@ -325,7 +325,7 @@ Page(Object.assign({}, Toast, {
           'gender': that.data.gender,
         },
         method: 'POST',
-        header: util.postRequestHeader(),
+        header: util.getRequestHeader(),
 
         success: function (res) {
           var id = res.data.id

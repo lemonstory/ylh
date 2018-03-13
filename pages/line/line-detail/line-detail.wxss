@@ -692,7 +692,7 @@ swiper {
   bottom: 0;
 }
 
-.zixun {
+.bottom-index {
   width: 46rpx;
   height: 46rpx;
   position: absolute;
@@ -700,7 +700,8 @@ swiper {
   left: 68rpx;
 }
 
-.zixuntext {
+.bottom-index-text {
+
   width: 50rpx;
   height: 20rpx;
   font-size: 20rpx;
@@ -711,8 +712,27 @@ swiper {
   bottom: 15rpx;
 }
 
+.zixun {
+  width: 46rpx;
+  height: 46rpx;
+  position: absolute;
+  top: 15rpx;
+  left: 166rpx;
+}
+
+.zixuntext {
+  width: 50rpx;
+  height: 20rpx;
+  font-size: 20rpx;
+  font-family: PingFang-SC-Regular;
+  color: rgba(153, 153, 153, 1);
+  position: absolute;
+  left: 166rpx;
+  bottom: 15rpx;
+}
+
 .yuding {
-  width: 540rpx;
+  width: 440rpx;
   height: 88rpx;
   background: rgba(247, 130, 16, 1);
   border-radius: 10rpx;

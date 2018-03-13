@@ -237,9 +237,11 @@
 
      <!--底部开始  -->
      <view class="bottom">
-          <image class="zixun" src="http://image.365zhiding.com/wxapp/20171121/zixun.png" bindtap='handleTapPhone'></image>
-          <view class="zixuntext">咨询</view>
-          <view class="yuding" bindtap='handleTapStartOrder'>开始预订</view>
+        <image class="bottom-index" src="/pages/image/1.png" bindtap='handleTapIndex'></image>
+        <view class="bottom-index-text">首页</view>
+        <image class="zixun" src="http://image.365zhiding.com/wxapp/20171121/zixun.png" bindtap='handleTapPhone'></image>
+        <view class="zixuntext">咨询</view>
+        <view class="yuding" bindtap='handleTapStartOrder'>开始预订</view>
      </view>
      <!--底部结束-->
 

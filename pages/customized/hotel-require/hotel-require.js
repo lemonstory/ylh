@@ -120,9 +120,18 @@ Page(Object.assign({}, Toast, {
    */
   onShareAppMessage: function () {
 
+    var that = this;
+    return {
+      title: that.data.title,
+      path: 'pages/customized/index/index?distributerId=' + that.data.constant.distributerId,
+      success: function (res) {
+        // 转发成功
+      },
+      fail: function (res) {
+        // 转发失败
+      }
+    }
   },
-
-
 
   /**
    * 选择酒店类型（1国际连锁，2常规15km，3市区..

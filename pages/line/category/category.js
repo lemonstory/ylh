@@ -67,6 +67,18 @@ Page(Object.assign({}, Toast, {
    */
   onShareAppMessage: function () {
 
+    var that = this;
+    return {
+      title: that.data.title,
+      path: 'pages/line/category/category?distributerId=' + that.data.constant.distributerId,
+      success: function (res) {
+        // 转发成功
+      },
+      fail: function (res) {
+        // 转发失败
+      }
+    }
+
   },
 
   //获取接口

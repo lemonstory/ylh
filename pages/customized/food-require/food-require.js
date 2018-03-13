@@ -92,6 +92,17 @@ Page(Object.assign({}, Toast, {
    */
   onShareAppMessage: function () {
 
+    var that = this;
+    return {
+      title: that.data.title,
+      path: 'pages/customized/index/index?distributerId=' + that.data.constant.distributerId,
+      success: function (res) {
+        // 转发成功
+      },
+      fail: function (res) {
+        // 转发失败
+      }
+    }
   },
 
   // 计数器-减法运算开始

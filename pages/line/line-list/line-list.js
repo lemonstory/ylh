@@ -145,6 +145,17 @@ Page(Object.assign({}, Toast, {
    */
   onShareAppMessage: function () {
 
+    var that = this;
+    return {
+      title: that.data.title,
+      path: 'pages/line/line-list/line-list?distributerId=' + that.data.constant.distributerId + '&areaId=' + that.data.areaId + '&category=' + that.data.category + '&pageIndex=' + that.data.pageIndex + '&attrId=' + that.data.attrId + '&title=' + that.data.title,
+      success: function (res) {
+        // 转发成功
+      },
+      fail: function (res) {
+        // 转发失败
+      }
+    }
   },
 
   //获取接口

@@ -89,3 +89,7 @@
 }
 
 /** popup -end */
+
+.zan-loadmore--nodata {
+     margin-top: 60px;
+}

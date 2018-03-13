@@ -245,6 +245,18 @@ Page(Object.assign({}, Toast, {
     })
   },
 
+
+  /**
+   * 首页
+   */
+  handleTapIndex:function(event) {
+
+    wx.switchTab({
+      url: '/pages/line/index/index',
+    })
+  },
+  
+
   //获取线路详情数据
   getLineDetailData: function (id) {
     var that = this;

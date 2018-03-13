@@ -129,20 +129,9 @@ App({
 
                 //代理商信息存储
                 if (!util.isEmptyStr(gsRes.data.distributerId)) {
-
                   util.setDistributerId(gsRes.data.distributerId);
                 } else {
-
                   console.warn("代理商ID distributerId 不存在");
-                  //跳转到订单查询
-                  wx: wx.reLaunch({
-                    url: '/pages/user/visitor/visitor',
-                    success: function (res) { },
-                    fail: function (res) {
-                      console.warn(res);
-                    },
-                    complete: function (res) { },
-                  })
                 }
 
                 // 获取用户信息

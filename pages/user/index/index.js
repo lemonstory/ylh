@@ -185,27 +185,18 @@ Page(Object.assign({}, Toast, {
           //用户为非代理商
           if (!isDistributer) {
 
-               //用户没有代理商id
-               if (!util.isOwnDistributerId()) {
-                    wx: wx.redirectTo({
-                         url: '/pages/user/visitor/visitor',
-                         success: function (res) { },
-                         fail: function (res) { },
-                         complete: function (res) { },
-                    })
-               } else {
+            //用户有代理商Id但未注册
+            if (util.isOwnDistributerId() && !util.isOwnAccessToken()) {
 
-                    //用户有代理商Id但未注册
-                    console.log(that.data);
-                    if (!util.isOwnAccessToken()) {
-                         wx: wx.redirectTo({
-                              url: '/pages/user/wx-mobile/wx-mobile',
-                              success: function (res) { },
-                              fail: function (res) { },
-                              complete: function (res) { },
-                         })
-                    }
-               }
+              if (!util.isOwnAccessToken()) {
+                wx: wx.redirectTo({
+                  url: '/pages/user/wx-mobile/wx-mobile',
+                  success: function (res) { },
+                  fail: function (res) { },
+                  complete: function (res) { },
+                })
+              }
+            }
           }
      },
 

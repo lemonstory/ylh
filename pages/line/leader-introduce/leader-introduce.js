@@ -53,7 +53,20 @@ data: {
   onReachBottom: function () {
   
   },
+
   onShareAppMessage: function () {
+
+    var that = this;
+    return {
+      title: that.data.title,
+      path: 'pages/line/leader-introduce/leader-introduce?distributerId=' + that.data.constant.distributerId,
+      success: function (res) {
+        // 转发成功
+      },
+      fail: function (res) {
+        // 转发失败
+      }
+    }
   
   },
   

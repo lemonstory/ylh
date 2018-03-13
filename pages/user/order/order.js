@@ -79,8 +79,6 @@ Page(Object.assign({}, Toast, {
       "sysSource": app.constant.paymentSysSource,
       "openId": ''
     },
-
-
   },
 
 

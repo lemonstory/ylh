@@ -25,39 +25,7 @@ Page(Object.assign({}, Toast, {
 
     var that = this;
     wx.showNavigationBarLoading();
-    var getDistributerIdCount = 0;
-    //获取用户没有代理商id
-    var getDistributerId = setInterval(function () {
-
-      //要延时执行的代码
-      console.log("获取用户代理商id 第" + getDistributerIdCount + "次");
-      getDistributerIdCount++;
-      if (getDistributerIdCount <= 20) {
-        if (!util.isEmptyObject(util.getUserAccessData())) {
-          if (!util.isOwnDistributerId()) {
-            wx: wx.reLaunch({
-              url: '/pages/user/visitor/visitor',
-              success: function (res) { },
-              fail: function (res) { },
-              complete: function (res) { },
-            })
-          } else {
-            that.getData();
-          }
-          clearInterval(getDistributerId);
-        }
-      }else{
-
-        clearInterval(getDistributerId);
-        console.error("获取用户代理商id失败")
-        wx: wx.reLaunch({
-          url: '/pages/user/visitor/visitor',
-          success: function (res) { },
-          fail: function (res) { },
-          complete: function (res) { },
-        })   
-      }
-    }, 200)
+    that.getData();
   },
 
   /**
@@ -130,6 +98,18 @@ Page(Object.assign({}, Toast, {
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
+
+    var that = this;
+    return {
+      title: that.data.title,
+      path: 'pages/line/index/index?distributerId=' + that.data.constant.distributerId,
+      success: function (res) {
+        // 转发成功
+      },
+      fail: function (res) {
+        // 转发失败
+      }
+    }
 
   },
 

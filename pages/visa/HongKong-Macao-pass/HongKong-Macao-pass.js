@@ -83,7 +83,7 @@ Page({
     )
   },
   bindPassPortDirection:function(){
-    var path = "/pages/visa/passport_direction/passport_direction?imagePassport=" + this.data.imageUrl;
+    var path = "/pages/visa/passport_direction/passport_direction?imageHKM=" + this.data.imageUrl;
        wx.navigateTo({
             url: path,
        })

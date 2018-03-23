@@ -81,17 +81,13 @@ Page(Object.assign({}, Toast, {
     var that = this;
     if (typeof (options.lineDetail) != 'undefined') {
 
-      console.log("😀 😀 😀");
-      console.log(options.lineDetail);
-
       var lineDetail = JSON.parse(options.lineDetail);
-      // var lineDetail = options.lineDetail;
       //将接收的数据设置到本页面
       that.setData({
 
         title: lineDetail.title,
-        day: lineDetail.day,
-        night: lineDetail.night,
+        day: util.isEmptyStr(lineDetail.day) ? 0 : lineDetail.day,
+        night: util.isEmptyStr(lineDetail.night) ? 0 : lineDetail.night,
 
         'formData.pid': lineDetail.pid,
         'formData.travelDate': lineDetail.travelDate,

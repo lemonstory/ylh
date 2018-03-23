@@ -6,7 +6,7 @@
      <view class="go">
           <view class="go-time">出行时间：{{formData.travelDate}}</view>
           <view class="go-add">{{title}}</view>
-          <view class="go-plan">行程：{{day}}天{{night}}晚</view>
+          <view class="go-plan">行程：{{day}}天 {{night}}晚</view>
      </view>
      <!--出行时间结束  -->
 <!--选择出行人数开始  -->

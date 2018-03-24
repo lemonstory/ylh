@@ -9,10 +9,6 @@
       <view class="left-line" style='display:flex; display:-webkit-box;word-break:break-all;overflow:hidden;flex-direction:column; width:110rpx; height:100%;padding-left:54rpx;padding-right:54rpx;box-sizing:border-box;color:#AAA;line-height:14rpx;'> . . . . . .</view> -->
 <view class="left-line"></view>
       
-      
-      
-      
-      
       <view>
         <view class="goto-normal">{{item.title}}</view>
         <view class="jiaotong-normal" wx:for="{{item.info1}}" wx:for-item="item" wx:key="idx">{{item.key?item.key + '：':''}}{{item.content?item.content:''}}</view>

@@ -1,4 +1,4 @@
-/* pages/API/addressdetail/addressdetail.wxss */
+/* pages/line-detail/line-detail/line-detail.wxss */
 
 .container {
   padding: 0;
@@ -208,7 +208,6 @@ swiper {
   align-items: center;
   position: relative;
 }
-
 .data {
   width: 100%;
   background: #fff;
@@ -217,7 +216,6 @@ swiper {
   height: 89rpx;
   border-bottom: none;
 }
-
 .dingicon {
   width: 24rpx;
   height: 32rpx;
@@ -228,7 +226,6 @@ swiper {
   width: 100%;
   height: 100%;
 }
-
 .dingtext {
   width: 400rpx;
   font-size: 26rpx;
@@ -236,7 +233,6 @@ swiper {
   color: rgba(102, 102, 102, 1);
   margin-left: 20rpx;
 }
-
 .back1 {
   width: 14rpx;
   height: 24rpx;
@@ -244,7 +240,6 @@ swiper {
   bottom: 40rpx;
   right: 0rpx;
 }
-
 .back1 image {
   width: 100%;
   height: 100%;
@@ -257,7 +252,6 @@ swiper {
   margin-top: 10rpx;
   position: relative;
 }
-
 .person {
   width: 200rpx;
   height: 200rpx;
@@ -281,7 +275,6 @@ swiper {
   top: 50rpx;
   left: 248rpx;
 }
-
 .leadertitle {
   width: 128rpx;
   height: 31rpx;
@@ -292,7 +285,6 @@ swiper {
   top: 29rpx;
   left: 310rpx;
 }
-
 .react1 {
   width: 43rpx;
   height: 3rpx;
@@ -301,9 +293,7 @@ swiper {
   top: 50rpx;
   right: 248rpx;
 }
-
 /*common  */
-
 .content {
   width: 424rpx;
   height: 174rpx;
@@ -319,7 +309,6 @@ swiper {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
-
 .back2 {
   position: absolute;
   bottom: 130rpx;
@@ -359,7 +348,6 @@ swiper {
 }
 
 /*行程开始  */
-
 .plan {
   width: 750rpx;
   height: 90rpx;
@@ -531,7 +519,6 @@ swiper {
 /*行程结束  */
 
 /*温馨提示开始*/
-
 .point {
   width: 750rpx;
   height: auto;
@@ -544,7 +531,6 @@ swiper {
   padding-left: 30rpx;
   padding-right: 30rpx;
 }
-
 .pointtext {
   width: 690rpx;
   height: auto;
@@ -566,8 +552,7 @@ swiper {
   background: rgba(255, 255, 255, 1);
   margin-top: 10rpx;
   position: relative;
-  padding-bottom: 30rpx;
-  margin-bottom: 98rpx;
+  margin-bottom: 110rpx;
   box-sizing: border-box;
   padding-top: 30rpx;
   padding-left: 30rpx;
@@ -583,7 +568,7 @@ swiper {
   color: rgba(102, 102, 102, 1);
   line-height: 42rpx;
   margin-left: 30rpx;
-  padding-top: 130rpx;
+  /* padding-top: 130rpx; */
   box-sizing: border-box;
 }
 
@@ -834,13 +819,13 @@ swiper {
 
 /*normal 样式开始*/
 
+
 .dataform-box {
-  width: 100%;
-  padding-left: 10rpx;
+  padding-left: 30rpx;
+  width:100%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  height: 120rpx;
+  height:auto;
   box-sizing: border-box;
   background: #fff;
   overflow: scroll;
@@ -848,11 +833,12 @@ swiper {
   padding-bottom: 30rpx;
 }
 
+
 .dataform {
-  width: 680rpx;
-  height: 90rpx;
+  width: 100%;
+  height:auto;
   align-content: center;
-  justify-content: flex-start;
+  justify-content:space-between;
   white-space: nowrap;
   display: flex;
   box-sizing: border-box;
@@ -861,22 +847,20 @@ swiper {
 
 .dataul {
   width: 146rpx;
-  height: 80rpx;
+  height: auto;
   border: 1rpx solid #aaa;
   border-radius: 10rpx;
-  margin-left: 20rpx;
   font-size: 24rpx;
   font-family: PingFang-SC-Regular;
   color: rgba(102, 102, 102, 1);
   text-align: center;
   display: inline-block;
   line-height: 40rpx;
+  margin-right: 23rpx;
 }
-
 .active_tag {
   border: 1rpx solid #e98836;
 }
-
 .back11 {
   width: 14rpx;
   height: 24rpx;
@@ -1079,5 +1063,3 @@ swiper {
   background-size: 6rpx auto;
   margin-left: 55rpx;
   }
-
-

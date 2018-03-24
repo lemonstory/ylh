@@ -405,68 +405,64 @@ onLoad: function () {
           checkedPassengerList.push(tempData.list[i]);
         }
       }
+
+      var url = '/pages/order/fill-order/fill-order';
+      var pages = getCurrentPages();
+      var currPage = pages[pages.length - 1];   //当前页面
+      var prevPage = pages[pages.length - 2];  //上一个页面
+
+      var selectedAdultSum = 0;
+      var selectdChildSum = 0;
+      var selectedOldSum = 0;
+
+      for (var i = 0; i < checkedPassengerList.length; i++) {
+
+        switch (checkedPassengerList[i].ageGroup) {
+
+          case 2:
+            selectdChildSum = selectdChildSum + 1;
+            break;
+
+          case 3:
+            selectedAdultSum = selectedAdultSum + 1;
+            break;
+
+          case 4:
+            selectedOldSum = selectedOldSum + 1;
+            break;
+        }
+      }
+
+      var message = "请选择";
+      if (prevPage.data.formData.tourers.subNum.adult > 0) {
+        message += " " + prevPage.data.formData.tourers.subNum.adult + "个成人";
+      }
+
+      if (prevPage.data.formData.tourers.subNum.child > 0) {
+        message += " " + prevPage.data.formData.tourers.subNum.child + "个儿童";
+      }
+
+      if (prevPage.data.formData.tourers.subNum.old > 0) {
+        message += " " + prevPage.data.formData.tourers.subNum.old + "个老人";
+      }
+
+      if (selectedAdultSum != prevPage.data.formData.tourers.subNum.adult || selectdChildSum != prevPage.data.formData.tourers.subNum.child || selectedOldSum != prevPage.data.formData.tourers.subNum.old) {
+        
+        this.showZanToast(message);
+
+      } else {
+
+        //直接调用上一个页面的setData()方法，把数据存到上一个页面中去
+        prevPage.setData({
+          checkedPassengerList: checkedPassengerList
+        })
+        wx.navigateBack();
+      }
+
     } else {
       this.showZanToast('一个出行人都没有选哦');
     }
-
-    var url = '/pages/order/fill-order/fill-order';
-    var pages = getCurrentPages();
-    var currPage = pages[pages.length - 1];   //当前页面
-    var prevPage = pages[pages.length - 2];  //上一个页面
-
-    var adultSum = 0;
-    var childSum = 0;
-    var oldSum = 0;
-
-    console.log(checkedPassengerList)
-
-    for (var i = 0; i < checkedPassengerList.length; i++) {
-
-      switch (checkedPassengerList[i].ageGroup) {
-
-        case 2:
-          childSum = childSum + 1;
-          break;
-
-        case 3:
-          adultSum = adultSum + 1;
-          break;
-
-        case 4:
-          oldSum = oldSum + 1;
-          break;
-      }
-    }
-
-    var message = "";
-    console.log(adultSum);
-    console.log(oldSum);
-    console.log(childSum);
-    if (adultSum != prevPage.data.formData.tourers.subNum.adult) {
-
-      message = "请选择" + prevPage.data.formData.tourers.subNum.adult + "个成人";
-      this.showZanToast(message);
-
-    } else if (childSum != prevPage.data.formData.tourers.subNum.child) {
-
-      message = "请选择" + prevPage.data.formData.tourers.subNum.child + "个儿童";
-      this.showZanToast(message);
-
-    } else if (oldSum != prevPage.data.formData.tourers.subNum.old) {
-
-      message = "请选择" + prevPage.data.formData.tourers.subNum.old + "个老人";
-      this.showZanToast(message);
-
-    } else {
-
-      //直接调用上一个页面的setData()方法，把数据存到上一个页面中去
-      prevPage.setData({
-        checkedPassengerList: checkedPassengerList
-      })
-      wx.navigateBack();
-    }
   },
-
 
   /**
    *  处理修改

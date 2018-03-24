@@ -410,7 +410,7 @@ Page(Object.assign({}, Toast, {
     wx.request({
       url: url,
       data: commitData,
-      header: util.postRequestHeader(),
+      header: util.getRequestHeader(),
       method: 'POST',
       success: function (res) {
         var address = that.data.addressInfo;

@@ -15,7 +15,7 @@
       
       <view>
         <view class="goto-normal">{{item.title}}</view>
-        <view class="jiaotong-normal" wx:for="{{item.info1}}" wx:for-item="item" wx:key="idx">{{item.key}}：{{item.content}}</view>
+        <view class="jiaotong-normal" wx:for="{{item.info1}}" wx:for-item="item" wx:key="idx">{{item.key?item.key + '：':''}}{{item.content?item.content:''}}</view>
         <block wx:for="{{item.theme}}" wx:for-item="theme" wx:key="theme">
           <block wx:if="{{theme.images.length==1}}">
             <view class="img-box">
@@ -35,13 +35,8 @@
           </block>
           <view class="jing-text">{{theme.intro}}</view>
         </block>
-        <view class="shijian" wx:for="{{item.info2}}" wx:key="idx" wx:for-item="item">{{item.key}}：{{item.content}}</view>
+        <view class="shijian" wx:for="{{item.info2}}" wx:key="idx" wx:for-item="item">{{item.key?item.key + '：':''}}{{item.content?item.content:''}}</view>
       </view>
     </view>
-
-
-  
-  
-  
   </block>
 </template>

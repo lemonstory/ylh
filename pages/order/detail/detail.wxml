@@ -71,7 +71,7 @@
     </view>
     <view class="order-money1">
       <view class="money-text">下单时间：
-        <view class="bianhao">2017-10-23</view>
+        <view class="bianhao">{{orderDetail.createTime}}</view>
       </view>
     </view>
   </view>
@@ -79,8 +79,6 @@
   <!--机票信息开始  -->
   <view class="jipiao-box">
     <view class="jipiao-text">机票信息</view>
-
-
 
     <view wx:for="{{orderDetail.planeTicket}}" wx:key="idx" bindtap='bindAirMessage' wx:for-index="index" data-index='{{index}}'>
       <view class="flat-box">
